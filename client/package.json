@@ -1,0 +1,14 @@
+﻿{
+  "name": "@ahd/client",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
+    "test": "vitest",
+    "format": "prettier --write \"src/**/*\""
+  }
+}
