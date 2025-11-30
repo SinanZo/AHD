@@ -1,0 +1,10 @@
+{
+  "about": {
+    "features": [
+      { "title": "Custom Tailoring", "desc": "Precision craftsmanship for every project" },
+      { "title": "Premium Materials", "desc": "Sourced from international suppliers" },
+      { "title": "Expert Installation", "desc": "Professional installation services" },
+      { "title": "Quality Assurance", "desc": "Highest standards in every project" }
+    ]
+  }
+}

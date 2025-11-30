@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Project utilities and small helpers for canonical stylesheet go here. */

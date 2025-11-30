@@ -1,0 +1,13 @@
+/* hide scrollbar (works across browsers) */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;            /* Chrome/Safari */
+}
+
+/* optional CSS variables (light/dark) – keep aligned with your theme */
+/* All color tokens are now aligned with tokens.css (teal/green palette).
+   Remove conflicting palette and ensure all components use tokens from tokens.css. */
+/* ...existing code... */

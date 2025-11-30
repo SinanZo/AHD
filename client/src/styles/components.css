@@ -1,0 +1,247 @@
+/* ─────────────────────────────────────────────────────────
+   Components CSS (Abdulhaq Dimensions)
+   Depends on: /src/styles/tokens.css and /src/styles/globals.css
+   ───────────────────────────────────────────────────────── */
+
+/* ========== Sections ========== */
+.section {
+  margin-block: 4rem;
+}
+.section--tight { margin-block: 2rem; }
+.section__title {
+  font-size: clamp(1.35rem, 1.1rem + 1vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-block-end: .5rem;
+}
+.section__lead {
+  color: var(--muted);
+  max-width: 68ch;
+  margin-block-end: 1.5rem;
+}
+
+/* ========== Header & Navbar ========== */
+.header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 50;
+  backdrop-filter: saturate(180%) blur(8px);
+  background: var(--background);
+  border-block-end: 1px solid var(--border);
+}
+.header__row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-block: .75rem; padding-inline: 1rem;
+}
+.navbar { display: flex; align-items: center; gap: .5rem; }
+.nav-link {
+  padding-inline: .875rem; padding-block: .5rem;
+  border-radius: .75rem;
+  color: var(--foreground);
+  text-decoration: none;
+}
+.nav-link[aria-current="page"],
+.nav-link:hover { background: var(--chip); }
+.nav-cta { margin-inline-start: .5rem; }
+
+/* ========== Hero ========== */
+.hero {
+  position: relative;
+  overflow: clip;
+  border-radius: 1rem;
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow-md);
+  isolation: isolate;
+}
+.hero__media {
+  position: relative;
+  aspect-ratio: 16/9;
+  width: 100%;
+  overflow: hidden;
+}
+.hero__content {
+  position: absolute;
+  inset: auto 0 0 0; /* bottom overlay */
+  padding: 1rem;
+  display: grid; gap: .5rem;
+  color: white;
+  background: linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,0));
+}
+.hero__title {
+  font-size: clamp(1.35rem, 1rem + 1.4vw, 2.25rem);
+  font-weight: 800; letter-spacing: -0.02em;
+}
+.hero__sub { font-size: .95rem; opacity: .95; max-width: 70ch; }
+.hero__cta { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+/* ========== KPI Tiles ========== */
+.kpis {
+  display: grid; gap: .75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 1024px){ .kpis { grid-template-columns: repeat(4, 1fr); } }
+.kpi {
+  border: 1px solid var(--stroke); border-radius: 1rem; background: var(--card);
+  padding: 1rem; box-shadow: var(--shadow-sm);
+}
+.kpi__value { font-size: 1.5rem; font-weight: 700; color: var(--brand); }
+.kpi__label { color: var(--muted); font-size: .9rem; }
+
+/* ========== Product / Service Cards ========== */
+.grid-cards {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 768px){ .grid-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1280px){ .grid-cards { grid-template-columns: repeat(3, 1fr); } }
+
+.product-card {
+  background: var(--card); border: 1px solid var(--stroke);
+  border-radius: 1rem; box-shadow: var(--shadow-md);
+  overflow: hidden; display: grid; gap: .75rem;
+}
+.product-card__media { aspect-ratio: 4/3; position: relative; overflow: hidden; }
+.product-card__body { padding: 1rem; display: grid; gap: .35rem; }
+.product-card__title { font-weight: 700; letter-spacing: -0.01em; }
+.product-card__desc { color: var(--muted); font-size: .95rem; }
+.product-card__tags { display: flex; gap: .35rem; flex-wrap: wrap; }
+.tag {
+  padding-inline: .625rem; padding-block: .35rem;
+  border-radius: 9999px; font-size: .75rem;
+  background: var(--chip); border: 1px solid var(--stroke); color: var(--fg);
+}
+
+/* ========== Clients / Logos Grid ========== */
+.logo-grid {
+  --cols: 4;
+  display: grid; gap: .75rem;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+}
+@media (min-width: 640px){ .logo-grid { --cols: 5; } }
+@media (min-width: 1024px){ .logo-grid { --cols: 8; } }
+
+.logo-tile {
+  background: var(--card); border: 1px solid var(--stroke);
+  border-radius: .875rem; height: 80px; /* fixed to kill CLS */
+  display: grid; place-items: center;
+  transition: transform .12s ease, box-shadow .2s ease;
+}
+.logo-tile:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.logo-tile img { width: 90px; height: 54px; object-fit: contain; }
+
+/* ========== Contact / Form ========== */
+.contact {
+  display: grid; gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px){ .contact { grid-template-columns: 1fr 1fr; } }
+
+.form {
+  background: var(--card); border: 1px solid var(--stroke);
+  border-radius: 1rem; padding: 1rem; box-shadow: var(--shadow-md);
+}
+.form__row { display: grid; gap: .75rem; }
+.form__field { display: grid; gap: .35rem; }
+.form__label { font-weight: 600; font-size: .9rem; }
+.form__hint { color: var(--muted); font-size: .8rem; }
+.form__actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-block-start: .5rem; }
+.form__alert {
+  padding: .75rem 1rem; border-radius: .75rem; font-size: .9rem;
+  border: 1px solid var(--stroke); background: var(--chip);
+}
+.form__alert--ok { border-color: rgba(34,197,94,0.2); background: rgba(34,197,94,0.078); }
+.form__alert--err{ border-color: rgba(239,68,68,0.2); background: rgba(239,68,68,0.078); }
+
+/* ========== Map (Lite) ========== */
+.map-lite {
+  background: var(--card); border: 1px solid var(--stroke);
+  border-radius: 1rem; box-shadow: var(--shadow-sm);
+  min-height: 280px; display: grid; place-items: center; overflow: hidden;
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 60%, transparent), var(--bg));
+  border-block-start: 1px solid var(--stroke);
+  padding-block: 2rem;
+}
+.footer__grid {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(1, minmax(0,1fr));
+}
+@media (min-width: 1024px){ .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+.footer__legal { color: var(--muted); font-size: .85rem; text-align: center; margin-block-start: 1rem; }
+
+/* ========== Pills / Badges / Chips ========== */
+.badge {
+  display: inline-flex; align-items: center; gap: .375rem;
+  padding-inline: .6rem; padding-block: .3rem;
+  font-size: .75rem; border-radius: .75rem;
+  background: var(--chip); border: 1px solid var(--stroke);
+}
+.badge--brand { background: color-mix(in srgb, var(--brand) 14%, var(--chip)); color: var(--fg); }
+
+/* ========== Timeline (tracking/status) ========== */
+.timeline {
+  display: grid; gap: 1rem; position: relative;
+}
+.timeline__item {
+  display: grid; grid-template-columns: auto 1fr; gap: .75rem;
+  align-items: start;
+}
+.timeline__dot {
+  inline-size: .9rem; block-size: .9rem; border-radius: 999px;
+  background: var(--brand); margin-block-start: .35rem;
+}
+.timeline__bar {
+  position: absolute; inset-block: 0; inset-inline-start: .4rem;
+  inline-size: 2px; background: var(--stroke);
+}
+.timeline__title { font-weight: 600; }
+.timeline__desc { color: var(--muted); font-size: .9rem; }
+
+/* ========== Carousel hooks (CSS skeleton) ========== */
+.carousel {
+  position: relative; border-radius: 1rem; overflow: hidden;
+  border: 1px solid var(--stroke); box-shadow: var(--shadow-md);
+}
+.carousel__track { display: flex; will-change: transform; }
+.carousel__slide { min-inline-size: 100%; }
+.carousel__nav {
+  position: absolute; inset-inline: 0; inset-block-end: .5rem;
+  display: flex; justify-content: center; gap: .35rem; z-index: 2;
+}
+.carousel__dot {
+  inline-size: .5rem; block-size: .5rem; border-radius: 999px;
+  background: color-mix(in srgb, var(--brand) 35%, var(--chip));
+  border: 1px solid var(--stroke);
+}
+.carousel__dot[aria-current="true"] { background: var(--brand); }
+
+/* ========== Skeletons ========== */
+.skeleton {
+  border-radius: .5rem;
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--chip) 85%, transparent) 25%,
+    color-mix(in srgb, var(--chip) 65%, transparent) 37%,
+    color-mix(in srgb, var(--chip) 85%, transparent) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s infinite linear;
+}
+@keyframes shimmer {
+  0% { background-position: 0% 0; }
+  100% { background-position: 100% 0; }
+}
+
+/* ========== Cards with media cover ========== */
+.media-card {
+  background: var(--card); border: 1px solid var(--stroke);
+  border-radius: 1rem; box-shadow: var(--shadow-md);
+  overflow: hidden; display: grid; gap: .75rem;
+}
+.media-card__cover { aspect-ratio: 16/9; position: relative; overflow: hidden; }
+.media-card__body {
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}

@@ -1,0 +1,52 @@
+{
+  "badge": "Premium Interior Solutions",
+  "title": "Comprehensive Project Solutions",
+  "subtitle": "",
+  "description": "We offer comprehensive project solutions that cater to a wide range of requirements, including private residential villas, offices, clinics, as well as large-scale projects like headquarters, hotels, hospitals, and resorts.",
+  "cta1": "See Our Products",
+  "cta2": "Get Quote",
+  "scroll": "Scroll",
+
+  "heading": {
+  "line1": "Comprehensive",
+  "line2": "Project",
+  "line3": "Solutions"
+  },
+
+  "slideControls": "Slide controls",
+  "goTo": "Go to slide",
+  "sr": {
+    "slideOf": "Slide {{i}} of {{n}}",
+    "paused": "Paused",
+    "playing": "Playing"
+  },
+  "sectionLabel": "Hero",
+  "play_video": "Play background video",
+  "pause_video": "Pause background video"
+
+  ,"carouselLabel": "Product highlights carousel",
+  "videoBadge": "In action",
+  "chip": {
+    "convenience": "Incredible convenience",
+    "privacy": "Privacy and security",
+    "safety": "Child and pet safety",
+    "energy": "Energy efficient",
+    "light": "Light management"
+  },
+  "kpi": {
+    "years": "10+",
+    "experience": "Years experience",
+    "clients": "150+",
+    "clientsLabel": "Happy clients",
+    "projects": "500+",
+    "projectsLabel": "Projects delivered"
+  },
+  "playAnyway": "Play anyway",
+  "reducedMotionPaused": "Reduced motion: paused",
+  "playVideo": "Play video",
+  "play": "Play",
+  "controls": {
+    "playSlideshow": "Play slideshow",
+    "pauseSlideshow": "Pause slideshow"
+  }
+}

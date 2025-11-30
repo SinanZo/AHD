@@ -1,0 +1,11 @@
+/* Focus visibility */
+:where(a,button,[role="button"],[tabindex]):focus-visible{
+  outline:2px solid var(--brand,#0D3B4C);
+  outline-offset:3px;
+  border-radius:12px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}

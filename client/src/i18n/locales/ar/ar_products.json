@@ -1,0 +1,259 @@
+{
+  "heading": "مجموعة المنتجات",
+  "description": "اكتشف مجموعتنا الشاملة من الستائر، الستائر الدوارة، الإكسسوارات، وحلول الأقمشة. كل فئة تشمل خيارات مخصصة تناسب جميع المشاريع من السكني إلى التجاري.",
+  "categories": [
+    {
+      "title": "توريد الأقمشة والتفصيل",
+      "image": "/images/products/1.jpg",
+      "brief": "توفير أقمشة ستائر حسب الطلب مع تفصيل دقيق لأي نافذة أو مساحة.",
+      "subcategories": [
+        {
+          "title": "أقمشة فاخرة",
+          "brief": "أقمشة مختارة بعناية من أفضل المصادر العالمية.",
+          "gallery": [
+            { "src": "/images/products/fabric/fabric1.jpg", "caption": "قطن فاخر" },
+            { "src": "/images/products/fabric/fabric2.jpg", "caption": "مخمل أنيق" }
+          ]
+        },
+        {
+          "title": "تفصيل حسب الطلب",
+          "brief": "قص وخياطة باحترافية لأفضل النتائج.",
+          "gallery": [
+            { "src": "/images/products/fabric/tailor1.jpg", "caption": "ورشة التفصيل" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ستائر رول (حجب تام وشفاف)",
+      "image": "/images/products/2.jpg",
+      "brief": "ستائر رول عملية من مواد حاجبة للضوء أو شفافة، للخصوصية والأناقة.",
+      "subcategories": [
+        {
+          "title": "رول حجب تام",
+          "brief": "يمنع دخول الضوء بالكامل لغرف النوم وغرف الاجتماعات.",
+          "gallery": [
+            { "src": "/images/products/roller/blackout1.jpg", "caption": "ستارة غرفة نوم" }
+          ]
+        },
+        {
+          "title": "رول شفاف",
+          "brief": "يسمح بمرور الضوء الخافت لأجواء دافئة.",
+          "gallery": [
+            { "src": "/images/products/roller/dimout1.jpg", "caption": "تطبيق مكتبي" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ستائر ستايل الموجة",
+      "image": "/images/products/3.jpg",
+      "brief": "ستائر عصرية بتموجات أنيقة تناسب جميع المساحات.",
+      "subcategories": [
+        {
+          "title": "ستائر شفافة",
+          "brief": "شيفون أنيق مع قضيب موجة.",
+          "gallery": [
+            { "src": "/images/products/wave/sheer1.jpg", "caption": "غرفة معيشة" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ستائر رومانية",
+      "image": "/images/products/4.jpg",
+      "brief": "ستائر رومانية كلاسيكية مصممة حسب المقاس.",
+      "subcategories": [
+        {
+          "title": "رومانية مبطنة",
+          "brief": "مبطنة بالكامل لراحة حرارية مثالية.",
+          "gallery": [
+            { "src": "/images/products/roman/roman1.jpg", "caption": "تشطيب خاص" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ستائر رأسية وتموجية",
+      "image": "/images/products/5.jpg",
+      "brief": "مجموعة واسعة من الستائر الرأسية والمتموجة تناسب أي ديكور.",
+      "subcategories": [
+        {
+          "title": "ستائر رأسية",
+          "brief": "شرائح قابلة للتعديل للتحكم بالضوء.",
+          "gallery": [
+            { "src": "/images/products/vertical/vertical1.jpg", "caption": "حل مكتبي" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ستايل اللوحات اليابانية",
+      "image": "/images/products/6.jpg",
+      "brief": "ستائر لوحية مستوحاة من البساطة اليابانية.",
+      "subcategories": [
+        {
+          "title": "ألواح منزلقة",
+          "brief": "مثالية للنوافذ الكبيرة والفواصل الداخلية.",
+          "gallery": [
+            { "src": "/images/products/japanese/panel1.jpg", "caption": "غرفة بنمط ياباني" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ستائر خلية النحل",
+      "image": "/images/products/7.jpg",
+      "brief": "ستائر خلية النحل لعزل وفعالية طاقة ممتازة.",
+      "subcategories": [
+        {
+          "title": "خلية مزدوجة",
+          "brief": "عزل مزدوج متطور.",
+          "gallery": [
+            { "src": "/images/products/honeycomb/honey1.jpg", "caption": "ستائر عازلة" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ستائر معدنية",
+      "image": "/images/products/8.jpg",
+      "brief": "ستائر ألمنيوم متينة وسهلة التنظيف بألوان متنوعة.",
+      "subcategories": [
+        {
+          "title": "شرائح ألمنيوم",
+          "brief": "مظهر عصري ومقاومة للصدأ.",
+          "gallery": [
+            { "src": "/images/products/metal/metal1.jpg", "caption": "للمكاتب والمطابخ" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ستائر خشبية",
+      "image": "/images/products/9.jpg",
+      "brief": "ستائر خشب طبيعية لدفء وفخامة المكان.",
+      "subcategories": [
+        {
+          "title": "ستائر بامبو",
+          "brief": "صديقة للبيئة، تسمح بمرور الضوء.",
+          "gallery": [
+            { "src": "/images/products/wood/wood1.jpg", "caption": "غرفة طعام" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ستائر مزدوجة (زيبرا)",
+      "image": "/images/products/10.jpg",
+      "brief": "ستائر زيبرا بخطوط شفافة ومعتمة بالتناوب.",
+      "subcategories": [
+        {
+          "title": "نهار وليل",
+          "brief": "تبديل بين الخصوصية والضوء.",
+          "gallery": [
+            { "src": "/images/products/zebra/zebra1.jpg", "caption": "غرفة نوم عصرية" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ورق جدران",
+      "image": "/images/products/11.jpg",
+      "brief": "تشكيلة واسعة من ورق الجدران المزخرف لجميع الأذواق.",
+      "subcategories": [
+        {
+          "title": "تصاميم خاصة",
+          "brief": "تصاميم وشعارات مخصصة.",
+          "gallery": [
+            { "src": "/images/products/wallpaper/wallpaper1.jpg", "caption": "حائط مميز" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "حلول خارجية وسكاي لايت",
+      "image": "/images/products/12.jpg",
+      "brief": "ستائر مقاومة للعوامل الجوية وأغطية السكاي لايت.",
+      "subcategories": [
+        {
+          "title": "ستائر سكاي لايت أوتوماتيكية",
+          "brief": "تحكم عن بعد، مقاومة للأشعة فوق البنفسجية.",
+          "gallery": [
+            { "src": "/images/products/outdoor/skylight1.jpg", "caption": "تغطية أتريوم" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "الأتمتة (خبراء سومفي)",
+      "image": "/images/products/13.jpg",
+      "brief": "أتمتة ذكية للستائر والستائر الدوارة من شركاء سومفي المعتمدين.",
+      "subcategories": [
+        {
+          "title": "تحكم عن بعد",
+          "brief": "راحة وأمان وتحكم فوري.",
+          "gallery": [
+            { "src": "/images/products/motor/motor1.jpg", "caption": "التحكم الذكي" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "مسارات للمستشفيات والفنادق",
+      "image": "/images/products/14.jpg",
+      "brief": "مسارات ستائر متينة للاستخدام التجاري.",
+      "subcategories": [
+        {
+          "title": "مسارات العيادات",
+          "brief": "حلول خصوصية للمستشفيات والعيادات.",
+          "gallery": [
+            { "src": "/images/products/tracks/track1.jpg", "caption": "مساحة مستشفى" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "الأرضيات والحلول الصوتية",
+      "image": "/images/products/15.jpg",
+      "brief": "حلول الأرضيات والبلاطات الصوتية للراحة وتقليل الضوضاء.",
+      "subcategories": [
+        {
+          "title": "بلاط سجاد",
+          "brief": "متين، عازل للصوت، سهل التركيب.",
+          "gallery": [
+            { "src": "/images/products/floor/floor1.jpg", "caption": "ممر تجاري" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "الإكسسوارات",
+      "image": "/images/products/16.jpg",
+      "brief": "أعمدة ستائر، شرائط، رؤوس ديكورية والمزيد.",
+      "subcategories": [
+        {
+          "title": "شرائط وحوامل",
+          "brief": "إكسسوارات زخرفية لتنسيق الستائر.",
+          "gallery": [
+            { "src": "/images/products/accessories/acc1.jpg", "caption": "شرائط كريستال" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "تنجيد الأثاث",
+      "image": "/images/products/17.jpg",
+      "brief": "تنجيد احترافي للكنب والكراسي والأثاث المخصص.",
+      "subcategories": [
+        {
+          "title": "تنجيد الكنب",
+          "brief": "تجديد الكنب بأقمشة عالية الجودة.",
+          "gallery": [
+            { "src": "/images/products/upholstery/sofa1.jpg", "caption": "مجلس معيشة" }
+          ]
+        }
+      ]
+    }
+  ]
+}

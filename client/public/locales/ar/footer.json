@@ -1,0 +1,33 @@
+{
+  "landmark": "تذييل الموقع",
+  "logoAlt": "شعار عبد الحق دايمنشنز",
+  "tagline": "حلول داخلية فاخرة مصنوعة في الأردن.",
+  "headingServices": "الخدمات",
+  "headingLinks": "روابط سريعة",
+  "headingContact": "تواصل معنا",
+  "followUs": "تابعنا",
+  "nav": {
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "clients": "عملاؤنا",
+    "about": "من نحن",
+    "contact": "اتصل بنا"
+  },
+  "services": [
+    { "name": "الستائر والدربيات", "slug": "curtains" },
+    { "name": "البلّايندز والشيدز", "slug": "blinds" },
+    { "name": "ورق الجدران", "slug": "wallpaper" },
+    { "name": "الأرضيات والسجاد", "slug": "flooring" }
+  ],
+  "contactInfo": {
+    "address": "عمّان، الأردن",
+    "phone": "+962 7 7805 0005",
+    "email": "info@abdulhaqdimensions.com"
+  },
+  "socialMedia": {
+    "facebook": "فيسبوك",
+    "instagram": "إنستغرام",
+    "whatsapp": "واتساب"
+  },
+  "copyright": "© 2025 عبد الحق دايمنشنز. جميع الحقوق محفوظة."
+}

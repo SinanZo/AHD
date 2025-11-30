@@ -1,0 +1,259 @@
+{
+  "heading": "Our Product Range",
+  "description": "Discover our comprehensive selection of curtains, blinds, accessories, and fabric solutions. Each category includes customizable options to fit any project, from residential to commercial.",
+  "categories": [
+    {
+      "title": "Supply Fabric & Tailoring Service",
+      "image": "/images/covers/fabrics-curtains-tailoring.jpg",
+      "brief": "Bespoke curtain fabric supply and precise tailoring to fit any window or space.",
+      "subcategories": [
+        {
+          "title": "American Curtains",
+          "brief": "Handpicked fabrics sourced globally.",
+          "gallery": [
+            { "src": "/images/products/1SUPPLY FABRIC & TAILORING SERVICES FOR CURTAINS & MORE/American Curtains/_DSC7244.jpg", "caption": "Luxury cotton" },
+            { "src": "/images/products/fabric/fabric2.jpg", "caption": "Elegant velvet" }
+          ]
+        },
+        {
+          "title": "Classic Curtains",
+          "brief": "Expert cutting and sewing for perfect results.",
+          "gallery": [
+            { "src": "/images/products/fabric/tailor1.jpg", "caption": "Tailoring studio" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Roller Blinds, Black Out & Dim Out",
+      "image": "/images/products/2.jpg",
+      "brief": "Sleek roller blinds in blackout or dim-out materials for privacy and style.",
+      "subcategories": [
+        {
+          "title": "Blackout Roller",
+          "brief": "Completely blocks sunlight for bedrooms & meeting rooms.",
+          "gallery": [
+            { "src": "/images/products/roller/blackout1.jpg", "caption": "Bedroom blackout" }
+          ]
+        },
+        {
+          "title": "Dim Out Roller",
+          "brief": "Filters light for a soft ambiance.",
+          "gallery": [
+            { "src": "/images/products/roller/dimout1.jpg", "caption": "Office application" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Wave Style Curtains",
+      "image": "/images/products/3.jpg",
+      "brief": "Modern, ripple-effect curtains for a contemporary look.",
+      "subcategories": [
+        {
+          "title": "Sheer Wave",
+          "brief": "Elegant sheers with wave track.",
+          "gallery": [
+            { "src": "/images/products/wave/sheer1.jpg", "caption": "Living room" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Roman Blinds",
+      "image": "/images/products/4.jpg",
+      "brief": "Classic roman blinds, custom-made to size.",
+      "subcategories": [
+        {
+          "title": "Lined Roman",
+          "brief": "Fully lined for thermal comfort.",
+          "gallery": [
+            { "src": "/images/products/roman/roman1.jpg", "caption": "Custom finish" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Vertical & Wave Blinds",
+      "image": "/images/products/5.jpg",
+      "brief": "Vertical and wave blinds to match any style.",
+      "subcategories": [
+        {
+          "title": "Vertical Blinds",
+          "brief": "Adjustable slats for light control.",
+          "gallery": [
+            { "src": "/images/products/vertical/vertical1.jpg", "caption": "Office solution" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Japanese Panel Style",
+      "image": "/images/products/6.jpg",
+      "brief": "Panel curtains inspired by Japanese minimalism.",
+      "subcategories": [
+        {
+          "title": "Sliding Panels",
+          "brief": "Ideal for large windows and partitions.",
+          "gallery": [
+            { "src": "/images/products/japanese/panel1.jpg", "caption": "Minimalist room" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Honeycomb Blinds",
+      "image": "/images/products/7.jpg",
+      "brief": "Cellular blinds for superior insulation and energy efficiency.",
+      "subcategories": [
+        {
+          "title": "Double Cell",
+          "brief": "Dual-layered honeycomb for advanced insulation.",
+          "gallery": [
+            { "src": "/images/products/honeycomb/honey1.jpg", "caption": "Energy efficient blinds" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Metal Blinds",
+      "image": "/images/products/8.jpg",
+      "brief": "Durable, easy-to-clean aluminum blinds in various colors.",
+      "subcategories": [
+        {
+          "title": "Aluminum Slats",
+          "brief": "Modern look, rust resistant.",
+          "gallery": [
+            { "src": "/images/products/metal/metal1.jpg", "caption": "Office and kitchen" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Wooden Blinds",
+      "image": "/images/products/9.jpg",
+      "brief": "Natural wood blinds for warmth and sophistication.",
+      "subcategories": [
+        {
+          "title": "Bamboo Blinds",
+          "brief": "Eco-friendly, light filtering.",
+          "gallery": [
+            { "src": "/images/products/wood/wood1.jpg", "caption": "Dining area" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Double Roller Blinds (Zebra)",
+      "image": "/images/products/10.jpg",
+      "brief": "Zebra blinds with alternating sheer and solid stripes.",
+      "subcategories": [
+        {
+          "title": "Day & Night",
+          "brief": "Switch between privacy and light.",
+          "gallery": [
+            { "src": "/images/products/zebra/zebra1.jpg", "caption": "Modern bedroom" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Wallpaper",
+      "image": "/images/products/11.jpg",
+      "brief": "A wide range of decorative wallpapers for every taste.",
+      "subcategories": [
+        {
+          "title": "Custom Prints",
+          "brief": "Personalized designs and murals.",
+          "gallery": [
+            { "src": "/images/products/wallpaper/wallpaper1.jpg", "caption": "Feature wall" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Outdoor Solutions & Skylights",
+      "image": "/images/products/12.jpg",
+      "brief": "Motorized and weather-resistant shading for outdoor spaces and skylights.",
+      "subcategories": [
+        {
+          "title": "Motorized Skylight",
+          "brief": "Remote controlled, UV resistant.",
+          "gallery": [
+            { "src": "/images/products/outdoor/skylight1.jpg", "caption": "Atrium cover" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Motorization (Somfy Experts)",
+      "image": "/images/products/13.jpg",
+      "brief": "Smart automation for curtains and blinds, by certified Somfy partners.",
+      "subcategories": [
+        {
+          "title": "Remote Control",
+          "brief": "Easy control for convenience and safety.",
+          "gallery": [
+            { "src": "/images/products/motor/motor1.jpg", "caption": "Home automation" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tracks for Hospitals & Hotels",
+      "image": "/images/products/14.jpg",
+      "brief": "Heavy-duty curtain tracks for commercial use.",
+      "subcategories": [
+        {
+          "title": "Hospital Cubicle Tracks",
+          "brief": "Privacy solutions for clinics and hospitals.",
+          "gallery": [
+            { "src": "/images/products/tracks/track1.jpg", "caption": "Hospital bay" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Floorings & Acoustics",
+      "image": "/images/products/15.jpg",
+      "brief": "Flooring and acoustic panel solutions for comfort and sound control.",
+      "subcategories": [
+        {
+          "title": "Carpet Tiles",
+          "brief": "Durable, noise-reducing, easy to install.",
+          "gallery": [
+            { "src": "/images/products/floor/floor1.jpg", "caption": "Commercial hallway" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Accessories",
+      "image": "/images/products/16.jpg",
+      "brief": "Curtain rods, tiebacks, finials and more.",
+      "subcategories": [
+        {
+          "title": "Tiebacks & Holdbacks",
+          "brief": "Decorative accessories for curtain styling.",
+          "gallery": [
+            { "src": "/images/products/accessories/acc1.jpg", "caption": "Crystal tieback" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Furniture Upholstery",
+      "image": "/images/products/17.jpg",
+      "brief": "Professional upholstery for sofas, chairs, and custom furniture.",
+      "subcategories": [
+        {
+          "title": "Sofa Upholstery",
+          "brief": "Revive your sofas with premium fabrics.",
+          "gallery": [
+            { "src": "/images/products/upholstery/sofa1.jpg", "caption": "Living room set" }
+          ]
+        }
+      ]
+    }
+  ]
+}

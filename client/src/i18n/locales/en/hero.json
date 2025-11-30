@@ -1,0 +1,52 @@
+{
+  "badge": "Premium Interior Solutions",
+  "heading": {
+    "line1": "COMPREHENSIVE",
+    "line2": "PROJECT",
+    "line3": "SOLUTIONS"
+  },
+  "title": "Comprehensive Project Solutions",
+  "subtitle": "",
+  "description": "We offer comprehensive project solutions that cater to a wide range of requirements, including private residential villas, offices, clinics, as well as large-scale projects like headquarters, hotels, hospitals, and resorts.",
+  "cta1": "See Our Products",
+  "cta2": "Get Quote",
+  "specializationsTitle": "Our Specializations",
+  "categories": [
+    "Premium Interior Solutions",
+    "Window Treatments",
+    "Custom Blinds & Curtains",
+    "Smart Home Integration",
+    "Acoustic Solutions"
+  ],
+  "cards": [
+    {
+      "title": "Quality Assurance",
+      "desc": "Premium materials and craftsmanship"
+    },
+    {
+      "title": "Custom Design",
+      "desc": "Tailored solutions for every space"
+    },
+    {
+      "title": "Expert Team",
+      "desc": "Professional installation and support"
+    },
+    {
+      "title": "Timely Delivery",
+      "desc": "On-schedule project completion"
+    }
+  ],
+  "scroll": "Scroll Down"
+  ,
+  "slideControls": "Slide controls",
+  "goTo": "Go to slide",
+  "sr": {
+    "slideOf": "Slide {{i}} of {{n}}",
+    "paused": "Paused",
+    "playing": "Playing"
+  }
+  ,
+  "sectionLabel": "Hero",
+  "play_video": "Play background video",
+  "pause_video": "Pause background video"
+}

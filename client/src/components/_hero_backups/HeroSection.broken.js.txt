@@ -1,0 +1,3 @@
+(broken copy snapshot)
+
+Use the repository to restore if needed. The original file contained duplicated exports and stray code blocks. Please restore from git history if required.

@@ -1,0 +1,33 @@
+{
+  "landmark": "Website footer",
+  "logoAlt": "Abdulhaq Dimensions Logo",
+  "tagline": "Premium interior solutions crafted in Jordan.",
+  "headingServices": "Services",
+  "headingLinks": "Quick Links",
+  "headingContact": "Contact",
+  "followUs": "Follow Us",
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "clients": "Clients",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "services": [
+    { "name": "Curtains & Drapery", "slug": "curtains" },
+    { "name": "Blinds & Shades", "slug": "blinds" },
+    { "name": "Wallpaper", "slug": "wallpaper" },
+    { "name": "Flooring & Rugs", "slug": "flooring" }
+  ],
+  "contactInfo": {
+    "address": "Amman, Jordan",
+    "phone": "+962 7 7805 0005",
+    "email": "info@abdulhaqdimensions.com"
+  },
+  "socialMedia": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp"
+  },
+  "copyright": "© 2025 Abdulhaq Dimensions. All rights reserved."
+}

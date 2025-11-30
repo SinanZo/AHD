@@ -1,0 +1,22 @@
+{
+  "subtitle": "What Our Clients Say",
+  "title": "Client Testimonials",
+  "description": "We pride ourselves on building lasting relationships and delivering exceptional results for our clients.",
+  "list": [
+    {
+      "quote": "They transformed our home beautifully. Every detail was taken care of.",
+      "name": "Sarah Haddad",
+      "role": "Homeowner"
+    },
+    {
+      "quote": "As a hotel owner, I needed reliable, elegant designs — and they exceeded expectations.",
+      "name": "Mohammad Al-Khatib",
+      "role": "Hotel Owner"
+    },
+    {
+      "quote": "Professional, responsive, and full of creative ideas. I highly recommend them.",
+      "name": "Dana Youssef",
+      "role": "Architect"
+    }
+  ]
+}

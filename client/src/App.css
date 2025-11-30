@@ -1,0 +1,197 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Cairo:wght@300;400;600&family=Noto+Naskh+Arabic:wght@400;500&display=swap');
+
+/* TailwindCSS directives */
+/* stylelint-disable at-rule-no-unknown */
+/* Tailwind CSS is imported in index.css */
+
+/* Base styles */
+@layer base {
+  body {
+    /* Default to English body (Montserrat). Arabic will be applied via .rtl-font */
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    /* Default English headline font */
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+/* Language-specific utility classes (applied on root container) */
+/* Scope removed: rules below are now top-level so nested @import/@rules are valid at file scope */
+  /* Arabic body/UI use Noto Naskh Arabic; headlines use Cairo (see headings rules) */
+
+  /* ---------------------------
+     Global font stacks + quality
+     --------------------------- */
+  :root {
+    --font-body-ltr: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-head-ltr: 'Playfair Display', ui-serif, Georgia, serif;
+
+    --font-body-rtl: 'Noto Naskh Arabic', 'Cairo', 'IBM Plex Sans Arabic', 'Noto Sans Arabic', system-ui, sans-serif;
+    --font-head-rtl: 'Cairo', 'Noto Naskh Arabic', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+
+    /* Avoid fake bold/italic differences between locales */
+    font-synthesis-weight: none;
+    font-synthesis-style: none;
+  }
+
+  /* Better optical sizing if available */
+  @supports (font-variation-settings: normal) {
+    html { font-optical-sizing: auto; }
+  }
+
+  /* ---------------------------
+     Base typography (auto locale)
+     --------------------------- */
+  @layer base {
+    /* Default: English/LTR */
+    html, body {
+      font-family: var(--font-body-ltr);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-head-ltr);
+      font-weight: 400;
+      letter-spacing: -0.005em; /* subtle tightening for Playfair */
+    }
+
+    /* Arabic/RTL auto-switch via lang/dir (no classes required) */
+    :lang(ar), [dir="rtl"] {
+      font-family: var(--font-body-rtl);
+    }
+    :lang(ar) h1, :lang(ar) h2, :lang(ar) h3, :lang(ar) h4, :lang(ar) h5, :lang(ar) h6,
+    [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+      font-family: var(--font-head-rtl);
+      font-weight: 300;          /* editorial light look for Cairo */
+      letter-spacing: 0;         /* never tighten Arabic */
+    }
+  }
+
+  /* ---------------------------
+     Optional utility classes
+     (use only when you must force a stack)
+     --------------------------- */
+  .ltr-font { font-family: var(--font-body-ltr); }
+  .rtl-font { font-family: var(--font-body-rtl); }
+  .font-ar-head { font-family: var(--font-head-rtl); font-weight: 300; }
+  .font-en-head { font-family: var(--font-head-ltr); font-weight: 400; }
+
+  /* ---------------------------
+     Components
+     --------------------------- */
+  @layer components {
+    .btn-primary {
+      background-color: #006B8F;  /* Enhanced vibrant teal */
+      color: #fff;
+      padding: 0.5rem 1.5rem;
+      border-radius: 0.5rem;
+      transition: background-color 150ms ease-in-out, transform 150ms ease-in-out;
+      box-shadow: 0 2px 8px rgba(0, 107, 143, 0.2);
+    }
+    .btn-primary:hover { 
+      background-color: #005270;  /* Deeper on hover */
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 107, 143, 0.3);
+    }
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background-color: #EEF2F6;  /* Enhanced soft surface */
+      color: #0A1628;
+      padding: 0.5rem 1.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #E1E8ED;
+      transition: background-color 150ms ease-in-out, transform 150ms ease-in-out;
+    }
+    .btn-secondary:hover { 
+      background-color: #E1E8ED;
+      transform: translateY(-1px);
+    }
+    .btn-secondary:active {
+      transform: translateY(0);
+    }
+
+    /* Dark mode button styles */
+    .dark .btn-primary {
+      background-color: #5DB4D2;  /* Vibrant light teal for dark mode */
+      color: #0A1118;
+      box-shadow: 0 2px 8px rgba(93, 180, 210, 0.3);
+    }
+    .dark .btn-primary:hover {
+      background-color: #7FCCE6;
+      box-shadow: 0 4px 12px rgba(93, 180, 210, 0.4);
+    }
+
+    .dark .btn-secondary {
+      background-color: #1A2332;
+      color: #F0F4F8;
+      border-color: #1F2937;
+    }
+    .dark .btn-secondary:hover {
+      background-color: #1F2937;
+    }
+  }
+
+  /* ---------------------------
+     Presentation utilities
+     --------------------------- */
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .gradient-bg {
+    background: linear-gradient(135deg, #0e3a3e 0%, #385f66 50%, #5b7d89 100%);
+  }
+
+  /* Simple entrance animation */
+  @keyframes fadeIn { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+  .animate-fade-in { animation: fadeIn 0.6s ease-out; }
+
+  /* Responsive utility */
+  @media (max-width: 768px) { .mobile-hidden { display: none; } }
+
+  /* Dark mode contrast refinements */
+  .dark body, .dark .body-text, .dark .text-muted-foreground { color: #e6eef0 !important; }
+
+  .contact-link { color: #064e3b; text-decoration: underline; }
+  .dark .contact-link { color: #9fc0b0; }
+/* Force language switcher and logo color regardless of header/global styles */
+.lang-switch-btn {
+  color: #111 !important;
+}
+.header-logo-force {
+  filter: drop-shadow(0 1px 8px rgba(0,0,0,.25)) !important;
+  /* Remove grayscale/brightness, show original color */
+  color: inherit !important;
+}
+
+  /* Print */
+  @media print { .no-print { display: none; } }
+
+  /* ---------------------------
+     Header/hero small fixes
+     --------------------------- */
+  /* Ensure map/location triggers are actually clickable and visible */
+  .header .map-trigger,
+  .header [aria-label*="Open location" i],
+  .header [aria-label*="فتح الموقع" i] {
+    cursor: pointer;
+    text-decoration: underline;
+    pointer-events: auto;
+  }
+
+  /* Keep hero headings crisp over photos */
+  .hero .hero-title { text-shadow: 0 2px 12px rgba(0,0,0,.35); }
+
+  /* Prevent accidental letter-spacing on Arabic CTAs */
+  :lang(ar) .btn-primary, :lang(ar) .btn-secondary { letter-spacing: 0; }
+

@@ -1,0 +1,16 @@
+{
+  "heading": "Key company statistics",
+  "a11y": {
+    "moreThan": "More than {{n}}",
+    "percent": "{{n}} percent",
+    "alwaysAvailable": "Available 24 hours a day, 7 days a week"
+  },
+  "years": "Years of Excellence",
+  "since": "Since 1948",
+  "clients": "Satisfied Clients",
+  "clientType": "Residential & Commercial",
+  "quality": "Quality Guarantee",
+  "materials": "Premium Materials",
+  "support": "Customer Support",
+  "availability": "Always Available"
+}

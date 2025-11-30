@@ -1,0 +1,30 @@
+{
+  "heading": "Our Clients",
+  "subheading": "Trusted by leading brands across hospitality, corporate, and government.",
+  "sliderHeading": "Clients logos carousel",
+  "searchClients": "Search clients...",
+  "noClients": "No clients to display.",
+  "noSearchResults": "No clients found matching your search.",
+  "previous": "Previous",
+  "next": "Next",
+  "play": "Play",
+  "pause": "Pause",
+  "goToSlide": "Go to page",
+  "keyboardHint": "Use Arrow keys to navigate and Space to play/pause.",
+  "clientsList": "Clients list",
+  "categories": {
+    "all": "All Clients",
+    "hospitality": "Hospitality",
+    "corporate": "Corporate",
+    "government": "Government"
+  },
+  "clients": [
+    { "name": "Royal Court", "logo": "/logos/royal-court.png", "url": "#" },
+    { "name": "Amman Rotana", "logo": "/logos/amman-rotana.png", "url": "#" },
+    { "name": "Kempinski Hotel", "logo": "/logos/kempinski.png", "url": "#" },
+    { "name": "St. Regis Amman", "logo": "/logos/stregis.png", "url": "#" },
+    { "name": "Le Royal Hotel", "logo": "/logos/leroyal.png", "url": "#" },
+    { "name": "Hilton Amman", "logo": "/logos/hilton.png", "url": "#" }
+  ]
+}
+

@@ -1,0 +1,126 @@
+{
+  "heading": "منتجاتنا المميزة",
+  "description": "استكشف مجموعتنا الواسعة من حلول الديكور الداخلي الفاخرة، بدءًا من الستائر والمعلقات وصولًا إلى التركيبات التجارية المتكاملة. جميع منتجاتنا مصممة بعناية لتجمع بين الأناقة والوظيفة، وتضفي لمسات جمالية تدوم طويلاً.",
+  "readMore": "المزيد",
+  "categories": [
+    {
+      "title": "ستائر بموجات انسيابية",
+      "brief": "ستائر بموجات انسيابية – أنيقة بتصميم عصري يناسب الديكورات الحديثة.",
+      "image": "/images/products/architecture/wave-style-curtains/1.jpg",
+      "sub": [],
+      "folderPath": "wave-style-curtains"
+    },
+    {
+      "title": "ستائر رول – تعتيم كامل ونصف تعتيم",
+      "brief": "ستائر رول – تعتيم كامل أو نصف تعتيم – مثالية للتحكم بالضوء والخصوصية.",
+      "image": "/images/products/architecture/roller-blinds-black-out-dim-out/black-out-rollers/1.jpg",
+      "sub": ["رولر بلاك أوت", "رولر ديم أوت", "رولر شاشة"],
+      "folderPath": "roller-blinds-black-out-dim-out"
+    },
+    {
+      "title": "توريد الأقمشة وخدمات التفصيل للستائر وأكثر",
+      "brief": "توريد الأقمشة وخدمات التفصيل للستائر وأكثر – حلول مخصصة للمساحات السكنية والتجارية.",
+      "image": "/images/products/architecture/supply-fabric-tailoring-services-for-curtains-more/american-curtains/1.jpg",
+      "sub": ["ستائر أمريكية", "ستائر كلاسيك"],
+      "folderPath": "supply-fabric-tailoring-services-for-curtains-more"
+    },
+    {
+      "title": "ستائر بانيل يابانية",
+      "brief": "ستائر بانيل يابانية – تصميم بسيط وأنيق لمعالجات النوافذ بأسلوب ياباني.",
+      "image": "/images/products/architecture/japanese-panel-style/1.jpg",
+      "sub": [],
+      "folderPath": "japanese-panel-style"
+    },
+    {
+      "title": "ستائر عمودية وعمودية بموجات",
+      "brief": "ستائر عمودية وعمودية بموجات – مثالية للنوافذ الكبيرة وتوزيع الضوء بشكل متوازن.",
+      "image": "/images/products/architecture/vertical-vertical-waves-blinds/1.jpg",
+      "sub": [],
+      "folderPath": "vertical-vertical-waves-blinds"
+    },
+    {
+      "title": "ستائر رومانية",
+      "brief": "ستائر رومانية – تصميم كلاسيكي أنيق يدوم بمرور الزمن.",
+      "image": "/images/products/architecture/roman-blinds/1.jpg",
+      "sub": [],
+      "folderPath": "roman-blinds"
+    },
+    {
+      "title": "ستائر خشبية",
+      "brief": "ستائر خشبية – ستائر طبيعية من الخشب تضفي دفئًا وأناقة على المساحات الداخلية.",
+      "image": "/images/products/architecture/wooden-blinds/1.png",
+      "sub": [],
+      "folderPath": "wooden-blinds"
+    },
+    {
+      "title": "ستائر معدنية",
+      "brief": "ستائر معدنية – ستائر متينة من المعدن للاستخدام التجاري والسكني.",
+      "image": "/images/products/architecture/metal-blinds/1.jpg",
+      "sub": [],
+      "folderPath": "metal-blinds"
+    },
+    {
+      "title": "ستائر خلية النحل",
+      "brief": "ستائر خلية النحل – ستائر خلوية موفرة للطاقة بتصميم مبتكر.",
+      "image": "/images/products/architecture/honeycomb-blinds/1.jpg",
+      "sub": [],
+      "folderPath": "honeycomb-blinds"
+    },
+    {
+      "title": "حلول خارجية واسقف زجاجية",
+      "brief": "حلول خارجية واسقف زجاجية – أنظمة متكاملة للتظليل الخارجي والسقوف الزجاجية، تشمل المظلات، البرجولات، الأسقف الزجاجية، والحلول العمودية.",
+      "image": "/images/products/architecture/outdoor-solutions-skylights/awning/1.jpg",
+      "sub": ["مظلات", "برجولات", "مناور", "حلول عمودية"],
+      "folderPath": "outdoor-solutions-skylights"
+    },
+    {
+      "title": "ورق جدران",
+      "brief": "ورق جدران – حلول فاخرة لورق الجدران لتزيين المساحات الداخلية.",
+      "image": "/images/products/architecture/wallpaper/1.jpg",
+      "sub": [],
+      "folderPath": "wallpaper"
+    },
+    {
+      "title": "ستائر رول مزدوجة (زيبرا)",
+      "brief": "ستائر رول مزدوجة (زيبرا) – تصميم مبتكر للتحكم المتعدد في الإضاءة.",
+      "image": "/images/products/architecture/double-roller-blinds-zebra/1.jpg",
+      "sub": [],
+      "folderPath": "double-roller-blinds-zebra"
+    },
+    {
+      "title": "حلول الأرضيات والمعالجات الصوتية",
+      "brief": "حلول الأرضيات والمعالجات الصوتية – تشمل الأسقف الصوتية، الألواح العازلة للصوت، والأرضيات والسجاد.",
+      "image": "/images/covers/floorings-and-acoustics.jpg",
+      "sub": ["سقف صوتي", "ألواح صوتية", "أرضيات وسجاد"],
+      "folderPath": "floorings-acoustics"
+    },
+    {
+      "title": "مسارات ستائر للمستشفيات والفنادق",
+      "brief": "مسارات ستائر للمستشفيات والفنادق – مسارات ستائر متخصصة لقطاع الرعاية الصحية والضيافة.",
+      "image": "/images/products/architecture/tracks-for-hospitals-hotels/1.jpeg",
+      "sub": [],
+      "folderPath": "tracks-for-hospitals-hotels"
+    },
+    {
+      "title": "أنظمة تشغيل أوتوماتيكية من خبراء Somfy",
+      "brief": "أنظمة تشغيل أوتوماتيكية من خبراء Somfy – حلول متقدمة لتشغيل الستائر باستخدام أحدث تقنيات Somfy.",
+      "image": "/images/products/architecture/motorization-somfy-experts/1.png",
+      "sub": [],
+      "folderPath": "motorization-somfy-experts"
+    },
+    {
+      "title": "تنجيد الأثاث",
+      "brief": "تنجيد الأثاث – خدمات احترافية لتنجيد جميع أنواع الأثاث بأعلى معايير الجودة.",
+      "image": "/images/products/architecture/furniture-upholstery/1.png",
+      "sub": [],
+      "folderPath": "furniture-upholstery"
+    },
+    {
+      "title": "إكسسوارات",
+      "brief": "إكسسوارات – إكسسوارات فاخرة لمعالجات النوافذ تضيف لمسات جمالية وعملية.",
+      "image": "/images/products/architecture/accessories/1.jpg",
+      "sub": [],
+      "folderPath": "accessories"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+/* Tailwind utilities for small project-specific helpers
+   This file injects a small `.u-underline` utility into the Tailwind
+   `utilities` layer so you can use `class="u-underline"` in JSX.
+*/
+
+@layer utilities {
+  .u-underline {
+    position: relative;
+    display: inline-block;
+    --u-underline-opacity: 0;             /* 0..1 */
+    --u-underline-h: .45em;               /* height */
+    --u-underline-offset: -.5em;          /* distance below text */
+    --u-underline-bg: linear-gradient(90deg, var(--brand), var(--brand-2));
+  }
+
+  .u-underline::after {
+    content: "";
+    position: absolute;
+
+    /* Fallback for older Safari (logical props ignored) */
+    left: 0; right: 0; bottom: var(--u-underline-offset);
+
+    /* Modern logical props */
+    inset-inline: 0;
+    inset-block-end: var(--u-underline-offset);
+
+    height: var(--u-underline-h);
+    background: var(--u-underline-bg);
+    opacity: var(--u-underline-opacity);
+    border-radius: 6px;
+    pointer-events: none;
+    z-index: -1; /* sits behind glyphs */
+  }
+  @supports (inset-inline: 0) {
+    .u-underline::after { left: auto; right: auto; bottom: auto; }
+  }
+
+  /* Arabic defaults: turn it on and slightly larger */
+  :lang(ar) .hero-title .u-underline {
+    --u-underline-opacity: .96;
+    --u-underline-h: .56em;
+    --u-underline-offset: -.62em;
+  }
+
+  /* Optional: enable underline in LTR when needed */
+  .u-underline--on { --u-underline-opacity: .96; }
+
+  /* Optional size variants (use on the same element) */
+  .u-underline--sm { --u-underline-h: .38em; --u-underline-offset: -.42em; }
+  .u-underline--lg { --u-underline-h: .62em; --u-underline-offset: -.68em; }
+
+  /* Print: ensure visible, solid color for legibility */
+  @media print {
+    .u-underline { --u-underline-opacity: 1; --u-underline-bg: currentColor; }
+  }
+}

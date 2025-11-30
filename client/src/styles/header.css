@@ -1,0 +1,58 @@
+/** ============================================================================
+ *  ABDULHAQ DIMENSIONS - HEADER STYLES
+ *  Light mode clarity, dark elegance, RTL-safe
+ *  ========================================================================== **/
+
+.header {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  border-bottom: 1px solid var(--stroke);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-1);
+}
+
+.nav-rail {
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  border-radius: 9999px;
+  padding: .5rem;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--stroke) 35%, transparent),
+    var(--shadow-1);
+}
+
+.pill {
+  background: var(--header-pill-bg);
+  color: var(--header-fg);
+  border: 1px solid var(--header-pill-stroke);
+  border-radius: 9999px;
+  transition: background .18s ease, transform .12s ease;
+}
+.pill:hover {
+  background: var(--header-pill-hover);
+  transform: translateY(-1px);
+}
+
+.pill-active {
+  background: var(--header-pill-active-bg);
+  color: var(--header-pill-active-fg);
+  border: 1px solid color-mix(in srgb, var(--header-pill-active-bg) 70%, white);
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+
+.lang-pill {
+  color: var(--header-fg);
+}
+
+.lang-group {
+  background: var(--header-pill-bg);
+  border: 1px solid var(--header-pill-stroke);
+  border-radius: 9999px;
+}
+
+/* Visible focus */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--brand) 70%, white);
+  outline-offset: 2px;
+}

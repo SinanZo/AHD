@@ -1,0 +1,126 @@
+{
+  "heading": "Our Premium Products",
+  "description": "Discover our comprehensive range of premium interior solutions, from curtains and blinds to commercial installations.",
+  "readMore": "Read More",
+  "categories": [
+    {
+      "title": "Wave Style Curtains",
+      "brief": "Elegant wave-style curtains for modern interiors.",
+      "image": "/images/products/architecture/wave-style-curtains/1.jpg",
+      "sub": [],
+      "folderPath": "wave-style-curtains"
+    },
+    {
+      "title": "Roller Blinds, Black Out & Dim Out",
+      "brief": "Modern roller blinds for perfect light control and privacy.",
+      "image": "/images/products/architecture/roller-blinds-black-out-dim-out/black-out-rollers/1.jpg",
+      "sub": ["Black Out Rollers", "Dim Out Rollers", "Screen Rollers"],
+      "folderPath": "roller-blinds-black-out-dim-out"
+    },
+    {
+      "title": "Supply Fabric & Tailoring Services for Curtains & More",
+      "brief": "Premium custom curtains and fabric solutions for residential and commercial spaces.",
+      "image": "/images/products/architecture/supply-fabric-tailoring-services-for-curtains-more/american-curtains/1.jpg",
+      "sub": ["American Curtains", "Classic Curtains"],
+      "folderPath": "supply-fabric-tailoring-services-for-curtains-more"
+    },
+    {
+      "title": "Japanese Panel Style",
+      "brief": "Minimalist Japanese panel style window treatments.",
+      "image": "/images/products/architecture/japanese-panel-style/1.jpg",
+      "sub": [],
+      "folderPath": "japanese-panel-style"
+    },
+    {
+      "title": "Vertical & Vertical Waves Blinds",
+      "brief": "Vertical blinds and wave blinds for large windows.",
+      "image": "/images/products/architecture/vertical-vertical-waves-blinds/1.jpg",
+      "sub": [],
+      "folderPath": "vertical-vertical-waves-blinds"
+    },
+    {
+      "title": "Roman Blinds",
+      "brief": "Classic roman blinds for timeless elegance.",
+      "image": "/images/products/architecture/roman-blinds/1.jpg",
+      "sub": [],
+      "folderPath": "roman-blinds"
+    },
+    {
+      "title": "Wooden Blinds",
+      "brief": "Natural wooden blinds for warm, elegant interiors.",
+      "image": "/images/products/architecture/wooden-blinds/1.png",
+      "sub": [],
+      "folderPath": "wooden-blinds"
+    },
+    {
+      "title": "Metal Blinds",
+      "brief": "Durable metal blinds for commercial and residential use.",
+      "image": "/images/products/architecture/metal-blinds/1.jpg",
+      "sub": [],
+      "folderPath": "metal-blinds"
+    },
+    {
+      "title": "Honeycomb Blinds",
+      "brief": "Energy-efficient honeycomb cellular blinds.",
+      "image": "/images/products/architecture/honeycomb-blinds/1.jpg",
+      "sub": [],
+      "folderPath": "honeycomb-blinds"
+    },
+    {
+      "title": "Outdoor Solutions & Skylights",
+      "brief": "Comprehensive outdoor shading and skylight solutions.",
+      "image": "/images/products/architecture/outdoor-solutions-skylights/awning/1.jpg",
+      "sub": ["Awning", "Pergulas", "Skylight", "Vertical Solutions"],
+      "folderPath": "outdoor-solutions-skylights"
+    },
+    {
+      "title": "Wallpaper",
+      "brief": "Premium wallpaper solutions for interior decoration.",
+      "image": "/images/products/architecture/wallpaper/1.jpg",
+      "sub": [],
+      "folderPath": "wallpaper"
+    },
+    {
+      "title": "Double Roller Blinds (Zebra)",
+      "brief": "Innovative zebra blinds for versatile light control.",
+      "image": "/images/products/architecture/double-roller-blinds-zebra/1.jpg",
+      "sub": [],
+      "folderPath": "double-roller-blinds-zebra"
+    },
+    {
+      "title": "Floorings & Acoustics",
+      "brief": "Flooring solutions and acoustic treatments.",
+      "image": "/images/covers/floorings-and-acoustics.jpg",
+      "sub": ["Acoustic Ceiling", "Acoustic Panels", "Floorings and Rugs"],
+      "folderPath": "floorings-acoustics"
+    },
+    {
+      "title": "Tracks for Hospitals & Hotels",
+      "brief": "Specialized curtain tracks for healthcare and hospitality.",
+      "image": "/images/products/architecture/tracks-for-hospitals-hotels/1.jpeg",
+      "sub": [],
+      "folderPath": "tracks-for-hospitals-hotels"
+    },
+    {
+      "title": "Motorization Somfy Experts",
+      "brief": "Advanced motorization solutions with Somfy technology.",
+      "image": "/images/products/architecture/motorization-somfy-experts/1.png",
+      "sub": [],
+      "folderPath": "motorization-somfy-experts"
+    },
+    {
+      "title": "Furniture Upholstery",
+      "brief": "Professional furniture upholstery services.",
+      "image": "/images/products/architecture/furniture-upholstery/1.png",
+      "sub": [],
+      "folderPath": "furniture-upholstery"
+    },
+    {
+      "title": "Accessories",
+      "brief": "Premium accessories for window treatments.",
+      "image": "/images/products/architecture/accessories/1.jpg",
+      "sub": [],
+      "folderPath": "accessories"
+    }
+  ]
+}

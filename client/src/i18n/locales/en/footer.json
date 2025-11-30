@@ -1,0 +1,36 @@
+{
+  "tagline": "Curtains, Blinds, Fabrics & Interior Excellence Since 1948.",
+  "headingServices": "Our Services",
+  "headingLinks": "Quick Links",
+  "headingContact": "Contact Us",
+  "copyright": "© 2025 Abdulhaq Dimensions. All rights reserved.",
+  "services": [
+    { "name": "Curtains & Tailoring", "slug": "curtains-tailoring" },
+    { "name": "Roller Blinds", "slug": "roller-blinds" },
+    { "name": "Roman Blinds", "slug": "roman-blinds" },
+    { "name": "Vertical Blinds", "slug": "vertical-blinds" },
+    { "name": "Wallpaper", "slug": "wallpaper" },
+    { "name": "Flooring & Acoustics", "slug": "flooring-acoustics" },
+    { "name": "Motorization", "slug": "motorization" },
+    { "name": "Upholstery", "slug": "upholstery" }
+  ],
+  "contactInfo": {
+    "address": "Amman, Jordan",
+    "phone": "+962 77 805 0005",
+    "email": "info@abdulhaqdimensions.com"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "clients": "Clients",
+    "contact": "Contact"
+  },
+  "poweredBy": "Powered by Jawareer",
+  "socialMedia": {
+    "followUs": "Follow Us",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp"
+  }
+}

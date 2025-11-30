@@ -1,0 +1,169 @@
+/* Mobile Performance Optimizations */
+
+/* Disable heavy animations on mobile devices */
+@media (max-width: 768px) {
+  /* Reduce motion for better performance */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Keep only essential transitions */
+  button,
+  a,
+  .btn-primary,
+  .btn-secondary,
+  .nav-pill {
+    transition: background-color 100ms ease, opacity 100ms ease !important;
+  }
+
+  /* Disable transform animations on mobile */
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-scale-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Optimize scroll performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reduce backdrop blur on mobile (performance heavy) */
+  .glass-effect {
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .dark .glass-effect {
+    background: rgba(10, 17, 24, 0.95);
+  }
+
+  /* Simplify shadows on mobile */
+  .btn-primary,
+  .btn-secondary {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Disable hover effects on mobile (they don't work well on touch) */
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .nav-pill:hover {
+    transform: none !important;
+  }
+
+  /* Optimize image rendering */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  /* Force GPU acceleration for smooth scrolling */
+  body {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  /* Reduce repaints */
+  .hero,
+  .header {
+    will-change: auto;
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize for low-end devices */
+@media (max-width: 768px) and (max-height: 600px) {
+  /* Further reduce animations on small screens */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Simplify gradients */
+  .gradient-bg {
+    background: #003D52 !important;
+  }
+}
+
+/* Touch-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover states on touch devices */
+  *:hover {
+    background-color: inherit;
+  }
+
+  /* Increase touch target sizes */
+  button,
+  a,
+  .btn-primary,
+  .btn-secondary {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Disable smooth scroll on touch (can cause lag) */
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Optimize carousel/slider performance on mobile */
+@media (max-width: 768px) {
+  .swiper-slide,
+  .carousel-item {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Simplify carousel transitions */
+  .swiper-wrapper {
+    transition-timing-function: ease-out !important;
+  }
+}
+
+/* Lazy loading optimization */
+.lazy-load {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Reduce complexity of complex selectors on mobile */
+@media (max-width: 768px) {
+  /* Simplify text shadows */
+  .hero-title,
+  h1,
+  h2 {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* Remove complex filters */
+  .header-logo-force {
+    filter: none !important;
+  }
+}
+
+/* Performance monitoring hint */
+@media (max-width: 768px) {
+  /* Add performance hints for browser */
+  .hero,
+  .header,
+  main {
+    content-visibility: auto;
+  }
+}

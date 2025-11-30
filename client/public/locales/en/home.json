@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "badge": "PREMIUM INTERIOR SOLUTIONS",
+    "title": "COMPREHENSIVE PROJECT SOLUTIONS",
+    "subtitle": "",
+    "description": "We offer comprehensive project solutions that cater to a wide range of requirements, including private residential villas, offices, clinics, as well as large-scale projects like headquarters, hotels, hospitals, and resorts.",
+    "cta1": "See Our Products",
+    "cta2": "Get Quote",
+    "scroll": "Scroll",
+    "heading": {
+      "line1": "COMPREHENSIVE",
+      "line2": "PROJECT",
+      "line3": "SOLUTIONS"
+    }
+  },
+  "stats": {
+    "yearsExperience": "75+ Years of Excellence",
+    "yearsSubtitle": "Since 1948",
+    "clients": "1000+ Satisfied Clients",
+    "clientsSubtitle": "Residential & Commercial",
+    "quality": "100% Quality Guarantee",
+    "qualitySubtitle": "Premium Materials",
+    "support": "24/7 Customer Support",
+    "supportSubtitle": "Always Available"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive Interior Solutions",
+    "curtains": {
+      "title": "Curtains & Drapes",
+      "description": "Classic and modern curtains for residential and commercial spaces",
+      "features": ["Custom tailoring", "Fire-rated fabrics", "Premium materials"]
+    },
+    "blinds": {
+      "title": "Blinds & Shades",
+      "description": "Roller blinds, venetian blinds, and specialty window treatments",
+      "features": ["Blackout options", "Motorized systems", "Energy efficient"]
+    },
+    "upholstery": {
+      "title": "Furniture Upholstery",
+      "description": "Professional upholstery services for all types of furniture",
+      "features": ["Quality fabrics", "Expert craftsmanship", "Custom designs"]
+    },
+    "commercial": {
+      "title": "Wallpapers",
+      "description": "Decorative and durable wallpapers for residential and commercial interiors",
+      "features": ["Wide pattern selection", "Washable & durable", "Custom murals & textured finishes"]
+    }
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Abdulhaq Dimensions?",
+    "experience": "75+ Years of Experience",
+    "experienceDesc": "Established in 1948, we bring decades of expertise to every project",
+    "quality": "Premium Quality Materials",
+    "qualityDesc": "We source only the finest fabrics and materials for lasting beauty",
+    "service": "Exceptional Customer Service",
+    "serviceDesc": "Our dedicated team ensures your complete satisfaction",
+    "innovation": "Latest Technology & Trends",
+    "innovationDesc": "Stay ahead with our modern solutions and innovative designs"
+  }
+}
+

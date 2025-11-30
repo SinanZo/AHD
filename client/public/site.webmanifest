@@ -1,0 +1,29 @@
+{
+  "name": "Abdulhaq Dimensions - Premium Interior Solutions",
+  "short_name": "Abdulhaq Dimensions",
+  "description": "Transform your space with premium curtains, blinds, wallpaper & flooring. 75+ years of expertise, professional installation & lifetime support.",
+  "icons": [
+    {
+      "src": "/images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#1e40af",
+  "background_color": "#f8fafc",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "portrait-primary",
+  "categories": ["business", "lifestyle", "shopping"],
+  "lang": "en",
+  "dir": "ltr"
+}
+

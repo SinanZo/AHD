@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "clients": "Our Clients",
+    "contact": "Contact"
+  },
+
+  "get_quote": "Get Quote",
+  "call_phone": "Call us",
+
+  "location_text": "Amman, Jordan",
+  "map_title": "Our Location",
+  "open_map_new_tab": "Open location in Google Maps",
+  "open_map_modal": "View location on map",
+
+  "hours_short": "Sat–Wed: 10AM–7PM · Thu: 9AM–5PM",
+
+  "open_menu": "Open Menu",
+  "close_menu": "Close Menu",
+  "go_home": "Go to homepage",
+  "main_nav": "Main navigation"
+}

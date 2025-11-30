@@ -1,0 +1,30 @@
+{
+  "title": "Our Services",
+  "description": "Comprehensive interior solutions tailored to meet your unique needs and exceed your expectations.",
+  "items": [
+    {
+      "title": "Custom Curtain Design",
+      "description": "Bespoke curtains tailored to your exact specifications with premium fabrics and professional installation."
+    },
+    {
+      "title": "Motorized Blinds",
+      "description": "Smart home integration with automated blinds and curtains for ultimate convenience and energy efficiency."
+    },
+    {
+      "title": "Commercial Solutions",
+      "description": "Professional interior solutions for offices, hotels, hospitals, and retail spaces with fire-rated materials."
+    },
+    {
+      "title": "Installation & Maintenance",
+      "description": "Expert installation services and ongoing maintenance support to ensure long-lasting performance."
+    },
+    {
+      "title": "Design Consultation",
+      "description": "Professional design consultation to help you choose the perfect interior solutions for your space."
+    },
+    {
+      "title": "Wall Covering",
+      "description": "Premium wallpaper and fabric wall covering solutions to transform your interior walls."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "subtitle": "Our Services",
+  "title": "Premium Solutions",
+  "description": "From residential villas to large-scale commercial projects, we provide comprehensive interior solutions tailored to your specific needs.",
+  "learnMore": "Learn More",
+  "items": [
+    {
+      "title": "Curtains & Draperies",
+      "desc": "Premium custom curtains and draperies for residential and commercial spaces.",
+      "features": ["Custom tailoring", "Fire-rated fabrics", "Premium materials"]
+    },
+    {
+      "title": "Roller Blinds & Shades",
+      "desc": "Modern roller blinds and shades with superior light control and privacy.",
+      "features": ["Blackout options", "Motorized systems", "Energy efficient"]
+    },
+    {
+      "title": "Commercial Solutions",
+      "desc": "Professional commercial interior solutions for offices, hotels, and institutions.",
+      "features": ["Heavy-duty systems", "Fire safety compliance", "Professional installation"]
+    },
+    {
+      "title": "Wallpapers",
+      "desc": "Decorative and durable wallpapers for residential and commercial interiors.",
+      "features": ["Wide pattern selection", "Washable & durable", "Custom murals"]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "heading": "Our Products",
+  "description": "Discover our comprehensive range of premium interior solutions, crafted with excellence and designed to transform your space.",
+  "prev": "Previous",
+  "next": "Next",
+  "sectionLabel": "Products carousel",
+  "categories": [
+    {
+      "title": "Supply Fabric & Tailoring Services for Curtains & More",
+      "brief": "Premium custom curtains with expert tailoring and finest fabrics.",
+      "folderPath": "supply-fabric-tailoring-services-for-curtains-more",
+      "image": "/images/products/curtains.jpg",
+      "sub": [
+        "American Curtains",
+        "Classic Curtains"
+      ]
+    },
+    {
+      "title": "Roller Blinds, Black Out & Dim Out",
+      "brief": "Modern roller blinds for perfect light control and privacy.",
+      "folderPath": "roller-blinds-black-out-dim-out",
+      "image": "/images/products/roller.jpg",
+      "sub": [
+        "Black Out Rollers",
+        "Dim Out Rollers",
+        "Screen Rollers"
+      ]
+    },
+    {
+      "title": "Wave Style Curtains",
+      "brief": "Contemporary wave-style curtains for modern interiors.",
+      "folderPath": "wave-style-curtains",
+      "image": "/images/products/wave.jpg",
+      "sub": []
+    },
+    {
+      "title": "Roman Blinds",
+      "brief": "Elegant fabric blinds with smooth folding.",
+      "folderPath": "roman-blinds",
+      "image": "/images/products/roman.jpg",
+      "sub": []
+    },
+    {
+      "title": "Vertical & Vertical Waves Blinds",
+      "brief": "Stylish vertical blinds with wave patterns.",
+      "folderPath": "vertical-vertical-waves-blinds",
+      "image": "/images/products/vertical.jpg",
+      "sub": []
+    },
+    {
+      "title": "Japanese Panel Style",
+      "brief": "Sleek panel blinds inspired by Japanese aesthetics.",
+      "folderPath": "japanese-panel-style",
+      "image": "/images/products/japanese.jpg",
+      "sub": []
+    },
+    {
+      "title": "Honeycomb Blinds",
+      "brief": "Energy-efficient blinds with a cellular structure.",
+      "folderPath": "honeycomb-blinds",
+      "image": "/images/products/honeycomb.jpg",
+      "sub": []
+    },
+    {
+      "title": "Metal Blinds",
+      "brief": "Durable metal blinds for industrial or modern spaces.",
+      "folderPath": "metal-blinds",
+      "image": "/images/products/metal.jpg",
+      "sub": []
+    },
+    {
+      "title": "Wooden Blinds",
+      "brief": "Natural wooden blinds for a classic interior.",
+      "folderPath": "wooden-blinds",
+      "image": "/images/products/wood.jpg",
+      "sub": []
+    },
+    {
+      "title": "Double Roller Blinds (Zebra)",
+      "brief": "Zebra blinds for adjustable light filtering and privacy.",
+      "folderPath": "double-roller-blinds-zebra",
+      "image": "/images/products/zebra.jpg",
+      "sub": []
+    },
+    {
+      "title": "Wallpaper",
+      "brief": "Premium wallpaper collections for every taste.",
+      "folderPath": "wallpaper",
+      "image": "/images/products/wallpaper.jpg",
+      "sub": []
+    },
+    {
+      "title": "Outdoor Solutions & Skylights",
+      "brief": "Exterior blinds and skylight solutions.",
+      "folderPath": "outdoor-solutions-skylights",
+      "image": "/images/products/outdoor.jpg",
+      "sub": [
+        "Awning",
+        "Pergulas",
+        "Skylight",
+        "Vertical Solutions"
+      ]
+    },
+    {
+      "title": "Motorization Somfy Experts",
+      "brief": "Motorized solutions powered by Somfy for smart control.",
+      "folderPath": "motorization-somfy-experts",
+      "image": "/images/products/curtains.jpg",
+      "sub": []
+    },
+    {
+      "title": "Tracks for Hospitals & Hotels",
+      "brief": "Durable and silent tracks for medical and hospitality use.",
+      "folderPath": "tracks-for-hospitals-hotels",
+      "image": "/images/products/curtains.jpg",
+      "sub": []
+    },
+    {
+      "title": "Floorings & Acoustics",
+      "brief": "Premium flooring and acoustic solutions.",
+      "folderPath": "floorings-acoustics",
+      "image": "/images/products/floor.jpg",
+      "sub": [
+        "Acoustic Ceiling",
+        "Acoustic Panels",
+        "Floorings and Rugs"
+      ]
+    },
+    {
+      "title": "Accessories",
+      "brief": "Complete range of interior accessories.",
+      "folderPath": "accessories",
+      "image": "/images/products/accessories.jpg",
+      "sub": []
+    },
+    {
+      "title": "Furniture Upholstery",
+      "brief": "Professional furniture upholstery services.",
+      "folderPath": "furniture-upholstery",
+      "image": "/images/products/upholstery.jpg",
+      "sub": []
+    }
+  ]
+}

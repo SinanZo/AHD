@@ -1,0 +1,803 @@
+@import "tailwindcss";
+@import "./styles/tailwind-utils.css";
+@import "./styles/font-fallbacks.css";
+@import "./styles/index.css";
+@import "./styles/theme.css";
+@import "./styles/mobile-performance.css";
+
+/* Force language switcher and logo color regardless of header/global styles */
+.header-logo,
+.header-logo-force {
+  filter: drop-shadow(0 1px 8px rgba(0,0,0,.25)) !important;
+  color: inherit !important;
+}
+
+/* Force specific links (Amman Google Maps & phone) to white regardless of theme
+   These use aria-label selectors to avoid affecting other links globally. */
+a[aria-label="فتح الموقع على خرائط Google"],
+a[aria-label="اتصل بنا"] {
+  color: #ffffff !important;
+  text-decoration-color: #ffffff !important;
+}
+
+/* stylelint-disable at-rule-no-unknown */
+
+/* Use web fonts loaded from index.html */
+/* English: Playfair Display (headings), Inter (body) */
+/* Arabic: Cairo (headings), Tajawal (body) */
+
+/* === TOKENS: single source of truth === */
+:root{
+  color-scheme: light dark;
+
+  /* Abdulhaq Dimensions Brand - Light Mode */
+  --bg: #FCFCFC;        /* clean white background */
+  --fg: #1A1A1A;        /* primary text */
+  --muted: #6D6D6D;     /* muted text */
+
+  --card: #FFFFFF;      /* pure white for cards */
+  --stroke: #A7B1B8;    /* stone light border */
+  --chip: #F4F4F5;      /* soft background for chips */
+
+  /* Brand colors */
+  --brand: #0C2546;     /* Abdulhaq Navy */
+  --brand-2: #21406B;   /* Primary Light */
+  --brand-light: #6D7A84; /* Stone Gray */
+  --btn: #0C2546;       /* Navy button */
+  --btn-fg: #ffffff;
+  
+  /* Accent */
+  --accent: #C7A57A;    /* Heritage Gold */
+  --accent-light: #E5CAA1; /* Gold Light */
+  --accent-dark: #A98B65;  /* Gold Deep */
+  
+  /* Backgrounds */
+  --bg-soft: #F4F4F5;
+  --bg-linen: #EFEDE8;
+  
+  /* Text colors */
+  --text-secondary: #3A3A3A;
+  --text-muted: #6D6D6D;
+
+  /* Links / header */
+  --link: color-mix(in srgb, var(--brand) 84%, #000 16%);
+  --link-hover: color-mix(in srgb, var(--brand-2) 86%, #000 14%);
+  --nav-item-bg-hover: color-mix(in srgb, var(--brand) 6%, transparent 94%);
+
+  --header-bg: linear-gradient(180deg, rgba(12,37,70,0.98), rgba(8,26,51,0.96));
+  --header-bg-color: rgba(12,37,70,0.96);
+
+  /* Header-specific tokens */
+  --header-fg: #ffffff;
+  --header-pill-bg: rgba(255,255,255,0.08);
+  --header-pill-hover: rgba(199,165,122,0.15); /* Gold hover */
+  --header-pill-active-bg: #C7A57A; /* Heritage Gold active */
+  --header-pill-active-fg: #0C2546; /* Navy text on gold */
+  --header-pill-stroke: rgba(255,255,255,0.18);
+  --header-pill-active-inner: rgba(0,0,0,0.06);
+  --header-icon: rgba(255,255,255,0.96);
+
+  /* --- Hero & global design tokens (shared) --- */
+  --r-hero: 18px;
+  --bg-hero-dark: #0B151B;
+  --card-glass: rgba(255,255,255,0.08);
+  --stroke-strong: rgba(255,255,255,0.18);
+  --shadow-soft: 0 8px 30px rgba(2,12,14,0.28), 0 2px 6px rgba(2,12,14,0.06);
+  --hero-max-h: min(80vh, 720px);
+}
+
+/* Token fallbacks for browsers without color-mix() */
+@supports not (color: color-mix(in srgb, white 50%, black)) {
+  :root {
+    --link: var(--brand);
+    --link-hover: var(--brand-2);
+    --nav-item-bg-hover: rgba(0,0,0,0.04);
+  }
+}
+
+.dark{
+  color-scheme: dark;
+
+  /* Abdulhaq Dimensions Brand - Dark Mode */
+  --bg: #0A1220;        /* dark background */
+  --fg: #FFFFFF;        /* white text */
+  --muted: #9CA3AF;     /* muted text */
+
+  --card: #141B29;      /* dark card surface */
+  --stroke: #4A555D;    /* stone dark border */
+  --chip: #1D2635;      /* secondary layer */
+
+  /* Brand colors for dark mode */
+  --brand: #1F3A64;     /* Navy Highlight */
+  --brand-2: #21406B;   /* Primary Light */
+  --brand-light: #9CA3AF; /* Secondary */
+  --btn: #1F3A64;       /* Navy button */
+  --btn-fg: #ffffff;
+  
+  /* Accent */
+  --accent: #D8B98A;    /* Gold Accent (Bright) */
+  --accent-light: #E5CAA1;
+  --accent-dark: #A98B65;
+  
+  /* Backgrounds */
+  --bg-soft: #141B29;
+  --bg-linen: #1D2635;
+  
+  /* Text colors */
+  --text-secondary: #E5E7EB;
+  --text-muted: #9CA3AF;
+
+  --link: color-mix(in srgb, var(--brand) 72%, #fff 28%);
+  --link-hover: color-mix(in srgb, var(--brand-2) 76%, #fff 24%);
+  --nav-item-bg-hover: color-mix(in srgb, var(--chip) 6%, transparent 94%);
+
+  --header-bg: linear-gradient(180deg, rgba(8,26,51,0.95), rgba(10,18,32,0.92));
+  --header-bg-color: rgba(8,26,51,0.92);
+
+  /* Dark-mode header tokens */
+  --header-fg: #ffffff;
+  --header-pill-bg: rgba(255,255,255,0.08);
+  --header-pill-hover: rgba(216,185,138,0.15); /* Gold Bright hover */
+  --header-pill-active-bg: #D8B98A; /* Gold Accent active */
+  --header-pill-active-fg: #0A1220; /* Dark bg text on gold */
+  --header-pill-stroke: rgba(255,255,255,0.12);
+  --header-pill-active-inner: rgba(0,0,0,0.06);
+  --header-icon: rgba(255,255,255,0.9); /* Bright icons */
+}
+
+/* Hero responsive helpers */
+@media (max-width: 640px) {
+  /* Allow hero video to use full width on small screens */
+  .hero-video-full { max-width: 100% !important; width: 100% !important; }
+
+  /* Chips container: ensure padding + smooth horizontal scroll and visible items */
+  .hero-chips-scroll { padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+  .hero-chips-scroll::-webkit-scrollbar { height: 6px; }
+  .hero-chips-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 999px; }
+}
+
+/* RTL-friendly flip for scroll snapping and ordering */
+.rtl-flip { direction: rtl; }
+.rtl-flip > * { direction: ltr; }
+/* Also support elements placed inside an element with dir="rtl" */
+[dir="rtl"] .rtl-flip { direction: rtl; }
+[dir="rtl"] .rtl-flip > * { direction: ltr; }
+
+/* Hero grid areas: swap panels reliably using [dir] at md+ breakpoints */
+.hero-grid { 
+  grid-template-areas: 'content' 'video';
+  display: grid;
+}
+.hero-content { grid-area: content; }
+.hero-video { grid-area: video; }
+
+@media (min-width: 768px) {
+  .hero-grid {
+    grid-template-areas: 'content video';
+    grid-template-columns: 1fr 0.8fr;
+    gap: 1rem;
+  }
+  [dir="rtl"] .hero-grid {
+    grid-template-areas: 'video content';
+    grid-template-columns: 0.8fr 1fr;
+  }
+}
+
+/* Ensure hero controls are not clipped and have precedence */
+.hero-controls { z-index: 60; }
+.hero-controls { z-index: 70; padding-inline: .5rem; }
+.hero-controls .w-10 { box-shadow: 0 6px 20px rgba(0,0,0,0.5); }
+
+/* Small iterative visual tweaks (safe, non-destructive)
+   - stronger nav button background on all themes
+   - subtle hover/press motion for nav buttons
+   - slightly larger play CTA padding on most viewports
+   - make chips scroll-snap friendly on small screens
+*/
+.hero-controls { align-items: center; position: relative; }
+.hero-controls .nav-btn {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease;
+}
+.hero-controls .nav-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
+.dark .hero-controls .nav-btn { background: rgba(255,255,255,0.04); }
+
+.play-cta { padding: .7rem 1.1rem !important; border-width: 1px; transform: translateZ(0); }
+.play-cta:active { transform: translateY(0); }
+@media (min-width: 1024px) {
+  .play-cta { padding: .8rem 1.2rem !important; }
+}
+
+/* Make chips smoothly horizontally scrollable on small screens and snap to center */
+@media (max-width: 640px) {
+  .hero-chips-scroll { display: flex; overflow-x: auto; gap: 0.6rem; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .hero-chips-scroll [data-test="hero-chip"] { flex: 0 0 auto; scroll-snap-align: center; }
+  .hero-chips-scroll::-webkit-scrollbar { height: 6px; }
+  .hero-chips-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 999px; }
+}
+
+/* Make nav buttons slightly larger and more tappable */
+.hero-controls .nav-btn { width: 44px !important; height: 44px !important; }
+.hero-controls .nav-btn svg { width: 20px !important; height: 20px !important; }
+
+/* Play CTA improvements: ensure it sits above overlays and is more prominent */
+.play-cta { z-index: 80 !important; padding: .6rem 1rem !important; font-weight: 700; border-radius: 999px; }
+.play-cta svg { width: 18px; height: 18px; }
+
+/* stronger visual for play CTA: bright outline, subtle elevated shadow */
+.play-cta { box-shadow: 0 8px 30px rgba(2,12,14,0.45), inset 0 1px 0 rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+.play-cta:hover { transform: translateY(-1px); }
+
+/* Mobile-specific: slightly larger play icon and padding for touch clarity */
+@media (max-width: 640px) {
+  .play-cta svg { width: 22px !important; height: 22px !important; }
+  .play-cta { padding: .85rem 1.1rem !important; }
+}
+
+/* Slightly larger arrows on wide screens and increased touch area */
+@media (min-width: 1024px) {
+  .hero-controls { padding-inline: 1.25rem; }
+  .hero-controls .nav-btn { width: 56px !important; height: 56px !important; }
+  .hero-controls .nav-btn svg { width: 22px !important; height: 22px !important; }
+}
+
+/* Ensure hero video area remains visible on small screens */
+.hero-video-full { min-height: 180px; }
+
+/* Chip wrapping: prefer wrap on sm+ but keep comfortable touch sizes */
+@media (max-width: 640px) {
+  .hero-chips-scroll { gap: 0.6rem; }
+  .hero-chips-scroll [data-test="hero-chip"] { padding: .5rem .95rem; font-size: 13px; }
+}
+@media (min-width: 640px) {
+  .hero-chips-scroll { gap: 0.75rem; display: flex; flex-wrap: wrap; }
+}
+
+/* Improve chips legibility on small screens */
+.hero-chips-scroll { scroll-padding-inline: 1rem; }
+.hero-chips-scroll [data-test="hero-chip"] { font-size: 13px; padding: .45rem .85rem; }
+@media (min-width: 768px) {
+  .hero-chips-scroll [data-test="hero-chip"] { font-size: 13px; padding: .55rem .95rem; }
+}
+
+/* Flip triangular/play icons in RTL.
+  Support both the legacy `.rtl` root class and the document `dir="rtl"` attribute.
+  Add a gentle transition so the flip is visually smooth when toggled in dev. */
+.play-flip { transition: transform .18s ease; transform-origin: center; }
+[dir="rtl"] .play-flip,
+.rtl .play-flip { transform: scaleX(-1); }
+
+/* Nudge nav buttons inward when in RTL to avoid overlap with edge UI */
+[dir="rtl"] .hero-controls .nav-btn { margin-inline-start: 6px; margin-inline-end: 0; }
+.rtl .hero-controls .nav-btn { margin-inline-start: 6px; margin-inline-end: 0; }
+
+/* Header utility: stronger active pill highlight and consistent pill radius */
+.header .pill-active {
+  /* Use background-color (not shorthand) so accessibility tools can compute
+     contrast against a single color value. */
+  background-color: var(--header-pill-active-bg);
+  color: var(--header-pill-active-fg) !important;
+  box-shadow: inset 0 2px 0 var(--header-pill-active-inner), 0 8px 26px rgba(2,12,14,0.35);
+  border-radius: 999px;
+  border: 1px solid var(--header-pill-stroke);
+}
+
+.header .pill {
+  border-radius: 999px;
+  transition: background-color .18s ease, color .18s ease, box-shadow .18s ease;
+  background-color: var(--header-pill-bg);
+  border: 1px solid var(--header-pill-stroke);
+  color: var(--header-fg);
+  font-weight: 600;
+}
+.header .pill:hover { background-color: var(--header-pill-hover); }
+
+/* Language pill refinements: remove heavy borders and reduce text-shadow for clarity */
+.lang-pill {
+  padding: 6px 10px; min-width: 44px; display:inline-flex; align-items:center; justify-content:center;
+  border: none; /* remove border for cleaner pill */
+  background-color: color-mix(in srgb, var(--header-pill-bg) 86%, rgba(255,255,255,0.02) 14%);
+  color: var(--header-fg);
+  text-shadow: none; /* remove heavy shadow for crisper text */
+}
+
+/* Specific language button selectors kept for compatibility but simplified */
+button[data-set-lang="en"],
+button[data-set-lang="ar"] {
+  border: none;
+  background-color: transparent;
+  color: var(--header-fg);
+}
+
+button[data-set-lang="en"].pill-active,
+button[data-set-lang="ar"].pill-active {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+  background-color: var(--header-pill-active-bg);
+  color: var(--header-pill-active-fg) !important;
+}
+
+/* Logo fine-tune */
+.dark .logo { filter: drop-shadow(0 3px 6px rgba(0,0,0,0.45)); }
+
+/* Language pill hover: subtle lift only */
+.lang-pill:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+
+/* Header color should adapt to background; Header component sets inline color depending on scroll/theme state. */
+
+/* Dark-mode token fallbacks when color-mix() isn't supported */
+@supports not (color: color-mix(in srgb, white 50%, black)) {
+  .dark {
+    --link: var(--brand);
+    --link-hover: var(--brand-2);
+    --nav-item-bg-hover: rgba(255,255,255,0.04);
+  }
+}
+
+/* Fallbacks when color-mix() isn't supported (older browsers)
+   These definitions give safe static colors for variables and a few
+   inline properties that use color-mix() so visuals remain acceptable.
+*/
+@supports not (color: color-mix(in srgb, white 50%, black)) {
+  :root {
+    --link: var(--brand);
+    --link-hover: var(--brand-2);
+    --nav-item-bg-hover: rgba(0,0,0,0.04);
+  }
+
+  /* Dark-mode fallbacks when color-mix isn't supported */
+  .dark {
+    --link: var(--brand);
+    --link-hover: var(--brand-2);
+    --nav-item-bg-hover: rgba(255,255,255,0.04);
+  }
+
+  /* hero underline fallback to plain gradient when color-mix not available */
+  .hero-title .u-underline::after {
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    opacity: 0.95;
+  }
+
+  /* Ghost button fallback
+     color-mix(in oklab, var(--fg) 88%, transparent) -> readable fg color
+  */
+  .btn-ghost, .button-ghost { color: var(--fg); }
+
+  /* Theme toggle fallbacks */
+  .theme-toggle, .lang-toggle { background: var(--chip); border: 1px solid rgba(0,0,0,0.05); }
+  .theme-toggle:hover, .lang-toggle:hover { background: var(--chip); }
+
+  /* Hamburger fallback */
+  .hamburger-icon { background-color: var(--chip) !important; }
+
+}
+
+@supports (color: color-mix(in srgb, white 50%, black)) {
+  .hero-title .u-underline::after {
+    background: linear-gradient(90deg, color-mix(in srgb, var(--brand) 92%, transparent), var(--brand-2));
+  }
+}
+
+/* Ensure hamburger icon gets a safe background when color-mix() isn't available */
+@supports not (color: color-mix(in srgb, white 50%, black)) {
+  .hamburger-icon { background-color: var(--chip) !important; border: 1px solid rgba(0,0,0,0.06); color: var(--fg) !important; }
+}
+
+@layer base {
+  /* Primary font: Distinct Style Sans Light (weight 300) */
+  html, body {
+    font-family: "Distinct Style Sans", "DM Sans", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  /* Distinct Style Sans Light for all headings with tight tracking */
+  h1, h2, h3, h4, h5, h6,
+  .section-title,
+  .card-title,
+  .hero-title,
+  .service-title,
+  .product-title,
+  .client-title {
+    font-family: "Distinct Style Sans", "DM Sans", "Inter", system-ui, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.015em;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Arabic headings fallback when document or element is RTL.
+     Prefer Cairo (preloaded) then Tajawal, then IBM Plex Sans Arabic as a robust fallback.
+  */
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+    font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', 'Noto Naskh Arabic', system-ui, sans-serif;
+    font-weight: 400; /* neutral weight to match loaded Arabic font metrics */
+    letter-spacing: 0; /* reset negative tracking which breaks Arabic */
+  }
+
+/* When hero uses Arabic, ensure no negative tracking and use Arabic font */
+:lang(ar) .hero-title, .hero-title.font-arabic {
+  letter-spacing: 0 !important;
+  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', 'Noto Naskh Arabic', sans-serif !important;
+}
+
+  /* Arabic body text when document or element is RTL */
+  [dir="rtl"] {
+    font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', "Inter", system-ui, sans-serif;
+    font-weight: 400;
+  }
+
+  /* Ensure section and card titles have consistent sizing and line-height */
+  .section-title {
+    font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    line-height: 1.15;
+    margin-top: 0.35rem;
+  }
+}
+
+/* Card Component with proper styling */
+.card {
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+}
+
+/* Body styling with theme support */
+body {
+  background: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Utility classes for your display & vertical text */
+
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.writing-vertical-rtl {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+@keyframes bounceY {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(14px);}
+}
+.animate-bounceY {
+  animation: bounceY 1.8s cubic-bezier(.56,.06,.54,.96) infinite;
+}
+.clients-slider {
+  scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.clients-slider::-webkit-scrollbar {
+  display: none;            /* Chrome, Safari, Edge */
+}
+
+/* Image Error Handling Styles */
+.image-error-fallback {
+  filter: grayscale(50%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.image-retry {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Accessibility improvements for error states */
+.image-error-fallback:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Hide product read-more buttons as requested (keep gallery/order CTAs intact) */
+.btn.read-more, .read-more, [class*="read-more"], .btn--read-more {
+  display: none !important;
+}
+
+/* RTL/LTR handling */
+[dir="rtl"] {
+  /* Mirror paddings, arrows, carousels */
+  .carousel-arrow-left {
+    transform: scaleX(-1);
+  }
+  .carousel-arrow-right {
+    transform: scaleX(-1);
+  }
+}
+
+/* -------------------------
+   Project-wide improvements
+   ------------------------- */
+
+/* Prevent horizontal overflow on small devices */
+html, body { overflow-x: hidden; }
+
+/* Fluid container with logical padding */
+.container {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(12px, 2vw, 24px);
+}
+
+/* Fluid grid for services/products */
+.services-grid {
+  display: grid;
+  gap: clamp(16px, 2vw, 24px);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Clamp hero and section headings to avoid overflow */
+.hero-title {
+  font-size: clamp(28px, 4.6vw, 48px);
+  line-height: 1.12;
+}
+.section-title { font-size: clamp(20px, 3.2vw, 32px); }
+
+/* Sticky header and mobile menu z-index handling */
+.header { position: sticky; top: 0; z-index: 60; }
+.mobile-menu { z-index: 70; }
+
+/* -------------------------
+   Arabic hero underline fix
+   ------------------------- */
+:root{ --underline-thickness: 3px; --underline-offset: 10px; }
+
+/* Disable full-line underline for Arabic hero, use single-word .u-underline instead */
+:lang(ar) .hero-title{ text-decoration: none; }
+
+/* .u-underline: canonical implementation lives in src/styles/tailwind-utils.css
+   Project CSS only tunes opacity/AR offsets — duplicates removed. */
+
+/* Small-screen tweak: increase offset slightly on narrow viewports */
+@media (max-width: 420px){
+  :lang(ar) .hero-title{ text-underline-offset: clamp(10px, 6vw, 20px); }
+  .hero-title .u-underline{ padding-bottom: 0.3em; }
+}
+
+/* -------------------------
+   Drawer / Mobile menu
+   ------------------------- */
+#menu[hidden]{ display: none; }
+#menu{
+  position: fixed; inset-block-start: 0; inset-inline: 0;
+  block-size: 100dvh; inline-size: min(86vw, 360px);
+  background: var(--card); border-inline: 1px solid var(--stroke);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  transform: translateX(0);
+}
+html[dir="ltr"] #menu{ inset-inline-start: 0; }
+html[dir="rtl"] #menu{ inset-inline-end: 0; }
+.nav-list{ padding: 20px; display:flex; flex-direction: column; gap:12px; }
+.nav-list a{ color: var(--fg); padding: 10px 12px; border-radius: 10px; display: inline-block; }
+.nav-list a:focus-visible{ outline: 2px solid var(--brand); outline-offset: 2px; }
+
+/* Keep toggles visible inside header */
+.theme-toggle, .lang-toggle{ background: var(--chip); color: var(--fg); border: 1px solid var(--stroke); }
+.theme-toggle svg, .lang-toggle svg{ fill: currentColor; opacity: .95; }
+
+/* -------------------------
+   Light/Dark tokens parity & visibility
+   ------------------------- */
+/* Light/dark tokens are defined in the consolidated token block later in this file.
+   Removed earlier duplicate token definitions to prevent nondeterministic overrides.
+*/
+
+/* -------------------------
+   Hero overlay/CTA spacing (page-specific)
+   ------------------------- */
+.hero{ position: relative; }
+.hero::after{
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+  pointer-events: none; z-index: 0;
+}
+html:not(.dark) .hero::after{ background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.35)); }
+
+.hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; justify-content: flex-start; z-index: 2; }
+:lang(ar) .hero-ctas{ justify-content: flex-end; }
+
+/* Services card improvements */
+.services-card{ padding: 28px; min-block-size: 320px; }
+.services-card .icon-badge{ inline-size:56px; block-size:56px; border-radius:50%; background:var(--chip); display:grid; place-items:center; margin-inline:auto; }
+.services-card:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.22); }
+
+/* Slider arrow touch areas */
+.slider-arrow{ inline-size:44px; block-size:44px; border-radius:999px; background:var(--chip); color:var(--fg); display:grid; place-items:center; }
+html[dir="rtl"] .arrow-prev{ order: 2; }
+
+/* Focus outlines for keyboard users */
+a:focus, button:focus, .nav-list a:focus { outline: 3px solid transparent; outline-offset: 3px; }
+
+/* =======================
+   PATCH: AR + THEME PARITY + ICON VISIBILITY
+   ======================= */
+
+/* 1) Fonts: removed font-display from general selectors; keep font-display only inside @font-face rules */
+
+
+
+/* 3) Hero underline: feature-detect thickness & offset and avoid diacritics clash */
+@supports (text-decoration-thickness: 2px) and (text-underline-offset: 6px) {
+  :lang(ar) .hero-title {
+    text-decoration-line: underline;
+    text-decoration-thickness: clamp(2px, 0.3vw, 6px);
+    text-underline-offset: clamp(8px, 2vw, 16px);
+    text-decoration-skip-ink: none;
+  }
+}
+@media (max-width: 420px) {
+  :lang(ar) .hero-title { text-underline-offset: clamp(10px, 6vw, 20px); }
+}
+
+/* Hero pseudo-highlight tuning is handled in src/styles/index.css and tailwind-utils.css; duplicates removed here. */
+
+/* Icon visibility + currentColor consistency - consolidated later to one rule to avoid duplicates */
+
+/* 6) Button contrast parity */
+.btn, button, .chip {
+  background: var(--btn);
+  color: var(--btn-fg);
+  border: 1px solid transparent;
+}
+.btn-ghost, .button-ghost {
+  background: transparent;
+  color: color-mix(in oklab, var(--fg) 88%, transparent);
+  border-color: var(--stroke);
+}
+
+@supports not (color: color-mix(in oklab, var(--fg) 88%, transparent)) {
+  .btn-ghost, .button-ghost { color: var(--fg); }
+}
+
+/* 7) Drawer layering & focus */
+.header { z-index: 60; }
+.mobile-menu, #menu { z-index: 70; }
+#menu:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+/* Header nav pills uniform */
+.header .nav-pill { height: 40px; }
+
+/* Subtle text shadow to lift hero title on busy images */
+.hero-title { text-shadow: 0 2px 12px rgba(0,0,0,.35); }
+
+/* Remove legacy hero pseudo overlay if present */
+/* Legacy override removed so the controlled hero overlay (defined above) takes effect. */
+/* .hero::after { content: none !important; } */
+
+/* Force white hero title if any utility overrides it */
+.hero .hero-title { color: #fff !important; }
+
+/* Ensure header icons follow text color */
+.header svg {
+  color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Make dot controls visible in all themes */
+.hero .w-3.h-3 {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+}
+
+/* Slide progress bar */
+.progress-track { 
+  height: 6px; 
+  border-radius: 9999px; 
+  background: rgba(255,255,255,.25); 
+  overflow: hidden; 
+}
+
+.progress-bar { 
+  height: 100%; 
+  background: #fff; 
+  transform: scaleX(0); 
+  animation: slideProgress var(--slide-ms,5000ms) linear forwards; 
+}
+
+@keyframes slideProgress { 
+  to { transform: scaleX(1) } 
+}
+
+/* Slightly stronger overlay fallback for very bright images */
+.hero .overlay-strong { background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.45)); }
+
+/* 8) RTL-safe arrows and paddings using logical properties */
+[dir="rtl"] .carousel-arrow-left,
+[dir="rtl"] .carousel-arrow-right { transform: scaleX(-1); }
+.container { padding-inline: clamp(12px, 2vw, 24px); }
+
+/* 9) Reduce motion for low-power devices (optional, non-blocking) */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* Duplicate token blocks removed — canonical token block at top of file is the single source of truth. */
+
+/* Header link base styles (applies to top nav and mobile menu) */
+.header a, .header .nav-list a, .nav-list a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 180ms ease, background-color 180ms ease, transform 120ms ease;
+}
+.header a:hover, .header a:focus, .nav-list a:hover, .nav-list a:focus {
+  color: var(--link-hover);
+  background: var(--nav-item-bg-hover);
+  transform: translateY(-1px);
+}
+.nav-list a[aria-current="page"], .nav-list a.active {
+  color: var(--btn-fg);
+  background: var(--btn);
+  box-shadow: 0 6px 18px rgba(2,8,10,0.12);
+}
+
+/* Make theme/lang toggles visually tied to header but distinct */
+.theme-toggle, .lang-toggle {
+  background: color-mix(in srgb, var(--chip) 88%, var(--brand) 6%);
+  color: var(--fg);
+  border: 1px solid color-mix(in srgb, var(--stroke) 92%, var(--brand) 8%);
+}
+.theme-toggle:hover, .lang-toggle:hover { background: color-mix(in srgb, var(--chip) 78%, var(--brand) 12%); }
+
+/* Local fallback for browsers that don't support color-mix(): keep the toggles visible */
+@supports not (color: color-mix(in srgb, white 50%, black)) {
+  .theme-toggle, .lang-toggle {
+    background: var(--chip);
+    color: var(--fg);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .theme-toggle:hover, .lang-toggle:hover { background: var(--chip); }
+}
+
+/* Adjust ghost buttons in header to be clearer */
+.btn-ghost, .button-ghost { border-radius: 999px; padding: 8px 14px; }
+
+body { background: var(--bg); color: var(--fg); }
+
+/* Arabic typography + spacing */
+
+/* Nav pills never wrap words (both locales) */
+.header button[aria-current], .header nav button { white-space: nowrap; }
+
+/* Arabic heading guard: only adjust hero-title letter-spacing here to avoid overriding global RTL heading family/weight */
+:lang(ar) .hero-title { letter-spacing: 0 !important; }
+
+/* Change icons for light and dark modes */
+:root {
+  --icon-light: url('/images/icons/sun.svg'); /* Icon for light mode */
+}
+
+.dark {
+  --icon-dark: url('/images/icons/moon.svg'); /* Icon for dark mode */
+}
+
+.icon {
+  background-image: var(--icon-light); /* Default to light mode icon */
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.dark .icon {
+  background-image: var(--icon-dark); /* Switch to dark mode icon */
+}

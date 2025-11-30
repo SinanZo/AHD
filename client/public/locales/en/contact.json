@@ -1,0 +1,66 @@
+{
+  "title": "Contact Us",
+  "subtitle": "Get in Touch with Our Expert Team",
+  "description": "Ready to transform your space? Contact us today for a consultation and discover how we can bring your vision to life with our premium interior solutions.",
+  "form": {
+    "title": "Send us a Message",
+    "name": "Full Name",
+    "namePlaceholder": "Enter your full name",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "phone": "Phone Number",
+    "phonePlaceholder": "Enter your phone number",
+    "subject": "Subject",
+    "subjectPlaceholder": "What can we help you with?",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about your project or requirements",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+    "error": "Sorry, there was an error sending your message. Please try again or contact us directly."
+  },
+  "info": {
+    "title": "Contact Information",
+    "address": {
+      "title": "Our Location",
+      "line1": "Abdulhaq Dimensions Showroom",
+      "line2": "Main Street, Business District",
+      "line3": "City, Country"
+    },
+    "phone": {
+      "title": "Phone Numbers",
+      "main": "+966 XX XXX XXXX",
+      "mobile": "+966 XX XXX XXXX"
+    },
+    "email": {
+      "title": "Email Addresses",
+      "general": "info@abdulhaq-dimensions.com",
+      "sales": "sales@abdulhaq-dimensions.com"
+    },
+    "hours": {
+      "title": "Business Hours",
+      "weekdays": "Sunday - Thursday: 8:00 AM - 6:00 PM",
+      "weekend": "Friday - Saturday: 9:00 AM - 5:00 PM"
+    }
+  },
+  "services": {
+    "title": "How Can We Help?",
+    "consultation": {
+      "title": "Free Consultation",
+      "description": "Schedule a free consultation with our design experts"
+    },
+    "quote": {
+      "title": "Get a Quote",
+      "description": "Receive a detailed quote for your project requirements"
+    },
+    "installation": {
+      "title": "Installation Service",
+      "description": "Professional installation by our certified technicians"
+    },
+    "maintenance": {
+      "title": "Maintenance & Support",
+      "description": "Ongoing support and maintenance for your installations"
+    }
+  }
+}
+

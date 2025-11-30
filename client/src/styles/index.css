@@ -1,0 +1,155 @@
+/* Production-focused tokens and strict AR underline guards
+   This file contains a minimal, focused set of tokens and rules requested by the spec.
+*/
+/* Tokens are defined in the canonical token block in src/index.css.
+   This file intentionally leaves token definitions to that single source of truth
+   to avoid accidental overrides. Use var(--name) to reference tokens here.
+*/
+
+/* Header compact sizing */
+.header img{ height: 3rem; } /* h-12 */
+@media (min-width: 768px){ .header img{ height: 5rem; } } /* md:h-20 */
+@media (min-width: 1024px){ .header img{ height: 6rem; } } /* lg:h-24 */
+
+/* Nav pill padding: px-5 py-2.5 */
+.nav-pill{
+  padding-inline: 1.25rem;
+  padding-block: 0.625rem;
+  border-radius: 9999px;
+  background: var(--chip);
+  border: 1px solid var(--stroke);
+  color: var(--fg);
+}
+.nav-pill:focus-visible{
+  outline: 2px solid color-mix(in srgb, var(--brand) 70%, white);
+  outline-offset: 2px;
+}
+
+/* Fallback when color-mix() not supported: use a plain brand outline */
+@supports not (color: color-mix(in srgb, white 50%, black)) {
+  .nav-pill:focus-visible { outline: 2px solid var(--brand); }
+}
+
+/* Hero AR underline guards */
+@supports (text-decoration-thickness: 2px) and (text-underline-offset: 6px) {
+  :lang(ar) .hero-title{
+    text-decoration-line: underline;
+    text-decoration-thickness: clamp(2px, 0.3vw, 6px);
+    text-underline-offset: clamp(8px, 2vw, 16px);
+    text-decoration-skip-ink: none;
+  }
+}
+/* Base underline helper + pseudo-element for robust fallback */
+/* .u-underline canonical utility is provided in src/styles/tailwind-utils.css */
+
+@media (max-width: 420px){
+  :lang(ar) .hero-title{ text-underline-offset: clamp(10px, 6vw, 20px); }
+}
+
+/* Ensure header toggles visible */
+.theme-toggle, .lang-toggle{
+  background: var(--chip);
+  color: var(--fg);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.theme-toggle svg, .lang-toggle svg{ fill: currentColor; }
+.theme-toggle:focus-visible, .lang-toggle:focus-visible{
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Ensure hamburger visibility */
+.hamburger-icon{
+  background-color: var(--chip) !important;
+  border: 1px solid rgba(0,0,0,0.06);
+  color: var(--fg) !important;
+}
+
+/* Keep hero CTAs layout consistent */
+.hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+:lang(ar) .hero-ctas{ justify-content:flex-end; }
+
+/* Small utility for visually-hidden text */
+.visually-hidden{
+  position:absolute !important;
+  width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* Location pill in header */
+.location-pill{
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  color: white;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.06);
+  text-decoration: none;
+  transition: transform .15s ease, opacity .15s ease;
+}
+/* Enhance if color-mix is available */
+@supports (color: color-mix(in srgb, white 50%, black)) {
+  .location-pill{
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--brand) 85%, white),
+      color-mix(in srgb, var(--brand-2) 85%, white)
+    );
+  }
+}
+.location-pill:hover{ transform: translateY(-1px); opacity: 0.98; }
+.location-pill svg{ color: white; }
+
+/* Text-only location variant (non-clickable) */
+.location-pill.text-only{
+  background: transparent; border: none; padding: 0; color: var(--btn-fg);
+}
+.location-pill.text-only svg{ color: var(--btn-fg); opacity: 0.9; }
+.location-pill.text-only:hover{ transform: none; opacity: 1; cursor: default; }
+
+/* Hero title gradient for English */
+.hero-gradient{
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+/* Accent for Arabic single-word underline */
+.hero-accent{ color: var(--btn-fg); }
+.hero-accent.u-underline::after{
+  background: color-mix(in srgb, var(--brand) 88%, transparent);
+  opacity: 0.95;
+}
+/* Fallback if color-mix is not supported */
+@supports not (color: color-mix(in srgb, white 50%, black)) {
+  .hero-accent.u-underline::after{ background: var(--brand); }
+}
+
+/* Reduced motion: remove hover bumps */
+@media (prefers-reduced-motion: reduce){
+  .location-pill,
+  .nav-pill,
+  .hero-ctas > *{
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Forced colors: ensure visible */
+@media (forced-colors: active){
+  .location-pill,
+  .nav-pill,
+  .theme-toggle,
+  .lang-toggle{
+    border: 1px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+}
+
+/* Tiny Tailwind utility suggestion (add to your Tailwind layer):
+   .u-underline { @apply relative; }
+   .u-underline::after { content: ""; position: absolute; inset-inline: 0; inset-block-end: -0.5em; height: 0.45em; background: currentColor; opacity: 0; border-radius: 6px; pointer-events: none; }
+   Use the .u-underline class in markup to get the robust Arabic underline fallback.
+*/

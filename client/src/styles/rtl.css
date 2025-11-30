@@ -1,0 +1,29 @@
+/** ============================================================================
+ *  ABDULHAQ DIMENSIONS - RTL/LTR SUPPORT
+ *  Authoritative guards for direction-aware layout & text behavior
+ *  ========================================================================== **/
+
+/* Mirror nav order automatically in Arabic */
+html[dir="rtl"] .nav-rail {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .header .right-slot {
+  flex-direction: row-reverse;
+}
+
+/* Ensure inline text behaves correctly inside pills */
+.nav-rail a {
+  unicode-bidi: plaintext;
+}
+
+/* Generic logical spacing (when you can't control via Tailwind) */
+html[dir="rtl"] .ms-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .me-auto {
+  margin-right: 0;
+  margin-left: auto;
+}

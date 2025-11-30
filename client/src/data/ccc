@@ -1,0 +1,72 @@
+// src/data/productsData.js
+
+export const productsData = [
+  {
+    title: "Accessories",
+    sub: ["Accessories"]
+  },
+  {
+    title: "Double Roller Blinds Zebra",
+    sub: ["Double Roller Zebra"]
+  },
+  {
+    title: "Floorings Acoustics",
+    sub: ["Floor", "Acoustics"]
+  },
+  {
+    title: "Furniture Upholstery",
+    sub: ["Upholstery"]
+  },
+  {
+    title: "Honeycomb Blinds",
+    sub: ["Honeycomb"]
+  },
+  {
+    title: "Japanese Panel Style",
+    sub: ["Japanese"]
+  },
+  {
+    title: "Metal Blinds",
+    sub: ["Metal"]
+  },
+  {
+    title: "Motorization Somfy Experts",
+    sub: ["Motor", "Automation"]
+  },
+  {
+    title: "Outdoor Solutions Skylights",
+    sub: ["Outdoor", "Skylights"]
+  },
+  {
+    title: "Roller Blinds Blackout Dimout",
+    sub: ["Roller"]
+  },
+  {
+    title: "Roman Blinds",
+    sub: ["Roman"]
+  },
+  {
+    title: "Supply Fabric Tailoring Services for Curtains – More",
+    sub: ["Accessories", "Curtains", "Upholstery"]
+  },
+  {
+    title: "Tracks for Hospitals Hotels",
+    sub: ["Tracks"]
+  },
+  {
+    title: "Vertical Vertical Waves Blinds",
+    sub: ["Vertical"]
+  },
+  {
+    title: "Wallpaper",
+    sub: ["Modern", "Classic"]
+  },
+  {
+    title: "Wave Style Curtains",
+    sub: ["Wave Curtains"]
+  },
+  {
+    title: "Wooden Blinds",
+    sub: ["Wooden"]
+  }
+];

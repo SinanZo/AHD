@@ -1,0 +1,104 @@
+[
+  {
+    "category": "SUPPLY FABRIC & TAILORING SERVICES FOR CURTAINS & MORE",
+    "ar": "توريد الأقمشة وخدمات التفصيل للستائر وأكثر",
+    "subcategories": [
+      { "en": "American Curtains", "ar": "ستائر أمريكية" },
+      { "en": "Classic Curtains", "ar": "ستائر كلاسيكية" }
+    ]
+  },
+  {
+    "category": "ROLLER BLINDS, BLACK OUT & DIM OUT",
+    "ar": "رولات ستائر، تعتيم وجزئي",
+    "subcategories": [
+      { "en": "Black Out Rollers", "ar": "رولات تعتيم" },
+      { "en": "Dim Out Rollers", "ar": "رولات شبه تعتيم" },
+      { "en": "Screen Rollers", "ar": "رولات شاشة" }
+    ]
+  },
+  {
+    "category": "WAVE STYLE CURTAINS",
+    "ar": "ستائر موديل ويف",
+    "subcategories": []
+  },
+  {
+    "category": "ROMAN BLINDS",
+    "ar": "ستائر رومانية",
+    "subcategories": []
+  },
+  {
+    "category": "VERTICAL & VERTICAL WAVES BLINDS",
+    "ar": "ستائر رأسية و رأسية ويف",
+    "subcategories": []
+  },
+  {
+    "category": "JAPANESE PANEL STYLE",
+    "ar": "ستايل اللوحات اليابانية",
+    "subcategories": []
+  },
+  {
+    "category": "HONEYCOMB BLINDS",
+    "ar": "ستائر خلية النحل (هوني كومب)",
+    "subcategories": []
+  },
+  {
+    "category": "METAL BLINDS",
+    "ar": "ستائر معدنية",
+    "subcategories": []
+  },
+  {
+    "category": "WOODEN BLINDS",
+    "ar": "ستائر خشبية",
+    "subcategories": []
+  },
+  {
+    "category": "DOUBLE ROLLER BLINDS (ZEBRA)",
+    "ar": "ستائر دبل رول (زيبرا)",
+    "subcategories": []
+  },
+  {
+    "category": "Wallpaper",
+    "ar": "ورق جدران",
+    "subcategories": []
+  },
+  {
+    "category": "OUTDOOR SOLUTIONS & SKYLIGHTS",
+    "ar": "حلول خارجية و سكاي لايت",
+    "subcategories": [
+      { "en": "Awning", "ar": "مظلات" },
+      { "en": "Pergolas", "ar": "برجولات" },
+      { "en": "Skylight", "ar": "سكاي لايت" },
+      { "en": "Vertical", "ar": "ستائر رأسية خارجية" }
+    ]
+  },
+  {
+    "category": "MOTORIZATION SOMFY EXPERTS",
+    "ar": "محركات ستائر (خبراء Somfy)",
+    "subcategories": []
+  },
+  {
+    "category": "TRACKS FOR HOSPITALS & HOTELS",
+    "ar": "مسارات للستائر للمستشفيات والفنادق",
+    "subcategories": []
+  },
+  {
+    "category": "FLOORINGS & ACOUSTICS",
+    "ar": "الأرضيات والحلول الصوتية",
+    "subcategories": [
+      { "en": "Acoustic Ceiling", "ar": "أسقف صوتية" },
+      { "en": "Acoustic Panels", "ar": "ألواح صوتية" },
+      { "en": "Floorings", "ar": "أرضيات" },
+      { "en": "Rugs", "ar": "سجاد" }
+    ]
+  },
+  {
+    "category": "ACCESSORIES",
+    "ar": "إكسسوارات",
+    "subcategories": []
+  },
+  {
+    "category": "FURNITURE UPHOLSTERY",
+    "ar": "تنجيد الأثاث",
+    "subcategories": []
+  }
+]

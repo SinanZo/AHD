@@ -1,0 +1,66 @@
+/* Token-driven utility classes for consistent light/dark theming */
+
+:root {
+  /* derived accents for hover states */
+  --btn-hover: color-mix(in srgb, var(--btn) 90%, black 10%);
+  --btn-ghost-hover: color-mix(in srgb, var(--btn) 14%, transparent 86%);
+}
+@supports not (color: color-mix(in srgb, white 50%, black)) {
+  :root {
+    --btn-hover: var(--brand-2);
+    --btn-ghost-hover: rgba(0,0,0,.06);
+  }
+}
+
+/* Surfaces */
+.surface { background: var(--bg); color: var(--fg); }
+.surface-elevated { background: var(--card); color: var(--fg); border: 1px solid var(--stroke); }
+.surface-inverse { background: var(--brand); color: var(--btn-fg); }
+
+/* Text */
+.text-primary { color: var(--fg); }
+.text-muted { color: var(--muted); }
+.text-brand { color: var(--brand); }
+
+/* Links */
+.link { color: var(--link); text-underline-offset: 2px; }
+.link:hover { color: var(--link-hover); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; font-weight: 600; border-radius: 999px; transition: transform .2s ease, background-color .2s ease, color .2s ease, opacity .2s ease, box-shadow .2s ease; }
+.btn-primary { background: var(--btn); color: var(--btn-fg); border: 2px solid var(--btn); }
+.btn-primary:hover { background: var(--btn-hover); border-color: var(--btn-hover); }
+.btn-ghost { background: transparent; color: var(--btn); border: 2px solid var(--btn); }
+.btn-ghost:hover { background: var(--btn-ghost-hover); }
+
+/* Chips */
+.chip { background: var(--chip); color: var(--fg); border: 1px solid var(--stroke); }
+
+/* Keep hero dots/chips on one line with smooth scroll */
+.hero-dots,
+.hero-chips { scroll-behavior: smooth; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Make sure spacing never forces wrap on nav pills */
+.header .nav-list,
+.header nav { display: flex; flex-wrap: nowrap; gap: .5rem; }
+.header .nav-list a,
+.header nav button { white-space: nowrap; }
+
+/* Safety: hero grid keeps columns stable; already present but ensure it's here */
+.hero-grid { display: grid; grid-template-areas: 'content' 'video'; }
+.hero-content { grid-area: content; }
+.hero-video { grid-area: video; }
+@media (min-width: 768px) {
+  .hero-grid { grid-template-areas: 'content video'; grid-template-columns: 1fr 0.8fr; gap: 1rem; }
+  [dir="rtl"] .hero-grid { grid-template-areas: 'video content'; grid-template-columns: 0.8fr 1fr; }
+}
+
+/* Tighten hero title visibility on busy images */
+.hero-title { text-shadow: 0 2px 12px rgba(0,0,0,.35); }
+
+/* Respect users' reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}

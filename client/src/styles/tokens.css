@@ -1,0 +1,120 @@
+:root {
+  /* Typography tokens */
+  --font-sans: "Distinct Style Sans","DM Sans","Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+  --font-arabic: "Cairo","Tajawal","Noto Naskh Arabic","IBM Plex Sans Arabic","Noto Sans Arabic","Inter",system-ui,sans-serif;
+
+  /* Brand (HSL for smooth mixing) - Enhanced vibrant teal */
+  --brand-h: 195;
+  --brand-s: 100%;
+  --brand-l: 17%;
+  --brand: hsl(var(--brand-h) var(--brand-s) var(--brand-l));
+  --brand-2: hsl(var(--brand-h) 40% 36%);
+  --brand-vibrant: hsl(var(--brand-h) 50% 28%);
+
+  /* LIGHT (enhanced contrast & warmth) */
+  --bg:           hsl(210 25% 98.5%);
+  --bgElevated:   hsl(210 20% 99.5%);
+  --surface:      hsl(210 28% 97%);
+  --card:         hsl(210 25% 96%);
+  --fg:           hsl(210 20% 10%);
+  --muted:        hsl(210 10% 32%);
+  --stroke:       hsl(210 22% 82%);
+  --chip:         hsl(210 25% 95%);
+  --chip-hover:   hsl(210 25% 90%);
+
+  --primary:      var(--brand);
+  --primary-contrast: hsl(0 0% 98%);
+
+  /* Brand color scale (50-900) */
+  --brand-50:  hsl(195 100% 95%);
+  --brand-100: hsl(195 95% 85%);
+  --brand-200: hsl(195 90% 70%);
+  --brand-300: hsl(195 85% 55%);
+  --brand-400: hsl(195 80% 40%);
+  --brand-500: hsl(195 100% 17%);
+  --brand-600: hsl(195 100% 14%);
+  --brand-700: hsl(195 100% 11%);
+  --brand-800: hsl(195 100% 8%);
+  --brand-900: hsl(195 100% 5%);
+
+  /* Header pills */
+  --header-bg: var(--bgElevated);
+  --header-fg: var(--fg);
+  --header-pill-bg: hsl(210 20% 96%);
+  --header-pill-hover: hsl(210 20% 92%);
+  --header-pill-stroke: hsl(210 18% 85%);
+  --header-pill-active-bg: var(--brand);
+  --header-pill-active-fg: var(--primary-contrast);
+
+  /* Buttons & Links */
+  --btn: var(--brand);
+  --btn-fg: var(--primary-contrast);
+  --link: var(--brand);
+
+  /* Shadows */
+  --shadow-1: 0 6px 22px rgba(10,20,30,.08);
+  --shadow-2: 0 10px 34px rgba(10,20,30,.10);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 6px 18px rgba(0,0,0,.08);
+  --shadow-lg: 0 10px 28px rgba(0,0,0,.12);
+
+  /* Compat */
+  --focus: hsl(210 50% 60%);
+  --badge-fg: #ffffff;
+}
+
+:root.dark, .dark {
+  /* Dark mode colors - Enhanced depth & brightness */
+  --bg: hsl(210 30% 6%);
+  --bgElevated: hsl(210 28% 8%);
+  --card: hsl(210 25% 11%);
+  --chip: hsl(210 25% 14%);
+  
+  --fg: hsl(210 20% 95%);
+  --muted: hsl(210 12% 68%);
+  
+  --stroke: hsl(210 14% 24%);
+  --focus: hsl(210 50% 60%);
+
+  /* Shadows (more prominent in dark mode) */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.35);
+  --shadow-md: 0 10px 28px rgba(0,0,0,.35);
+  --shadow-lg: 0 15px 40px rgba(0,0,0,.45);
+  --shadow-1: 0 10px 28px rgba(0,0,0,.30);
+  --shadow-2: 0 16px 48px rgba(0,0,0,.40);
+
+  /* Header specific (dark mode) */
+  --header-bg: color-mix(in srgb, hsl(210 22% 10%) 86%, transparent);
+  --header-bg-color: hsl(210 22% 10%);
+  --header-fg: hsl(210 15% 92%);
+  --header-pill-bg: hsl(210 20% 16%);
+  --header-pill-hover: hsl(210 20% 22%);
+  --header-pill-active-bg: hsl(var(--brand-h) 60% 34%);
+  --header-pill-active-fg: hsl(0 0% 98%);
+
+  /* Buttons */
+  --btn: hsl(var(--brand-h) 60% 34%);
+  --btn-fg: hsl(0 0% 98%);
+  --btn-hover: hsl(var(--brand-h) 60% 40%);
+
+  /* Links */
+  --link: hsl(var(--brand-h) 60% 34%);
+  --link-hover: hsl(var(--brand-h) 60% 40%);
+  
+  /* Brand - Enhanced vibrant teal for dark mode */
+  --brand: hsl(195 70% 55%);
+  --brand-vibrant: hsl(195 75% 60%);
+  --brand-2: hsl(195 60% 50%);
+
+  /* Brand color scale (50-900) for dark mode */
+  --brand-50:  hsl(195 100% 95%);
+  --brand-100: hsl(195 95% 85%);
+  --brand-200: hsl(195 90% 75%);
+  --brand-300: hsl(195 85% 65%);
+  --brand-400: hsl(195 80% 58%);
+  --brand-500: hsl(195 70% 55%);
+  --brand-600: hsl(195 68% 48%);
+  --brand-700: hsl(195 65% 42%);
+  --brand-800: hsl(195 60% 35%);
+  --brand-900: hsl(195 55% 28%);
+}

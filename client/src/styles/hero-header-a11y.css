@@ -1,0 +1,306 @@
+/* Hero Section + Header Accessibility & Contrast Enhancements */
+
+/* ===== HEADER CONTRAST FIXES ===== */
+
+/* Ensure all header icons inherit currentColor */
+.header svg,
+header svg {
+  color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Nav links with AA/AAA contrast */
+header a,
+header .nav-list a,
+header nav a {
+  color: var(--text-onLight, #1a1a1a);
+}
+
+html.dark header a,
+html.dark header .nav-list a,
+html.dark header nav a {
+  color: var(--text-onDark, #ffffff);
+}
+
+/* Enhanced hover & focus states */
+header a:hover,
+header a:focus-visible,
+header nav a:hover,
+header nav a:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--brand-900, #0d3b49) 40%, transparent);
+  outline-offset: 2px;
+}
+
+/* Pills/toggles more visible */
+header button[data-toggle-theme],
+header button[data-set-lang],
+.theme-toggle,
+.lang-toggle {
+  background: color-mix(in srgb, var(--surface-soft, #f5f5f5) 90%, var(--brand-900, #0d3b49) 10%);
+  border: 1px solid color-mix(in srgb, var(--stroke, #e0e0e0) 85%, var(--brand-900, #0d3b49) 15%);
+  color: var(--text-onLight, #1a1a1a);
+}
+
+html.dark header button[data-toggle-theme],
+html.dark header button[data-set-lang],
+html.dark .theme-toggle,
+html.dark .lang-toggle {
+  background: color-mix(in srgb, var(--surface-soft, rgba(255,255,255,0.1)) 88%, var(--brand-900, #0d3b49) 12%);
+  border: 1px solid color-mix(in srgb, var(--stroke, rgba(255,255,255,0.15)) 80%, var(--brand-900, #0d3b49) 20%);
+  color: var(--text-onDark, #ffffff);
+}
+
+header button:focus-visible {
+  outline: 2px solid var(--brand-900, #0d3b49);
+  outline-offset: 2px;
+}
+
+html.dark header button:focus-visible {
+  outline: 2px solid var(--brand-500, #1e7b9e);
+  outline-offset: 2px;
+}
+
+/* ===== HERO SECTION ENHANCEMENTS ===== */
+
+/* Ensure hero text is always readable */
+#hero-title,
+[data-test="hero"] h1 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Progress bar animation */
+@keyframes progressBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Focus rings for keyboard navigation */
+[data-test="hero"] button:focus-visible,
+[data-test="hero"] a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Stronger, high-contrast focus for hero video control buttons */
+.hero-control:focus-visible {
+  outline: 3px solid var(--focus, #1e90ff);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--focus, #1e90ff) 14%, transparent);
+  border-radius: .5rem;
+}
+
+/* Video controls */
+[data-test="hero"] video {
+  object-fit: cover;
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Ensure feature chips are readable on both backgrounds */
+[data-test="hero"] .feature-chip {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* RTL adjustments for Arabic */
+html[dir="rtl"] [data-test="hero"] h1,
+html[lang^="ar"] [data-test="hero"] h1 {
+  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] [data-test="hero"] p,
+html[lang^="ar"] [data-test="hero"] p {
+  font-family: 'Cairo', 'Tajawal', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  text-decoration-skip-ink: none;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 640px) {
+  [data-test="hero"] {
+    min-height: 80vh;
+  }
+  
+  [data-test="hero"] .feature-chip {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+  }
+}
+
+/* Extra global clamp to prevent any site-level horizontal overflow.
+   This is intentionally defensive and can be relaxed later if it interferes
+   with specific components. Keeps the root and main containers within the
+   viewport and prevents horizontal scrolling on narrow viewports. */
+html, body, #root, main {
+  max-inline-size: 100vw !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+}
+
+/* Small safeguard: if any element uses 100vw and causes overflow due to
+   scrollbars, cap it to 100% when nested under the root. */
+#root [style*="100vw"], #root .full-vw {
+  max-inline-size: 100% !important;
+}
+
+/* Prevent horizontal scroll */
+[data-test="hero"],
+[data-test="hero"] * {
+  max-width: 100%;
+}
+
+/* Ensure video doesn't cause layout shift */
+[data-test="hero"] video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  header a,
+  header button,
+  [data-test="hero"] button {
+    border: 2px solid currentColor;
+  }
+  
+  [data-test="hero"] .progress-bar {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  [data-test="hero"] *,
+  [data-test="hero"] *::before,
+  [data-test="hero"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ----------------------------- */
+/* Hero video badges & title clarity */
+/* ----------------------------- */
+:root {
+  --badge-bg: rgba(255,255,255,0.16);
+  --badge-ring: rgba(255,255,255,0.25);
+  --badge-text: rgba(255,255,255,0.95);
+}
+
+.hero-video .eyebrow {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1px solid var(--badge-ring);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.hero-video h3 {
+  letter-spacing: .2px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
+
+/* RTL mobile horizontal scroll guard */
+html[dir="rtl"], body[dir="rtl"] {
+  overflow-x: hidden !important;
+}
+
+:root {
+  --vw-safe: 100%;
+}
+
+.container,
+.header,
+.footer,
+.hero,
+.section {
+  max-width: var(--vw-safe);
+}
+
+[dir="rtl"] .no-rtl-shift {
+  transform: none !important;
+}
+
+[dir="rtl"] .rounded-2xl {
+  border-radius: 1rem;
+}
+
+/* Ultra-clear hero title without looking outlined */
+.hero-title[data-stroke] {
+  /* soft inner highlight for legibility */
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.35),
+    0 2px 10px rgba(0,0,0,.55),
+    0 0 1px rgba(255,255,255,.05);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* optional subtle stroke only on very busy images */
+@supports (-webkit-text-stroke: 1px white) {
+  .hero-title[data-stroke].busy-bg {
+    -webkit-text-stroke: .6px rgba(0,0,0,.35);
+    paint-order: stroke fill;
+  }
+}
+
+/* ensures the text stays readable in RTL too */
+[dir="rtl"] .hero-title { letter-spacing: .2px; }
+
+/* Slightly stronger overlay where hero text sits to keep title readable */
+.hero-text-contrast {
+  background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,0) 100%);
+  border-radius: 1rem;
+  backdrop-filter: blur(2px);
+}
+
+/* RTL bidi guard to avoid rare bidi shifts in controls */
+html, body { overflow-x: hidden; }
+[dir="rtl"] * { unicode-bidi: plaintext; }
+
+/* Preemptive clamp for small RTL viewports to prevent blank-right / horizontal scroll */
+@media (max-width: 640px) {
+  [dir="rtl"] .container,
+  [dir="rtl"] .hero,
+  [dir="rtl"] .section,
+  [dir="rtl"] .no-scrollbar,
+  [dir="rtl"] .overflow-x-auto,
+  [dir="rtl"] .hero-video,
+  [dir="rtl"] figure,
+  [dir="rtl"] img,
+  [dir="rtl"] video {
+    max-inline-size: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  /* prevent components that use 100vw from causing overflow when scrollbars are present */
+  [dir="rtl"] .full-vw, [dir="rtl"] [style*="100vw"] {
+    max-inline-size: 100vw; /* keep intended viewport-size but cap inline sizing */
+  }
+}
+
+/* Dev override removed after confirming background visibility is fixed */
+/* This is intentionally a temporary, conservative override to verify   */
+

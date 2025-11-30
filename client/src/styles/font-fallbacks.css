@@ -1,0 +1,77 @@
+/* Lightweight local fallbacks to reduce FOIT in CI / screenshots */
+@font-face {
+  font-family: 'Distinct Style Sans';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: local('Distinct Style Sans Light'),
+       local('DistinctStyleSans-Light'),
+       local('Distinct Style Sans');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: local('DM Sans'), local('DMSans'), local('DMSans-Regular');
+}
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: local('IBM Plex Sans Arabic'), local('IBMPlexSansArabic-Regular');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: local('Inter'), local('Inter-Regular');
+}
+
+/* -------------------------------------------------------
+   Font stacks via CSS variables (easy to reuse / override)
+   ------------------------------------------------------- */
+:root{
+  --font-sans-lat: "Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+  --font-display-lat: "Playfair Display","Georgia",serif;
+  --font-sans-ar:  "Tajawal","Cairo","Noto Naskh Arabic","IBM Plex Sans Arabic","Noto Sans Arabic",system-ui,sans-serif;
+  --font-display-ar: "Cairo","Tajawal","Noto Naskh Arabic",sans-serif;
+
+  /* Quality knobs */
+  font-synthesis-weight: none;
+  font-synthesis-style: none;
+}
+@supports (font-variation-settings: normal) {
+  html { font-optical-sizing: auto; }
+}
+
+/* -------------------------------------------------------
+   Utility classes (no font-display here; it's @font-face-only)
+   ------------------------------------------------------- */
+.font-jockey { font-family: var(--font-sans-lat); font-weight: 300; }
+.font-arabic { font-family: var(--font-sans-ar);  font-weight: 400; }
+
+/* Optional helpers for explicit Arabic targets */
+.font-arabic-headings { font-family: var(--font-sans-ar); font-weight: 300; }
+.font-arabic-body     { font-family: var(--font-sans-ar); font-weight: 400; }
+
+/* Minor visual stability on macOS/Windows rasterizers */
+.h-heading{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* -------------------------------------------------------
+   Auto-switch by locale (keeps header/hero consistent)
+   ------------------------------------------------------- */
+html, body { font-family: var(--font-sans-lat); }
+:lang(ar), [dir="rtl"] { font-family: var(--font-sans-ar); }
+
+/* Headings: use display fonts for impact */
+h1,h2,h3,h4,h5,h6 { font-family: var(--font-display-lat); font-weight: 700; }
+:lang(ar) h1, :lang(ar) h2, :lang(ar) h3, :lang(ar) h4, :lang(ar) h5, :lang(ar) h6 { font-family: var(--font-display-ar); font-weight: 700; }
+
+/* Ensure strong/b tags look correct across stacks */
+b,strong { font-weight: 600; }
