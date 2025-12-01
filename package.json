@@ -1,7 +1,8 @@
 ﻿{
-    "name":  "abdulhaq-dimensions",
-    "version":  "1.0.0",
-    "type":  "module",
+    "name": "abdulhaq-dimensions",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
     "license":  "MIT",
     "scripts":  {
                     "start":  "pnpm --filter @ahd/server start",
