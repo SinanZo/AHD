@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "lib": ["ES2022"],
-    "strict": true,
+    "target": "ES2019",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "rootDir": "./server/src",
+    "outDir": "./server/dist",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "strict": true,
     "skipLibCheck": true,
-    "allowJs": true,
-    "noEmit": true
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["shared/*"]
+    }
   },
-  "include": ["server/**/*", "shared/**/*"]
+  "include": ["server/src/**/*"],
+  "exclude": ["server/src/**/*.test.ts", "server/src/**/__tests__/**"]
 }

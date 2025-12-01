@@ -12,7 +12,7 @@
         "clean": "rimraf node_modules dist .cache",
         "build:client": "pnpm --filter @ahd/client build",
         "build:server": "pnpm --filter @ahd/server build",
-        "build": "pnpm -w --parallel build:client build:server",
+        "build": "pnpm --filter @ahd/client build && pnpm --filter @ahd/server build",
         "preview": "pnpm --filter @ahd/client preview",
         "lint": "pnpm -w -r run lint --silent",
         "format": "pnpm -w -r run format --silent",
