@@ -1,22 +1,20 @@
 {
-  "name": "@ahd/client",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "vite --config ./vite.config.ts --host",
-    "dev:debug": "vite --config ./vite.config.ts --host --debug",
-    "build": "vite build --config ./vite.config.ts",
-    "preview": "vite preview --config ./vite.config.ts --host",
-    "typecheck": "tsc --noEmit -p tsconfig.json",
-    "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
-    "test": "vitest",
-    "format": "prettier --write \"src/**/*\""
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^14.6.1",
-    "jsdom": "^27.2.0",
-    "msw": "^2.12.3"
-  }
+    "name":  "@ahd/client",
+    "version":  "1.0.0",
+    "private":  true,
+    "scripts":  {
+                    "dev":  "vite --config ./vite.config.ts",
+                    "dev:debug":  "vite --config ./vite.config.ts --host --debug",
+                    "build":  "vite build --config ./vite.config.ts",
+                    "build:vercel":  "vite build --config ./vite.config.ts --outDir ./dist",
+                    "preview":  "vite preview --config ./vite.config.ts --host",
+                    "typecheck":  "tsc --noEmit -p tsconfig.json",
+                    "lint":  "eslint \"src/**/*.{ts,tsx,js,jsx}\" --ext .ts,.tsx,.js,.jsx --fix",
+                    "test":  "vitest",
+                    "test:coverage":  "vitest --coverage",
+                    "format":  "prettier --write \"src/**/*\""
+                },
+    "devDependencies":  {
+                            "msw":  "^2.12.3"
+                        }
 }
