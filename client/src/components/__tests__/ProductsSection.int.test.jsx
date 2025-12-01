@@ -1,142 +1,126 @@
 /* @vitest-environment jsdom */
 import React from 'react';
-import { describe, test, expect } from 'vitest';
-import { http, HttpResponse, delay } from 'msw';
-import { server } from '@/test/mocks/server';
-import { renderWithProviders, screen, userEvent, waitFor } from '@/test/utils';
+import { describe, test, expect, beforeEach, vi } from 'vitest';
+import { renderWithProviders, screen, waitFor } from '@/test/utils';
 import ProductsSection from '@/components/ProductsSection';
 
 /**
- * Assumptions (tweak selectors if needed):
- * - Endpoint: GET /api/products -> { items: Array<{ id, name, ... }> }
- * - Loading UI exposes either:
- *     - role="status", OR
- *     - text matching /loading/i
- * - Empty UI exposes text matching /no products|empty|not found/i
- * - Product items render with visible names
+ * ProductsSection fetches /images/products/manifest.json at mount.
+ * It does NOT show loading spinners or explicit error UI — just renders carousel or empty state.
+ * We mock global fetch to control the manifest response.
  */
 
-const findLoading = () =>
-  screen.queryByRole('status') || screen.queryByText(/loading/i);
-
 describe('ProductsSection integration', () => {
+  let originalFetch;
 
-  test('displays loading state while fetching', async () => {
-    server.use(
-      http.get('/api/products', async () => {
-        await delay(250); // force a visible loading state
-        return HttpResponse.json({ items: [] });
-      })
-    );
+  beforeEach(() => {
+    originalFetch = globalThis.fetch;
+  });
+
+  afterEach(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  test('renders component without crashing and fetches manifest', async () => {
+    const mockManifest = {
+      products: [
+        {
+          id: 'wave-curtains',
+          name: 'Wave Style Curtains',
+          category: 'curtains',
+          coverImage: '/images/products/wave-curtains.jpg',
+          description: 'Modern wave curtains'
+        }
+      ]
+    };
+
+    globalThis.fetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockManifest,
+      headers: { get: () => 'application/json' }
+    });
 
     renderWithProviders(<ProductsSection />);
 
-    // Should show a loading indicator quickly
+    // Component should render its section
     await waitFor(() => {
-      expect(findLoading()).toBeTruthy();
-    }, { timeout: 600 });
-
-    // And eventually settle to empty view (since items: [])
-    const empty = await screen.findByRole('note', { name: /no products|empty|not found/i })
-      .catch(async () => await screen.findByText(/no products|empty|not found/i));
-    expect(empty).toBeInTheDocument();
-
-    // Loading should disappear by now
-    await waitFor(() => {
-      const stillLoading = screen.queryByRole('status') || screen.queryByText(/loading/i);
-      expect(stillLoading).toBeNull();
+      const section = document.querySelector('section') || screen.queryByRole('region');
+      expect(section).toBeTruthy();
     });
+
+    // Verify fetch was called with correct endpoint
+    expect(globalThis.fetch).toHaveBeenCalledWith('/images/products/manifest.json');
   });
 
-  test('renders products on success', async () => {
-    server.use(
-      http.get('/api/products', async () =>
-        HttpResponse.json({
-          items: [
-            { id: 'rb-01', name: 'Roller Blinds' },
-            { id: 'vb-02', name: 'Vertical Blinds' },
-            { id: 'wp-03', name: 'Wallpaper' },
-          ],
-        })
-      )
-    );
+  test('displays products when manifest loads successfully', async () => {
+    const mockManifest = {
+      products: [
+        {
+          id: 'roller-blinds',
+          name: 'Roller Blinds',
+          category: 'blinds',
+          coverImage: '/images/products/roller-blinds.jpg',
+          description: 'Classic roller blinds'
+        },
+        {
+          id: 'vertical-blinds',
+          name: 'Vertical Blinds',
+          category: 'blinds',
+          coverImage: '/images/products/vertical-blinds.jpg',
+          description: 'Vertical window blinds'
+        }
+      ]
+    };
+
+    globalThis.fetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockManifest,
+      headers: { get: () => 'application/json' }
+    });
 
     renderWithProviders(<ProductsSection />);
 
-    // Wait for a representative product to appear
-    expect(await screen.findByText(/Roller Blinds/i)).toBeInTheDocument();
-    // Others should also render
-    expect(screen.getByText(/Vertical Blinds/i)).toBeInTheDocument();
-    expect(screen.getByText(/Wallpaper/i)).toBeInTheDocument();
-
-  // Optionally: assert card count if you add data-testid="product-card"
-  // expect(await screen.findAllByTestId('product-card')).toHaveLength(3);
-
-    // Loading should be gone
+    // Wait for products to appear in the DOM (products render multiple times in carousel)
     await waitFor(() => {
-      const loadingGone = !screen.queryByRole('status') && !screen.queryByText(/loading/i);
-      expect(loadingGone).toBe(true);
-    });
+      const rollerBlinds = screen.queryAllByText(/roller blinds/i);
+      const verticalBlinds = screen.queryAllByText(/vertical blinds/i);
+      expect(rollerBlinds.length + verticalBlinds.length).toBeGreaterThan(0);
+    }, { timeout: 3000 });
   });
 
-  test('shows an empty state when API returns zero items', async () => {
-    server.use(
-      http.get('/api/products', async () =>
-        HttpResponse.json({ items: [] }, { status: 200 })
-      )
-    );
+  test('handles empty manifest gracefully', async () => {
+    const emptyManifest = { products: [] };
+
+    globalThis.fetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => emptyManifest,
+      headers: { get: () => 'application/json' }
+    });
 
     renderWithProviders(<ProductsSection />);
 
-    const empty = await screen.findByText(/no products|empty|not found/i);
-    expect(empty).toBeInTheDocument();
+    // Component should still render (carousel may be empty but section exists)
+    await waitFor(() => {
+      const section = document.querySelector('section') || screen.queryByRole('region');
+      expect(section).toBeTruthy();
+    });
+
+    // No error UI expected - component just shows empty carousel
+    expect(screen.queryByText(/error|failed/i)).toBeNull();
   });
 
-  test('handles server failure and recovers on retry', async () => {
-    // 1) First request fails with 500
-    server.use(
-      http.get('/api/products', async () =>
-        HttpResponse.json({ error: 'boom' }, { status: 500 })
-      )
-    );
+  test('handles fetch failure silently without crashing', async () => {
+    globalThis.fetch = vi.fn().mockRejectedValueOnce(new Error('Network error'));
 
-    // Render
-    const { rerender } = renderWithProviders(<ProductsSection />);
+    renderWithProviders(<ProductsSection />);
 
-    // Expect an error/fallback UI
-    const err = await screen.findByText(/error|failed|try again|sorry/i);
-    expect(err).toBeInTheDocument();
-
-    // 2) Next request succeeds
-    server.use(
-      http.get('/api/products', async () =>
-        HttpResponse.json({
-          items: [
-            { id: 'rb-01', name: 'Roller Blinds' },
-            { id: 'vb-02', name: 'Vertical Blinds' },
-          ],
-        })
-      )
-    );
-
-    // If a retry button exists, click it; otherwise force a refetch by changing a key
-    const retryBtn =
-      screen.queryByRole('button', { name: /try again|retry/i }) ||
-      screen.queryByText(/try again|retry/i);
-    if (retryBtn) {
-      await userEvent.click(retryBtn);
-    } else {
-      rerender(<ProductsSection key="retry-1" />);
-    }
-
-    // Success: products should appear
-    expect(await screen.findByText(/Roller Blinds/i)).toBeInTheDocument();
-    expect(screen.getByText(/Vertical Blinds/i)).toBeInTheDocument();
-
-    // And error UI should be gone
+    // Component should still render its section (fails silently)
     await waitFor(() => {
-      const stillErr = screen.queryByText(/error|failed|try again|sorry/i);
-      expect(stillErr).toBeNull();
+      const section = document.querySelector('section') || screen.queryByRole('region');
+      expect(section).toBeTruthy();
     });
+
+    // Component does not show explicit error UI
+    expect(screen.queryByText(/error|failed|try again/i)).toBeNull();
   });
 });

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, beforeEach, expect, vi } from 'vitest'
 
@@ -30,10 +30,11 @@ vi.mock('react-i18next', () => ({
 
 // import jest-dom after global expect is set (avoid import hoisting issues)
 await import('@testing-library/jest-dom')
-import ContactForm from '../ContactForm'
 
-// Mock fetch
+// Mock fetch early so modules that capture `fetch` at import-time get the spy
 globalThis.fetch = vi.fn()
+
+import ContactForm from '../ContactForm'
 
 describe('ContactForm', () => {
   beforeEach(() => {
@@ -43,43 +44,49 @@ describe('ContactForm', () => {
   it('shows validation errors for empty fields', async () => {
     render(<ContactForm />)
 
-  // skip the time-trap by moving system time forward (briefly enable fake timers)
-  vi.useFakeTimers()
-  vi.setSystemTime(Date.now() + 1300)
-  vi.useRealTimers()
+    // ensure no native constraint validation blocks JS submit
+    const formEl = screen.getByTestId('contact-form') || document.querySelector('form')
+    if (formEl) formEl.noValidate = true
 
-  // disable browser constraint validation so the onSubmit handler runs in jsdom
-  const form = document.querySelector('form')
-  if (form) form.noValidate = true
+    // skip the time-trap by moving system time forward (briefly enable fake timers)
+    vi.useFakeTimers()
+    vi.setSystemTime(Date.now() + 1300)
+    vi.useRealTimers()
 
-  const send = screen.getByRole('button', { name: /send/i })
-  await userEvent.click(send)
+    const formEl2 = screen.getByTestId('contact-form') || document.querySelector('form')
+    fireEvent.submit(formEl2)
 
-    await waitFor(() => {
-      // The component renders field errors inside <p role="alert"> when validation fails
-      // There may be multiple field errors; find the one that mentions the name
-      const alerts = screen.getAllByRole('alert')
-      expect(alerts.length).toBeGreaterThanOrEqual(1)
-      const hasName = alerts.some(a => a.textContent.toLowerCase().includes('please enter your name'))
-      expect(hasName).toBe(true)
-    })
+    // Assert validation message appears for name field (uses i18n mapping)
+    expect(await screen.findByText(/please enter your name/i)).toBeInTheDocument()
   })
 
   it('submits successfully with valid data', async () => {
-    // mock successful response
-    fetch.mockResolvedValueOnce({ ok: true, json: async () => ({ ok: true }) })
+    // Mock fetch for this specific test
+    const mockFetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      headers: { get: () => 'application/json' },
+      json: async () => ({ ok: true })
+    });
+    globalThis.fetch = mockFetch;
 
     render(<ContactForm />)
 
-  // skip the time-trap by moving system time forward (briefly enable fake timers)
-  vi.useFakeTimers()
-  vi.setSystemTime(Date.now() + 1300)
-  vi.useRealTimers()
+    // ensure no native constraint validation so JS submit runs
+    const form = screen.getByTestId('contact-form') || document.querySelector('form')
+    if (form) form.noValidate = true
+
+    // skip the time-trap by moving system time forward
+    vi.useFakeTimers()
+    vi.setSystemTime(Date.now() + 1300)
+    vi.useRealTimers()
+
     await userEvent.type(screen.getByLabelText(/your name/i), 'Test User')
     await userEvent.type(screen.getByLabelText(/your email/i), 'test@example.com')
     await userEvent.type(screen.getByLabelText(/your message/i), 'Hello world test message')
 
-  await userEvent.click(screen.getByRole('button', { name: /send/i }))
+    // submit via form submit to ensure handler executes reliably in jsdom
+    const formEl3 = screen.getByTestId('contact-form') || document.querySelector('form')
+    fireEvent.submit(formEl3)
 
     // ensure the request was sent
     await waitFor(() => expect(fetch).toHaveBeenCalled())
@@ -97,11 +104,8 @@ describe('ContactForm', () => {
       })
     )
 
-    await waitFor(() => {
-      // Success message is rendered with role=status and contains the success text
-      const status = screen.getByRole('status')
-      expect(status).toBeInTheDocument()
-      expect(status.textContent.toLowerCase()).toContain('thanks')
-    })
+    // Success message is rendered with role=status and contains the success text
+    expect(await screen.findByRole('status')).toBeInTheDocument()
+    expect((await screen.findByRole('status')).textContent.toLowerCase()).toContain('thanks')
   })
 })
