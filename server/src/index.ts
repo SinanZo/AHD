@@ -2,6 +2,11 @@ import { createServer } from 'http';
 import { createApp } from './app';
 
 async function startServer() {
+  console.log('[server] Starting server...');
+  console.log('[server] Working directory:', process.cwd());
+  console.log('[server] __dirname would be:', __dirname);
+  console.log('[server] NODE_ENV:', process.env.NODE_ENV || 'development');
+  
   const app = createApp();
   const server = createServer(app);
 
@@ -19,7 +24,8 @@ async function startServer() {
   }
 
   server.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`[server] Server successfully running on port ${port}`);
+    console.log(`[server] Ready to serve requests`);
   });
 }
 
