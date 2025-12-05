@@ -20,7 +20,8 @@ export default defineConfig({
   envDir: path.resolve(import.meta.dirname),
   root: path.resolve(import.meta.dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    // Use a path relative to the `root` (client) so the build output ends up in `client/dist`
+    outDir: "dist",
     emptyOutDir: true,
   },
   server: {
