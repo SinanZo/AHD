@@ -34,9 +34,17 @@ jobs:
       - name: Build client
         run: pnpm -C client build
 
-      - name: Deploy built client to Vercel
+      - name: Prepare prebuilt output for Vercel
+        run: |
+          # Create the prebuilt output directory expected by Vercel
+          mkdir -p .vercel/output/public
+          # Copy built static files into the prebuilt public directory
+          cp -a client/dist/. .vercel/output/public/
+          # Minimal config file required for prebuilt deployments
+          echo '{"version":3}' > .vercel/output/config.json
+
+      - name: Deploy prebuilt to Vercel
         if: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          echo "Deploying to Vercel project $VERCEL_PROJECT_ID (org $VERCEL_ORG_ID)"
-          # Deploy the static output directory produced by the client build
-          npx -y vercel@latest client/dist --prod --token "$VERCEL_TOKEN" --confirm
+          echo "Deploying prebuilt output to Vercel project $VERCEL_PROJECT_ID (org $VERCEL_ORG_ID)"
+          npx -y vercel@latest deploy --prebuilt --prod --token "$VERCEL_TOKEN" --yes
