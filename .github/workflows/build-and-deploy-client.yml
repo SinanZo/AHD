@@ -40,8 +40,21 @@ jobs:
           mkdir -p .vercel/output/public
           # Copy built static files into the prebuilt public directory
           cp -a client/dist/. .vercel/output/public/
-          # Minimal config file required for prebuilt deployments
-          echo '{"version":3}' > .vercel/output/config.json
+          # Create config.json with SPA routing (all routes serve index.html)
+          cat > .vercel/output/config.json <<'EOF'
+          {
+            "version": 3,
+            "routes": [
+              {
+                "handle": "filesystem"
+              },
+              {
+                "src": "/(.*)",
+                "dest": "/index.html"
+              }
+            ]
+          }
+          EOF
 
       - name: Deploy prebuilt to Vercel
         if: env.VERCEL_TOKEN != ''
