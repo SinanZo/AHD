@@ -47,7 +47,9 @@ export default defineConfig(async () => {
       },
     },
     build: {
-      outDir: path.resolve(__dirname, "..", "dist", "public"),
+      // Output into the client's own `dist/` so CI and Vercel (project root = `client`)
+      // can reliably find the static output at `client/dist`.
+      outDir: path.resolve(__dirname, "dist"),
       emptyOutDir: true,
     },
     test: {
