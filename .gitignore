@@ -106,3 +106,5 @@ temp/
 *.sqlite3
 client/package.json.bak
 package.json.bak
+.vercel
+.env*.local
