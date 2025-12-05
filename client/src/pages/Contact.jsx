@@ -48,17 +48,17 @@ export default function Contact() {
       jsonLd={jsonLd}
     >
       <section
-        className="py-20 min-h-[70vh] bg-gradient-to-br from-[#e8e6e6] via-white to-[#e8e6e6] dark:from-[#232c32] dark:to-[#181e21]"
+        className="py-20 min-h-[70vh] bg-linear-to-br from-[#e8e6e6] via-white to-[#e8e6e6] dark:from-[#232c32] dark:to-[#181e21]"
         dir={dir}
         lang={i18n.language}
       >
         <div className="container mx-auto px-6 lg:px-20">
           {/* Heading */}
           <div className={`text-center mb-12 ${isRTL ? "font-arabic" : ""}`}>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#002b3a] dark:text-slate-100">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-adh-text">
               {tt("heading", { defaultValue: "Contact Us" })}
             </h1>
-            <p className="text-lg text-[#5b7d89] dark:text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg text-adh-text-muted max-w-2xl mx-auto">
               {tt("pageDesc", {
                 defaultValue:
                   "Reach out for consultations, support, or business inquiries. Our team will reply within 1 business day.",
@@ -68,12 +68,12 @@ export default function Contact() {
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Glassy Form Card (reuses your accessible ContactForm) */}
-            <div className="bg-white/70 dark:bg-[#232c32]/70 rounded-3xl shadow-2xl p-10 backdrop-blur-xl border border-[#e8e6e6] dark:border-[#181e21]">
+            <div className="bg-adh-surface/70 rounded-3xl shadow-2xl p-10 backdrop-blur-xl border border-adh-stroke">
               <ContactForm />
-              <div className="mt-10 space-y-4 text-sm text-gray-700 dark:text-gray-200">
+              <div className="mt-10 space-y-4 text-sm text-adh-text-secondary">
                 {/* Phone */}
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-[#002b3a] dark:text-[#9fc0b0]" aria-hidden="true" />
+                  <Phone className="w-5 h-5 text-adh-text" aria-hidden="true" />
                   <a
                     href={phoneHref}
                     className="contact-link font-medium"
@@ -85,10 +85,10 @@ export default function Contact() {
 
                 {/* Email */}
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-[#002b3a] dark:text-[#9fc0b0]" aria-hidden="true" />
+                  <Mail className="w-5 h-5 text-adh-text" aria-hidden="true" />
                   <a
                     href={`mailto:${email}`}
-                    className="contact-link font-medium break-words"
+                    className="contact-link font-medium wrap-break-word"
                     aria-label={tt("send_email", { defaultValue: "Send an email" })}
                   >
                     {email}
@@ -97,7 +97,7 @@ export default function Contact() {
 
                 {/* Location (now clickable) */}
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-[#002b3a] dark:text-[#9fc0b0]" aria-hidden="true" />
+                  <MapPin className="w-5 h-5 text-adh-text" aria-hidden="true" />
                   <a
                     href={mapHref}
                     target="_blank"
@@ -113,7 +113,7 @@ export default function Contact() {
 
                 {/* Socials */}
                 <div className="pt-3">
-                  <div className="font-semibold mb-2 text-[#002b3a] dark:text-slate-100">
+                  <div className="font-semibold mb-2 text-adh-text">
                     {tt("social.followUs", { defaultValue: "Follow Us" })}:
                   </div>
                   <div className="flex items-center gap-4">
@@ -123,7 +123,7 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       aria-label="Facebook"
                     >
-                      <Facebook className="w-6 h-6 text-[#5b7d89] hover:text-[#002b3a] transition" />
+                      <Facebook className="w-6 h-6 text-adh-text-muted hover:text-adh-brand transition" />
                     </a>
                     <a
                       href="https://instagram.com/abdulhaqdimensions?igshid=YmMyMTA2M2Y="
@@ -131,7 +131,7 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       aria-label="Instagram"
                     >
-                      <Instagram className="w-6 h-6 text-[#5b7d89] hover:text-[#002b3a] transition" />
+                      <Instagram className="w-6 h-6 text-adh-text-muted hover:text-adh-brand transition" />
                     </a>
                     <a
                       href="https://www.linkedin.com/company/abdulhaq-dimensions"
@@ -139,7 +139,7 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       aria-label="LinkedIn"
                     >
-                      <Linkedin className="w-6 h-6 text-[#5b7d89] hover:text-[#002b3a] transition" />
+                      <Linkedin className="w-6 h-6 text-adh-text-muted hover:text-adh-brand transition" />
                     </a>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function Contact() {
             </div>
 
             {/* Map Card with action bar */}
-            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-[#e8e6e6] dark:border-[#181e21]">
+            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-adh-stroke">
               <div className={`absolute ${isRTL ? "left-4" : "right-4"} top-4 z-10`}>
                 <a
                   href={mapHref}
@@ -161,21 +161,15 @@ export default function Contact() {
                 </a>
               </div>
 
-              {/* Static placeholder instead of embedding Google Maps */}
-              <div className="w-full h-[480px] flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-[#0b2730] dark:to-[#062025] border-0">
-                <div className="text-center p-6">
-                  <div className="text-xl font-semibold mb-2 text-primary">{t('header:map_title', 'Our Location')}</div>
-                  <div className="text-sm mb-4 text-gray-700 dark:text-white/80">{address}</div>
-                  <a
-                    href={mapHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-2 px-4 py-2 rounded-full bg-white/90 text-sm font-semibold shadow hover:scale-105 transition"
-                  >
-                    {t('header:open_map_new_tab', 'Open location in Google Maps')}
-                  </a>
-                </div>
-              </div>
+              {/* Google Maps Embed */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.8025798118147!2d35.840547576111994!3d31.966252124976677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca117cbe45f27%3A0x5e065023684733b0!2sAbdulhaq%20Dimensions!5e0!3m2!1sen!2sjo!4v1764880693685!5m2!1sen!2sjo"
+                className="w-full h-[480px] border-0"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={t('header:map_title', 'Abdulhaq Dimensions Location')}
+              />
             </div>
           </div>
         </div>

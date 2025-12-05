@@ -6,10 +6,10 @@ import Reveal from '../components/Reveal';
 import HeroSection from '../components/HeroSection';
 const StatsSection    = lazy(() => import('../components/StatsSection'));
 const AboutSection    = lazy(() => import('../components/AboutSection'));
-const ServicesSection = lazy(() => import('../components/ServicesSection'));
+const ServicesSection = lazy(() => import('../components/sections/ServicesPremium'));
+const WhyChooseSection = lazy(() => import('../components/WhyChooseSectionClean'));
 const ProductsSection = lazy(() => import('../components/ProductsSection'));
 const ClientsSection  = lazy(() => import('../components/ClientsSection'));
-const WhyChooseUs     = lazy(() => import('../components/WhyChooseUs'));
 const ContactSection  = lazy(() => import('../components/ContactSection'));
 const CTASection      = lazy(() => import('../components/CTASection'));
 
@@ -44,19 +44,17 @@ export default function Home() {
   return (
     <Layout title={title} description={description} keywords={keywords} jsonLd={jsonLd}>
       <Suspense fallback={
-        <div className="p-16 sm:p-24 text-center text-sm text-gray-500" role="status" aria-live="polite">
-          <div className="mx-auto h-8 w-8 rounded-full border-2 border-gray-200 border-t-[var(--brand,#0D3B4C)] animate-spin" />
+        <div className="p-16 sm:p-24 text-center text-sm text-adh-text-muted" role="status" aria-live="polite">
+          <div className="mx-auto h-8 w-8 rounded-full border-2 border-adh-stroke animate-spin" style={{ borderTopColor: 'var(--brand, #0D3B4C)' }} />
           <span className="sr-only">Loading sections…</span>
         </div>
       }>
         <HeroSection />
         <Reveal delay={0.05}><StatsSection /></Reveal>
         <Reveal delay={0.1}><AboutSection /></Reveal>
-        <Reveal delay={0.15}><WhyChooseUs /></Reveal>
+        <Reveal delay={0.15}><WhyChooseSection /></Reveal>
         <Reveal delay={0.2}><ServicesSection /></Reveal>
-        <Reveal delay={0.25}>
-          <ProductsSection />
-        </Reveal>
+        <Reveal delay={0.25}><ProductsSection /></Reveal>
         <Reveal delay={0.3}><ClientsSection /></Reveal>
         <Reveal delay={0.35}><ContactSection /></Reveal>
         <Reveal delay={0.4}><CTASection /></Reveal>

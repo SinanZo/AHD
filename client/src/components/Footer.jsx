@@ -62,84 +62,62 @@ export default function Footer() {
   ];
 
   return (
-    <footer 
-      className="bg-[var(--bgElevated)] text-[var(--fg)]" 
-      dir={dir} 
+    <footer
+      className="relative bg-adh-bg text-adh-text overflow-hidden"
+      dir={dir}
       role="contentinfo"
       aria-label={isRTL ? "تذييل الصفحة" : "Footer"}
     >
-      <div className="container mx-auto max-w-[1200px] px-4 md:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div className="absolute inset-0 bg-linear-to-b from-adh-bg via-adh-bg-soft/40 to-adh-bg" aria-hidden="true" />
+      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-adh-brand/10 blur-[180px]" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 w-[360px] h-[360px] rounded-full bg-adh-accent/10 blur-[200px]" aria-hidden="true" />
+
+      <div className="relative container mx-auto px-4 md:px-6 lg:px-10 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_repeat(3,1fr)] gap-10">
           {/* Brand / About */}
-          <div className="space-y-4 lg:col-span-2">
-            <RouterLink to="/" aria-label={isRTL ? "اذهب إلى الصفحة الرئيسية" : "Go to homepage"} className="inline-flex items-center">
-              <div className="w-12 h-12 rounded-lg bg-[var(--brand)] flex items-center justify-center text-white font-bold text-lg">
+          <div className="space-y-6 lg:col-span-2 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
+            <RouterLink to="/" aria-label={isRTL ? "اذهب إلى الصفحة الرئيسية" : "Go to homepage"} className="inline-flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-adh-brand flex items-center justify-center text-white font-bold text-lg">
                 AD
               </div>
-              <span className="ml-2 font-bold text-lg text-[var(--fg)]">Abdulhaq Dimensions</span>
+              <div>
+                <p className="text-xs uppercase tracking-[0.35em] text-adh-text-secondary">{isRTL ? "حلول داخلية" : "Interior Atelier"}</p>
+                <span className="font-serif text-2xl text-adh-text">Abdulhaq Dimensions</span>
+              </div>
             </RouterLink>
-            <p className="text-[var(--muted)] text-sm leading-relaxed">
+            <p className="text-adh-text-secondary text-sm leading-relaxed">
               {footerAbout}
             </p>
 
-            <ul 
-              className={`flex ${isRTL ? "space-x-reverse" : ""} space-x-4`} 
+            <ul
+              className="flex flex-wrap gap-3"
               aria-label={isRTL ? "وسائل التواصل الاجتماعي" : "Social media"}
             >
-              <li>
-                <a
-                  href={SOCIAL.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  className="p-2 rounded-md hover:bg-[var(--chip)] transition-colors duration-200"
-                  title="Follow us on Facebook"
-                >
-                  <Facebook className="w-5 h-5 text-[var(--brand)]" aria-hidden="true" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SOCIAL.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={isRTL ? "إنستجرام" : "Instagram"}
-                  className="p-2 rounded-md hover:bg-[var(--chip)] transition-colors duration-200"
-                  title="Follow us on Instagram"
-                >
-                  <Instagram className="w-5 h-5 text-[var(--brand)]" aria-hidden="true" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SOCIAL.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={isRTL ? "تويتر" : "Twitter"}
-                  className="p-2 rounded-md hover:bg-[var(--chip)] transition-colors duration-200"
-                  title="Follow us on Twitter"
-                >
-                  <Twitter className="w-5 h-5 text-[var(--brand)]" aria-hidden="true" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SOCIAL.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={isRTL ? "لينكدإن" : "LinkedIn"}
-                  className="p-2 rounded-md hover:bg-[var(--chip)] transition-colors duration-200"
-                  title="Follow us on LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5 text-[var(--brand)]" aria-hidden="true" />
-                </a>
-              </li>
+              {[
+                { Icon: Facebook, href: SOCIAL.facebook, label: 'Facebook' },
+                { Icon: Instagram, href: SOCIAL.instagram, label: 'Instagram' },
+                { Icon: Twitter, href: SOCIAL.twitter, label: 'Twitter' },
+                { Icon: Linkedin, href: SOCIAL.linkedin, label: 'LinkedIn' },
+              ].map(({ Icon, href, label }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-11 h-11 inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 hover:bg-white/15 transition-all"
+                    title={isRTL ? `تابعنا على ${label}` : `Follow us on ${label}`}
+                  >
+                    <Icon className="w-4.5 h-4.5" aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Quick Links */}
-          <nav aria-label={isRTL ? "روابط سريعة" : "Quick links"} className="space-y-4">
-            <h3 className="text-lg font-semibold text-[var(--fg)]">
+          <nav aria-label={isRTL ? "روابط سريعة" : "Quick links"} className="space-y-4 p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+            <h3 className="text-lg font-semibold text-adh-text">
               {isRTL ? "روابط سريعة" : "Quick Links"}
             </h3>
             <ul className="space-y-2">
@@ -147,7 +125,7 @@ export default function Footer() {
                 <li key={l.to}>
                   <RouterLink 
                     to={l.to} 
-                    className="text-[var(--muted)] hover:text-[var(--brand)] transition-colors duration-200 text-sm"
+                    className="text-adh-text-secondary hover:text-white transition-colors duration-200 text-sm"
                   >
                     {l.label}
                   </RouterLink>
@@ -157,8 +135,8 @@ export default function Footer() {
           </nav>
 
           {/* Services */}
-          <nav className="space-y-4">
-            <h3 className="text-lg font-semibold text-[var(--fg)]">
+          <nav className="space-y-4 p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+            <h3 className="text-lg font-semibold text-adh-text">
               {isRTL ? "الخدمات" : "Services"}
             </h3>
             <ul className="space-y-2">
@@ -166,7 +144,7 @@ export default function Footer() {
                 <li key={idx}>
                   <RouterLink 
                     to="/products" 
-                    className="text-[var(--muted)] hover:text-[var(--brand)] transition-colors duration-200 text-sm"
+                    className="text-adh-text-secondary hover:text-white transition-colors duration-200 text-sm"
                   >
                     {label}
                   </RouterLink>
@@ -176,8 +154,8 @@ export default function Footer() {
           </nav>
 
           {/* Resources */}
-          <nav className="space-y-4">
-            <h3 className="text-lg font-semibold text-[var(--fg)]">
+          <nav className="space-y-4 p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+            <h3 className="text-lg font-semibold text-adh-text">
               {isRTL ? "الموارد" : "Resources"}
             </h3>
             <ul className="space-y-2">
@@ -185,7 +163,7 @@ export default function Footer() {
                 <li key={idx}>
                   <RouterLink 
                     to={resource.href} 
-                    className="text-[var(--muted)] hover:text-[var(--brand)] transition-colors duration-200 text-sm"
+                    className="text-adh-text-secondary hover:text-white transition-colors duration-200 text-sm"
                   >
                     {resource.label}
                   </RouterLink>
@@ -195,17 +173,17 @@ export default function Footer() {
           </nav>
 
           {/* Contact */}
-          <address className="not-italic space-y-4">
-            <h3 className="text-lg font-semibold text-[var(--fg)]">
+          <address className="not-italic space-y-4 p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+            <h3 className="text-lg font-semibold text-adh-text">
               {isRTL ? "معلومات الاتصال" : "Contact"}
             </h3>
 
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[var(--brand)] flex-shrink-0" aria-hidden="true" />
+                <Phone className="w-4 h-4 text-adh-brand shrink-0" aria-hidden="true" />
                 <a 
                   href={CONTACT_INFO.phoneHref} 
-                  className="text-[var(--muted)] hover:text-[var(--brand)] transition-colors text-sm" 
+                  className="text-adh-text-secondary hover:text-white transition-colors text-sm" 
                   dir="ltr"
                   title="Call us"
                 >
@@ -214,10 +192,10 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[var(--brand)] flex-shrink-0" aria-hidden="true" />
+                <Mail className="w-4 h-4 text-adh-brand shrink-0" aria-hidden="true" />
                 <a 
                   href={CONTACT_INFO.emailHref} 
-                  className="text-[var(--muted)] hover:text-[var(--brand)] transition-colors text-sm break-all"
+                  className="text-adh-text-secondary hover:text-white transition-colors text-sm break-all"
                   title="Send us an email"
                 >
                   {CONTACT_INFO.email}
@@ -225,15 +203,15 @@ export default function Footer() {
               </div>
 
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[var(--brand)] mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <div className="text-[var(--muted)] text-sm leading-relaxed">
+                <MapPin className="w-4 h-4 text-adh-brand mt-0.5 shrink-0" aria-hidden="true" />
+                <div className="text-adh-text-secondary text-sm leading-relaxed">
                   <span>{CONTACT_INFO.address}</span>
                   <br />
                   <a 
                     href={CONTACT_INFO.mapHref} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-[var(--brand)] underline underline-offset-2 hover:opacity-80 transition-opacity"
+                    className="text-adh-btn underline underline-offset-4 hover:opacity-80 transition-opacity"
                     title="Open in Google Maps"
                   >
                     {isRTL ? "افتح في الخريطة" : "View on Maps"}
@@ -245,27 +223,27 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[var(--stroke)] mt-10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <p className="text-[var(--muted)] text-sm">
+        <div className="border-t border-white/10 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-sm text-adh-text-secondary">
+            <p>
               © {year} Abdulhaq Dimensions. {isRTL ? "جميع الحقوق محفوظة." : "All rights reserved."}
             </p>
-            <p className="text-[var(--muted)] text-sm">
+            <p>
               {isRTL 
                 ? "التميز في حلول الديكور الداخلي منذ عام 1948"
                 : "Excellence in Interior Solutions Since 1948"
               }
             </p>
-            <div className="text-sm space-x-3 flex justify-center md:justify-end">
-              <RouterLink to="/privacy" className="text-[var(--muted)] hover:text-[var(--brand)] transition-colors">
+            <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <RouterLink to="/privacy" className="hover:text-white transition-colors">
                 {isRTL ? "الخصوصية" : "Privacy"}
               </RouterLink>
-              <span className="text-[var(--stroke)]">•</span>
-              <RouterLink to="/terms" className="text-[var(--muted)] hover:text-[var(--brand)] transition-colors">
+              <span className="text-adh-stroke">•</span>
+              <RouterLink to="/terms" className="hover:text-white transition-colors">
                 {isRTL ? "الشروط" : "Terms"}
               </RouterLink>
-              <span className="text-[var(--stroke)]">•</span>
-              <a href="/sitemap.xml" className="text-[var(--muted)] hover:text-[var(--brand)] transition-colors">
+              <span className="text-adh-stroke">•</span>
+              <a href="/sitemap.xml" className="hover:text-white transition-colors">
                 Sitemap
               </a>
             </div>

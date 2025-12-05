@@ -25,7 +25,7 @@ export default function TopBar() {
         className="flex items-center gap-1.5 underline hover:opacity-80 transition-opacity"
         aria-label={t('address.label', 'Abdulhaq Dimensions location')}
       >
-        <MapPin className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+        <MapPin className="w-4 h-4 shrink-0" aria-hidden="true" />
         <span>{isRTL ? 'عمّان، الأردن' : 'Amman, Jordan'}</span>
       </a>
 
@@ -38,7 +38,7 @@ export default function TopBar() {
         className="flex items-center gap-1.5 underline hover:opacity-80 transition-opacity"
         aria-label={t('phone.label', 'Call us')}
       >
-        <Phone className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+        <Phone className="w-4 h-4 shrink-0" aria-hidden="true" />
         <span>+962-7-7805-0005</span>
       </a>
 
@@ -53,7 +53,7 @@ export default function TopBar() {
         className="flex items-center gap-1.5 underline hover:opacity-80 transition-opacity"
         aria-label={t('whatsapp.label', 'WhatsApp us')}
       >
-        <MessageCircle className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+        <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
         <span>{t('whatsapp.text', 'WhatsApp')}</span>
       </a>
     </div>

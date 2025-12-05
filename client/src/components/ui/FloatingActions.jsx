@@ -56,7 +56,7 @@ export default function FloatingActions() {
 
   return (
     <div
-      className={`fixed bottom-5 ${isRTL ? 'left-5' : 'right-5'} z-[70] flex flex-col gap-3 transition-opacity duration-300`}
+      className={`fixed bottom-5 ${isRTL ? 'left-5' : 'right-5'} z-70 flex flex-col gap-3 transition-opacity duration-300`}
       style={{ opacity: hoverWake ? 1 : (1 - fadeFactor * 0.9) }}
       onMouseEnter={() => setHoverWake(true)}
       onMouseLeave={() => setHoverWake(false)}
@@ -66,7 +66,7 @@ export default function FloatingActions() {
     >
       <a
         href={`tel:${phone}`}
-        className="w-12 h-12 rounded-full grid place-items-center bg-[var(--brand)] text-white shadow-xl hover:scale-105 transition"
+        className="w-12 h-12 rounded-full grid place-items-center bg-(--brand) text-white shadow-xl hover:scale-105 transition"
         aria-label="Call us"
       >
         <Phone className="w-5 h-5" />

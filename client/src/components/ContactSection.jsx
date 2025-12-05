@@ -10,14 +10,18 @@ export default function ContactSection() {
   const isAr = i18n.language === 'ar';
 
   return (
-  <section id="contact" className="py-20 surface relative overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
-      {/* Decorative Blobs */}
-      <div className="absolute top-0 left-0 w-72 h-72 rounded-full opacity-20 bg-[#5b7d89] blur-2xl z-0 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full opacity-20 bg-[#002b3a] blur-2xl z-0 pointer-events-none" />
+    <section
+      id="contact"
+      className="relative py-12 md:py-16 lg:py-24 bg-adh-bg text-adh-text overflow-hidden"
+      dir={isAr ? 'rtl' : 'ltr'}
+    >
+      <div className="absolute inset-0 bg-linear-to-b from-adh-bg via-transparent to-adh-bg" aria-hidden="true" />
+      <div className="absolute -top-10 -right-10 w-72 h-72 rounded-full bg-adh-brand/15 blur-[120px]" aria-hidden="true" />
+      <div className="absolute -bottom-10 -left-10 w-80 h-80 rounded-full bg-adh-accent/10 blur-[140px]" aria-hidden="true" />
 
-      <div className="container mx-auto px-4 lg:px-20 relative z-10">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
         <motion.h2
-          className="text-center text-4xl md:text-5xl font-bold mb-14 text-primary uppercase tracking-wide drop-shadow"
+          className="text-center text-[clamp(28px,5vw,44px)] font-serif font-semibold tracking-tight text-adh-text mb-8 md:mb-12 px-4"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -26,77 +30,75 @@ export default function ContactSection() {
           {t('title')}
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          {/* Contact Form & Info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-start">
           <motion.div
             initial={{ opacity: 0, x: isAr ? 60 : -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, type: 'spring' }}
-            className={`
-              surface-elevated rounded-3xl shadow-2xl backdrop-blur-lg
-              p-8 md:p-10
-              relative z-10
-              ${isAr ? 'md:order-2' : 'md:order-1'}
-            `}
-            style={{
-              boxShadow: '0 6px 36px 0 rgba(91,125,137,0.12), 0 1px 4px 0 rgba(0,43,58,0.09)'
-            }}
+            className={`order-1 rounded-3xl md:rounded-4xl border border-adh-stroke bg-adh-surface/95 shadow-adh-card backdrop-blur-lg p-6 md:p-8 lg:p-10 ${isAr ? 'md:order-2' : 'md:order-1'}`}
           >
             <ContactForm />
 
-            {/* Contact Info */}
-            <div className="mt-10 space-y-4 text-sm text-gray-700 dark:text-white/80">
+            <div className="mt-8 md:mt-10 space-y-3 md:space-y-4 text-sm md:text-base text-adh-text-secondary">
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-[#002b3a]" />
-                <span>{t('info.phone')}</span>
+                <Phone className="w-5 h-5 shrink-0 text-adh-text" />
+                <span className="wrap-break-word">{t('info.phone')}</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-[#002b3a]" />
-                <span>{t('info.email')}</span>
+                <Mail className="w-5 h-5 shrink-0 text-adh-text" />
+                <span className="wrap-break-word">{t('info.email')}</span>
               </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-[#002b3a]" />
-                <span>{t('info.address')}</span>
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 shrink-0 text-adh-text mt-0.5" />
+                <span className="wrap-break-word">{t('info.address')}</span>
               </div>
 
-              {/* Social */}
-              <div>
-                <div className="font-semibold mb-2">{t('social.followUs')}:</div>
-                <div className="flex items-center gap-4 bg-white/80 dark:bg-[#21292e]/70 rounded-full px-4 py-2 shadow backdrop-blur-sm">
-                  <a href="https://www.facebook.com/AbdulhaqDimensions" target="_blank" rel="noopener noreferrer"
-                    className="transition hover:scale-110" aria-label="Facebook">
-                    <Facebook className="w-6 h-6 text-[#5b7d89] hover:text-[#002b3a] transition" />
+              <div className="pt-4 border-t border-adh-stroke/60">
+                <div className="font-semibold mb-3 text-adh-text">{t('social.followUs')}:</div>
+                <div className="flex items-center gap-4 bg-adh-bg-soft/70 rounded-full px-4 py-2 shadow-adh-soft border border-adh-stroke/60">
+                  <a
+                    href="https://www.facebook.com/AbdulhaqDimensions"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:scale-110"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="w-6 h-6 text-adh-accent hover:text-adh-text transition" />
                   </a>
-                  <a href="https://instagram.com/abdulhaqdimensions?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer"
-                    className="transition hover:scale-110" aria-label="Instagram">
-                    <Instagram className="w-6 h-6 text-[#5b7d89] hover:text-[#002b3a] transition" />
+                  <a
+                    href="https://instagram.com/abdulhaqdimensions?igshid=YmMyMTA2M2Y="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:scale-110"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-6 h-6 text-adh-accent hover:text-adh-text transition" />
                   </a>
-                  <a href="https://www.linkedin.com/company/abdulhaq-dimensions" target="_blank" rel="noopener noreferrer"
-                    className="transition hover:scale-110" aria-label="LinkedIn">
-                    <Linkedin className="w-6 h-6 text-[#5b7d89] hover:text-[#002b3a] transition" />
+                  <a
+                    href="https://www.linkedin.com/company/abdulhaq-dimensions"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:scale-110"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-6 h-6 text-adh-accent hover:text-adh-text transition" />
                   </a>
-                
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Google Map with glass and shadow */}
           <motion.div
             initial={{ opacity: 0, x: isAr ? -60 : 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, type: 'spring' }}
-            className={`w-full h-full rounded-3xl overflow-hidden shadow-2xl backdrop-blur-xl surface-elevated ${isAr ? 'md:order-1' : 'md:order-2'}`}
-            style={{
-              boxShadow: '0 8px 36px 0 rgba(91,125,137,0.15), 0 1px 4px 0 rgba(0,43,58,0.07)'
-            }}
+            className={`order-2 w-full h-full min-h-[350px] md:min-h-[500px] rounded-3xl md:rounded-4xl overflow-hidden border border-adh-stroke bg-adh-surface/80 shadow-adh-card backdrop-blur-md ${isAr ? 'md:order-1' : 'md:order-2'}`}
           >
-            {/* Google Maps Embed */}
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.8025798118147!2d35.840547576111994!3d31.966252124976677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca117cbe45f27%3A0x5e065023684733b0!2sAbdulhaq%20Dimensions!5e0!3m2!1sen!2sjo!4v1764413397696!5m2!1sen!2sjo"
-              className="w-full h-[460px] border-0"
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.8025798118147!2d35.840547576111994!3d31.966252124976677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca117cbe45f27%3A0x5e065023684733b0!2sAbdulhaq%20Dimensions!5e0!3m2!1sen!2sjo!4v1764880693685!5m2!1sen!2sjo"
+              className="w-full h-full border-0"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

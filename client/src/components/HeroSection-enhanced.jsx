@@ -51,7 +51,7 @@ export default function HeroSection() {
   // Safe text getter with fallbacks
   const fallbacks = {
     'hero.title': 'Comprehensive Project Solutions',
-    'hero.description': 'We offer comprehensive project solutions that cater to a wide range of requirements, including private residential villas, offices, clinics, as well as large-scale projects like headquarters, hotels, hospitals, and resorts.',
+    'hero.description': 'We deliver end-to-end project solutions tailored to meet diverse needs from bespoke private residential villas and modern offices to state-of-the-art clinics. Our expertise extends to large-scale developments, including corporate headquarters, luxury hotels, world-class hospitals, and exclusive resorts.\n\nBy combining premium design, exceptional craftsmanship, and meticulous project management, we ensure every space reflects the highest standards of functionality, aesthetics, and comfort.',
     'hero.cta1': 'See Our Products',
     'hero.cta2': 'Get Quote',
     'hero.chip.convenience': 'Incredible convenience',
@@ -260,7 +260,7 @@ export default function HeroSection() {
           
           {/* Gradient overlay for legibility */}
           <div 
-            className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-transparent pointer-events-none z-10" 
+            className="absolute inset-0 bg-linear-to-br from-black/60 via-black/40 to-transparent pointer-events-none z-10"
             aria-hidden="true"
           />
 
@@ -291,13 +291,13 @@ export default function HeroSection() {
             )}>
               <a 
                 href="/products" 
-                className="px-6 py-3 rounded-full bg-brand-900 text-white font-medium shadow-lg hover:opacity-90 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="px-6 py-3 rounded-full bg-brand-900 text-white font-medium shadow-lg hover:opacity-90 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 {getText('hero.cta1')}
               </a>
               <a
                 href="/quote"
-                className="px-6 py-3 rounded-full bg-white/10 backdrop-blur text-white font-medium border border-white/20 shadow hover:bg-white/20 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="px-6 py-3 rounded-full bg-white/10 backdrop-blur text-white font-medium border border-white/20 shadow hover:bg-white/20 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 {getText('hero.cta2')}
               </a>
@@ -316,7 +316,7 @@ export default function HeroSection() {
                 key={idx}
                 onClick={() => goTo(idx)}
                 className={clsx(
-                  'w-3 h-3 rounded-full transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/70',
+                  'w-3 h-3 rounded-full transition-all focus-visible:outline-2 focus-visible:outline-white/70',
                   idx === bgIndex 
                     ? 'bg-white scale-125 shadow-lg' 
                     : 'bg-white/60 hover:bg-white/80'
@@ -365,7 +365,8 @@ export default function HeroSection() {
               backgroundImage: `url(${covers[bgIndex]})`,
               backgroundSize: 'cover',
               backgroundPosition: isRTL ? '74% 52%' : '26% 52%',
-              filter: 'blur(14px) brightness(0.7)',
+              // Remove excessive dimming in dark mode; keep subtle blur only
+              filter: 'blur(14px)',
               transform: 'scale(1.05)',
               opacity: 0.85,
             }}
@@ -376,7 +377,7 @@ export default function HeroSection() {
           <div className="relative z-10 flex flex-col items-center justify-center h-full p-6 md:p-10">
             
             {/* Video card (16:9) */}
-            <figure className="w-full max-w-[640px] aspect-[16/9] rounded-2xl overflow-hidden bg-black/30 backdrop-blur shadow-2xl relative">
+            <figure className="w-full max-w-[640px] aspect-video rounded-2xl overflow-hidden bg-black/30 backdrop-blur shadow-2xl relative">
               <video
                 ref={videoRef}
                 className={clsx(
@@ -401,7 +402,7 @@ export default function HeroSection() {
 
               {/* Top gradient for legibility */}
               <div 
-                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 to-transparent" 
+                className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/10 to-transparent" 
                 aria-hidden="true" 
               />
 
@@ -412,7 +413,7 @@ export default function HeroSection() {
               )}>
                 <button
                   onClick={toggleMute}
-                  className="px-3 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur text-white border border-white/20 hover:bg-black/70 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+                  className="px-3 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur text-white border border-white/20 hover:bg-black/70 transition focus-visible:outline-2 focus-visible:outline-white"
                   aria-label={muted ? getText('hero.unmute') : getText('hero.mute')}
                 >
                   {muted ? '🔇 Unmute' : '🔊 Mute'}

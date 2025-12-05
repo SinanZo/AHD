@@ -78,11 +78,11 @@ export default function Header({ currentPage = "home", onNavigate }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:bg-[#08131a]/70 bg-white text-gray-900 dark:text-white border-b border-gray-200 dark:border-white/10">
+    <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-adh-bg/70 bg-adh-bg text-adh-text dark:text-adh-text border-b border-adh-stroke">
       {/* Top info bar */}
       <div className="hidden md:block">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="flex items-center justify-between text-[13px] py-2 text-gray-700 dark:text-white/80">
+          <div className="flex items-center justify-between text-[13px] py-2 text-adh-text-secondary dark:text-adh-text/80">
             <div className="flex items-center gap-6">
               <span className="inline-flex items-center gap-2">
                 <MapPin className="w-4 h-4 opacity-80" />
@@ -133,7 +133,7 @@ export default function Header({ currentPage = "home", onNavigate }) {
           {/* Center pill nav (desktop) */}
           <nav
             aria-label="Primary"
-            className="hidden lg:flex items-center rounded-full ring-1 ring-gray-300 dark:ring-white/10 bg-gray-100 dark:bg-white/5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] p-1"
+            className="hidden lg:flex items-center rounded-full ring-1 ring-adh-stroke bg-adh-bg-soft dark:bg-adh-surface/5 p-1"
           >
             {nav.map((item) => {
               const active = currentPage === item.key;
@@ -143,7 +143,7 @@ export default function Header({ currentPage = "home", onNavigate }) {
                   to={item.to}
                   className={[
                     "px-4 h-10 rounded-full text-sm font-semibold transition",
-                    active ? "bg-[var(--brand)] shadow text-white" : "bg-gray-100 hover:bg-gray-200",
+                    active ? "bg-adh-brand text-white shadow-adh-card" : "bg-adh-bg-soft hover:bg-adh-bg-linen",
                   ].join(" ")}
                 >
                   {item.label}
@@ -158,7 +158,7 @@ export default function Header({ currentPage = "home", onNavigate }) {
             <div
               role="tablist"
               aria-label="Language"
-              className="flex items-center rounded-full bg-gray-100 dark:bg-white/10 ring-1 ring-gray-300 dark:ring-white/10 p-1"
+              className="flex items-center rounded-full bg-adh-bg-soft dark:bg-adh-surface/10 ring-1 ring-adh-stroke p-1"
             >
               {[{ code: "en", label: "EN" }, { code: "ar", label: "عربي" }].map((opt) => {
                 const active = (code && code.startsWith("ar") ? "ar" : "en") === opt.code;
@@ -173,7 +173,7 @@ export default function Header({ currentPage = "home", onNavigate }) {
                     }}
                     className={[
                       "px-4 h-10 rounded-full text-sm font-semibold transition",
-                      active ? "bg-[var(--brand)] shadow text-white" : "bg-gray-100 hover:bg-gray-200",
+                      active ? "bg-adh-brand text-white shadow-adh-card" : "bg-adh-bg-soft hover:bg-adh-bg-linen",
                     ].join(" ")}
                   >
                     {opt.label}
@@ -186,7 +186,7 @@ export default function Header({ currentPage = "home", onNavigate }) {
               href={waLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 h-10 px-5 rounded-full dark:bg-white dark:text-[var(--brand)] bg-[var(--brand)] text-white font-semibold hover:bg-gray-100 dark:hover:bg-[#e8eef1] shadow"
+              className="inline-flex items-center gap-2 h-10 px-5 rounded-full bg-adh-btn text-adh-btn-fg font-semibold hover:bg-adh-btn-hover shadow-adh-card"
             >
               <MessageCircle className="w-4 h-4" />
               {t("cta.getQuote", "Get Quote")}
@@ -194,7 +194,7 @@ export default function Header({ currentPage = "home", onNavigate }) {
 
             {/* Mobile burger */}
             <button
-              className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20"
+              className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md bg-adh-bg-soft dark:bg-adh-surface/10 hover:bg-adh-bg-linen dark:hover:bg-adh-surface/20"
               onClick={() => setOpen(true)}
               aria-controls={menuId}
               aria-expanded={open}
@@ -209,18 +209,16 @@ export default function Header({ currentPage = "home", onNavigate }) {
       {/* Mobile sheet */}
       {open && (
         <div className="lg:hidden fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-labelledby={`${menuId}-title`}>
-          <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
+          <div className="absolute inset-0 bg-adh-overlay/60" onClick={() => setOpen(false)} />
           <div
             id={menuId}
-            className={`absolute ${isRTL ? "left-0" : "right-0"} top-0 h-full w-[88%] max-w-sm bg-white dark:bg-[#0b1620] text-gray-900 dark:text-white shadow-xl p-6 flex flex-col gap-6`}
+            className={`absolute ${isRTL ? "left-0" : "right-0"} top-0 h-full w-[88%] max-w-sm bg-adh-surface dark:bg-adh-surface-dark text-adh-text dark:text-adh-text shadow-xl p-6 flex flex-col gap-6`}
           >
             <div className="flex items-center justify-between">
-              <h2 id={`${menuId}-title`} className="text-lg font-semibold">
-                Menu
-              </h2>
+              <h2 id={`${menuId}-title`} className="text-lg font-semibold">Menu</h2>
               <button
                 onClick={() => setOpen(false)}
-                className="h-10 w-10 grid place-items-center rounded-md bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20"
+                className="h-10 w-10 grid place-items-center rounded-md bg-adh-bg-soft dark:bg-adh-surface/10 hover:bg-adh-bg-linen dark:hover:bg-adh-surface/20"
                 aria-label="Close menu"
               >
                 <X className="w-5 h-5" />
@@ -238,8 +236,8 @@ export default function Header({ currentPage = "home", onNavigate }) {
                     className={[
                       "px-4 py-3 rounded-xl text-base font-medium",
                       active
-                        ? "dark:bg-white dark:text-[var(--brand)] bg-[var(--brand)] text-white"
-                        : "bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10",
+                        ? "bg-adh-brand text-white shadow-adh-card"
+                        : "bg-adh-bg-soft dark:bg-adh-surface/5 hover:bg-adh-bg-linen",
                     ].join(" ")}
                     aria-current={active ? "page" : undefined}
                   >
@@ -252,22 +250,24 @@ export default function Header({ currentPage = "home", onNavigate }) {
             <div className="mt-auto flex flex-col gap-3">
               <button
                 onClick={toggleLang}
-                className="h-12 rounded-xl bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 font-semibold"
+                className="h-12 rounded-xl bg-adh-bg-soft dark:bg-adh-surface/10 hover:bg-adh-bg-linen font-semibold"
               >
                 {code && code.startsWith("ar") ? "Switch to English" : "التبديل إلى العربية"}
               </button>
+
               <button
                 onClick={toggleTheme}
-                className="h-12 rounded-xl bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 font-semibold inline-flex items-center justify-center gap-2"
+                className="h-12 rounded-xl bg-adh-bg-soft dark:bg-adh-surface/10 hover:bg-adh-bg-linen font-semibold inline-flex items-center justify-center gap-2"
               >
                 {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                 <span>{t("theme.toggle", "Toggle Theme")}</span>
               </button>
+
               <a
                 href={waLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-12 rounded-xl dark:bg-white dark:text-[var(--brand)] bg-[var(--brand)] text-white font-semibold grid place-items-center"
+                className="h-12 rounded-xl bg-adh-btn text-adh-btn-fg font-semibold grid place-items-center"
               >
                 {t("cta.getQuote", "Get Quote")}
               </a>

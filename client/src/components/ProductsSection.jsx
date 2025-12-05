@@ -409,17 +409,20 @@ export default function ProductsSection({ heading: headingProp, description: des
   return (
     <section
       id="products"
-      className="py-20 min-h-[40vh] relative surface"
+      className="relative py-24 bg-adh-bg text-adh-text overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
       aria-label={tt("sectionLabel", { defaultValue: isRTL ? "معرض المنتجات" : "Products carousel" })}
     >
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 uppercase tracking-wide text-primary">
+      <div className="absolute inset-0 bg-linear-to-b from-adh-bg via-adh-bg-soft/40 to-adh-bg" aria-hidden="true" />
+      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[480px] h-[480px] rounded-full bg-adh-brand/5 blur-[180px]" aria-hidden="true" />
+
+      <div className="relative container mx-auto px-4">
+        <h2 className="text-center text-[clamp(32px,4vw,52px)] font-serif font-semibold tracking-tight mb-5">
           {headingProp || tt("heading")}
         </h2>
-        <p className="text-center text-muted mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-adh-text-secondary mb-14 max-w-2xl mx-auto leading-relaxed">
           {descriptionProp || tt("description")}
         </p>
 
@@ -430,26 +433,18 @@ export default function ProductsSection({ heading: headingProp, description: des
             data-test="products-prev"
             onClick={() => scrollToDirectionImmediate(isRTL ? "right" : "left")}
             className={`
-              absolute ${isRTL ? "right-0" : "left-0"} top-1/2 -translate-y-1/2 z-20
-              w-11 h-11 rounded-full flex items-center justify-center
+              absolute ${isRTL ? "right-2 md:right-4" : "left-2 md:left-4"} top-1/2 -translate-y-1/2 z-30
+              w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center
               transition-all duration-300 ease-in-out
-              opacity-100 translate-x-0
-              bg-white/90 hover:bg-white shadow-lg hover:shadow-xl
-              border border-gray-200 hover:border-gray-300
-              focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
-              text-[color:var(--fg)]
+              border border-white/30 bg-white/15 backdrop-blur-xl text-white shadow-[0_10px_35px_rgba(0,0,0,0.35)]
+              hover:bg-white/30 hover:text-adh-primary hover:shadow-[0_15px_45px_rgba(0,0,0,0.35)]
+              focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent
+              ${showControls ? "opacity-100" : "opacity-0 pointer-events-none md:opacity-60 md:pointer-events-auto"}
             `}
-            style={{
-              width: "44px",
-              height: "44px",
-              [isRTL ? "right" : "left"]: "8px",
-              background: "var(--card)",
-              border: "1px solid var(--stroke)",
-            }}
             aria-label={prevLabel}
             title={prevLabel}
           >
-            {isRTL ? <ChevronRight className="w-6 h-6" /> : <ChevronLeft className="w-6 h-6" />}
+            {isRTL ? <ChevronRight className="w-7 h-7" /> : <ChevronLeft className="w-7 h-7" />}
           </button>
 
           {/* Right nav */}
@@ -458,26 +453,18 @@ export default function ProductsSection({ heading: headingProp, description: des
             data-test="products-next"
             onClick={() => scrollToDirectionImmediate(isRTL ? "left" : "right")}
             className={`
-              absolute ${isRTL ? "left-0" : "right-0"} top-1/2 -translate-y-1/2 z-20
-              w-11 h-11 rounded-full flex items-center justify-center
+              absolute ${isRTL ? "left-2 md:left-4" : "right-2 md:right-4"} top-1/2 -translate-y-1/2 z-30
+              w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center
               transition-all duration-300 ease-in-out
-              opacity-100 translate-x-0
-              bg-white/90 hover:bg-white shadow-lg hover:shadow-xl
-              border border-gray-200 hover:border-gray-300
-              focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
-              text-[color:var(--fg)]
+              border border-white/30 bg-white/15 backdrop-blur-xl text-white shadow-[0_10px_35px_rgba(0,0,0,0.35)]
+              hover:bg-white/30 hover:text-adh-primary hover:shadow-[0_15px_45px_rgba(0,0,0,0.35)]
+              focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent
+              ${showControls ? "opacity-100" : "opacity-0 pointer-events-none md:opacity-60 md:pointer-events-auto"}
             `}
-            style={{
-              width: "44px",
-              height: "44px",
-              [isRTL ? "left" : "right"]: "8px",
-              background: "var(--card)",
-              border: "1px solid var(--stroke)",
-            }}
             aria-label={nextLabel}
             title={nextLabel}
           >
-            {isRTL ? <ChevronLeft className="w-6 h-6" /> : <ChevronRight className="w-6 h-6" />}
+            {isRTL ? <ChevronLeft className="w-7 h-7" /> : <ChevronRight className="w-7 h-7" />}
           </button>
 
           {/* Scroller */}
@@ -485,7 +472,7 @@ export default function ProductsSection({ heading: headingProp, description: des
             ref={scrollRef}
             id="products-track"
             aria-keyshortcuts="ArrowLeft ArrowRight Space"
-            className="flex overflow-x-auto gap-6 snap-x snap-mandatory px-2 pb-8 scrollbar-hide cursor-grab focus:outline-none focus:ring-2 focus:ring-primary rounded-lg"
+            className="flex overflow-x-auto gap-6 snap-x snap-mandatory px-10 md:px-16 pb-8 scrollbar-hide cursor-grab rounded-4xl bg-adh-surface/20 backdrop-blur-[18px] ring-1 ring-white/10"
             style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none", direction: isRTL ? 'rtl' : 'ltr' }}
             onMouseEnter={() => setIsAutoScrollPaused(true)}
             onMouseLeave={() => setIsAutoScrollPaused(false)}
@@ -506,15 +493,15 @@ export default function ProductsSection({ heading: headingProp, description: des
                 // ✅ No nested interactive inside <a>. Use article with link-like behaviour.
                 <article
                   key={i}
-                  className="block snap-start min-w-[300px] md:min-w-[360px] lg:min-w-[420px] h-[540px] md:h-[640px] flex-shrink-0"
+                  className="block snap-start min-w-[300px] md:min-w-[360px] lg:min-w-[420px] h-[540px] md:h-[640px] shrink-0"
                 >
                   <motion.div
-                    className="relative h-full overflow-hidden rounded-xl shadow-lg group cursor-pointer surface-elevated transition-all duration-500"
+                    className="relative h-full overflow-hidden rounded-[28px] border border-white/12 bg-adh-surface/70 backdrop-blur-3xl shadow-[0_25px_70px_rgba(0,0,0,0.4)] group cursor-pointer transition-all duration-500"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.07, duration: 0.6, ease: "easeOut" }}
-                    whileHover={reduceMotion ? {} : { y: -4, rotateX: 2, rotateY: -2 }}
+                    whileHover={reduceMotion ? {} : { y: -6, scale: 1.015 }}
                     style={{ transformStyle: 'preserve-3d' }}
                     role="link"
                     tabIndex={0}
@@ -533,7 +520,7 @@ export default function ProductsSection({ heading: headingProp, description: des
                       alt={item.title || 'Product'}
                       loading="lazy"
                       decoding="async"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 z-0 rounded-xl"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 z-0 rounded-[28px]"
                       onError={(e) => {
                         try {
                           if (e && e.currentTarget) e.currentTarget.src = '/images/placeholder-product.svg';
@@ -542,11 +529,11 @@ export default function ProductsSection({ heading: headingProp, description: des
                     />
 
                     {/* Overlay for readability */}
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/60 transition-all duration-500 z-[1] pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-b from-black/10 via-black/35 to-black/75 group-hover:via-black/50 group-hover:to-black/85 transition-all duration-500 z-10 pointer-events-none" />
 
                     {/* Glossy reflection sweep */}
                     <div
-                      className="absolute -top-1/2 left-[-60%] w-[140%] h-[200%] rotate-12 opacity-0 group-hover:opacity-15 transition-opacity duration-500 z-[2] pointer-events-none"
+                      className="absolute -top-1/2 left-[-60%] w-[140%] h-[200%] rotate-12 opacity-0 group-hover:opacity-15 transition-opacity duration-500 z-10 pointer-events-none"
                       style={{
                         background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%)',
                         mixBlendMode: 'screen'
@@ -555,9 +542,9 @@ export default function ProductsSection({ heading: headingProp, description: des
                     />
 
                     {/* Vertical title for all languages */}
-                    <div className={`absolute ${isRTL ? "right-6" : "left-6"} top-1/2 -translate-y-1/2 z-[2] group-hover:opacity-0 transition-opacity duration-500`}>
+                      <div className={`absolute ${isRTL ? "right-6" : "left-6"} top-1/2 -translate-y-1/2 z-20 group-hover:opacity-0 transition-opacity duration-500`}>
                       <h3
-                        className="text-white text-lg md:text-xl font-bold uppercase tracking-[0.1em]"
+                        className="text-white text-lg md:text-xl font-bold uppercase tracking-widest"
                         style={{
                           writingMode: "vertical-rl",
                           textOrientation: "mixed",
@@ -571,21 +558,21 @@ export default function ProductsSection({ heading: headingProp, description: des
                     </div>
 
                     {/* Hover panel */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-500 p-8 flex flex-col justify-end z-[3] pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
-                      <h3 className="text-2xl font-semibold text-white uppercase mb-4 drop-shadow">
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-500 p-8 flex flex-col justify-end z-20 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
+                      <h3 className="text-[26px] font-serif font-semibold text-white mb-3 drop-shadow-lg">
                         {item.title}
                       </h3>
 
-                      <p className="mb-4 text-white/95 font-medium line-clamp-3">
+                      <p className="mb-5 text-white/90 leading-relaxed line-clamp-3">
                         {item.brief}
                       </p>
 
                       {item.sub && item.sub.length > 0 && (
-                        <ul role="list" className="text-sm text-gray-200 space-y-2 mb-6 max-h-[120px] overflow-y-auto pr-2">
+                        <ul role="list" className="text-sm text-white/85 space-y-2 mb-6 max-h-[140px] overflow-y-auto pr-2">
                           {item.sub.map((subItem, idx) => (
-                            <li
-                              key={idx}
-                              className={`${isAr ? "pr-3 border-r-2 border-primary dark:border-accent" : "pl-3 border-l-2 border-primary dark:border-accent"} cursor-pointer hover:text-white transition-colors`}
+                              <li
+                                key={idx}
+                                className={`${isAr ? "pr-3 border-r border-white/40" : "pl-3 border-l border-white/40"} cursor-pointer hover:text-white transition-colors`}
                               role="button"
                               tabIndex={0}
                               onClick={(e) => {
@@ -606,11 +593,11 @@ export default function ProductsSection({ heading: headingProp, description: des
                         </ul>
                       )}
 
-                      <div className={`flex gap-2 ${isRTL ? "justify-end" : ""}`}>
+                      <div className={`flex gap-3 flex-wrap ${isRTL ? "justify-end" : ""}`}>
                         {/* Use Link for gallery navigation to avoid nested button-in-link */}
                         <Link
                           to={`/gallery/${folder}`}
-                          className="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg transition-colors cursor-pointer"
+                          className="px-4 py-2 rounded-full border border-white/30 text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                           onClick={(e) => e.stopPropagation()}
                         >
                           {isRTL ? "عرض المعرض" : "View Gallery"}
@@ -627,7 +614,7 @@ export default function ProductsSection({ heading: headingProp, description: des
                               "noopener,noreferrer"
                             );
                           }}
-                          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors cursor-pointer"
+                          className="px-4 py-2 rounded-full bg-adh-btn text-adh-btn-fg hover:bg-adh-btn-hover transition-colors cursor-pointer"
                         >
                           WhatsApp
                         </button>
@@ -638,15 +625,6 @@ export default function ProductsSection({ heading: headingProp, description: des
               );
             })}
           </div>
-        </div>
-
-        {/* Scroll hint */}
-        <div className="text-center text-sm text-gray-400 mt-4">
-          <p className={isRTL ? "font-arabic" : ""}>
-            {isRTL
-              ? "استخدم مفاتيح الأسهم ← → للتنقل • زر المسافة لإيقاف/تشغيل التمرير التلقائي"
-              : "Use ← → to navigate • Space to toggle auto-scroll • Infinite loop enabled"}
-          </p>
         </div>
       </div>
     </section>

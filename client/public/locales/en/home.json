@@ -3,7 +3,7 @@
     "badge": "PREMIUM INTERIOR SOLUTIONS",
     "title": "COMPREHENSIVE PROJECT SOLUTIONS",
     "subtitle": "",
-    "description": "We offer comprehensive project solutions that cater to a wide range of requirements, including private residential villas, offices, clinics, as well as large-scale projects like headquarters, hotels, hospitals, and resorts.",
+    "description": "We deliver end-to-end project solutions tailored to meet diverse needs from bespoke private residential villas and modern offices to state-of-the-art clinics. Our expertise extends to large-scale developments, including corporate headquarters, luxury hotels, world-class hospitals, and exclusive resorts.\n\nBy combining premium design, exceptional craftsmanship, and meticulous project management, we ensure every space reflects the highest standards of functionality, aesthetics, and comfort.",
     "cta1": "See Our Products",
     "cta2": "Get Quote",
     "scroll": "Scroll",
@@ -26,6 +26,8 @@
   "services": {
     "title": "Our Services",
     "subtitle": "Comprehensive Interior Solutions",
+    "description": "Explore our full range of premium interior design and implementation services",
+    "catalog": "Catalog",
     "curtains": {
       "title": "Curtains & Drapes",
       "description": "Classic and modern curtains for residential and commercial spaces",
@@ -57,6 +59,25 @@
     "serviceDesc": "Our dedicated team ensures your complete satisfaction",
     "innovation": "Latest Technology & Trends",
     "innovationDesc": "Stay ahead with our modern solutions and innovative designs"
+  },
+  "why": {
+    "subtitle": "Premium Interior Solutions",
+    "title": "Why choose Abdulhaq Dimensions?",
+    "description": "We don't just provide curtains — we design visual and tactile experiences that give every space a distinct identity and soul, with a steadfast commitment to quality, craftsmanship and innovation."
+  },
+  "premium": {
+    "subtitle": "Selected Highlights",
+    "title": "Our Premium Products",
+    "description": "From timeless curtain compositions to contemporary blinds and outdoor systems, explore a curated selection of Abdulhaq Dimensions’ most requested solutions.",
+    "cta": "View collection"
+  },
+  "features": {
+    "items": [
+      { "icon": "ShieldCheck", "title": "Certified Quality", "desc": "Premium materials and strict QA on every order." },
+      { "icon": "Clock", "title": "On-Time Delivery", "desc": "Reliable lead times with proactive updates." },
+      { "icon": "Wrench", "title": "Expert Craftsmanship", "desc": "Experienced team with meticulous finish." },
+      { "icon": "Sparkles", "title": "Great Service", "desc": "Clear communication and after-sales support." }
+    ]
   }
 }
 

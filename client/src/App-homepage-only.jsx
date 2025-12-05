@@ -123,10 +123,11 @@ function App() {
               <h1 className="text-4xl md:text-6xl font-jockey mb-6 text-shadow">
                 COMPREHENSIVE PROJECT SOLUTIONS
               </h1>
+              <p className="text-lg md:text-xl body-text text-white/90 mb-4 leading-relaxed">
+                We deliver end-to-end project solutions tailored to meet diverse needs from bespoke private residential villas and modern offices to state-of-the-art clinics. Our expertise extends to large-scale developments, including corporate headquarters, luxury hotels, world-class hospitals, and exclusive resorts.
+              </p>
               <p className="text-lg md:text-xl body-text text-white/90 mb-8 leading-relaxed">
-                We offer comprehensive project solutions that cater to a wide range of requirements, 
-                including private residential villas, offices, clinics, as well as large-scale projects 
-                like headquarters, hotels, hospitals, and resorts.
+                By combining premium design, exceptional craftsmanship, and meticulous project management, we ensure every space reflects the highest standards of functionality, aesthetics, and comfort.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="btn-secondary bg-white text-primary hover:bg-gray-100">

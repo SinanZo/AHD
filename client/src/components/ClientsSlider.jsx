@@ -157,11 +157,11 @@ export default function ClientsSlider() {
 
   const playPauseIcon = isAutoPlaying ? (
     <motion.div key="pause" initial={{ rotate: -90, scale: 0.7, opacity: 0 }} animate={{ rotate: 0, scale: 1, opacity: 1 }} exit={{ rotate: 90, scale: 0.7, opacity: 0 }} transition={{ duration: 0.3 }}>
-      <Pause className="w-5 h-5" style={{ color: "#002b3a" }} aria-hidden="true" />
+      <Pause className="w-5 h-5 text-adh-text" aria-hidden="true" />
     </motion.div>
   ) : (
     <motion.div key="play" initial={{ rotate: 90, scale: 0.7, opacity: 0 }} animate={{ rotate: 0, scale: 1, opacity: 1 }} exit={{ rotate: -90, scale: 0.7, opacity: 0 }} transition={{ duration: 0.3 }}>
-      <Play className="w-5 h-5" style={{ color: "#002b3a" }} aria-hidden="true" />
+      <Play className="w-5 h-5 text-adh-text" aria-hidden="true" />
     </motion.div>
   );
 
@@ -176,7 +176,7 @@ export default function ClientsSlider() {
     <section
       id="clients"
       ref={sectionRef}
-      className="py-32 relative overflow-hidden bg-[#e8e6e6] dark:bg-[#10181c]"
+      className="py-32 relative overflow-hidden bg-adh-bg-linen dark:bg-adh-bg"
       role="region"
       aria-roledescription="carousel"
       aria-label={tt("sliderHeading")}
@@ -184,16 +184,16 @@ export default function ClientsSlider() {
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Decorative blobs */}
-      <div className="absolute top-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-2xl opacity-20 z-0" style={{ backgroundColor: "#5b7d89" }} aria-hidden="true" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-2xl opacity-20 z-0" style={{ backgroundColor: "#002b3a" }} aria-hidden="true" />
+      <div className="absolute top-0 left-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-2xl opacity-20 z-0 bg-adh-accent" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-2xl opacity-20 z-0 bg-adh-brand" aria-hidden="true" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div className="text-center mb-20" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6 }}>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 uppercase tracking-wider" style={{ color: "#002b3a" }}>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 uppercase tracking-wider text-adh-text">
             {tt("sliderHeading")}
           </h2>
-          <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: "#5b7d89" }}>
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed text-adh-text-secondary">
             {tt("sliderSubheading")}
           </p>
         </motion.div>
@@ -202,18 +202,17 @@ export default function ClientsSlider() {
         <motion.div className="flex justify-center items-center gap-6 mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6 }}>
           <button
             onClick={toggleAutoPlay}
-            className="flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#5b7d89]"
-            style={{ borderColor: "#5b7d89" }}
+            className="flex items-center gap-3 px-6 py-3 bg-adh-surface rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-adh-accent hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-adh-accent"
             aria-pressed={isAutoPlaying}
             aria-label={isAutoPlaying ? tt("pauseAutoplay", { defaultValue: "Pause autoplay" }) : tt("playAutoplay", { defaultValue: "Play autoplay" })}
           >
             <AnimatePresence mode="wait" initial={false}>{playPauseIcon}</AnimatePresence>
-            <span className="text-base font-semibold" style={{ color: "#002b3a" }}>
+            <span className="text-base font-semibold text-adh-text">
               {isAutoPlaying ? tt("pause") : tt("play")}
             </span>
           </button>
 
-          <div className="text-base font-medium bg-white px-6 py-3 rounded-full shadow-lg border-2" style={{ borderColor: "#e8e6e6", color: "#5b7d89" }}>
+          <div className="text-base font-medium bg-adh-surface px-6 py-3 rounded-full shadow-lg border-2 border-adh-stroke text-adh-text-muted">
             {currentIndex + 1}–{Math.min(currentIndex + visibleLogos, clients.length)} {tt("of", { defaultValue: "of" })} {clients.length}
           </div>
         </motion.div>
@@ -231,29 +230,29 @@ export default function ClientsSlider() {
           {/* Nav arrows */}
           <motion.button
             onClick={isRTL ? scrollRight : scrollLeft}
-            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 sm:w-16 sm:h-16 bg-white/95 backdrop-blur-sm rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center border-2 border-[#5b7d89] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#5b7d89]"
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 sm:w-16 sm:h-16 bg-white/95 backdrop-blur-sm rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center border-2 border-adh-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-adh-accent"
             whileHover={reduced ? {} : { scale: 1.13 }}
             whileTap={reduced ? {} : { scale: 0.96 }}
             aria-label={isRTL ? tt("next", { defaultValue: "Next logos" }) : tt("previous", { defaultValue: "Previous logos" })}
             aria-controls="clients-carousel"
           >
-            <ChevronLeft className="w-7 h-7" style={{ color: "#002b3a" }} aria-hidden="true" />
+            <ChevronLeft className="w-7 h-7 text-adh-text" aria-hidden="true" />
           </motion.button>
 
           <motion.button
             onClick={isRTL ? scrollLeft : scrollRight}
-            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 sm:w-16 sm:h-16 bg-white/95 backdrop-blur-sm rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center border-2 border-[#5b7d89] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#5b7d89]"
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 sm:w-16 sm:h-16 bg-white/95 backdrop-blur-sm rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center border-2 border-adh-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-adh-accent"
             whileHover={reduced ? {} : { scale: 1.13 }}
             whileTap={reduced ? {} : { scale: 0.96 }}
             aria-label={isRTL ? tt("previous", { defaultValue: "Previous logos" }) : tt("next", { defaultValue: "Next logos" })}
             aria-controls="clients-carousel"
           >
-            <ChevronRight className="w-7 h-7" style={{ color: "#002b3a" }} aria-hidden="true" />
+            <ChevronRight className="w-7 h-7 text-adh-text" aria-hidden="true" />
           </motion.button>
 
           {/* Edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#e8e6e6] dark:from-[#10181c] to-transparent z-10 pointer-events-none" aria-hidden="true" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#e8e6e6] dark:from-[#10181c] to-transparent z-10 pointer-events-none" aria-hidden="true" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-linear-to-r from-(--bg-linen) dark:from-(--bg) to-transparent z-10 pointer-events-none" aria-hidden="true" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-linear-to-l from-(--bg-linen) dark:from-(--bg) to-transparent z-10 pointer-events-none" aria-hidden="true" />
 
           {/* Track */}
           <div
@@ -277,8 +276,7 @@ export default function ClientsSlider() {
                 whileHover={cardVariants.whileHover}
               >
                 <div
-                  className="relative w-full h-full bg-white/90 dark:bg-[#232c32]/80 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-5 group glass-effect gradient-border"
-                  style={{ boxShadow: "0 2px 18px 0 rgba(0,43,58,0.12), 0 1px 3px 0 rgba(91,125,137,0.13)" }}
+                  className="relative w-full h-full bg-adh-surface/90 dark:bg-adh-surface/80 rounded-2xl shadow-adh-soft hover:shadow-2xl transition-all duration-300 p-5 group glass-effect gradient-border"
                 >
                   <img
                     src={client.logo}
@@ -296,17 +294,16 @@ export default function ClientsSlider() {
                     }}
                   />
                   <div
-                    className="absolute -bottom-9 left-1/2 -translate-x-1/2 px-5 py-1 rounded-full bg-[#002b3a] text-white text-xs font-semibold shadow-xl pointer-events-none transition-all duration-300 opacity-0 group-hover:opacity-100"
+                    className="absolute -bottom-9 left-1/2 -translate-x-1/2 px-5 py-1 rounded-full bg-adh-brand text-white text-xs font-semibold shadow-xl pointer-events-none transition-all duration-300 opacity-0 group-hover:opacity-100"
                     aria-hidden="true"
                   >
                     {client.name}
                   </div>
-                  <div className="absolute -top-3 -left-3 bg-gradient-to-tr from-[#5b7d89] to-[#002b3a] w-8 h-8 flex items-center justify-center text-white font-bold text-xs rounded-full shadow-md border-2 border-white dark:border-[#232c32] z-30">
+                  <div className="absolute -top-3 -left-3 bg-linear-to-tr from-(--accent) to-(--brand) w-8 h-8 flex items-center justify-center text-white font-bold text-xs rounded-full shadow-md border-2 border-adh-stroke z-30">
                     {i + 1}
                   </div>
                   <div
-                    className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-90 transition-opacity duration-300"
-                    style={{ background: "linear-gradient(to top, rgba(91,125,137,0.07), transparent 70%)" }}
+                    className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-90 transition-opacity duration-300 bg-adh-overlay"
                     aria-hidden="true"
                   />
                 </div>
@@ -317,19 +314,19 @@ export default function ClientsSlider() {
 
         {/* Progress */}
         <motion.div className="mt-12 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.6 }}>
-          <div className="w-full bg-white dark:bg-[#232c32] rounded-full h-3 overflow-hidden shadow-inner border-2 border-[#e8e6e6] dark:border-[#21292e]">
+          <div className="w-full bg-adh-surface rounded-full h-3 overflow-hidden shadow-inner border-2 border-adh-stroke">
             <motion.div
-              className="h-full rounded-full"
-              style={{ width: `${progress}%`, background: "linear-gradient(to right, #5b7d89, #002b3a)" }}
+              className="h-full rounded-full bg-linear-to-r from-(--accent) to-(--brand)"
+              style={{ width: `${progress}%` }}
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               aria-hidden="true"
             />
           </div>
-          <div className="flex justify-between text-base font-medium mt-4" style={{ color: "#5b7d89" }}>
+          <div className="flex justify-between text-base font-medium mt-4 text-adh-text-muted">
             <span>{t("start")}</span>
-            <span className="font-bold" style={{ color: "#002b3a" }}>
+            <span className="font-bold text-adh-brand">
               {progress}% {t("complete")}
             </span>
             <span>{t("end")}</span>
@@ -344,11 +341,7 @@ export default function ClientsSlider() {
               <button
                 key={i}
                 onClick={() => scrollToIndex(i * visibleLogos)}
-                className={`h-3 rounded-full transition-all duration-300 ${selected ? "w-8" : "w-3 hover:w-4"}`}
-                style={{
-                  background: selected ? "linear-gradient(90deg, #5b7d89, #002b3a)" : "#5b7d89",
-                  opacity: selected ? 1 : 0.5
-                }}
+                className={`h-3 rounded-full transition-all duration-300 ${selected ? "w-8 bg-linear-to-r from-(--accent) to-(--brand) opacity-100" : "w-3 hover:w-4 bg-(--accent) opacity-50"}`}
                 role="tab"
                 aria-selected={selected}
                 aria-controls="clients-carousel"
@@ -368,16 +361,16 @@ export default function ClientsSlider() {
       <style>{`
         .gradient-border {
           border: 2px solid;
-          border-image: linear-gradient(90deg, #5b7d89, #002b3a, #5b7d89, #002b3a) 1;
+          border-image: linear-gradient(90deg, var(--accent), var(--brand), var(--accent), var(--brand)) 1;
           animation: gradientBorderMove 3s linear infinite;
         }
         @keyframes gradientBorderMove {
-          0% { border-image-source: linear-gradient(90deg, #5b7d89, #002b3a, #5b7d89, #002b3a); }
-          50% { border-image-source: linear-gradient(270deg, #002b3a, #5b7d89, #002b3a, #5b7d89); }
-          100% { border-image-source: linear-gradient(90deg, #5b7d89, #002b3a, #5b7d89, #002b3a); }
+          0% { border-image-source: linear-gradient(90deg, var(--accent), var(--brand), var(--accent), var(--brand)); }
+          50% { border-image-source: linear-gradient(270deg, var(--brand), var(--accent), var(--brand), var(--accent)); }
+          100% { border-image-source: linear-gradient(90deg, var(--accent), var(--brand), var(--accent), var(--brand)); }
         }
-        .glass-effect { backdrop-filter: blur(7px) saturate(1.15); background: rgba(255,255,255,0.85); }
-        .dark .glass-effect { background: rgba(30,42,50,0.80); }
+        .glass-effect { backdrop-filter: blur(7px) saturate(1.15); background: var(--surface-glass, rgba(255,255,255,0.85)); }
+        .dark .glass-effect { background: var(--surface-glass-dark, rgba(30,42,50,0.80)); }
       `}</style>
     </section>
   );

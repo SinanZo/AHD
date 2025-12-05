@@ -35,6 +35,16 @@ export const APP_BASE: string =
 export const absUrl = (path = ""): string =>
   APP_BASE ? new URL(path.replace(/^\//, ""), APP_BASE + "/").toString() : path;
 
+// API base URL (no trailing slash). When empty, code can use relative paths
+// which enables Vite dev proxy to /api. For production, set VITE_API_BASE_URL
+// e.g. https://ahd-api.onrender.com
+export const API_BASE: string =
+  (getEnvVar("VITE_API_BASE_URL") as string | undefined)?.replace(/\/\/$/, "") || "";
+
+// Build absolute API URL or return the path as-is if API_BASE is empty.
+export const apiUrl = (path = ""): string =>
+  API_BASE ? new URL(path.replace(/^\//, ""), API_BASE + "/").toString() : path;
+
 // Phone — accept + or digits; coerce to E.164 (+XXXXXXXX)
 const RAW_PHONE = ((getEnvVar("VITE_CONTACT_PHONE") as string | undefined) || "").trim();
 const DIGITS_PLUS = RAW_PHONE.replace(/[^+0-9]/g, "");

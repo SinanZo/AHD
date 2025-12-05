@@ -23,7 +23,8 @@ export function applyThemeAttrs(theme /* "light" | "dark" | "system" */) {
   try {
     const html = document.documentElement;
     const isDark = effectiveDark(theme);
-    html.classList.toggle("dark", isDark);
+    // DO NOT manage .dark class - next-themes owns it
+    // Only set data-theme and colorScheme for coordination
     html.setAttribute("data-theme", isDark ? "dark" : "light");
     // Make native UI match (form controls, scrollbars)
     html.style.colorScheme = isDark ? "dark" : "light";

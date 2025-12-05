@@ -10,7 +10,8 @@ import { Sparkles, ShieldCheck, Users } from 'lucide-react';
 // Helmet removed here; SEO is provided via the shared Layout props
 import Layout from '../components/Layout';
 import Reveal from '../components/Reveal';
-import WhyChooseUs from '../components/WhyChooseUs';
+// Explicitly import the JSX version to avoid ambiguity with TSX sibling
+import WhyChooseUs from '../components/WhyChooseUs.jsx';
 
 export default function About() {
   const { t, i18n } = useTranslation('about');
@@ -47,98 +48,97 @@ export default function About() {
       <main id="main" tabIndex={-1}>
         {/* Founder / Legacy */}
         <Reveal>
-        <section
-          className="relative text-white py-20 overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%)' }}
-          dir={isRTL ? 'rtl' : 'ltr'}
-          aria-labelledby="about-legacy"
-        >
-          <div aria-hidden="true" className="absolute left-0 top-0 w-64 h-64 rounded-full bg-[#5b7d89] opacity-20 blur-2xl z-0" />
-          <div aria-hidden="true" className="absolute right-0 bottom-0 w-80 h-80 rounded-full bg-[#e8e6e6] opacity-10 blur-2xl z-0" />
+          <section
+            className="relative overflow-hidden py-20 text-white"
+            style={{ background: 'linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%)' }}
+            dir={isRTL ? 'rtl' : 'ltr'}
+            aria-labelledby="about-legacy"
+          >
+            <div aria-hidden="true" className="absolute top-0 left-0 z-0 h-64 w-64 rounded-full opacity-20 blur-2xl bg-adh-accent" />
+            <div aria-hidden="true" className="absolute right-0 bottom-0 z-0 h-80 w-80 rounded-full opacity-10 blur-2xl bg-adh-bg-linen" />
 
-          <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <motion.div
-              initial={init({ opacity: 0, y: 36 })}
-              whileInView={when({ opacity: 1, y: 0 })}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={when({ duration: 0.8, type: 'spring' })}
-            >
-              <h1 id="about-legacy" className="text-3xl md:text-4xl font-bold leading-snug mb-6 drop-shadow-xl">
-                {tt('legacy_title')}
-              </h1>
-              <p className="mb-4 text-lg text-white/90">{tt('legacy_p1')}</p>
-              <p className="text-lg text-white/90">{tt('legacy_p2')}</p>
-            </motion.div>
+            <div className="relative z-10 container mx-auto grid items-center gap-12 px-4 lg:grid-cols-2">
+              <motion.div
+                initial={init({ opacity: 0, y: 36 })}
+                whileInView={when({ opacity: 1, y: 0 })}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={when({ duration: 0.8, type: 'spring' })}
+              >
+                <h1 id="about-legacy" className="mb-6 text-3xl leading-snug font-bold drop-shadow-xl md:text-4xl">
+                  {tt('legacy_title')}
+                </h1>
+                <p className="mb-4 text-lg text-white/90">{tt('legacy_p1')}</p>
+                <p className="text-lg text-white/90">{tt('legacy_p2')}</p>
+              </motion.div>
 
-            <motion.figure
-              initial={init({ opacity: 0, scale: 0.97, x: isRTL ? -48 : 48 })}
-              whileInView={when({ opacity: 1, scale: 1, x: 0 })}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={when({ duration: 0.8, type: 'spring', delay: 0.2 })}
-              className="flex justify-center"
-            >
-              <div className="bg-white/10 rounded-3xl shadow-2xl p-4 backdrop-blur-lg border border-white/30 max-w-xs">
-                <picture>
-                  {/* founder.webp not present in repo; use the existing JPG directly to avoid broken requests */}
-                  <img
-                    src="/images/founder.jpg"
-                    alt={tt('founder_alt', { defaultValue: 'Founder Zuhair Abdulhaq' })}
-                    className="rounded-2xl shadow-lg object-cover w-full"
-                    width={480}
-                    height={560}
-                    loading="eager"
-                    fetchpriority="high"
-                    decoding="async"
-                    onError={(e) => {
-                      e.currentTarget.src = '/images/placeholder.svg';
-                    }}
-                  />
-                </picture>
-                <figcaption className="mt-3 text-sm text-white/80 text-center">
-                  {tt('founder_caption', { defaultValue: 'Founder of Abdulhaq Dimensions' })}
-                </figcaption>
-              </div>
-            </motion.figure>
-          </div>
-  </section>
-  </Reveal>
+              <motion.figure
+                initial={init({ opacity: 0, scale: 0.97, x: isRTL ? -48 : 48 })}
+                whileInView={when({ opacity: 1, scale: 1, x: 0 })}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={when({ duration: 0.8, type: 'spring', delay: 0.2 })}
+                className="flex justify-center"
+              >
+                <div className="max-w-xs rounded-3xl border p-4 backdrop-blur-lg bg-adh-surface/10 shadow-adh-soft border-adh-stroke-/30">
+                  <picture>
+                    <img
+                      src="/images/founder.jpg"
+                      alt={tt('founder_alt', { defaultValue: 'Founder Zuhair Abdulhaq' })}
+                      className="w-full rounded-2xl object-cover shadow-lg"
+                      width={480}
+                      height={560}
+                      loading="eager"
+                      fetchpriority="high"
+                      decoding="async"
+                      onError={(e) => {
+                        e.currentTarget.src = '/images/placeholder.svg';
+                      }}
+                    />
+                  </picture>
+                  <figcaption className="mt-3 text-center text-sm text-white/80">
+                    {tt('founder_caption', { defaultValue: 'Founder of Abdulhaq Dimensions' })}
+                  </figcaption>
+                </div>
+              </motion.figure>
+            </div>
+          </section>
+        </Reveal>
 
         {/* Vision / Mission */}
         <Reveal delay={0.05}>
         <section
-          className="relative py-20 bg-gradient-to-br from-white via-[#e8e6e6]/70 to-white dark:from-[#232c32] dark:to-[#181e21]"
+          className="relative py-20 bg-adh-bg"
           dir={isRTL ? 'rtl' : 'ltr'}
           aria-labelledby="about-vision-mission"
         >
           <div className="container mx-auto px-4">
             <motion.div
-              className="text-center mb-12"
+              className="mb-12 text-center"
               initial={init({ opacity: 0, y: 32 })}
               whileInView={when({ opacity: 1, y: 0 })}
               viewport={{ once: true, amount: 0.35 }}
               transition={when({ duration: 0.7 })}
             >
-              <h2 id="about-vision-mission" className="text-3xl md:text-4xl font-bold text-[#002b3a] dark:text-white mb-4 tracking-tight">
+              <h2 id="about-vision-mission" className="mb-4 text-3xl font-bold tracking-tight md:text-4xl text-adh-text">
                 {tt('vision_mission')}
               </h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid gap-8 md:grid-cols-2">
               <motion.article
                 initial={init({ opacity: 0, x: isRTL ? -28 : 28 })}
                 whileInView={when({ opacity: 1, x: 0 })}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={when({ duration: 0.7, delay: 0.1 })}
-                className="bg-white/90 dark:bg-[#232c32]/60 rounded-2xl p-8 shadow-lg border border-[#e8e6e6] dark:border-[#181e21]"
+                className="rounded-2xl border p-8 bg-adh-surface shadow-adh-soft border-adh-stroke"
                 aria-labelledby="about-vision-h"
               >
-                <div className="flex items-center mb-4">
-                  <Sparkles aria-hidden="true" className="w-7 h-7 text-[#5b7d89] mr-3" />
-                  <h3 id="about-vision-h" className="text-xl font-bold text-[#002b3a] dark:text-white mb-0">
+                <div className="mb-4 flex items-center">
+                  <Sparkles aria-hidden="true" className="mr-3 h-7 w-7 text-adh-accent" />
+                  <h3 id="about-vision-h" className="mb-0 text-xl font-bold text-adh-text">
                     {tt('vision_title')}
                   </h3>
                 </div>
-                <p className="text-lg text-[#00262B] dark:text-white/90">{tt('vision_desc')}</p>
+                <p className="text-lg text-adh-text-secondary">{tt('vision_desc')}</p>
               </motion.article>
 
               <motion.article
@@ -146,16 +146,16 @@ export default function About() {
                 whileInView={when({ opacity: 1, x: 0 })}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={when({ duration: 0.7, delay: 0.1 })}
-                className="bg-white/90 dark:bg-[#232c32]/60 rounded-2xl p-8 shadow-lg border border-[#e8e6e6] dark:border-[#181e21]"
+                className="rounded-2xl border p-8 bg-adh-surface shadow-adh-soft border-adh-stroke"
                 aria-labelledby="about-mission-h"
               >
-                <div className="flex items-center mb-4">
-                  <ShieldCheck aria-hidden="true" className="w-7 h-7 text-[#5b7d89] mr-3" />
-                  <h3 id="about-mission-h" className="text-xl font-bold text-[#002b3a] dark:text-white mb-0">
+                <div className="mb-4 flex items-center">
+                  <ShieldCheck aria-hidden="true" className="mr-3 h-7 w-7 text-adh-accent" />
+                  <h3 id="about-mission-h" className="mb-0 text-xl font-bold text-adh-text">
                     {tt('mission_title')}
                   </h3>
                 </div>
-                <p className="text-lg text-[#00262B] dark:text-white/90">{tt('mission_desc')}</p>
+                <p className="text-lg text-adh-text-secondary">{tt('mission_desc')}</p>
               </motion.article>
             </div>
           </div>
@@ -167,30 +167,30 @@ export default function About() {
   {/* Core Values */}
         <Reveal delay={0.1}>
         <section
-          className="relative bg-gradient-to-br from-[#002b3a]/95 via-[#5b7d89]/70 to-[#00262b]/95 text-white py-20 overflow-hidden"
+          className="relative overflow-hidden py-20 text-white bg-adh-brand"
           dir={isRTL ? 'rtl' : 'ltr'}
           aria-labelledby="about-core-values"
         >
-          <div aria-hidden="true" className="absolute -right-24 -top-10 w-80 h-80 rounded-full bg-[#e8e6e6] opacity-10 blur-2xl z-0" />
+          <div aria-hidden="true" className="absolute -top-10 -right-24 z-0 h-80 w-80 rounded-full opacity-10 blur-2xl bg-adh-bg-linen" />
 
           <div className="container mx-auto px-4">
             <motion.div
-              className="text-center mb-12"
+              className="mb-12 text-center"
               initial={init({ opacity: 0, y: 32 })}
               whileInView={when({ opacity: 1, y: 0 })}
               viewport={{ once: true, amount: 0.25 }}
               transition={when({ duration: 0.6 })}
             >
-              <h2 id="about-core-values" className="text-3xl md:text-4xl font-bold mb-2 tracking-tight">
+              <h2 id="about-core-values" className="mb-2 text-3xl font-bold tracking-tight md:text-4xl">
                 {tt('core_values')}
               </h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-10">
-              {[
-                { icon: <Sparkles aria-hidden="true" className="w-7 h-7 text-[#e8e6e6] mr-3" />, h: 'innovation_title', p: 'innovation_desc' },
-                { icon: <Users aria-hidden="true" className="w-7 h-7 text-[#e8e6e6] mr-3" />, h: 'transparency_title', p: 'transparency_desc' },
-                { icon: <ShieldCheck aria-hidden="true" className="w-7 h-7 text-[#e8e6e6] mr-3" />, h: 'accessibility_title', p: 'accessibility_desc' },
+            <div className="grid gap-10 md:grid-cols-3">
+                {[
+                { icon: <Sparkles aria-hidden="true" className="w-7 h-7 text-adh-bg-linen mr-3" />, h: 'innovation_title', p: 'innovation_desc' },
+                { icon: <Users aria-hidden="true" className="w-7 h-7 text-adh-bg-linen mr-3" />, h: 'transparency_title', p: 'transparency_desc' },
+                { icon: <ShieldCheck aria-hidden="true" className="w-7 h-7 text-adh-bg-linen mr-3" />, h: 'accessibility_title', p: 'accessibility_desc' },
               ].map((item, i) => (
                 <motion.article
                   key={i}
@@ -198,9 +198,9 @@ export default function About() {
                   whileInView={when({ opacity: 1, y: 0, scale: 1 })}
                   viewport={{ once: true, amount: 0.18 }}
                   transition={when({ duration: 0.65, delay: 0.08 + i * 0.1 })}
-                  className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg border border-white/15"
+                  className="rounded-2xl border p-8 backdrop-blur-lg bg-adh-surface/10 shadow-adh-soft border-adh-stroke-/15"
                 >
-                  <div className="flex items-center mb-4">
+                  <div className="mb-4 flex items-center">
                     {item.icon}
                     <h3 className="text-xl font-bold">{tt(item.h)}</h3>
                   </div>

@@ -1,7 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'wouter';
 import { useTranslation } from 'react-i18next';
-
+import ErrorBoundary from './components/ErrorBoundary';
+import './App.css';
 
 const Home = lazy(() => import('./pages/Home.jsx'));
 const About = lazy(() => import('./pages/About'));
@@ -12,9 +13,6 @@ const Clients = lazy(() => import('./pages/Clients'));
 const Projects = lazy(() => import('./pages/Projects'));
 const Contact = lazy(() => import('./pages/Contact'));
 const GalleryPage = lazy(() => import('./components/GalleryPage'));
-import ErrorBoundary from './components/ErrorBoundary';
-
-import './App.css';
 
 export default function App() {
   const { i18n } = useTranslation();
@@ -24,7 +22,7 @@ export default function App() {
     <ErrorBoundary>
       <div
         dir={isArabic ? 'rtl' : 'ltr'}
-        className={`min-h-screen bg-lightBg dark:bg-darkBg text-gray-800 dark:text-gray-100 transition-colors duration-300 ${isArabic ? 'rtl-font' : 'ltr-font'}`}
+        className={`theme-animated min-h-screen bg-adh-bg text-adh-text ${isArabic ? 'rtl-font' : 'ltr-font'}`}
       >
         <Suspense fallback={null}>
           <Switch>

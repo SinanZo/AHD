@@ -1,6 +1,11 @@
 {
   "heading": "Our Premium Products",
-  "description": "Discover our comprehensive range of premium interior solutions, from curtains and blinds to commercial installations.",
+  "backToProducts": "Back to Products",
+  "all": "All",
+  "noImages": "Images for this category will be added soon.",
+  "orderNow": "Order Now",
+  "download": "Download",
+  "description": "Explore our curated collection of premium interior solutions from elegant curtains and sophisticated blinds to bespoke commercial installations. Each product is crafted with exceptional quality, timeless design, and attention to detail, ensuring the perfect fit for any space.",
   "readMore": "Read More",
   "categories": [
     {

@@ -15,7 +15,7 @@ export default function SectionWrapper({
 }) {
   // Optional backgrounds
   const backgrounds = {
-    gradient: "bg-gradient-to-br from-[#002b3a] via-[#375c6a] to-[#5b7d89]",
+    gradient: "bg-linear-to-br from-[#002b3a] via-[#375c6a] to-[#5b7d89]",
     glass: "backdrop-blur-md bg-white/30 shadow-xl",
   };
 

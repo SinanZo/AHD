@@ -38,10 +38,26 @@ pnpm --filter @ahd/server start
 ## Environment variables
 Create `.env` locally for server and `.env.local` for client. Use `.env.example` in each folder to document required keys.
 
+## Production Email Setup
+
+- Configure environment in `server/.env` (see `server/.env.example`):
+	- `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`
+	- `SMTP_USER`, `SMTP_PASS`
+	- `CONTACT_RECEIVER` (who receives contact form emails)
+	- `NODE_ENV=production` (enables real SMTP send)
+
+- Build + run server:
+
+```powershell
+cd "C:\Users\Sinan Zuaiter\Documents\GitHub\AHD\server"
+pnpm build
+# Ensure .env is set; Windows PowerShell loads it via dotenv
+node dist/index.js
+```
+
+- Client proxy in dev maps `/api` to `http://localhost:5001` (see `client/vite.config.ts`). For production deployments, configure your hosting to route `/api/*` to the server.
+
 ## Contributing
-- Branching: use `main` for production, `feature/*` or `fix/*` for work
-- Tests: add/maintain tests (Vitest)
-- Format & lint before submit: `pnpm format` and `pnpm lint`
 
 ## Next steps
 - Add GitHub Actions for CI (install, lint, test, typecheck)

@@ -10,9 +10,9 @@ const LoadingSpinner = ({ size = 'md', message = 'Loading...' }) => {
 
   return (
     <div className="flex flex-col items-center justify-center p-8">
-      <Loader2 className={`${sizeClasses[size]} animate-spin text-blue-600 dark:text-blue-400`} />
+      <Loader2 className={`${sizeClasses[size]} animate-spin text-adh-brand`} />
       {message && (
-        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+        <p className="mt-2 text-sm text-adh-text-muted">
           {message}
         </p>
       )}
@@ -22,7 +22,7 @@ const LoadingSpinner = ({ size = 'md', message = 'Loading...' }) => {
 
 const LoadingPage = ({ message = 'Loading page...' }) => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen flex items-center justify-center bg-adh-bg">
       <LoadingSpinner size="lg" message={message} />
     </div>
   );

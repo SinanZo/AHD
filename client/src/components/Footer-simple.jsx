@@ -19,7 +19,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-adh-header-bg text-adh-header-fg">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -29,14 +29,14 @@ export default function Footer() {
               alt="Abdulhaq Dimensions"
               className="h-12 w-auto filter brightness-0 invert"
             />
-            <p className="text-gray-300 text-sm">
+            <p className="text-adh-text-muted text-sm">
               Leading provider of premium curtains, blinds, and interior solutions since 1948
             </p>
             <div className="flex space-x-4">
-              <Facebook className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Instagram className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Twitter className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Linkedin className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+              <Facebook className="w-5 h-5 text-adh-primary hover:text-adh-text cursor-pointer transition-colors" />
+              <Instagram className="w-5 h-5 text-adh-primary hover:text-adh-text cursor-pointer transition-colors" />
+              <Twitter className="w-5 h-5 text-adh-primary hover:text-adh-text cursor-pointer transition-colors" />
+              <Linkedin className="w-5 h-5 text-adh-primary hover:text-adh-text cursor-pointer transition-colors" />
             </div>
           </div>
 
@@ -48,7 +48,7 @@ export default function Footer() {
                 <li key={link.key}>
                   <a
                     href={`#${link.key}`}
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                    className="text-adh-text-muted hover:text-adh-primary transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -65,7 +65,7 @@ export default function Footer() {
                 <li key={index}>
                   <a
                     href="#products"
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                    className="text-adh-text-muted hover:text-adh-primary transition-colors text-sm"
                   >
                     {service}
                   </a>
@@ -79,16 +79,16 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Contact Information</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-gray-400" />
-                <span className="text-gray-300 text-sm">+966 XX XXX XXXX</span>
+                <Phone className="w-4 h-4 text-adh-primary" />
+                <span className="text-adh-text-muted text-sm">+966 XX XXX XXXX</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-gray-400" />
-                <span className="text-gray-300 text-sm">info@abdulhaq-dimensions.com</span>
+                <Mail className="w-4 h-4 text-adh-primary" />
+                <span className="text-adh-text-muted text-sm">info@abdulhaq-dimensions.com</span>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-gray-400 mt-1" />
-                <span className="text-gray-300 text-sm">
+                <MapPin className="w-4 h-4 text-adh-primary mt-1" />
+                <span className="text-adh-text-muted text-sm">
                   Main Street, Business District<br />
                   City, Country
                 </span>
@@ -98,12 +98,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
+        <div className="border-t border-adh-stroke mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-adh-text-muted text-sm">
               © 2025 Abdulhaq Dimensions. All rights reserved.
             </p>
-            <p className="text-gray-400 text-sm mt-2 md:mt-0">
+            <p className="text-adh-text-muted text-sm mt-2 md:mt-0">
               Excellence in Interior Solutions Since 1948
             </p>
           </div>

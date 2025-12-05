@@ -8,7 +8,7 @@ export default function MapEmbed({
   className = "",
 }) {
   return (
-  <div className={`relative w-full overflow-hidden rounded-3xl border border-[var(--stroke)] dark:border-[var(--stroke)] shadow-2xl bg-[var(--card)]/70 dark:bg-[var(--card)]/70 backdrop-blur-xl ${className}`}>
+  <div className={`relative w-full overflow-hidden rounded-3xl border border-adh-stroke shadow-2xl bg-adh-surface/70 backdrop-blur-xl ${className}`}>
       {/* Aspect ratio box: 16:9 on md+, 4:3 on small screens */}
       <div className="aspect-[4/3] md:aspect-[16/9] w-full">
         <iframe
@@ -24,13 +24,13 @@ export default function MapEmbed({
       </div>
 
       {/* Fallback quick link (visible if the embed fails, also handy for users) */}
-      <div className="flex items-center justify-between gap-3 p-4 text-sm bg-[var(--card)]/70 dark:bg-[var(--card)]/70 rounded-b-3xl">
-        <span className="text-[var(--brand-600)] dark:text-slate-300 font-medium">📍 {title}</span>
+      <div className="flex items-center justify-between gap-3 p-4 text-sm bg-adh-surface/70 rounded-b-3xl">
+        <span className="text-adh-brand font-medium">📍 {title}</span>
         <a
           href="https://maps.google.com/?q=Abdulhaq%20Dimensions&ll=31.966252,35.840548&z=16"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-[var(--brand,#0D3B4C)] text-white hover:opacity-90 transition-opacity font-medium"
+          className="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-adh-brand text-white hover:opacity-90 transition-opacity font-medium"
         >
           {openText}
         </a>

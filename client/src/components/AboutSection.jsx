@@ -80,7 +80,7 @@ export default function AboutSection() {
           viewport={{ once: true }}
           className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/30 backdrop-blur-md border border-white/50"
         >
-          <Sparkles className="w-4 h-4 text-[#5b7d89]" />
+          <Sparkles className="w-4 h-4 text-adh-accent" />
           <span className="text-sm font-semibold uppercase tracking-wide text-white drop-shadow">{t('badge')}</span>
         </motion.div>
 
@@ -112,7 +112,7 @@ export default function AboutSection() {
           href="/about"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold bg-gradient-to-r from-[#5b7d89] to-[#002b3a] text-white shadow-xl hover:shadow-2xl transition"
+           className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold bg-linear-to-r from-[#5b7d89] to-[#002b3a] text-white shadow-xl hover:shadow-2xl transition"
         >
           {t('discover_more')}
           <ArrowRight className="w-5 h-5" />

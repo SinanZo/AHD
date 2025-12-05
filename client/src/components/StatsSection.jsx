@@ -38,93 +38,46 @@ export default function StatsSection() {
   };
 
   const stats = [
-    {
-      icon: <Award className="w-8 h-8 text-[color:var(--brand)]" aria-hidden="true" focusable="false" />,
-      number: '75+',
-      label: tt('years'),
-      subtitle: tt('since'),
-      bg: 'bg-white/70 dark:bg-white/10',
-    },
-    {
-      icon: <Users className="w-8 h-8 text-[color:var(--brand-2)]" aria-hidden="true" focusable="false" />,
-      number: '1000+',
-      label: tt('clients'),
-      subtitle: tt('clientType'),
-      bg: 'bg-white/70 dark:bg-white/10',
-    },
-    {
-      icon: <Star className="w-8 h-8 text-yellow-400" aria-hidden="true" focusable="false" />,
-      number: '100%',
-      label: tt('quality'),
-      subtitle: tt('materials'),
-      bg: 'bg-white/70 dark:bg-white/10',
-    },
-    {
-      icon: <Clock className="w-8 h-8 text-[color:var(--brand)]" aria-hidden="true" focusable="false" />,
-      number: '24/7',
-      label: tt('support'),
-      subtitle: tt('availability'),
-      bg: 'bg-white/70 dark:bg-white/10',
-    }
+    { icon: Award,  number: '75+',   labelKey: 'experience', defaultLabel: 'Years of Experience' },
+    { icon: Users,  number: '1000+', labelKey: 'clients',    defaultLabel: 'Satisfied Clients' },
+    { icon: Star,   number: '100%',  labelKey: 'quality',    defaultLabel: 'Quality Guarantee' },
+    { icon: Clock,  number: '24/7',  labelKey: 'support',    defaultLabel: 'Customer Support' },
   ];
 
   return (
     <section
-      className="bg-white dark:bg-[#10181c] py-16 relative z-20"
+      className="relative z-20 py-16 transition-colors duration-300"
       dir={isRTL ? 'rtl' : 'ltr'}
       aria-labelledby="stats-heading"
       role="region"
     >
+      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
+        <div className="h-full w-full bg-[#0C1A2B]" />
+        <div className="absolute inset-0 bg-linear-to-b from-[rgba(12,26,43,0.2)] to-[rgba(12,26,43,0.0)]" />
+      </div>
       <h2 id="stats-heading" className="sr-only">
         {tt('heading', { defaultValue: 'Key company statistics' })}
       </h2>
 
-      <div className="container mx-auto px-4">
-        <motion.dl
+      <div className="container mx-auto px-6 sm:px-8">
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="grid grid-cols-1 gap-8 py-16 text-center sm:grid-cols-2 lg:grid-cols-4"
         >
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
-              variants={{
-                hidden: { opacity: 0, y: 36 },
-                visible: { opacity: 1, y: 0, transition: reduceMotion ? {} : { delay: idx * 0.12, duration: 0.6, type: 'spring', stiffness: 180 } }
-              }}
-              className="
-                group flex flex-col items-center justify-center text-center
-                bg-white/80 dark:bg-[#19222b]/70
-                rounded-2xl px-6 py-10 shadow-xl
-                backdrop-blur-md
-                transition
-                border border-white/70 dark:border-white/10
-              "
-              style={{ boxShadow: '0 4px 28px 0 rgba(91,125,137,0.10), 0 1px 4px 0 rgba(0,43,58,0.07)' }}
+              variants={{ hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0, transition: reduceMotion ? {} : { delay: idx * 0.12, duration: 0.6, type: 'spring', stiffness: 180 } } }}
+              className="flex flex-col items-center gap-2 text-center"
             >
-              <div className={`flex items-center justify-center mb-5 rounded-full shadow-lg ${stat.bg} w-16 h-16 ${reduceMotion ? '' : 'group-hover:scale-110'} transition border border-white/50 dark:border-white/10`}> 
-                {stat.icon}
-              </div>
-
-              {/* Number as the primary term */}
-              <dt className="sr-only">{stat.label}</dt>
-              <dd
-                className="text-4xl md:text-5xl font-jockey text-[var(--brand)] dark:text-white mb-2 drop-shadow font-bold"
-                aria-label={ariaFor(stat.number)}
-              >
-                {fmtNumStr(stat.number)}
-              </dd>
-
-              <div className="font-semibold text-[var(--brand-2)] dark:text-white/90 text-lg mb-0.5">
-                {stat.label}
-              </div>
-              <div className="text-sm text-muted-foreground dark:text-white/60">
-                {stat.subtitle}
-              </div>
+              {(() => { const IconComp = stat.icon; return <IconComp className="w-7 h-7 text-white/80" aria-hidden="true" />; })()}
+              <p className="text-3xl leading-[1.2] font-semibold tracking-[0.02em] text-white md:text-[34px]">{fmtNumStr(stat.number)}</p>
+              <p className="max-w-[28ch] text-sm leading-[1.4] font-normal text-[#C9C9C9] md:text-[16px]">{tt(stat.labelKey, stat.defaultLabel)}</p>
             </motion.div>
           ))}
-        </motion.dl>
+        </motion.div>
       </div>
     </section>
   );

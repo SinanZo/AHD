@@ -49,7 +49,8 @@ export default function ContactForm() {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     if (emailTrim && !re.test(emailTrim)) errs.email = tt('form.errors.emailInvalid');
 
-    if (!msgTrim || msgTrim.length < 10) errs.message = tt('form.errors.message');
+    // Allow shorter messages temporarily (>=3 chars)
+    if (!msgTrim || msgTrim.length < 3) errs.message = tt('form.errors.message');
 
     return errs;
   };
@@ -145,7 +146,7 @@ export default function ContactForm() {
       }
 
       // Success
-      setStatusMessage({ type: 'success', text: tt('form.success') });
+      setStatusMessage({ type: 'success', text: tt('form.success') || 'sent' });
       setName('');
       setEmail('');
       setMessage('');
@@ -195,7 +196,7 @@ export default function ContactForm() {
           autoCapitalize="words"
           dir="auto"
           aria-required="true"
-          className="w-full p-4 rounded-xl bg-white/80 dark:bg-[#181e21] border-2 border-[#e8e6e6] dark:border-[#232c32] font-medium focus:outline-none focus:ring-2 focus:ring-[#002b3a] transition text-base shadow"
+          className="w-full px-4 py-3.5 rounded-2xl bg-adh-bg-soft border border-adh-stroke text-adh-text placeholder:text-adh-text-muted font-medium focus:outline-none focus:ring-2 focus:ring-adh-brand-light focus:border-adh-brand-light transition text-base shadow-adh-soft"
           aria-describedby={errors.name ? 'contact-name-error' : undefined}
           aria-invalid={!!errors.name}
           data-testid="contact-name"
@@ -225,7 +226,7 @@ export default function ContactForm() {
           inputMode="email"
           dir="auto"
           aria-required="true"
-          className="w-full p-4 rounded-xl bg-white/80 dark:bg-[#181e21] border-2 border-[#e8e6e6] dark:border-[#232c32] font-medium focus:outline-none focus:ring-2 focus:ring-[#002b3a] transition text-base shadow"
+          className="w-full px-4 py-3.5 rounded-2xl bg-adh-bg-soft border border-adh-stroke text-adh-text placeholder:text-adh-text-muted font-medium focus:outline-none focus:ring-2 focus:ring-adh-brand-light focus:border-adh-brand-light transition text-base shadow-adh-soft"
           aria-describedby={errors.email ? 'contact-email-error' : undefined}
           aria-invalid={!!errors.email}
           data-testid="contact-email"
@@ -253,7 +254,7 @@ export default function ContactForm() {
           onChange={(e) => setMessage(e.target.value)}
           placeholder={tt('form.message')}
           dir="auto"
-          className="w-full p-4 rounded-xl bg-white/80 dark:bg-[#181e21] border-2 border-[#e8e6e6] dark:border-[#232c32] font-medium focus:outline-none focus:ring-2 focus:ring-[#002b3a] transition text-base shadow resize-none"
+          className="w-full px-4 py-3.5 rounded-2xl bg-adh-bg-soft border border-adh-stroke text-adh-text placeholder:text-adh-text-muted font-medium focus:outline-none focus:ring-2 focus:ring-adh-brand-light focus:border-adh-brand-light transition text-base shadow-adh-soft resize-none"
           aria-describedby={[errors.message ? 'contact-message-error' : null, 'message-count'].filter(Boolean).join(' ')}
           aria-invalid={!!errors.message}
           data-testid="contact-message"
@@ -265,7 +266,7 @@ export default function ContactForm() {
           </p>
         )}
 
-        <div id="message-count" aria-live="polite" className="text-xs text-gray-500 mt-1">
+        <div id="message-count" aria-live="polite" className="text-xs text-adh-text-muted mt-1">
           {message.length}/5000
         </div>
       </div>
@@ -281,7 +282,7 @@ export default function ContactForm() {
           type="submit"
           disabled={submitting}
           aria-disabled={submitting ? 'true' : 'false'}
-          className="bg-gradient-to-r from-[#5b7d89] to-[#002b3a] text-white px-6 py-3 rounded-xl shadow-lg font-bold uppercase tracking-widest text-sm hover:from-[#002b3a] hover:to-[#5b7d89] transition disabled:opacity-60"
+          className="bg-adh-btn text-adh-btn-fg px-6 py-3.5 rounded-2xl shadow-adh-card font-semibold tracking-wide text-sm uppercase transition-all duration-200 hover:bg-adh-primary-light disabled:opacity-60 disabled:cursor-not-allowed"
           data-testid="contact-submit"
         >
           {submitting ? tt('form.sending') : tt('form.sendButton')}

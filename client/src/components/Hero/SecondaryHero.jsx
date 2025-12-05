@@ -31,20 +31,20 @@ export default function SecondaryHero({ id = 'secondary-hero', imageSrc, imageAl
           </picture>
 
           {/* overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--overlay-strong)] via-transparent to-[color:var(--overlay)] pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-(--overlay-strong) via-transparent to-(--overlay) pointer-events-none" />
 
           {/* centered text */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className={`text-center px-6 max-w-3xl ${isRTL ? 'text-right' : 'text-left'}`}>
-              <h2 className="text-3xl md:text-5xl font-bold leading-tight text-[color:var(--primary-contrast)] mb-4" style={{ lineHeight: 1.05 }}>
+              <h2 className="text-3xl md:text-5xl font-bold leading-tight text-(--primary-contrast) mb-4" style={{ lineHeight: 1.05 }}>
                 {title}
               </h2>
-              <p className="text-lg md:text-xl text-[color:var(--muted)] mb-6 max-w-[65ch] mx-auto">
+              <p className="text-lg md:text-xl text-(--muted) mb-6 max-w-[65ch] mx-auto">
                 {desc}
               </p>
               <div className={`flex items-center justify-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <a href="#solutions" className="inline-block">
-                  <button className="px-6 py-3 rounded-full bg-[var(--brand)] text-[color:var(--primary-contrast)] font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--focus)]">
+                  <button className="px-6 py-3 rounded-full bg-(--brand) text-(--primary-contrast) font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-(--focus)">
                     {cta}
                   </button>
                 </a>

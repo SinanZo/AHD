@@ -1,28 +1,60 @@
 {
   "subtitle": "Our Services",
   "title": "Premium Solutions",
-  "description": "From residential villas to large-scale commercial projects, we provide comprehensive interior solutions tailored to your specific needs.",
-  "learnMore": "Learn More",
+  "description": "From elegant private villas to landmark commercial developments, we deliver bespoke interior solutions crafted to meet your exact vision. Our comprehensive services combine design innovation, superior craftsmanship, and meticulous attention to detail ensuring every project is perfectly tailored to your needs.",
+  "whatWeOfferTitle": "What We Offer",
   "items": [
     {
+      "slug": "curtains-draperies",
       "title": "Curtains & Draperies",
-      "desc": "Premium custom curtains and draperies for residential and commercial spaces.",
-      "features": ["Custom tailoring", "Fire-rated fabrics", "Premium materials"]
+      "desc": "Classic and modern curtains tailored for both residential and commercial spaces.",
+      "features": [
+        "Custom-made designs",
+        "Fire-retardant fabrics",
+        "Premium materials"
+      ]
     },
     {
+      "slug": "roller-blinds",
       "title": "Roller Blinds & Shades",
-      "desc": "Modern roller blinds and shades with superior light control and privacy.",
-      "features": ["Blackout options", "Motorized systems", "Energy efficient"]
+      "desc": "Roller blinds, vertical blinds, and innovative window solutions.",
+      "features": [
+        "Full or partial blackout options",
+        "Automated operating systems",
+        "High energy efficiency"
+      ]
     },
     {
+      "slug": "designer-blinds",
+      "title": "Specialized Designer Blinds",
+      "desc": "Japanese panels, Roman shades, wooden blinds, metal blinds, and honeycomb shades.",
+      "features": [
+        "Functional and aesthetic design",
+        "Optimal light control",
+        "Long-lasting quality"
+      ]
+    },
+    {
+      "slug": "commercial-solutions",
       "title": "Commercial Solutions",
-      "desc": "Professional commercial interior solutions for offices, hotels, and institutions.",
-      "features": ["Heavy-duty systems", "Fire safety compliance", "Professional installation"]
+      "desc": "Tailored solutions for hotels, hospitals, and office spaces.",
+      "features": [
+        "Heavy-duty tracks",
+        "Anti-bacterial fabrics",
+        "Compliance with safety standards"
+      ]
     },
     {
-      "title": "Wallpapers",
-      "desc": "Decorative and durable wallpapers for residential and commercial interiors.",
-      "features": ["Wide pattern selection", "Washable & durable", "Custom murals"]
+      "slug": "complementary-services",
+      "title": "Complementary Services",
+      "desc": "Beyond curtains and blinds — a full set of integrated offerings to complete your project.",
+      "features": [
+        "Luxury wallpaper",
+        "Outdoor shading systems & glass roofing",
+        "Flooring solutions & acoustic treatments",
+        "Professional furniture upholstery",
+        "Exclusive curtain accessories"
+      ]
     }
   ]
 }

@@ -186,10 +186,10 @@ export default function WhyChooseUs() {
         const Ico = iconFor(name);
         return (
           <div
-            className="inline-grid place-items-center w-14 h-14 rounded-full bg-[var(--chip)]/90 border border-[color:var(--stroke)] shadow-sm"
+            className="inline-grid place-items-center w-14 h-14 rounded-full bg-(--chip)/90 border border-(--stroke) shadow-sm"
             aria-hidden="true"
           >
-            <Ico className="w-7 h-7 text-[color:var(--brand)]" aria-hidden="true" />
+            <Ico className="w-7 h-7 text-(--brand)" aria-hidden="true" />
           </div>
         );
       },
@@ -199,7 +199,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="py-16 md:py-20 bg-[var(--bg)] relative "
+      className="py-16 md:py-20 bg-(--bg) relative "
       dir={dir}
       lang={lang}
       aria-labelledby="why-choose-us-heading"
@@ -211,11 +211,11 @@ export default function WhyChooseUs() {
         {(heading || text) && (
           <div className={isRTL ? 'max-w-3xl mx-auto mb-10 text-center font-arabic' : 'max-w-3xl mx-auto mb-10 text-center'}>
             {heading && (
-              <h2 id="why-choose-us-heading" className="text-3xl md:text-4xl font-bold text-[color:var(--fg)]">
+              <h2 id="why-choose-us-heading" className="text-3xl md:text-4xl font-bold text-(--fg)">
                 {heading}
               </h2>
             )}
-            {text && <p className="mt-4 text-lg text-[color:var(--muted)]">{text}</p>}
+            {text && <p className="mt-4 text-lg text-(--muted)">{text}</p>}
           </div>
         )}
 
@@ -239,11 +239,12 @@ export default function WhyChooseUs() {
                 aria-describedby={it.desc ? descId : undefined}
                 tabIndex={0}
                 variants={card}
-                className="rounded-2xl p-6 bg-[var(--card)] border border-[color:var(--stroke)]
+                className="feature-card rounded-2xl p-6 bg-(--card) border border-(--stroke)
                            shadow-[0_6px_24px_rgba(2,12,14,.08)]
                            hover:shadow-[0_10px_28px_rgba(2,12,14,.12)]
                            transition-shadow duration-300
-                           focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--brand)] focus-visible:ring-offset-2"
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-(--brand) focus-visible:ring-offset-2
+                           text-[#1e1e1e] dark:text-[#e5e7eb]"
                 itemProp="itemListElement"
                 itemScope
                 itemType="https://schema.org/ListItem"
@@ -251,21 +252,21 @@ export default function WhyChooseUs() {
               >
                 <meta itemProp="position" content={String(i + 1)} />
                 <div itemScope itemType="https://schema.org/Thing">
-                  <div className="inline-grid place-items-center w-14 h-14 rounded-full
-                       bg-[var(--chip)]/90 border border-[color:var(--stroke)]
+                     <div className="inline-grid place-items-center w-14 h-14 rounded-full
+                       bg-(--chip)/90 border border-(--stroke)
                        shadow-sm" aria-hidden="true">
                     {React.createElement(iconFor(it.icon), {
-                      className: 'w-7 h-7 text-[color:var(--brand)]',
+                      className: 'w-7 h-7 text-(--brand)',
                       'aria-hidden': true
                     })}
                   </div>
 
-                  <h3 id={titleId} className={`mt-4 text-xl font-semibold text-[color:var(--fg)] ${isRTL ? 'font-arabic' : ''}`} itemProp="name">
+                  <h3 id={titleId} className={`mt-4 text-xl font-semibold text-gray-900 dark:text-white ${isRTL ? 'font-arabic' : ''}`} itemProp="name">
                     {it.title}
                   </h3>
 
                   {it.desc && (
-                    <p id={descId} className={`mt-2 text-[color:var(--muted)] leading-relaxed ${isRTL ? 'font-arabic' : ''}`} itemProp="description">
+                    <p id={descId} className={`mt-2 text-gray-700 dark:text-gray-300 leading-relaxed ${isRTL ? 'font-arabic' : ''}`} itemProp="description">
                       {it.desc}
                     </p>
                   )}

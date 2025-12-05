@@ -41,9 +41,9 @@ export default function ContactBlock() {
 
   if (submitted) {
     return (
-      <section className="bg-[var(--bg)] py-16">
+      <section className="bg-(--bg) py-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-[var(--brand)] mb-4">
+          <h2 className="text-4xl font-bold text-(--brand) mb-4">
             {t('thankYou', { defaultValue: 'Thank you for reaching out!' })}
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -55,14 +55,14 @@ export default function ContactBlock() {
   }
 
   return (
-    <section className="bg-[var(--bg)] py-16">
+    <section className="bg-(--bg) py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-[var(--brand)] mb-8">
+        <h2 className="text-4xl font-bold text-center text-(--brand) mb-8">
           {t('heading', { defaultValue: 'Contact Us' })}
         </h2>
-        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-[var(--card)] p-6 rounded-lg shadow-md border border-[var(--stroke)]">
+        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-(--card) p-6 rounded-lg shadow-md border border-(--stroke)">
           <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium text-[var(--fg)] mb-1">
+            <label htmlFor="name" className="block text-sm font-medium text-(--fg) mb-1">
               {t('nameLabel', { defaultValue: 'Your Name' })}
             </label>
             <input
@@ -71,12 +71,12 @@ export default function ContactBlock() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 border border-[var(--stroke)] rounded-lg"
+              className="w-full p-2 border border-(--stroke) rounded-lg"
               required
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-[var(--fg)] mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-(--fg) mb-1">
               {t('emailLabel', { defaultValue: 'Your Email' })}
             </label>
             <input
@@ -85,12 +85,12 @@ export default function ContactBlock() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 border border-[var(--stroke)] rounded-lg"
+              className="w-full p-2 border border-(--stroke) rounded-lg"
               required
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="message" className="block text-sm font-medium text-[var(--fg)] mb-1">
+            <label htmlFor="message" className="block text-sm font-medium text-(--fg) mb-1">
               {t('messageLabel', { defaultValue: 'Your Message' })}
             </label>
             <textarea
@@ -98,7 +98,7 @@ export default function ContactBlock() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full p-2 border border-[var(--stroke)] rounded-lg"
+              className="w-full p-2 border border-(--stroke) rounded-lg"
               rows="5"
               required
             ></textarea>
@@ -115,26 +115,26 @@ export default function ContactBlock() {
           </div>
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-[var(--brand)] text-white font-semibold rounded-lg shadow-md hover:bg-[var(--brand-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] focus:ring-offset-2"
+            className="w-full py-2 px-4 bg-adh-btn text-adh-btn-fg font-semibold rounded-lg shadow-md hover:bg-adh-btn-hover focus:outline-none focus:ring-2 focus:ring-adh-brand focus:ring-offset-2"
           >
             {t('submitButton', { defaultValue: 'Send Message' })}
           </button>
         </form>
 
         {/* Contact Details Card */}
-        <div className="max-w-2xl mx-auto mt-10 bg-[var(--chip)] border border-[var(--stroke)] rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-[var(--fg)] mb-6">
+        <div className="max-w-2xl mx-auto mt-10 bg-adh-chip border border-adh-stroke rounded-2xl p-8">
+          <h3 className="text-2xl font-bold text-(--fg) mb-6">
             {t('contactDetails', { defaultValue: 'Contact Details' })}
           </h3>
           <ul className="space-y-4 text-sm">
             {/* Address */}
             <li className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 flex-shrink-0 text-[var(--primary)] mt-0.5" aria-hidden="true" />
+              <MapPin className="w-5 h-5 shrink-0 text-(--primary) mt-0.5" aria-hidden="true" />
               <a
                 href={contactData.mapHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:opacity-80 transition-opacity text-[var(--fg)]"
+                className="underline hover:opacity-80 transition-opacity text-(--fg)"
               >
                 {t('address', { defaultValue: contactData.address })}
               </a>
@@ -142,10 +142,10 @@ export default function ContactBlock() {
 
             {/* Phone */}
             <li className="flex items-start gap-3">
-              <Phone className="w-5 h-5 flex-shrink-0 text-[var(--primary)] mt-0.5" aria-hidden="true" />
+              <Phone className="w-5 h-5 shrink-0 text-(--primary) mt-0.5" aria-hidden="true" />
               <a
                 href={contactData.phoneHref}
-                className="underline hover:opacity-80 transition-opacity text-[var(--fg)]"
+                className="underline hover:opacity-80 transition-opacity text-(--fg)"
               >
                 {contactData.phoneHuman}
               </a>
@@ -153,10 +153,10 @@ export default function ContactBlock() {
 
             {/* Email */}
             <li className="flex items-start gap-3">
-              <Mail className="w-5 h-5 flex-shrink-0 text-[var(--primary)] mt-0.5" aria-hidden="true" />
+              <Mail className="w-5 h-5 shrink-0 text-(--primary) mt-0.5" aria-hidden="true" />
               <a
                 href={contactData.emailHref}
-                className="underline hover:opacity-80 transition-opacity text-[var(--fg)]"
+                className="underline hover:opacity-80 transition-opacity text-(--fg)"
               >
                 {contactData.email}
               </a>
@@ -164,12 +164,12 @@ export default function ContactBlock() {
 
             {/* WhatsApp */}
             <li className="flex items-start gap-3">
-              <MessageCircle className="w-5 h-5 flex-shrink-0 text-[var(--primary)] mt-0.5" aria-hidden="true" />
+              <MessageCircle className="w-5 h-5 shrink-0 text-(--primary) mt-0.5" aria-hidden="true" />
               <a
                 href={contactData.waHref()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:opacity-80 transition-opacity text-[var(--fg)]"
+                className="underline hover:opacity-80 transition-opacity text-(--fg)"
               >
                 {t('whatsapp', { defaultValue: 'WhatsApp' })}
               </a>
@@ -177,8 +177,8 @@ export default function ContactBlock() {
 
             {/* Hours */}
             <li className="flex items-start gap-3">
-              <Clock className="w-5 h-5 flex-shrink-0 text-[var(--primary)] mt-0.5" aria-hidden="true" />
-              <span className="text-[var(--fg)]">
+              <Clock className="w-5 h-5 shrink-0 text-(--primary) mt-0.5" aria-hidden="true" />
+              <span className="text-(--fg)">
                 {t('hours', { defaultValue: 'Daily 9:00 AM – 6:00 PM' })}
               </span>
             </li>

@@ -99,60 +99,55 @@ export default function HeroVideoPanel({
 
   return (
     <div
-      className="relative h-full w-full rounded-2xl overflow-hidden grid place-items-center ring-[0.5px] ring-white/10 shadow-lg"
-      style={{ background: "var(--header-bg, rgba(8,20,24,.85))" }}
+      className="relative h-full w-full min-h-[500px] rounded-3xl overflow-hidden flex flex-col justify-center px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 py-10 md:py-12 ring-1 ring-white/10 shadow-adh-soft group"
+      style={{ background: "linear-gradient(135deg, rgba(8,20,24,.92) 0%, rgba(11,36,71,.88) 100%)" }}
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* blurred poster backdrop */}
       {/* blurred poster backdrop (behind the whole panel) */}
-      <div
-        className="absolute inset-0 opacity-100 -z-10"
-        style={{
-          backgroundImage: poster ? `url(${String(poster)})` : "none",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          filter: "blur(18px)",
-          transform: "scale(1.08)",
-        }}
-        aria-hidden="true"
-      />
+      {poster && (
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage: `url(${String(poster)})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "blur(18px)",
+            transform: "scale(1.08)",
+          }}
+          aria-hidden="true"
+        />
+      )}
 
-      {/* Eyebrow + title, centered at the very top */}
-          <div className="absolute top-3 inset-x-0 flex justify-center px-3">
-        <div className="flex flex-col items-center gap-2 text-center">
-          <span className="px-3 py-1 rounded-full text-[11px] font-semibold uppercase bg-[color:var(--overlay)]/60 text-[color:var(--primary-contrast)] backdrop-blur ring-[0.5px] ring-[color:var(--stroke)]">{eyebrow}</span>
-          <h3 className="text-[color:var(--primary-contrast)] text-[clamp(16px,2.4vw,22px)] font-bold drop-shadow whitespace-nowrap">{title}</h3>
-        </div>
+      {/* Eyebrow + title at top */}
+      <div className="flex flex-col items-center gap-3 md:gap-4 text-center mb-6 md:mb-8">
+        <span className="inline-block px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-widest uppercase bg-adh-primary/90 text-white shadow-lg ring-1 ring-white/20">{eyebrow}</span>
+        <h2 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-[1.1] tracking-tight drop-shadow-[0_3px_15px_rgba(0,0,0,.65)] px-2">{title}</h2>
       </div>
 
       {/* The centered video card with enforced 16:9 aspect ratio */}
       <figure
-        className="w-full max-w-[640px] aspect-[16/9] mx-auto rounded-2xl overflow-hidden bg-[color:var(--overlay)]/40 ring-[0.5px] ring-[color:var(--stroke)] shadow-2xl relative"
+        className="w-full max-w-full sm:max-w-[640px] lg:max-w-[720px] aspect-video mx-auto rounded-2xl md:rounded-3xl overflow-hidden bg-black/50 ring-1 ring-white/20 shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),0_10px_40px_rgba(0,0,0,0.4)] relative transition-transform duration-700 group-hover:scale-[1.02]"
       >
         <video
           ref={vRef}
-          className={`block w-full h-full object-cover ${ready ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}
+          className={`block w-full h-full object-cover ${ready ? "opacity-100" : "opacity-60"} transition-opacity duration-500`}
           style={{ objectPosition: "50% 50%" }}
-          playsInline muted loop autoPlay preload="auto" poster={poster}
-          aria-label={t("video.label","Decorative hero video")}
+          playsInline muted loop autoPlay preload="metadata" poster={poster}
+          aria-label={t("video.label","Decorative hero video showcasing motorized blinds")}
+          title={t("video.title", "Smart blind motorization demonstration")}
         >
           <source src={`${srcMp4}?v=5#t=0.01`} type="video/mp4" />
           {srcWebm && <source src={srcWebm} type="video/webm" />}
         </video>
 
-        {/* Subtle semi-opaque overlay for readability. IMPORTANT: remove backdrop-blur
-            here so the overlay does not blur the video content itself. The poster
-            backdrop above (z -10) provides the blurred background effect. */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute inset-0 bg-[color:var(--overlay)]/60" />
-        </div>
+        {/* Subtle overlay gradient for better contrast with controls */}
+        <div className="absolute inset-0 pointer-events-none bg-linear-to-b from-black/5 via-transparent to-black/10" aria-hidden="true" />
 
         {/* controls in the card's top-right; enhanced visibility */}
-        <div className="absolute top-3 right-3 flex gap-2 z-10">
+        <div className="absolute top-2 right-2 sm:top-4 sm:right-4 flex gap-1.5 sm:gap-2 z-10">
           <button type="button"
             onClick={toggleMute}
-            className="hero-control focus-ring px-3 py-1.5 text-xs font-medium rounded-lg text-[color:var(--primary-contrast)] hover:opacity-90 border border-[color:var(--stroke)] backdrop-blur-sm shadow-lg transition-all duration-200"
-            style={{ backgroundColor: 'var(--overlay-strong)' }}
+            className="hero-control focus-ring px-3.5 py-2 text-sm font-medium rounded-full bg-black/60 text-white hover:bg-black/75 border border-white/20 backdrop-blur-md shadow-lg transition-all duration-200 hover:scale-105"
             aria-label={muted ? t("video.muted","Video muted") : t("video.unmuted","Video unmuted")}
             aria-pressed={muted}
             title={muted ? t('video.muted','Muted') : t('video.unmuted','Unmuted')}
@@ -161,8 +156,7 @@ export default function HeroVideoPanel({
           </button>
           <button type="button"
             onClick={togglePlay}
-            className="hero-control focus-ring px-3 py-1.5 text-xs font-medium rounded-lg text-[color:var(--primary-contrast)] hover:opacity-90 border border-[color:var(--stroke)] backdrop-blur-sm shadow-lg transition-all duration-200"
-            style={{ backgroundColor: 'var(--overlay-strong)' }}
+            className="hero-control focus-ring px-3.5 py-2 text-sm font-medium rounded-full bg-black/60 text-white hover:bg-black/75 border border-white/20 backdrop-blur-md shadow-lg transition-all duration-200 hover:scale-105"
             aria-label={paused ? t("video.paused","Video paused") : t("video.playing","Video playing")}
             aria-pressed={!paused}
             title={paused ? t('video.paused','Play') : t('video.playing','Pause')}
@@ -172,17 +166,16 @@ export default function HeroVideoPanel({
         </div>
 
         {/* enhanced overlay gradients for better contrast and readability */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[color:var(--overlay)]/15 via-transparent to-[color:var(--overlay)]/10" />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/15 via-transparent to-black/10" />
       </figure>
 
-      {/* badges row under card */}
+      {/* badges row under video */}
       {badges?.length > 0 && (
-        <div className="absolute bottom-3 inset-x-0 flex justify-center px-3">
-          <ul className="flex flex-wrap justify-center items-center gap-2">
+        <div className="flex justify-center mt-6 md:mt-8">
+          <ul className="flex flex-wrap justify-center items-center gap-2 md:gap-3">
             {badges.map((b, i) => (
               <li key={i}
-                  className="px-3 py-1.5 rounded-full bg-[color:var(--overlay)]/60 text-[color:var(--primary-contrast)] text-[12px] ring-[0.5px] ring-[color:var(--stroke)]
-                         hover:bg-[color:var(--overlay)]/80 backdrop-blur-sm">
+                className="inline-flex items-center rounded-full px-4 py-2 text-xs md:text-sm font-medium bg-white/10 text-white border border-white/20 shadow-sm">
                 {b}
               </li>
             ))}

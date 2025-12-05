@@ -6,8 +6,8 @@
     "line3": "SOLUTIONS"
   },
   "title": "Comprehensive Project Solutions",
-  "subtitle": "",
-  "description": "We offer comprehensive project solutions that cater to a wide range of requirements, including private residential villas, offices, clinics, as well as large-scale projects like headquarters, hotels, hospitals, and resorts.",
+  "subtitle": "Premium shading, smart control, and tailored interiors",
+  "description": "We deliver end-to-end project solutions tailored to meet diverse needs from bespoke private residential villas and modern offices to state-of-the-art clinics. Our expertise extends to large-scale developments, including corporate headquarters, luxury hotels, world-class hospitals, and exclusive resorts.\n\nBy combining premium design, exceptional craftsmanship, and meticulous project management, we ensure every space reflects the highest standards of functionality, aesthetics, and comfort.",
   "cta1": "See Our Products",
   "cta2": "Get Quote",
   "specializationsTitle": "Our Specializations",
@@ -47,6 +47,31 @@
   }
   ,
   "sectionLabel": "Hero",
+  "heroImageAlt": "Decorative hero image showcasing product highlights",
+  "play": "Play",
+  "pause": "Pause",
+  "announcePaused": "Slideshow paused",
+  "announcePlayingMotion": "Playing with motion effects",
+  "announcePlaying": "Slideshow playing",
+  "disableAnimations": "Disable animations",
+  "enableAnimations": "Enable animations",
+  "hintPause": "Press space to pause/play",
+  "hintMotion": "Toggle reduced motion in settings",
   "play_video": "Play background video",
-  "pause_video": "Pause background video"
+  "pause_video": "Pause background video",
+  "video": {
+    "eyebrow": "Blind Motorization",
+    "title": "Smart Control • Instant Comfort",
+    "badges": [
+      "Motorized",
+      "Remote Control",
+      "Child Safe",
+      "Energy Efficient"
+    ],
+    "label": "Decorative hero video showcasing motorized blinds",
+    "muted": "Video muted",
+    "unmuted": "Video unmuted",
+    "paused": "Video paused",
+    "playing": "Video playing"
+  }
 }

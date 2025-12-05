@@ -103,6 +103,15 @@ export default function ClientsSection() {
   const containerRef = useRef(null);
   const touchStartX = useRef(null);
 
+  const sectionBaseClasses = 'relative py-12 md:py-16 lg:py-24 bg-adh-bg text-adh-text overflow-hidden';
+  const backgroundDecor = (
+    <>
+      <div className="absolute inset-0 bg-linear-to-b from-adh-bg via-adh-bg-soft/30 to-adh-bg" aria-hidden="true" />
+      <div className="absolute top-6 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full bg-adh-brand/10 blur-[160px]" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 w-[360px] h-[360px] rounded-full bg-adh-accent/10 blur-[200px]" aria-hidden="true" />
+    </>
+  );
+
   /* Responsive breakpoints */
   useEffect(() => {
     const update = () => {
@@ -251,36 +260,34 @@ export default function ClientsSection() {
     return (
       <section
         id="clients"
-        className="py-20 relative"
-        style={{ background: 'var(--bg)' }}
+        className={sectionBaseClasses}
         dir={isRTL ? 'rtl' : 'ltr'}
         aria-labelledby="clients-heading"
       >
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+        {backgroundDecor}
+        <div className="relative container mx-auto px-4">
+          <div className="text-center mb-10 md:mb-12 px-4">
             <h2
               id="clients-heading"
-              className="text-3xl md:text-4xl font-bold mb-4"
-              style={{ color: 'var(--fg)' }}
+              className="text-[clamp(28px,5vw,48px)] font-serif font-semibold mb-4 text-adh-text"
             >
               {t('heading')}
             </h2>
             <p
               id="clients-description"
-              className="max-w-2xl mx-auto"
-              style={{ color: 'var(--muted)' }}
+              className="max-w-2xl mx-auto text-sm md:text-base text-adh-text-secondary leading-relaxed"
             >
               {t('subheading')}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
             {filteredClients.map((client, idx) => {
               const hue = stringToHue(client.name || idx);
               return (
                 <div
                   key={`${client.name}-${idx}`}
-                  className="card flex items-center justify-center p-6 h-32"
+                  className="card flex items-center justify-center p-4 sm:p-5 md:p-6 aspect-square rounded-2xl md:rounded-3xl border border-white/10 bg-adh-surface/70 backdrop-blur-xl shadow-[0_20px_45px_rgba(0,0,0,0.3)]"
                   style={{
                     background: `linear-gradient(135deg, ${hsla(
                       hue,
@@ -288,8 +295,7 @@ export default function ClientsSection() {
                       55,
                       0.12
                     )}, ${hsla((hue + 40) % 360, 70, 45, 0.12)})`,
-                    border: `1px solid ${hsla(hue, 75, 45, 0.35)}`,
-                    borderRadius: 16,
+                    borderColor: hsla(hue, 75, 45, 0.35),
                   }}
                 >
                   <img
@@ -315,33 +321,31 @@ export default function ClientsSection() {
   return (
     <section
       id="clients"
-      className="py-20 relative overflow-hidden"
-      style={{ background: 'var(--bg)' }}
+      className={sectionBaseClasses}
       dir={isRTL ? 'rtl' : 'ltr'}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       aria-labelledby="clients-heading"
       aria-describedby="clients-description"
     >
+      {backgroundDecor}
       {/* Live region for autoplay announcements */}
       <div className="sr-only" aria-live="polite" aria-atomic="true">
         {isAutoPlaying ? t('sliderHeading') : t('pause')}
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="relative container mx-auto px-4">
         {/* Heading & Subheading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-12 px-4">
           <h2
             id="clients-heading"
-            className="text-3xl md:text-4xl font-bold mb-4"
-            style={{ color: 'var(--fg)' }}
+            className="text-[clamp(28px,5vw,52px)] font-serif font-semibold mb-4 text-adh-text"
           >
             {t('heading')}
           </h2>
           <p
             id="clients-description"
-            className="max-w-2xl mx-auto"
-            style={{ color: 'var(--muted)' }}
+            className="max-w-2xl mx-auto text-sm md:text-base text-adh-text-secondary leading-relaxed"
           >
             {t('subheading')}
           </p>
@@ -358,22 +362,11 @@ export default function ClientsSection() {
                   setCurrentIndex(0);
                   scrollTo(0);
                 }}
-                className={`px-4 py-2 rounded-full whitespace-nowrap transition-all duration-200 text-sm font-medium ${
+                className={`px-5 py-2.5 rounded-full whitespace-nowrap text-sm font-medium border transition-all duration-200 ${
                   selectedCategory === key
-                    ? 'text-white shadow-lg'
-                    : 'hover:shadow-md'
+                    ? 'bg-adh-btn text-adh-btn-fg border-transparent shadow-[0_10px_30px_rgba(0,0,0,0.25)]'
+                    : 'bg-white/5 text-adh-text border-white/15 hover:bg-white/10 hover:text-white'
                 }`}
-                style={{
-                  background:
-                    selectedCategory === key ? 'var(--brand)' : 'var(--chip)',
-                  color:
-                    selectedCategory === key ? 'white' : 'var(--fg)',
-                  border: `1px solid ${
-                    selectedCategory === key
-                      ? 'var(--brand)'
-                      : 'var(--stroke)'
-                  }`,
-                }}
                 aria-pressed={selectedCategory === key}
               >
                 {t(`categories.${key}`, key)}
@@ -389,25 +382,17 @@ export default function ClientsSection() {
             <Search
               aria-hidden="true"
               className={`absolute ${
-                isRTL ? 'right-3' : 'left-3'
-              } top-1/2 -translate-y-1/2 w-4 h-4`}
-              style={{ color: 'var(--muted)' }}
+                isRTL ? 'right-4' : 'left-4'
+              } top-1/2 -translate-y-1/2 w-4 h-4 text-adh-text-secondary`}
             />
             <input
               type="text"
               placeholder={t('searchClients', 'Search clients...')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className={`pl-${isRTL ? '4' : '10'} pr-${
-                isRTL ? '10' : '4'
-              } py-2 border rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition ${
-                isRTL ? 'text-right' : 'text-left'
+              className={`w-full sm:w-80 py-2.5 rounded-full border border-white/15 bg-white/5 text-sm text-adh-text placeholder:text-adh-text-secondary focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent transition-colors ${
+                isRTL ? 'pr-10 pl-4 text-right' : 'pl-10 pr-4 text-left'
               }`}
-              style={{
-                background: 'var(--card)',
-                border: '1px solid var(--stroke)',
-                color: 'var(--fg)',
-              }}
               aria-label={t('searchClients', 'Search clients')}
             />
           </div>
@@ -421,12 +406,7 @@ export default function ClientsSection() {
             {/* Play/Pause */}
             <button
               onClick={togglePlay}
-              className="flex items-center gap-2 px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 hover:scale-105 active:scale-95"
-              style={{
-                background: 'var(--card)',
-                border: '1px solid var(--stroke)',
-                color: 'var(--fg)',
-              }}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 bg-white/5 text-sm font-medium text-adh-text transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-[1.02] active:scale-95"
               aria-pressed={isAutoPlaying}
               aria-label={isAutoPlaying ? t('pause') : t('play')}
             >
@@ -453,14 +433,7 @@ export default function ClientsSection() {
             {/* Prev */}
             <button
               onClick={prev}
-              className="p-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 hover:scale-110 active:scale-95"
-              style={{
-                background: 'var(--card)',
-                border: '1px solid var(--stroke)',
-                color: 'var(--fg)',
-                width: '44px',
-                height: '44px',
-              }}
+              className="p-3 rounded-full border border-white/15 bg-white/5 text-adh-text transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-110 active:scale-95"
               aria-label={isRTL ? t('next') : t('previous')}
               disabled={filteredClients.length === 0}
             >
@@ -474,14 +447,7 @@ export default function ClientsSection() {
             {/* Next */}
             <button
               onClick={next}
-              className="p-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 hover:scale-110 active:scale-95"
-              style={{
-                background: 'var(--card)',
-                border: '1px solid var(--stroke)',
-                color: 'var(--fg)',
-                width: '44px',
-                height: '44px',
-              }}
+              className="p-3 rounded-full border border-white/15 bg-white/5 text-adh-text transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-110 active:scale-95"
               aria-label={isRTL ? t('previous') : t('next')}
               disabled={filteredClients.length === 0}
             >
@@ -497,7 +463,7 @@ export default function ClientsSection() {
         {/* Carousel track */}
         <div
           ref={containerRef}
-          className={`flex gap-6 overflow-x-auto scroll-smooth py-8 px-4 pb-6 scrollbar-hide ${
+          className={`flex gap-6 overflow-x-auto scroll-smooth py-8 px-4 md:px-8 rounded-4xl bg-white/5 ring-1 ring-white/10 backdrop-blur-[18px] scrollbar-hide ${
             isDragging ? 'cursor-grabbing' : 'cursor-grab'
           }`}
           role="region"
@@ -527,10 +493,9 @@ export default function ClientsSection() {
             >
               <Search
                 aria-hidden="true"
-                className="w-12 h-12 mb-4"
-                style={{ color: 'var(--muted)' }}
+                className="w-12 h-12 mb-4 text-adh-text-secondary"
               />
-              <p className="text-lg" style={{ color: 'var(--muted)' }}>
+              <p className="text-lg text-adh-text-secondary">
                 {debouncedSearch
                   ? t('noSearchResults', 'No clients found matching your search')
                   : t('noClients')}
@@ -546,7 +511,7 @@ export default function ClientsSection() {
                 55,
                 0.16
               )}, ${hsla(hue2, 70, 45, 0.16)})`;
-              const accentBorder = `1px solid ${hsla(hue, 75, 45, 0.35)}`;
+              const accentBorder = hsla(hue, 75, 45, 0.35);
               const focusRing = `0 0 0 3px ${hsla(
                 hue,
                 85,
@@ -557,7 +522,7 @@ export default function ClientsSection() {
               return (
                 <Motion.div
                   key={`${client.name}-${idx}`}
-                  className="min-w-[120px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[180px] h-[120px] sm:h-[110px] md:h-[120px] flex items-center justify-center flex-shrink-0"
+                  className="min-w-28 sm:min-w-32 md:min-w-40 lg:min-w-44 h-28 sm:h-28 md:h-32 flex items-center justify-center shrink-0"
                   whileHover={{
                     y: -6,
                     scale: 1.08,
@@ -578,11 +543,11 @@ export default function ClientsSection() {
                   }}
                 >
                   <div
-                    className="w-full h-full overflow-hidden p-2 sm:p-3 md:p-4 transition-all duration-500 cursor-pointer flex items-center justify-center rounded-2xl"
+                    className="w-full h-full overflow-hidden p-3 md:p-4 transition-all duration-500 cursor-pointer flex items-center justify-center rounded-3xl border bg-white/5"
                     style={{
                       background: accentBg,
-                      border: accentBorder,
-                      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
+                      borderColor: accentBorder,
+                      boxShadow: '0 15px 45px rgba(0,0,0,0.22)',
                     }}
                   >
                     {client.url ? (
@@ -656,21 +621,11 @@ export default function ClientsSection() {
                 <button
                   key={i}
                   onClick={() => scrollTo(i * visibleLogos)}
-                  className={`w-3 h-3 rounded-full transition-all duration-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 hover:scale-125 ${
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent ${
                     Math.floor(currentIndex / visibleLogos) === i
-                      ? 'scale-125 shadow-md'
-                      : 'hover:opacity-70'
+                      ? 'bg-adh-btn scale-125 shadow-[0_4px_12px_rgba(0,0,0,0.3)]'
+                      : 'bg-white/20 hover:bg-white/35'
                   }`}
-                  style={{
-                    background:
-                      Math.floor(currentIndex / visibleLogos) === i
-                        ? 'var(--brand)'
-                        : 'var(--stroke)',
-                    boxShadow:
-                      Math.floor(currentIndex / visibleLogos) === i
-                        ? '0 2px 8px rgba(0, 0, 0, 0.2)'
-                        : 'none',
-                  }}
                   aria-label={`${t('goToSlide')} ${i + 1}`}
                   aria-selected={
                     Math.floor(currentIndex / visibleLogos) === i
@@ -684,13 +639,11 @@ export default function ClientsSection() {
 
         {/* Keyboard hints */}
         <div
-          className="text-center mt-4 text-sm opacity-75"
+          className="text-center mt-4 text-sm text-adh-text-secondary"
           aria-hidden="true"
-          style={{ color: 'var(--muted)' }}
         >
           <kbd
-            className="px-2 py-1 rounded text-xs mx-1"
-            style={{ background: 'var(--chip)' }}
+            className="px-2 py-1 rounded text-xs mx-1 bg-white/10 text-adh-text"
           >
             ←→
           </kbd>
@@ -698,8 +651,7 @@ export default function ClientsSection() {
             {t('keyboardHint', 'Use arrow keys to navigate')}
           </span>
           <kbd
-            className="px-2 py-1 rounded text-xs mx-1"
-            style={{ background: 'var(--chip)' }}
+            className="px-2 py-1 rounded text-xs mx-1 bg-white/10 text-adh-text"
           >
             Space
           </kbd>

@@ -83,25 +83,25 @@ export default function HeroSection() {
               />
             ))}
             {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50" />
+            <div className="absolute inset-0 bg-linear-to-br from-black/70 via-black/60 to-black/50" />
           </div>
 
           {/* Content Overlay */}
           <div className="relative z-10 flex items-center min-h-[50vh] lg:min-h-screen px-6 md:px-12">
-            <div className={`text-white max-w-2xl ${isRTL ? 'text-right' : 'text-left'}`}>
-              <div className="inline-block px-6 py-3 rounded-full text-sm font-semibold tracking-wide uppercase shadow-lg bg-amber-700/90 text-white mb-6">
+            <div className={`text-adh-text max-w-2xl ${isRTL ? 'text-right' : 'text-left'}`}>
+              <div className="inline-block px-6 py-3 rounded-full text-sm font-semibold tracking-wide uppercase shadow-lg bg-adh-accent/90 text-adh-text mb-6">
                 {t('hero:badge', { defaultValue: 'PREMIUM INTERIOR SOLUTIONS' })}
               </div>
 
-              <h1 className="hero-title text-white text-[clamp(32px,6vw,64px)] font-bold mb-4 leading-tight">
+              <h1 className="hero-title text-adh-text text-[clamp(32px,6vw,64px)] font-bold mb-4 leading-tight">
                 {t('hero:title', { defaultValue: 'Comprehensive Project Solutions' })}
               </h1>
 
-              <p className="text-xl md:text-2xl mb-4 text-gray-100 font-medium">
+              <p className="text-xl md:text-2xl mb-4 text-adh-text-secondary font-medium">
                 {t('hero:subtitle', { defaultValue: 'From private villas to corporate HQs and resorts' })}
               </p>
 
-              <p className="text-base md:text-lg mb-8 leading-relaxed text-gray-200">
+              <p className="text-base md:text-lg mb-8 leading-relaxed text-adh-text-secondary">
                 {t('hero:description', { 
                   defaultValue: 'We deliver end-to-end project solutions tailored to meet diverse needs from bespoke private residential villas and modern offices to state-of-the-art clinics. Our expertise extends to large-scale developments, including corporate headquarters, luxury hotels, world-class hospitals, and exclusive resorts.'
                 })}
@@ -109,12 +109,12 @@ export default function HeroSection() {
 
               <div className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
                 <Link href="/products" aria-label={t('hero:cta1', { defaultValue: 'View Products' })}>
-                  <button className="px-8 py-4 rounded-full font-semibold text-lg shadow-xl bg-blue-600 text-white hover:bg-blue-700 transition-all transform hover:scale-105">
+                  <button className="px-8 py-4 rounded-full font-semibold text-lg shadow-xl bg-adh-btn text-adh-btn-fg hover:bg-adh-primary-light transition-all transform hover:scale-105">
                     {t('hero:cta1', { defaultValue: 'View Products' })}
                   </button>
                 </Link>
                 <a href="/#quote" aria-label={t('hero:cta2', { defaultValue: 'Get a Quote' })}>
-                  <button className="px-8 py-4 rounded-full font-semibold text-lg shadow-xl bg-transparent text-white border-2 border-white hover:bg-white hover:text-gray-900 transition-all">
+                  <button className="px-8 py-4 rounded-full font-semibold text-lg shadow-xl bg-transparent text-adh-text border-2 border-adh-surface hover:bg-adh-surface hover:text-adh-text transition-all">
                     {t('hero:cta2', { defaultValue: 'Get a Quote' })}
                   </button>
                 </a>
@@ -123,17 +123,17 @@ export default function HeroSection() {
           </div>
 
           {/* Slideshow Controls */}
-          <div className="absolute bottom-6 left-6 z-20 flex gap-3">
+            <div className="absolute bottom-6 left-6 z-20 flex gap-3">
             <button
               onClick={togglePause}
-              className="p-3 rounded-full bg-black/40 backdrop-blur-md text-white hover:bg-black/60 transition-all"
+              className="p-3 rounded-full bg-black/40 backdrop-blur-md text-adh-text hover:bg-black/60 transition-all"
               aria-label={isPaused ? 'Play slideshow' : 'Pause slideshow'}
             >
               {isPaused ? <Play size={20} /> : <Pause size={20} />}
             </button>
             <button
               onClick={toggleMute}
-              className="p-3 rounded-full bg-black/40 backdrop-blur-md text-white hover:bg-black/60 transition-all"
+              className="p-3 rounded-full bg-black/40 backdrop-blur-md text-adh-text hover:bg-black/60 transition-all"
               aria-label={isMuted ? 'Unmute' : 'Mute'}
             >
               {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
@@ -147,7 +147,7 @@ export default function HeroSection() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
+                  index === currentSlide ? 'bg-adh-surface w-8' : 'bg-adh-surface/50'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -173,7 +173,7 @@ export default function HeroSection() {
           </video>
 
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/60" />
 
           {/* Motorization Content Overlay */}
           <div className="relative z-10 flex items-start justify-end p-8 md:p-12 min-h-[50vh] lg:min-h-screen">

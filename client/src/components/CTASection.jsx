@@ -46,7 +46,7 @@ export default function CTASection() {
               "linear-gradient(135deg, #002b3a 0%, #5b7d89 100%)";
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#002b3a]/90 via-[#002b3a]/80 to-[#5b7d89]/80" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#002b3a]/90 via-[#002b3a]/80 to-[#5b7d89]/80" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-20 relative z-10">

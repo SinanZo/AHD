@@ -8,7 +8,7 @@ export default function FeaturesSection() {
   const features = t('features.items', { returnObjects: true });
 
   return (
-    <section className="section-padding bg-white border-t border-border" id="features">
+    <section className="section-padding bg-adh-bg border-t border-adh-stroke" id="features">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <div className="section-subtitle">{t('features.subtitle')}</div>

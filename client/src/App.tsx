@@ -18,6 +18,7 @@ const ProductCategoryPage = lazy(() => import('./pages/ProductCategoryPage'));
 const Clients = lazy(() => import('./pages/Clients'));
 const Projects = lazy(() => import('./pages/Projects'));
 const Contact = lazy(() => import('./pages/Contact'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
 const GalleryPage = lazy(() => import('./components/GalleryPage'));
 
 import './App.css';
@@ -42,7 +43,7 @@ function Router() {
             <Route path="/products/:category" component={ProductCategoryPage} />
             <Route path="/clients" component={Clients} />
             <Route path="/projects" component={Projects} />
-            <Route path="/contact" component={Contact} />
+            <Route path="/contact" component={ContactPage} />
             <Route path="/gallery/:category" component={GalleryPage} />
             <Route path="/404" component={NotFound} />
             <Route component={NotFound} />

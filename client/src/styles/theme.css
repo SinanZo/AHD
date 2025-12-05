@@ -60,6 +60,12 @@
 /* Tighten hero title visibility on busy images */
 .hero-title { text-shadow: 0 2px 12px rgba(0,0,0,.35); }
 
+/* Default section background & text using tokens */
+section {
+  background: var(--bg);
+  color: var(--fg);
+}
+
 /* Respect users' reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }

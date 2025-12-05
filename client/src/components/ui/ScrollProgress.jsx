@@ -21,9 +21,9 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div aria-hidden="true" className="sticky top-[56px] z-[55] h-1 bg-transparent">
+    <div aria-hidden="true" className="sticky top-14 z-55 h-1 bg-transparent">
       <div
-        className="h-1 bg-[var(--brand)] transition-[width] duration-150 ease-out"
+        className="h-1 bg-(--brand) transition-[width] duration-150 ease-out"
         style={{ width: `${progress}%`, boxShadow: '0 0 12px rgba(13, 59, 73, 0.35)' }}
       />
     </div>

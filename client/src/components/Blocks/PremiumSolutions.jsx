@@ -49,11 +49,11 @@ export default function PremiumSolutions() {
   const cols = t('items', { returnObjects: true }) || [];
 
   return (
-    <section className="py-10 md:py-12 bg-[color:var(--bg)]">
+    <section className="py-10 md:py-12 bg-(--bg)">
       <div className="container mx-auto max-w-[1200px] px-4 md:px-6">
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-[color:var(--fg)]">{t('title', { defaultValue: 'Premium Solutions' })}</h2>
-          {t('description') && <p className="text-sm text-[color:var(--muted)] mt-2">{t('description')}</p>}
+          <h2 className="text-2xl font-bold text-(--fg)">{t('title', { defaultValue: 'Premium Solutions' })}</h2>
+          {t('description') && <p className="text-sm text-(--muted) mt-2">{t('description')}</p>}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -65,18 +65,18 @@ export default function PremiumSolutions() {
             const features = item.features || t(`items.${s.key}.features`, { returnObjects: true }) || [];
 
             return (
-              <article key={s.key} className="rounded-2xl border border-[color:var(--stroke)] bg-[color:var(--bg)] p-5 flex gap-4 items-start">
-                <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-[color:var(--tile)] text-[color:var(--primary)] flex items-center justify-center">
+              <article key={s.key} className="rounded-2xl border border-(--stroke) bg-(--bg) p-5 flex gap-4 items-start">
+                <div className="shrink-0 w-14 h-14 rounded-lg bg-(--tile) text-(--primary) flex items-center justify-center">
                   <Icon name={ICONS[s.icon]} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-[color:var(--fg)]">{heading}</h3>
-                  <p className="text-sm text-[color:var(--muted)] mt-1">{desc}</p>
+                  <h3 className="text-lg font-semibold text-(--fg)">{heading}</h3>
+                  <p className="text-sm text-(--muted) mt-1">{desc}</p>
                   {features && features.length > 0 && (
-                    <ul className="mt-3 text-sm text-[color:var(--muted-2)] space-y-1">
+                    <ul className="mt-3 text-sm text-(--muted-2) space-y-1">
                       {features.map((f, i) => (
                         <li key={i} className="flex items-center gap-2">
-                          <span className="inline-block w-2 h-2 rounded-full bg-[color:var(--primary)] mt-1" aria-hidden />
+                          <span className="inline-block w-2 h-2 rounded-full bg-(--primary) mt-1" aria-hidden />
                           <span>{f}</span>
                         </li>
                       ))}

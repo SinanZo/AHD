@@ -85,34 +85,34 @@ export default class RootErrorBoundary extends React.Component {
           role="alert"
           aria-live="assertive"
         >
-          <div className="max-w-2xl mx-auto rounded-xl border border-[var(--stroke,#e5e7eb)] bg-[var(--card,#fff)] p-6 shadow-md">
-            <h1 className="text-2xl font-semibold text-[var(--fg,#0f1115)] mb-2">
+          <div className="max-w-2xl mx-auto rounded-xl border border-(--stroke,#e5e7eb) bg-(--card,#fff) p-6 shadow-md">
+            <h1 className="text-2xl font-semibold text-(--fg,#0f1115) mb-2">
               {t('error.title', { defaultValue: 'Unexpected error' })}
             </h1>
-            <p className="text-[var(--muted,#667085)]">
+            <p className="text-(--muted,#667085)">
               {message}
             </p>
 
             <StackPreview stack={this.state.error?.stack} />
 
             {this.state.ticketId ? (
-              <p className="mt-4 text-sm text-[var(--muted,#667085)]">
+              <p className="mt-4 text-sm text-(--muted,#667085)">
                 {t('error.ticket', { defaultValue: 'Report ID:' })}{' '}
                 <span className="font-mono">{this.state.ticketId}</span>
               </p>
             ) : null}
 
             <div className={`mt-5 flex gap-3 ${isRTL ? 'justify-start' : 'justify-end'}`}>
-              <button
+                <button
                 type="button"
-                className="px-4 py-2 rounded-lg border border-[var(--stroke)] bg-white hover:bg-[color-mix(in_oklab,white,black_5%)]"
+                className="px-4 py-2 rounded-lg border border-(--stroke) bg-white hover:bg-white/95"
                 onClick={this.handleReload}
               >
                 {t('error.tryAgain', { defaultValue: 'Try again' })}
               </button>
               <button
                 type="button"
-                className="px-4 py-2 rounded-lg bg-[var(--brand,#0D3B4C)] text-white hover:opacity-90 disabled:opacity-60"
+                className="px-4 py-2 rounded-lg bg-(--brand,#0D3B4C) text-white hover:opacity-90 disabled:opacity-60"
                 onClick={this.handleReport}
                 disabled={this.state.reporting}
               >

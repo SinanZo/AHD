@@ -96,7 +96,7 @@
 
   /* Simplify gradients */
   .gradient-bg {
-    background: #003D52 !important;
+    background: var(--brand) !important;
   }
 }
 

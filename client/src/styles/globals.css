@@ -6,11 +6,8 @@
    - Opinionated defaults for images, media, typography
    ───────────────────────────────────────────────────────── */
 
-/* stylelint-disable at-rule-no-unknown */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* stylelint-enable at-rule-no-unknown */
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
 @import './tokens.css';
 
@@ -119,7 +116,9 @@ html.dark .footer .site-logo {
 
 /* One place to tweak default text color for prose blocks */
 .prose {
-  @apply text-[color:var(--fg)];
+  /* stylelint-disable at-rule-no-unknown */
+  @apply text-(--fg);
+  /* stylelint-enable at-rule-no-unknown */
 }
 
 /* Headings weight/letter-spacing that look good in AR/EN */
@@ -331,20 +330,26 @@ html.dark {
 
 /* New unified pills for the video panel */
 .chip-elevated{
-  @apply inline-flex items-center px-3 py-1.5 rounded-full ring-1 backdrop-blur;
+  /* stylelint-disable at-rule-no-unknown */
+  @apply inline-flex items-center rounded-full px-3 py-1.5 ring-1 backdrop-blur;
+  /* stylelint-enable at-rule-no-unknown */
   background: color-mix(in srgb, var(--card) 15%, transparent);
   color: var(--badge-fg);
   border-color: color-mix(in srgb, var(--card) 25%, transparent);
 }
 .pill-contrast{
-  @apply inline-flex items-center px-3 py-1.5 rounded-full text-[13px] font-medium ring-1 backdrop-blur;
+  /* stylelint-disable at-rule-no-unknown */
+  @apply inline-flex items-center rounded-full px-3 py-1.5 text-[13px] font-medium ring-1 backdrop-blur;
+  /* stylelint-enable at-rule-no-unknown */
   background: color-mix(in srgb, var(--card) 70%, transparent);
   color: var(--fg);
   border-color: color-mix(in srgb, var(--fg) 20%, transparent);
 }
 .pill-contrast:hover{ background: color-mix(in srgb, var(--card) 85%, transparent); }
 .pill-ghost{
-  @apply inline-flex items-center px-3 py-1.5 rounded-full text-[13px] font-semibold ring-1 border border-transparent;
+  /* stylelint-disable at-rule-no-unknown */
+  @apply inline-flex items-center rounded-full border border-transparent px-3 py-1.5 text-[13px] font-semibold ring-1;
+  /* stylelint-enable at-rule-no-unknown */
   background: color-mix(in srgb, var(--chip) 70%, transparent);
   color: var(--fg);
 }
@@ -380,14 +385,20 @@ html.dark {
 }
 
 /* ----------------------------- */
-/* Transitions & Motion guards   */
+/* Transitions & Motion guards (scoped) */
 /* ----------------------------- */
 
-* {
-  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+/* Scoped theme transition class to avoid global layout/paint thrash */
+.theme-animated,
+.theme-animated * {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
+  .theme-animated,
+  .theme-animated * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 
 /* ----------------------------- */

@@ -28,7 +28,7 @@ export default function ProductCategoryPage() {
         <h2 className="text-2xl text-red-600 mb-4">{isAr ? "لم يتم العثور على المنتج" : "Category not found"}</h2>
         <Link
           to="/products"
-          className="px-6 py-2 rounded bg-primary text-white font-semibold"
+          className="px-6 py-2 rounded bg-adh-btn text-adh-btn-fg font-semibold"
         >
           {isAr ? "العودة للمنتجات" : "Back to Products"}
         </Link>
@@ -53,7 +53,7 @@ export default function ProductCategoryPage() {
   };
   return (
     <Layout title={title} description={description} image={image} keywords={keywords} jsonLd={jsonLd}>
-      <section className="py-12 px-2 bg-gray-50 dark:bg-[#222] min-h-[50vh]">
+      <section className="py-12 px-2 bg-adh-bg min-h-[50vh]">
       <div className="container mx-auto max-w-4xl">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <img
@@ -64,21 +64,21 @@ export default function ProductCategoryPage() {
             onError={createImageErrorHandler('product')}
           />
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-adh-primary dark:text-adh-text mb-2">
               {cat.title}
             </h1>
-            <p className="text-gray-600 dark:text-gray-200 mb-6">
+            <p className="text-adh-text-secondary dark:text-adh-text mb-6">
               {cat.brief}
             </p>
             {cat.sub && cat.sub.length > 0 && (
               <div className="mb-8">
-                <h3 className="text-lg font-semibold mb-2 dark:text-white">
+                <h3 className="text-lg font-semibold mb-2 dark:text-adh-text">
                   {isAr ? "الأنواع المتوفرة:" : "Available Types:"}
                 </h3>
                 <ul className="space-y-2">
                   {cat.sub.map((sub, idx) => (
                     <li key={idx} className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-primary inline-block" />
+                      <span className="w-2 h-2 rounded-full bg-adh-primary inline-block" />
                       <span>{sub}</span>
                     </li>
                   ))}
@@ -87,7 +87,7 @@ export default function ProductCategoryPage() {
             )}
             <Link
               to="/products"
-              className="inline-block mt-6 px-6 py-2 bg-primary text-white rounded-lg font-semibold"
+              className="inline-block mt-6 px-6 py-2 bg-adh-btn text-adh-btn-fg rounded-lg font-semibold"
             >
               {isAr ? "عودة للمنتجات" : "Back to Products"}
             </Link>

@@ -61,6 +61,14 @@
   "transparency_title": "Transparency",
   "transparency_desc": "We conduct our business with honesty and ethical practices, building trust with our clients.",
   "accessibility_title": "Accessibility",
-  "accessibility_desc": "We make premium interior solutions accessible to clients across all sectors and budgets."
+  "accessibility_desc": "We make premium interior solutions accessible to clients across all sectors and budgets.",
+  "why": {
+    "items": [
+      { "icon": "ShieldCheck", "title": "Certified Quality", "desc": "Premium materials and strict QA on every order." },
+      { "icon": "Clock", "title": "On-Time Delivery", "desc": "Reliable lead times with proactive updates." },
+      { "icon": "Wrench", "title": "Expert Craftsmanship", "desc": "Experienced team with meticulous finish." },
+      { "icon": "Sparkles", "title": "Great Service", "desc": "Clear communication and after-sales support." }
+    ]
+  }
 }
 

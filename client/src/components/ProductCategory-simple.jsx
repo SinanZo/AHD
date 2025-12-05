@@ -172,7 +172,7 @@ export default function ProductCategory({ category, subcategories }) {
         {/* Image Gallery Section */}
         <div className="relative h-64 overflow-hidden">
           <div 
-            className={`absolute inset-0 bg-gradient-to-br ${getGradientColor()} opacity-20`}
+            className="absolute inset-0 bg-adh-surface/10 opacity-20"
           />
           
           {/* Main Image */}
@@ -191,14 +191,14 @@ export default function ProductCategory({ category, subcategories }) {
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-adh-overlay/50 hover:bg-adh-overlay/70 text-adh-text-contrast p-2 rounded-full transition-all duration-200"
                   aria-label="Previous image"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-adh-overlay/50 hover:bg-adh-overlay/70 text-adh-text-contrast p-2 rounded-full transition-all duration-200"
                   aria-label="Next image"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -207,14 +207,14 @@ export default function ProductCategory({ category, subcategories }) {
             )}
 
             {/* Image Indicators */}
-            {productImages.length > 1 && (
+                {productImages.length > 1 && (
               <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
                 {productImages.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                      index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                      index === currentImageIndex ? 'bg-adh-btn' : 'bg-adh-surface/50'
                     }`}
                     aria-label={`View image ${index + 1}`}
                   />
@@ -233,14 +233,14 @@ export default function ProductCategory({ category, subcategories }) {
 
             {/* Category Badge */}
             <div className="absolute top-2 left-2">
-              <Badge className={`bg-gradient-to-r ${getGradientColor()} text-white border-0`}>
+              <Badge className={`bg-adh-accent text-white border-0`}>
                 {subcategories.length > 0 ? `${subcategories.length} Types` : 'Premium'}
               </Badge>
             </div>
           </div>
         </div>
 
-        <CardHeader className="pb-3">
+          <CardHeader className="pb-3">
           <CardTitle className="text-lg font-bold line-clamp-2">
             {category.category}
           </CardTitle>
@@ -259,13 +259,13 @@ export default function ProductCategory({ category, subcategories }) {
           {/* Subcategories */}
           {subcategories.length > 0 && (
             <div className="mb-4">
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">
+              <h4 className="text-sm font-semibold text-adh-text mb-2">
                 Available Options:
               </h4>
               <div className="grid grid-cols-1 gap-1">
                 {subcategories.map((sub, index) => (
-                  <div key={index} className="flex items-center text-sm text-gray-600">
-                    <Star className="w-3 h-3 text-yellow-500 mr-2 flex-shrink-0" />
+                  <div key={index} className="flex items-center text-sm text-adh-text-secondary">
+                    <Star className="w-3 h-3 text-adh-accent mr-2 shrink-0" />
                     <span>{sub.en}</span>
                   </div>
                 ))}
@@ -276,7 +276,7 @@ export default function ProductCategory({ category, subcategories }) {
           {/* Thumbnail Gallery */}
           {productImages.length > 1 && (
             <div className="mb-4">
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">
+              <h4 className="text-sm font-semibold text-adh-text mb-2">
                 Gallery:
               </h4>
               <div className="flex gap-2 overflow-x-auto pb-2">
@@ -284,10 +284,10 @@ export default function ProductCategory({ category, subcategories }) {
                   <button
                     key={index}
                     onClick={() => openGallery(index)}
-                    className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                    className={`shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
                       index === currentImageIndex 
-                        ? 'border-blue-500 shadow-md' 
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-adh-primary shadow-md' 
+                        : 'border-adh-stroke hover:border-adh-stroke/80'
                     }`}
                   >
                     <img
@@ -305,7 +305,7 @@ export default function ProductCategory({ category, subcategories }) {
           )}
 
           {/* Action Buttons */}
-          <div className="flex gap-2 mt-4">
+              <div className="flex gap-2 mt-4">
             <Button variant="outline" className="w-full" onClick={handleWhatsAppQuote}>
               <ShoppingCart className="w-4 h-4 mr-2" />
               Get Quote
@@ -316,21 +316,21 @@ export default function ProductCategory({ category, subcategories }) {
 
       {/* Full Screen Gallery Modal */}
       {showGallery && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <div className="relative max-w-4xl w-full h-[80vh] bg-white rounded-lg overflow-hidden">
-            <div className="p-4 border-b">
+        <div className="fixed inset-0 bg-adh-overlay/80 z-50 flex items-center justify-center p-4">
+          <div className="relative max-w-4xl w-full h-[80vh] bg-adh-surface rounded-lg overflow-hidden">
+            <div className="p-4 border-b border-adh-stroke">
               <div className="flex justify-between items-center">
-                <h3 className="text-lg font-semibold">{category.category}</h3>
+                <h3 className="text-lg font-semibold text-adh-text">{category.category}</h3>
                 <button
                   onClick={() => setShowGallery(false)}
-                  className="p-2 hover:bg-gray-100 rounded-full"
+                  className="p-2 hover:bg-adh-surface/90 rounded-full"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
             </div>
             
-            <div className="relative flex-1 flex items-center justify-center bg-gray-100 h-full">
+            <div className="relative flex-1 flex items-center justify-center bg-adh-bg-linen h-full">
               <img
                 src={productImages[selectedImageIndex]}
                 alt={`${category.category} ${selectedImageIndex + 1}`}
@@ -345,14 +345,14 @@ export default function ProductCategory({ category, subcategories }) {
                 <>
                   <button
                     onClick={prevGalleryImage}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-200"
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-adh-overlay/50 hover:bg-adh-overlay/70 text-adh-text-contrast p-3 rounded-full transition-all duration-200"
                     aria-label="Previous image"
                   >
                     <ChevronLeft className="w-6 h-6" />
                   </button>
                   <button
                     onClick={nextGalleryImage}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-200"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-adh-overlay/50 hover:bg-adh-overlay/70 text-adh-text-contrast p-3 rounded-full transition-all duration-200"
                     aria-label="Next image"
                   >
                     <ChevronRight className="w-6 h-6" />
@@ -361,23 +361,23 @@ export default function ProductCategory({ category, subcategories }) {
               )}
 
               {/* Image Counter */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-adh-overlay/50 text-adh-text-contrast px-3 py-1 rounded-full text-sm">
                 {selectedImageIndex + 1} / {productImages.length}
               </div>
             </div>
 
             {/* Thumbnail Strip */}
             {productImages.length > 1 && (
-              <div className="p-4 border-t">
+              <div className="p-4 border-t border-adh-stroke">
                 <div className="flex gap-2 justify-center overflow-x-auto">
                   {productImages.map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setSelectedImageIndex(index)}
-                      className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                      className={`shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
                         index === selectedImageIndex 
-                          ? 'border-blue-500 shadow-md' 
-                          : 'border-gray-200 hover:border-gray-300'
+                          ? 'border-adh-primary shadow-md' 
+                          : 'border-adh-stroke hover:border-adh-stroke/80'
                       }`}
                     >
                       <img

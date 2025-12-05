@@ -21,7 +21,7 @@ export default function Layout({ children }) {
       <main
         id="main-content"
         role="main"
-        className="min-h-screen bg-white dark:bg-[#18191e] transition-colors duration-200"
+        className="min-h-screen bg-adh-bg text-adh-text transition-colors duration-200"
         tabIndex={-1}
         aria-label="Main Content"
       >

@@ -6,5 +6,26 @@
       { "title": "Expert Installation", "desc": "Professional installation services" },
       { "title": "Quality Assurance", "desc": "Highest standards in every project" }
     ]
+  },
+  "why": {
+    "subtitle": "Premium Interior Solutions",
+    "title": "Why choose Abdulhaq Dimensions?",
+    "description": "We don't just provide curtains — we design visual and tactile experiences that bring comfort, elegance, and smart control to every space.",
+    "experience": {
+      "title": "Decades of Craftsmanship",
+      "desc": "Seasoned expertise in premium curtains, drapery, and bespoke shading solutions."
+    },
+    "quality": {
+      "title": "Precision & Reliability",
+      "desc": "Carefully selected materials and installation standards that stand the test of time."
+    },
+    "layers": {
+      "title": "Integrated Solutions",
+      "desc": "From measurement to final styling, every layer is coordinated under one team."
+    },
+    "innovation": {
+      "title": "Smart Comfort & Design",
+      "desc": "Motorized systems, automation, and refined finishes tailored to modern interiors."
+    }
   }
 }

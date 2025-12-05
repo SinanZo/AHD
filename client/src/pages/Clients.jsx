@@ -172,12 +172,12 @@ export default function Clients() {
           <div className="text-center mb-14">
             <h1
               id="clients-heading"
-              className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow"
+              className="text-4xl md:text-5xl font-bold mb-4 text-adh-text drop-shadow"
             >
               {title}
             </h1>
             <p
-              className="text-lg text-white/80 mb-10 max-w-2xl mx-auto"
+              className="text-lg text-adh-text-secondary mb-10 max-w-2xl mx-auto"
               dir={isRTL ? "rtl" : "ltr"}
             >
               {description}
@@ -186,7 +186,7 @@ export default function Clients() {
 
           {/* Show a placeholder when no clients defined */}
           {clients.length === 0 ? (
-            <p className="text-center text-white/85">
+            <p className="text-center text-adh-text-secondary">
               {t("empty", {
                 defaultValue: isRTL
                   ? "قريبًا — شركاؤنا وعملاؤنا"
@@ -215,10 +215,10 @@ export default function Clients() {
                   <div
                     className="
                       group relative flex items-center justify-center
-                      bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6
+                      bg-adh-surface rounded-2xl p-4 md:p-6
                       min-h-[120px] md:min-h-[140px] transition will-change-transform
                       hover:shadow-2xl hover:scale-[1.02]
-                      border border-gray-200 dark:border-gray-700
+                      border border-adh-stroke
                     "
                     style={{
                       background: `linear-gradient(135deg, ${hsla(hue, 70, 55, 0.1)}, ${hsla(hue2, 70, 45, 0.1)})`,
@@ -249,7 +249,7 @@ export default function Clients() {
                       {/* Always keep name for screen readers; only render visible name when SHOW_NAMES is true */}
                       <span className="sr-only">{name}</span>
                       {SHOW_NAMES && (
-                        <p className="text-xs md:text-sm text-gray-700 dark:text-gray-300 mt-2 truncate">
+                        <p className="text-xs md:text-sm text-adh-text-secondary mt-2 truncate">
                           {name}
                         </p>
                       )}

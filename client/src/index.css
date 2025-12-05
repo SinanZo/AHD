@@ -12,6 +12,12 @@
   color: inherit !important;
 }
 
+/* Ensure hero slides are not overly dimmed in dark mode */
+.dark .hero-slide img { filter: none !important; }
+
+/* Feature card: enforce inherited color across children for dark mode visibility */
+.feature-card * { color: inherit !important; }
+
 /* Force specific links (Amman Google Maps & phone) to white regardless of theme
    These use aria-label selectors to avoid affecting other links globally. */
 a[aria-label="فتح الموقع على خرائط Google"],
@@ -26,48 +32,68 @@ a[aria-label="اتصل بنا"] {
 /* English: Playfair Display (headings), Inter (body) */
 /* Arabic: Cairo (headings), Tajawal (body) */
 
-/* === TOKENS: single source of truth === */
-:root{
+/* ========================================
+   ABDULHAQ DIMENSIONS THEME SYSTEM
+   Single source of truth for all colors
+   ======================================== */
+
+:root {
   color-scheme: light dark;
-
-  /* Abdulhaq Dimensions Brand - Light Mode */
-  --bg: #FCFCFC;        /* clean white background */
-  --fg: #1A1A1A;        /* primary text */
-  --muted: #6D6D6D;     /* muted text */
-
-  --card: #FFFFFF;      /* pure white for cards */
-  --stroke: #A7B1B8;    /* stone light border */
-  --chip: #F4F4F5;      /* soft background for chips */
-
-  /* Brand colors */
-  --brand: #0C2546;     /* Abdulhaq Navy */
-  --brand-2: #21406B;   /* Primary Light */
-  --brand-light: #6D7A84; /* Stone Gray */
-  --btn: #0C2546;       /* Navy button */
-  --btn-fg: #ffffff;
   
-  /* Accent */
-  --accent: #C7A57A;    /* Heritage Gold */
-  --accent-light: #E5CAA1; /* Gold Light */
-  --accent-dark: #A98B65;  /* Gold Deep */
+    /* ============================================
+      LIGHT MODE TOKENS (Unified Palette)
+      ============================================ */
   
-  /* Backgrounds */
-  --bg-soft: #F4F4F5;
-  --bg-linen: #EFEDE8;
+  /* Main backgrounds */
+  --bg: #FAFAFA;              /* Page background */
+  --bg-soft: #F5F6F8;         /* Subtle background variation */
+  --bg-linen: #F7F7F4;        /* Warm neutral section */
   
-  /* Text colors */
-  --text-secondary: #3A3A3A;
-  --text-muted: #6D6D6D;
+  /* Surface colors (cards, panels, modals) */
+  --card: #FFFFFF;            /* Cards */
+  --chip: #F4F4F5;            /* Chips */
+  --stroke: #E5E7EB;          /* Lines */
+  
+  /* Text hierarchy */
+  --fg: #1A1A1A;              /* Text */
+  --text-secondary: #4B5563;  /* Subtext */
+  --text-muted: #6B7280;      /* Muted */
+  --muted: #6B7280;           /* Alias */
+  
+  /* Brand colors - Abdulhaq Dimensions Navy */
+  --brand: #0B2447;           /* Primary brand navy */
+  --brand-2: #1E3A5F;         /* Brand navy - lighter variant */
+  --brand-light: #64748B;     /* Brand-aligned neutral gray */
+  
+  /* Accent colors - Heritage Gold */
+  --accent: #C59D5F;          /* Gold */
+  --accent-light: #D4AF73;    /* Gold light */
+  --accent-dark: #A8824A;     /* Gold dark */
+  
+  /* Interactive elements */
+  --btn: #0B2447;             /* Primary button background */
+  --btn-fg: #FFFFFF;          /* Primary button text */
+  --link: #1E3A5F;            /* Link color */
+  --link-hover: #0C2546;      /* Link hover state */
+  --nav-item-bg-hover: rgba(12, 37, 70, 0.06);
 
-  /* Links / header */
-  --link: color-mix(in srgb, var(--brand) 84%, #000 16%);
-  --link-hover: color-mix(in srgb, var(--brand-2) 86%, #000 14%);
-  --nav-item-bg-hover: color-mix(in srgb, var(--brand) 6%, transparent 94%);
-
-  --header-bg: linear-gradient(180deg, rgba(12,37,70,0.98), rgba(8,26,51,0.96));
-  --header-bg-color: rgba(12,37,70,0.96);
+  /* Input colors */
+  --input-bg: #FFFFFF;
+  --input-border: #D1D5DB;
+  --input-border-focus: #0C2546;
+  --input-text: #111827;
+  --input-placeholder: #9CA3AF;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
 
   /* Header-specific tokens */
+  --header-bg: linear-gradient(180deg, rgba(12,37,70,0.98), rgba(8,26,51,0.96));
+  --header-bg-color: rgba(12,37,70,0.96);
   --header-fg: #ffffff;
   --header-pill-bg: rgba(255,255,255,0.08);
   --header-pill-hover: rgba(199,165,122,0.15); /* Gold hover */
@@ -82,54 +108,98 @@ a[aria-label="اتصل بنا"] {
   --bg-hero-dark: #0B151B;
   --card-glass: rgba(255,255,255,0.08);
   --stroke-strong: rgba(255,255,255,0.18);
-  --shadow-soft: 0 8px 30px rgba(2,12,14,0.28), 0 2px 6px rgba(2,12,14,0.06);
   --hero-max-h: min(80vh, 720px);
 }
 
-/* Token fallbacks for browsers without color-mix() */
+/* ============================================
+   FALLBACKS for older browsers
+   Ensures theme works without modern CSS
+   ============================================ */
+
 @supports not (color: color-mix(in srgb, white 50%, black)) {
   :root {
-    --link: var(--brand);
-    --link-hover: var(--brand-2);
-    --nav-item-bg-hover: rgba(0,0,0,0.04);
+    --link: #1E3A5F;
+    --link-hover: #0C2546;
+    --nav-item-bg-hover: rgba(12, 37, 70, 0.06);
+  }
+  
+  .dark {
+    --link: #60A5FA;
+    --link-hover: #93C5FD;
+    --nav-item-bg-hover: rgba(255, 255, 255, 0.06);
   }
 }
 
-.dark{
+  /* ============================================
+    DARK MODE TOKENS (Unified Palette)
+    ============================================ */
+
+.dark {
   color-scheme: dark;
-
-  /* Abdulhaq Dimensions Brand - Dark Mode */
-  --bg: #0A1220;        /* dark background */
-  --fg: #FFFFFF;        /* white text */
-  --muted: #9CA3AF;     /* muted text */
-
-  --card: #141B29;      /* dark card surface */
-  --stroke: #4A555D;    /* stone dark border */
-  --chip: #1D2635;      /* secondary layer */
-
-  /* Brand colors for dark mode */
-  --brand: #1F3A64;     /* Navy Highlight */
-  --brand-2: #21406B;   /* Primary Light */
-  --brand-light: #9CA3AF; /* Secondary */
-  --btn: #1F3A64;       /* Navy button */
-  --btn-fg: #ffffff;
   
-  /* Accent */
-  --accent: #D8B98A;    /* Gold Accent (Bright) */
-  --accent-light: #E5CAA1;
-  --accent-dark: #A98B65;
+  /* Main backgrounds */
+  --bg: #0B1A2A;              /* Background */
+  --bg-soft: #112233;         /* Cards base */
+  --bg-linen: #0A1220;        /* Section alt */
   
-  /* Backgrounds */
-  --bg-soft: #141B29;
-  --bg-linen: #1D2635;
+  /* Surface colors (cards, panels, modals) */
+  --card: #112233;            /* Cards */
+  --chip: #1E293B;            /* Chips */
+  --stroke: #1E2A3A;          /* Lines */
   
-  /* Text colors */
-  --text-secondary: #E5E7EB;
-  --text-muted: #9CA3AF;
-
-  --link: color-mix(in srgb, var(--brand) 72%, #fff 28%);
-  --link-hover: color-mix(in srgb, var(--brand-2) 76%, #fff 24%);
-  --nav-item-bg-hover: color-mix(in srgb, var(--chip) 6%, transparent 94%);
+  /* Text hierarchy */
+  --fg: #E6E6E6;              /* Text */
+  --text-secondary: #B7C0CE;  /* Subtext */
+  --text-muted: #9CA3AF;      /* Muted */
+  --muted: #9CA3AF;           /* Alias */
+  
+  /* Brand colors adjusted for dark mode */
+  --brand: #2D4A73;           /* Navy */
+  --brand-2: #3B5A87;         /* Navy light */
+  --brand-light: #64748B;     /* Neutral gray that works in dark */
+  
+  /* Accent colors - Brighter gold for dark backgrounds */
+  --accent: #DDB876;          /* Gold */
+  --accent-light: #E8C78E;    /* Gold light */
+  --accent-dark: #C59D5F;     /* Gold dark */
+  
+  /* Interactive elements */
+  --btn: #2D4A73;             /* Primary button - visible navy */
+  --btn-fg: #F9FAFB;          /* Button text - bright white */
+  --link: #60A5FA;            /* Link color - blue for visibility */
+  --link-hover: #93C5FD;      /* Link hover - lighter blue */
+  --nav-item-bg-hover: rgba(255, 255, 255, 0.06);
+  
+  /* Input colors */
+  --input-bg: #1E293B;
+  --input-border: #334155;
+  --input-border-focus: #60A5FA;
+  --input-text: #F9FAFB;
+  --input-placeholder: #64748B;
+  
+  /* Shadows - adjusted for dark mode (lighter, more visible) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+  
+  /* Header-specific tokens for dark mode */
+  --header-bg: linear-gradient(180deg, rgba(10,15,26,0.98), rgba(15,23,42,0.96));
+  --header-bg-color: rgba(15,23,42,0.96);
+  --header-fg: #F9FAFB;
+  --header-pill-bg: rgba(255,255,255,0.06);
+  --header-pill-hover: rgba(221,184,118,0.15);
+  --header-pill-active-bg: #DDB876;
+  --header-pill-active-fg: #0A0F1A;
+  --header-pill-stroke: rgba(255,255,255,0.12);
+  --header-pill-active-inner: rgba(0,0,0,0.08);
+  --header-icon: rgba(255,255,255,0.92);
+  
+  /* Hero section tokens */
+  --bg-hero-dark: #0A0F1A;
+  --card-glass: rgba(255,255,255,0.05);
+  --stroke-strong: rgba(255,255,255,0.12);
 
   --header-bg: linear-gradient(180deg, rgba(8,26,51,0.95), rgba(10,18,32,0.92));
   --header-bg-color: rgba(8,26,51,0.92);
@@ -384,6 +454,24 @@ button[data-set-lang="ar"].pill-active {
   .hamburger-icon { background-color: var(--chip) !important; border: 1px solid rgba(0,0,0,0.06); color: var(--fg) !important; }
 }
 
+/* ============================================
+   TARGETED THEME TRANSITIONS - Better Performance
+   Apply theme-animated class to root wrapper
+   ============================================ */
+
+.theme-animated,
+.theme-animated * {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Disable transitions for elements that should change instantly */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
+
 @layer base {
   /* Primary font: Distinct Style Sans Light (weight 300) */
   html, body {
@@ -393,6 +481,7 @@ button[data-set-lang="ar"].pill-active {
     -moz-osx-font-smoothing: grayscale;
     background: var(--bg);
     color: var(--fg);
+    transition: background-color 300ms ease, color 300ms ease;
   }
 
   /* Distinct Style Sans Light for all headings with tight tracking */

@@ -71,9 +71,9 @@ function DarkModeToggle() {
           className="flex items-center justify-center"
         >
           {isDark ? (
-            <Sun className="w-6 h-6 text-[color:var(--fg)]" />
+            <Sun className="w-6 h-6 text-(--fg)" />
           ) : (
-            <Moon className="w-6 h-6 text-[color:var(--fg)]" />
+            <Moon className="w-6 h-6 text-(--fg)" />
           )}
         </Motion.div>
       </AnimatePresence>
@@ -118,7 +118,7 @@ function LanguageSwitcherPill() {
         whileTap={{ scale: 0.95 }}
         onClick={() => switchLang("en")}
         data-set-lang="en"
-          className={`${base} lang-pill ${current === "en" ? "pill-active shadow" : "text-[color:var(--header-fg)] hover:bg-[color:var(--header-pill-hover)]"}`}
+          className={`${base} lang-pill ${current === "en" ? "pill-active shadow" : "text-(--header-fg) hover:bg-(--header-pill-hover)"}`}
         aria-label="English"
       >
         EN
@@ -129,7 +129,7 @@ function LanguageSwitcherPill() {
         whileTap={{ scale: 0.95 }}
         onClick={() => switchLang("ar")}
         data-set-lang="ar"
-          className={`${base} lang-pill ${current === "ar" ? "pill-active shadow" : "text-[color:var(--header-fg)] hover:bg-[color:var(--header-pill-hover)]"}`}
+          className={`${base} lang-pill ${current === "ar" ? "pill-active shadow" : "text-(--header-fg) hover:bg-(--header-pill-hover)"}`}
         aria-label="العربية"
       >
         عربي
@@ -218,28 +218,28 @@ export default function Header() {
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.35 }}
-        className="w-full relative overflow-hidden z-[75] pointer-events-auto"
+        className="w-full relative overflow-hidden z-75 pointer-events-auto"
         style={{ background: "var(--header-bg)", color: 'var(--header-fg)' }}
         role="banner"
       >
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse" />
+          <div className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-transparent via-white/5 to-transparent animate-pulse" />
         </div>
 
   <div className="container max-w-[1440px] mx-auto flex flex-nowrap justify-between items-center px-6 py-2 text-sm relative z-40">
           <Motion.div
-            className={`flex items-center gap-6 text-[color:var(--header-fg)]/90 font-medium`}
+            className={`flex items-center gap-6 text-(--header-fg)/90 font-medium`}
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[color:var(--header-icon)]" aria-hidden="true" />
+              <MapPin className="w-4 h-4 text-(--header-icon)" aria-hidden="true" />
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Abdulhaq+Dimensions+Amman+Jordan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline underline-offset-2 text-[color:var(--header-fg)]/90 hover:text-[color:var(--header-fg)] transition-colors"
+                className="underline underline-offset-2 text-(--header-fg)/90 hover:text-(--header-fg) transition-colors"
                 aria-label={tt("open_map_new_tab", "open_map", { defaultValue: "Open location in Google Maps" })}
                 title={tt("open_map_new_tab", "open_map", { defaultValue: "Open location in Google Maps" })}
               >
@@ -248,13 +248,13 @@ export default function Header() {
             </div>
 
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-[color:var(--header-icon)]" />
+              <Phone className="w-4 h-4 text-(--header-icon)" />
               {phoneHref ? (
-                <a href={phoneHref} className="text-[color:var(--header-fg)]/90" dir="ltr" aria-label={tt("call_phone", "call", { defaultValue: "Call us" })}>
+                <a href={phoneHref} className="text-(--header-fg)/90" dir="ltr" aria-label={tt("call_phone", "call", { defaultValue: "Call us" })}>
                   {phoneDisplay}
                 </a>
               ) : (
-                <span className="text-[color:var(--btn-fg)]/90" dir="ltr">{phoneDisplay}</span>
+                <span className="text-(--btn-fg)/90" dir="ltr">{phoneDisplay}</span>
               )}
             </div>
           </Motion.div>
@@ -280,7 +280,7 @@ export default function Header() {
 
       {/* Main Header */}
       <Motion.header
-        className={`header sticky top-0 z-[70] transition-all duration-500 pointer-events-auto shadow-lg`}
+        className={`header sticky top-0 z-70 transition-all duration-500 pointer-events-auto shadow-lg`}
         initial={{ y: -72 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.45 }}
@@ -292,20 +292,20 @@ export default function Header() {
           color: 'var(--header-fg)'
         }}
       >
-        <div className={`container max-w-[1440px] mx-auto px-6 ${isScrolled ? "py-2" : "py-2 md:py-3"}`}>
+        <div className={`container max-w-[1440px] mx-auto px-6 ${isScrolled ? "py-1.5" : "py-2 md:py-2.5"}`}>
           {/* Mobile: Simple 2-column layout */}
           <div className="md:hidden flex items-center justify-between">
             {/* Mobile: Logo only (location/phone shown in top bar) */}
             
             {/* Right: Controls */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2.5">
               <LanguageSwitcherPill />
               <DarkModeToggle />
               <Motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 id="menuBtn"
-                className="p-2.5 rounded-full transition-all duration-200 chip"
+                className="p-3 rounded-full transition-all duration-200 bg-[#020817] text-white ring-2 ring-white/25 shadow-xl"
                 onClick={() => setIsMenuOpen((v) => !v)}
                 aria-label={isMenuOpen ? tt("close_menu", "close_menu", { defaultValue: "Close Menu" }) : tt("open_menu", "open_menu", { defaultValue: "Open Menu" })}
                 aria-expanded={isMenuOpen}
@@ -320,9 +320,9 @@ export default function Header() {
                     transition={{ duration: 0.18 }}
                   >
                     {isMenuOpen ? (
-                      <X className="w-5 h-5 text-[color:var(--fg)]" />
+                      <X className="w-6 h-6" />
                     ) : (
-                      <Menu className="w-5 h-5 text-[color:var(--fg)]" />
+                      <Menu className="w-6 h-6" />
                     )}
                   </Motion.div>
                 </AnimatePresence>
@@ -338,7 +338,7 @@ export default function Header() {
               <img
                 src="/images/logo.png"
                 alt="Abdulhaq Dimensions Logo"
-                className={`${isScrolled ? "h-12" : "h-16 md:h-20 lg:h-24"} w-auto object-contain drop-shadow-lg`}
+                className={`${isScrolled ? "h-12" : "h-16 md:h-18 lg:h-20"} w-auto object-contain drop-shadow-lg brightness-0 invert`}
                 decoding="async"
                 loading="eager"
                 draggable={false}
@@ -403,12 +403,14 @@ export default function Header() {
         {isMenuOpen && (
           <>
             {/* Backdrop */}
-            <Motion.div
+              <Motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[65]"
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-[#020817]/95 backdrop-blur-md z-65"
               onClick={() => setIsMenuOpen(false)}
+              aria-hidden="true"
             />
 
             {/* Full-screen Menu */}
@@ -417,16 +419,16 @@ export default function Header() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="mobileMenuTitle"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               id="mobileMenu"
-              className="fixed inset-0 z-[70] flex flex-col"
-              style={{ background: 'var(--background)' }}
+              className="fixed inset-0 z-70 flex flex-col overflow-y-auto"
+              style={{ background: 'var(--bg)' }}
             >
               {/* Header */}
-                <div className="flex items-center justify-between p-6">
+                <div className="flex items-center justify-between p-6 border-b sticky top-0 z-80 backdrop-blur-md" style={{ borderColor: 'var(--stroke)', backgroundColor: 'var(--bg)' }} dir={isRTLLocal ? 'rtl' : 'ltr'}>
                   <div className="text-2xl font-semibold" id="mobileMenuTitle" style={{ color: 'var(--fg)' }}>
                     {tt("menu", "menu", { defaultValue: "Menu" })}
                   </div>
@@ -435,15 +437,20 @@ export default function Header() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setIsMenuOpen(false)}
-                    className="p-2 rounded-full chip"
+                    className="min-w-11 min-h-11 p-3 rounded-full shadow-xl ring-2 relative z-90"
+                    style={{ 
+                      backgroundColor: 'var(--primary)', 
+                      color: 'white',
+                      ringColor: 'rgba(255,255,255,0.2)'
+                    }}
                   aria-label={t("close_menu", "Close Menu")}
                 >
-                  <X className="w-5 h-5 text-[color:var(--fg)]" />
+                  <X className="w-6 h-6" strokeWidth={2.5} />
                 </Motion.button>
               </div>
 
               {/* Links */}
-              <nav className="flex flex-col gap-4 p-6 flex-1">
+              <nav className="flex flex-col gap-4 p-6 flex-1" dir={isRTLLocal ? 'rtl' : 'ltr'}>
                 {NAV_LINKS.map(({ to, i18nKey }, index) => {
                   const isActive =
                     to === "/" ? location === "/" : location.startsWith(to);

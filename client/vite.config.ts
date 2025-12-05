@@ -33,6 +33,14 @@ export default defineConfig(async () => {
       port: 3000,
       strictPort: false,
       host: true,
+      proxy: {
+        '/api': {
+          // Pin to stable backend port for dev
+          target: 'http://localhost:5001',
+          changeOrigin: true,
+          secure: false,
+        },
+      },
       fs: {
         // allow the monorepo root so imports from /shared work
         allow: [path.resolve(__dirname, "..")],
