@@ -44,7 +44,7 @@ jobs:
           echo '{"version":3}' > .vercel/output/config.json
 
       - name: Deploy prebuilt to Vercel
-        if: ${{ secrets.VERCEL_TOKEN }}
+        if: env.VERCEL_TOKEN != ''
         run: |
           echo "Deploying prebuilt output to Vercel project $VERCEL_PROJECT_ID (org $VERCEL_ORG_ID)"
           npx -y vercel@latest deploy --prebuilt --prod --token "$VERCEL_TOKEN" --yes
