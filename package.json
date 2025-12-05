@@ -3,8 +3,12 @@
     "version": "1.0.0",
     "private": true,
     "type": "module",
+    "engines": {
+        "node": "18.x"
+    },
     "license": "MIT",
     "scripts": {
+        "preinstall": "corepack enable && corepack prepare pnpm@10.4.1 --activate",
         "dev:client": "pnpm --filter @ahd/client dev",
         "dev:server": "pnpm --filter @ahd/server dev",
         "dev": "concurrently \"pnpm --filter @ahd/client dev\" \"pnpm --filter @ahd/server dev\"",
