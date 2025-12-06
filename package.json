@@ -4,11 +4,10 @@
     "private": true,
     "type": "module",
     "engines": {
-        "node": "24.x"
+        "node": "22.x"
     },
     "license": "MIT",
     "scripts": {
-        "preinstall": "corepack enable && corepack prepare pnpm@10.4.1 --activate",
         "dev:client": "pnpm --filter @ahd/client dev",
         "dev:server": "pnpm --filter @ahd/server dev",
         "dev": "concurrently \"pnpm --filter @ahd/client dev\" \"pnpm --filter @ahd/server dev\"",
@@ -128,7 +127,7 @@
         "vite-plugin-manus-runtime": "^0.0.56",
         "vitest": "^2.1.9"
     },
-    "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af",
+    
     "pnpm": {
         "overrides": {
             "tailwindcss>nanoid": "3.3.7",
