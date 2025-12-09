@@ -45,7 +45,7 @@ export default function AboutSection() {
     <section
       id="about"
       dir={isAr ? 'rtl' : 'ltr'}
-  className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden text-white"
+  className="relative min-h-[600px] md:min-h-screen flex items-center justify-center py-12 md:py-20 overflow-hidden text-white"
     >
       {/* BACKGROUND SLIDER */}
       <div className="absolute inset-0 z-0">
@@ -72,7 +72,7 @@ export default function AboutSection() {
       </div>
 
       {/* CONTENT */}
-      <div className="relative z-20 max-w-3xl text-center px-6">
+      <div className="relative z-20 max-w-3xl text-center px-4 sm:px-6">
         <motion.div
           variants={textVariants}
           initial="hidden"
@@ -88,7 +88,7 @@ export default function AboutSection() {
           variants={textVariants}
           initial="hidden"
           whileInView="visible"
-          className="text-5xl md:text-6xl font-bold leading-tight mb-6 relative z-40 text-white drop-shadow-2xl"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight mb-6 relative z-40 text-white drop-shadow-2xl"
           style={{
             textShadow: '2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5)'
           }}
@@ -100,7 +100,7 @@ export default function AboutSection() {
           variants={textVariants}
           initial="hidden"
           whileInView="visible"
-          className="text-xl text-white/95 leading-relaxed mb-8"
+          className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed mb-8"
           style={{
             textShadow: '1px 1px 4px rgba(0, 0, 0, 0.8)'
           }}
@@ -108,11 +108,11 @@ export default function AboutSection() {
           {t('desc1')}
         </motion.p>
 
-        <motion.a
+          <motion.a
           href="/about"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-           className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold bg-linear-to-r from-[#5b7d89] to-[#002b3a] text-white shadow-xl hover:shadow-2xl transition"
+            className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold bg-linear-to-r from-[#5b7d89] to-[#002b3a] text-white shadow-xl hover:shadow-2xl transition"
         >
           {t('discover_more')}
           <ArrowRight className="w-5 h-5" />

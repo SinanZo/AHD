@@ -11,6 +11,7 @@
   "pause": "Pause",
   "goToSlide": "Go to page",
   "keyboardHint": "Use Arrow keys to navigate and Space to play/pause.",
+  "visitWebsite": "Visit website",
   "clientsList": "Clients list",
   "categories": {
     "all": "All Clients",

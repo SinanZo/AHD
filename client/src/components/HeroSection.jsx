@@ -171,7 +171,7 @@ export default function HeroSection() {
       className="relative py-8 md:py-12 lg:py-16 min-h-screen overflow-hidden z-0"
     >
       <div className="container mx-auto w-full px-4 md:px-6 lg:px-8 flex flex-col lg:grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-stretch lg:h-[calc(100vh-8rem)] lg:min-h-[720px] lg:max-h-[900px]">
-        <div className={`${isRTL ? 'order-2 lg:order-1' : 'order-1'} ${!effectiveReduceMotion ? 'animate-fade-in-up' : ''} group w-full min-h-[600px] lg:min-h-0`}>
+        <div className={`order-1 lg:order-1 ${!effectiveReduceMotion ? 'animate-fade-in-up' : ''} group w-full min-h-[600px] lg:min-h-0`}>
           <div className="relative flex items-center h-full min-h-[600px] lg:min-h-full rounded-3xl overflow-hidden shadow-adh-soft ring-1 ring-white/10 dark:ring-white/5">
             <div className="absolute inset-0 z-0 hero-img-stack transition-transform duration-700 group-hover:scale-105" aria-hidden="true">
               {images.map((src, idx) => (
@@ -287,7 +287,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className={`${isRTL ? 'order-1 lg:order-2' : 'order-2'} ${!effectiveReduceMotion ? 'animate-fade-in-scale' : ''} w-full min-h-[600px] lg:min-h-0`}>
+        <div className={`order-2 lg:order-2 ${!effectiveReduceMotion ? 'animate-fade-in-scale' : ''} w-full min-h-[600px] lg:min-h-0`}>
           <HeroVideoPanel
             srcMp4="/videos/Blinds.mp4"
             srcWebm="/videos/Blinds.webm"

@@ -351,8 +351,8 @@ export default function ClientsSection() {
           </p>
         </div>
 
-        {/* Categories */}
-        <div className="flex justify-center mb-8 overflow-x-auto pb-2">
+        {/* Categories (hidden on mobile) */}
+        <div className="hidden md:flex justify-center mb-8 overflow-x-auto pb-2">
           <div className="flex gap-3 px-4">
             {['all', 'hospitality', 'corporate', 'government'].map((key) => (
               <button

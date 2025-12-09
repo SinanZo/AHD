@@ -59,22 +59,22 @@ export default function StatsSection() {
         {tt('heading', { defaultValue: 'Key company statistics' })}
       </h2>
 
-      <div className="container mx-auto px-6 sm:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
-          className="grid grid-cols-1 gap-8 py-16 text-center sm:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 py-12 sm:py-16 text-center"
         >
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
               variants={{ hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0, transition: reduceMotion ? {} : { delay: idx * 0.12, duration: 0.6, type: 'spring', stiffness: 180 } } }}
-              className="flex flex-col items-center gap-2 text-center"
+              className="flex flex-col items-center gap-1 sm:gap-2 text-center"
             >
               {(() => { const IconComp = stat.icon; return <IconComp className="w-7 h-7 text-white/80" aria-hidden="true" />; })()}
-              <p className="text-3xl leading-[1.2] font-semibold tracking-[0.02em] text-white md:text-[34px]">{fmtNumStr(stat.number)}</p>
-              <p className="max-w-[28ch] text-sm leading-[1.4] font-normal text-[#C9C9C9] md:text-[16px]">{tt(stat.labelKey, stat.defaultLabel)}</p>
+              <p className="text-2xl sm:text-3xl leading-[1.2] font-semibold tracking-[0.02em] text-white md:text-[34px]">{fmtNumStr(stat.number)}</p>
+              <p className="max-w-[30ch] text-xs sm:text-sm leading-[1.4] font-normal text-[#C9C9C9] md:text-[16px]">{tt(stat.labelKey, stat.defaultLabel)}</p>
             </motion.div>
           ))}
         </motion.div>
