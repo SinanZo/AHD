@@ -74,7 +74,7 @@ export default function Header({ currentPage = "home", onNavigate }) {
   };
 
   return (
-  <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:bg-[var(--bg)]/70 bg-white text-gray-900 dark:text-white border-b border-gray-200 dark:border-white/10">
+  <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-adh-bg/70 dark:bg-[var(--bg)]/70 bg-adh-bg text-adh-text dark:text-adh-btn-fg border-b border-gray-200 dark:border-adh-stroke/30">
       {/* Top info bar */}
       <div className="hidden md:block">
         <div className="mx-auto max-w-7xl px-4">
@@ -134,7 +134,7 @@ export default function Header({ currentPage = "home", onNavigate }) {
               })}
             </div>
 
-            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 h-10 px-5 rounded-full dark:bg-white dark:text-[var(--brand)] bg-[var(--brand)] text-white font-semibold hover:bg-gray-100 dark:hover:bg-[var(--btn)] shadow">
+            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 h-10 px-5 rounded-full dark:bg-adh-chip dark:text-[var(--brand)] bg-[var(--brand)] text-adh-btn-fg font-semibold hover:bg-gray-100 dark:hover:bg-[var(--btn)] shadow">
               <MessageCircle className="w-4 h-4" />
               {t("cta.getQuote", "Get Quote")}
             </a>

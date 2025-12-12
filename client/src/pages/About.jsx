@@ -48,7 +48,7 @@ export default function About() {
       <main id="main" tabIndex={-1}>
         {/* Founder / Legacy */}
         <section
-          className="relative overflow-hidden py-12 md:py-20 text-white"
+          className="relative overflow-hidden py-12 md:py-20 text-adh-btn-fg"
           style={{ background: 'linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%)' }}
           dir={isRTL ? 'rtl' : 'ltr'}
           aria-labelledby="about-legacy"
@@ -61,8 +61,8 @@ export default function About() {
                 <h1 id="about-legacy" className="mb-4 md:mb-6 text-2xl sm:text-3xl leading-snug font-bold drop-shadow-xl md:text-4xl">
                   {tt('legacy_title')}
                 </h1>
-                <p className="mb-3 md:mb-4 text-base sm:text-lg text-white/90">{tt('legacy_p1')}</p>
-                <p className="text-base sm:text-lg text-white/90">{tt('legacy_p2')}</p>
+                <p className="mb-3 md:mb-4 text-base sm:text-lg text-adh-btn-fg/90">{tt('legacy_p1')}</p>
+                <p className="text-base sm:text-lg text-adh-btn-fg/90">{tt('legacy_p2')}</p>
               </div>
 
               <figure className="flex justify-center">
@@ -82,7 +82,7 @@ export default function About() {
                       }}
                     />
                   </picture>
-                  <figcaption className="mt-3 text-center text-sm text-white/80">
+                  <figcaption className="mt-3 text-center text-sm text-adh-btn-fg/80">
                     {tt('founder_caption', { defaultValue: 'Founder of Abdulhaq Dimensions' })}
                   </figcaption>
                 </div>
@@ -138,7 +138,7 @@ export default function About() {
 
         {/* Core Values */}
         <section
-          className="relative overflow-hidden py-12 md:py-20 text-white bg-adh-brand"
+          className="relative overflow-hidden py-12 md:py-20 text-adh-btn-fg bg-adh-brand"
           dir={isRTL ? 'rtl' : 'ltr'}
           aria-labelledby="about-core-values"
         >

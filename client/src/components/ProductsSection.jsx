@@ -436,9 +436,9 @@ export default function ProductsSection({ heading: headingProp, description: des
               absolute ${isRTL ? "right-2 md:right-4" : "left-2 md:left-4"} top-1/2 -translate-y-1/2 z-30
               w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center
               transition-all duration-300 ease-in-out
-              border border-white/30 bg-white/15 backdrop-blur-xl text-white shadow-[0_10px_35px_rgba(0,0,0,0.35)]
-              hover:bg-white/30 hover:text-adh-primary hover:shadow-[0_15px_45px_rgba(0,0,0,0.35)]
-              focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent
+              border border-adh-stroke/30 bg-adh-surface/15 backdrop-blur-xl text-adh-btn-fg shadow-[0_10px_35px_rgba(0,0,0,0.35)]
+              hover:bg-adh-surface/30 hover:text-adh-primary hover:shadow-[0_15px_45px_rgba(0,0,0,0.35)]
+              focus:outline-none focus:ring-2 focus:ring-adh-stroke/60 focus:ring-offset-2 focus:ring-offset-transparent
               ${showControls ? "opacity-100" : "opacity-0 pointer-events-none md:opacity-60 md:pointer-events-auto"}
             `}
             aria-label={prevLabel}
@@ -456,9 +456,9 @@ export default function ProductsSection({ heading: headingProp, description: des
               absolute ${isRTL ? "left-2 md:left-4" : "right-2 md:right-4"} top-1/2 -translate-y-1/2 z-30
               w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center
               transition-all duration-300 ease-in-out
-              border border-white/30 bg-white/15 backdrop-blur-xl text-white shadow-[0_10px_35px_rgba(0,0,0,0.35)]
-              hover:bg-white/30 hover:text-adh-primary hover:shadow-[0_15px_45px_rgba(0,0,0,0.35)]
-              focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent
+              border border-adh-stroke/30 bg-adh-surface/15 backdrop-blur-xl text-adh-btn-fg shadow-[0_10px_35px_rgba(0,0,0,0.35)]
+              hover:bg-adh-surface/30 hover:text-adh-primary hover:shadow-[0_15px_45px_rgba(0,0,0,0.35)]
+              focus:outline-none focus:ring-2 focus:ring-adh-stroke/60 focus:ring-offset-2 focus:ring-offset-transparent
               ${showControls ? "opacity-100" : "opacity-0 pointer-events-none md:opacity-60 md:pointer-events-auto"}
             `}
             aria-label={nextLabel}
@@ -472,7 +472,7 @@ export default function ProductsSection({ heading: headingProp, description: des
             ref={scrollRef}
             id="products-track"
             aria-keyshortcuts="ArrowLeft ArrowRight Space"
-            className="flex overflow-x-auto gap-6 snap-x snap-mandatory px-10 md:px-16 pb-8 scrollbar-hide cursor-grab rounded-4xl bg-adh-surface/20 backdrop-blur-[18px] ring-1 ring-white/10"
+            className="flex overflow-x-auto gap-6 snap-x snap-mandatory px-10 md:px-16 pb-8 scrollbar-hide cursor-grab rounded-4xl bg-adh-surface/20 backdrop-blur-[18px] ring-1 ring-adh-stroke/10"
             style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none", direction: isRTL ? 'rtl' : 'ltr' }}
             onMouseEnter={() => setIsAutoScrollPaused(true)}
             onMouseLeave={() => setIsAutoScrollPaused(false)}
@@ -496,7 +496,7 @@ export default function ProductsSection({ heading: headingProp, description: des
                   className="block snap-start min-w-[300px] md:min-w-[360px] lg:min-w-[420px] h-[540px] md:h-[640px] shrink-0"
                 >
                   <motion.div
-                    className="relative h-full overflow-hidden rounded-[28px] border border-white/12 bg-adh-surface/70 backdrop-blur-3xl shadow-[0_25px_70px_rgba(0,0,0,0.4)] group cursor-pointer transition-all duration-500"
+                    className="relative h-full overflow-hidden rounded-[28px] border border-adh-stroke/12 bg-adh-surface/70 backdrop-blur-3xl shadow-[0_25px_70px_rgba(0,0,0,0.4)] group cursor-pointer transition-all duration-500"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -544,7 +544,7 @@ export default function ProductsSection({ heading: headingProp, description: des
                     {/* Vertical title for all languages */}
                       <div className={`absolute ${isRTL ? "right-6" : "left-6"} top-1/2 -translate-y-1/2 z-20 group-hover:opacity-0 transition-opacity duration-500`}>
                       <h3
-                        className="text-white text-lg md:text-xl font-bold uppercase tracking-widest"
+                        className="text-adh-btn-fg text-lg md:text-xl font-bold uppercase tracking-widest"
                         style={{
                           writingMode: "vertical-rl",
                           textOrientation: "mixed",
@@ -559,20 +559,19 @@ export default function ProductsSection({ heading: headingProp, description: des
 
                     {/* Hover panel */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-500 p-8 flex flex-col justify-end z-20 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
-                      <h3 className="text-[26px] font-serif font-semibold text-white mb-3 drop-shadow-lg">
+                      <h3 className="text-[26px] font-serif font-semibold text-adh-btn-fg mb-3 drop-shadow-lg">
                         {item.title}
                       </h3>
-
-                      <p className="mb-5 text-white/90 leading-relaxed line-clamp-3">
+                      <p className="mb-5 text-adh-btn-fg/90 leading-relaxed line-clamp-3">
                         {item.brief}
                       </p>
 
                       {item.sub && item.sub.length > 0 && (
-                        <ul role="list" className="text-sm text-white/85 space-y-2 mb-6 max-h-[140px] overflow-y-auto pr-2">
+                        <ul role="list" className="text-sm text-adh-btn-fg/85 space-y-2 mb-6 max-h-[140px] overflow-y-auto pr-2">
                           {item.sub.map((subItem, idx) => (
                               <li
                                 key={idx}
-                                className={`${isAr ? "pr-3 border-r border-white/40" : "pl-3 border-l border-white/40"} cursor-pointer hover:text-white transition-colors`}
+                                className={`${isAr ? "pr-3 border-r border-adh-stroke/40" : "pl-3 border-l border-adh-stroke/40"} cursor-pointer hover:text-adh-btn-fg transition-colors`}
                               role="button"
                               tabIndex={0}
                               onClick={(e) => {

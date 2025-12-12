@@ -26,7 +26,7 @@ export default function CTASection() {
 
   return (
     <section
-      className="py-16 relative bg-primary text-white overflow-hidden"
+      className="py-16 relative bg-primary text-adh-btn-fg overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
       aria-labelledby="cta-heading"
     >
@@ -51,17 +51,17 @@ export default function CTASection() {
 
       <div className="container mx-auto px-6 lg:px-20 relative z-10">
         <motion.div
-          className="text-center py-20 max-w-3xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl"
+          className="text-center py-20 max-w-3xl mx-auto bg-adh-surface/10 backdrop-blur-md rounded-3xl shadow-2xl"
           {...motionProps}
         >
           <h2
             id="cta-heading"
-            className="text-3xl md:text-4xl font-jockey mb-6 drop-shadow-xl font-bold text-white"
+            className="text-3xl md:text-4xl font-jockey mb-6 drop-shadow-xl font-bold text-adh-btn-fg"
           >
             {tt("title")}
           </h2>
 
-          <p className="max-w-2xl mx-auto text-lg mb-8 opacity-90 text-white/90">
+          <p className="max-w-2xl mx-auto text-lg mb-8 opacity-90 text-adh-btn-fg/90">
             {tt("subtitle")}
           </p>
 

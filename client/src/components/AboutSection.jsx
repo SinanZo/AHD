@@ -45,7 +45,7 @@ export default function AboutSection() {
     <section
       id="about"
       dir={isAr ? 'rtl' : 'ltr'}
-  className="relative min-h-[600px] md:min-h-screen flex items-center justify-center py-12 md:py-20 overflow-hidden text-white"
+  className="relative min-h-[600px] md:min-h-screen flex items-center justify-center py-12 md:py-20 overflow-hidden text-adh-btn-fg"
     >
       {/* BACKGROUND SLIDER */}
       <div className="absolute inset-0 z-0">
@@ -78,17 +78,17 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/30 backdrop-blur-md border border-white/50"
+          className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-adh-surface/12 backdrop-blur-md border border-adh-stroke/40"
         >
           <Sparkles className="w-4 h-4 text-adh-accent" />
-          <span className="text-sm font-semibold uppercase tracking-wide text-white drop-shadow">{t('badge')}</span>
+          <span className="text-sm font-semibold uppercase tracking-wide text-adh-btn-fg drop-shadow">{t('badge')}</span>
         </motion.div>
 
         <motion.h2
           variants={textVariants}
           initial="hidden"
           whileInView="visible"
-          className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight mb-6 relative z-40 text-white drop-shadow-2xl"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight mb-6 relative z-40 text-adh-btn-fg drop-shadow-2xl"
           style={{
             textShadow: '2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5)'
           }}
@@ -100,7 +100,7 @@ export default function AboutSection() {
           variants={textVariants}
           initial="hidden"
           whileInView="visible"
-          className="text-base sm:text-lg md:text-xl text-white/95 leading-relaxed mb-8"
+          className="text-base sm:text-lg md:text-xl text-adh-btn-fg/90 leading-relaxed mb-8"
           style={{
             textShadow: '1px 1px 4px rgba(0, 0, 0, 0.8)'
           }}
@@ -112,7 +112,7 @@ export default function AboutSection() {
           href="/about"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold bg-linear-to-r from-[#5b7d89] to-[#002b3a] text-white shadow-xl hover:shadow-2xl transition"
+            className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold bg-linear-to-r from-[#5b7d89] to-[#002b3a] text-adh-btn-fg shadow-xl hover:shadow-2xl transition"
         >
           {t('discover_more')}
           <ArrowRight className="w-5 h-5" />
@@ -126,7 +126,7 @@ export default function AboutSection() {
             key={i}
             onClick={() => setBgIndex(i)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              i === bgIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/80'
+              i === bgIndex ? 'bg-adh-surface scale-125' : 'bg-adh-surface/50 hover:bg-adh-surface/80'
             }`}
           />
         ))}

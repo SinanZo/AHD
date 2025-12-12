@@ -75,7 +75,7 @@ export default function Footer() {
       <div className="relative container mx-auto px-4 md:px-6 lg:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_repeat(3,1fr)] gap-10">
           {/* Brand / About */}
-          <div className="space-y-6 lg:col-span-2 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
+          <div className="space-y-6 lg:col-span-2 rounded-3xl border border-adh-stroke/30 bg-adh-surface/8 backdrop-blur-xl p-8 shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
             <RouterLink to="/" aria-label={isRTL ? "اذهب إلى الصفحة الرئيسية" : "Go to homepage"} className="inline-flex items-center gap-3">
               <div className="w-12 h-12 rounded-2xl bg-adh-brand flex items-center justify-center text-white font-bold text-lg">
                 AD
@@ -105,7 +105,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="w-11 h-11 inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/80 hover:bg-white/15 transition-all"
+                    className="w-11 h-11 inline-flex items-center justify-center rounded-full border border-adh-stroke/30 bg-adh-surface/8 text-adh-text-secondary hover:bg-adh-surface/12 transition-all"
                     title={isRTL ? `تابعنا على ${label}` : `Follow us on ${label}`}
                   >
                     <Icon className="w-4.5 h-4.5" aria-hidden="true" />
@@ -116,7 +116,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <nav aria-label={isRTL ? "روابط سريعة" : "Quick links"} className="space-y-4 p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+          <nav aria-label={isRTL ? "روابط سريعة" : "Quick links"} className="space-y-4 p-6 rounded-3xl border border-adh-stroke/30 bg-adh-surface/8 backdrop-blur-xl">
             <h3 className="text-lg font-semibold text-adh-text">
               {isRTL ? "روابط سريعة" : "Quick Links"}
             </h3>
@@ -125,7 +125,7 @@ export default function Footer() {
                 <li key={l.to}>
                   <RouterLink 
                     to={l.to} 
-                    className="text-adh-text-secondary hover:text-white transition-colors duration-200 text-sm"
+                    className="text-adh-text-secondary hover:text-adh-text transition-colors duration-200 text-sm"
                   >
                     {l.label}
                   </RouterLink>
@@ -135,7 +135,7 @@ export default function Footer() {
           </nav>
 
           {/* Services */}
-          <nav className="space-y-4 p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+          <nav className="space-y-4 p-6 rounded-3xl border border-adh-stroke/30 bg-adh-surface/8 backdrop-blur-xl">
             <h3 className="text-lg font-semibold text-adh-text">
               {isRTL ? "الخدمات" : "Services"}
             </h3>
@@ -144,7 +144,7 @@ export default function Footer() {
                 <li key={idx}>
                   <RouterLink 
                     to="/products" 
-                    className="text-adh-text-secondary hover:text-white transition-colors duration-200 text-sm"
+                    className="text-adh-text-secondary hover:text-adh-text transition-colors duration-200 text-sm"
                   >
                     {label}
                   </RouterLink>
@@ -154,7 +154,7 @@ export default function Footer() {
           </nav>
 
           {/* Resources */}
-          <nav className="space-y-4 p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+          <nav className="space-y-4 p-6 rounded-3xl border border-adh-stroke/30 bg-adh-surface/8 backdrop-blur-xl">
             <h3 className="text-lg font-semibold text-adh-text">
               {isRTL ? "الموارد" : "Resources"}
             </h3>
@@ -163,7 +163,7 @@ export default function Footer() {
                 <li key={idx}>
                   <RouterLink 
                     to={resource.href} 
-                    className="text-adh-text-secondary hover:text-white transition-colors duration-200 text-sm"
+                    className="text-adh-text-secondary hover:text-adh-text transition-colors duration-200 text-sm"
                   >
                     {resource.label}
                   </RouterLink>
@@ -173,7 +173,7 @@ export default function Footer() {
           </nav>
 
           {/* Contact */}
-          <address className="not-italic space-y-4 p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+          <address className="not-italic space-y-4 p-6 rounded-3xl border border-adh-stroke/30 bg-adh-surface/8 backdrop-blur-xl">
             <h3 className="text-lg font-semibold text-adh-text">
               {isRTL ? "معلومات الاتصال" : "Contact"}
             </h3>
@@ -183,7 +183,7 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-adh-brand shrink-0" aria-hidden="true" />
                 <a 
                   href={CONTACT_INFO.phoneHref} 
-                  className="text-adh-text-secondary hover:text-white transition-colors text-sm" 
+                  className="text-adh-text-secondary hover:text-adh-text transition-colors text-sm" 
                   dir="ltr"
                   title="Call us"
                 >
@@ -195,7 +195,7 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-adh-brand shrink-0" aria-hidden="true" />
                 <a 
                   href={CONTACT_INFO.emailHref} 
-                  className="text-adh-text-secondary hover:text-white transition-colors text-sm break-all"
+                  className="text-adh-text-secondary hover:text-adh-text transition-colors text-sm break-all"
                   title="Send us an email"
                 >
                   {CONTACT_INFO.email}
@@ -223,7 +223,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 mt-12 pt-8">
+        <div className="border-t border-adh-stroke/30 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-sm text-adh-text-secondary">
             <p>
               © {year} Abdulhaq Dimensions. {isRTL ? "جميع الحقوق محفوظة." : "All rights reserved."}
@@ -235,15 +235,15 @@ export default function Footer() {
               }
             </p>
             <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              <RouterLink to="/privacy" className="hover:text-white transition-colors">
+              <RouterLink to="/privacy" className="hover:text-adh-text transition-colors">
                 {isRTL ? "الخصوصية" : "Privacy"}
               </RouterLink>
               <span className="text-adh-stroke">•</span>
-              <RouterLink to="/terms" className="hover:text-white transition-colors">
+              <RouterLink to="/terms" className="hover:text-adh-text transition-colors">
                 {isRTL ? "الشروط" : "Terms"}
               </RouterLink>
               <span className="text-adh-stroke">•</span>
-              <a href="/sitemap.xml" className="hover:text-white transition-colors">
+              <a href="/sitemap.xml" className="hover:text-adh-text transition-colors">
                 Sitemap
               </a>
             </div>

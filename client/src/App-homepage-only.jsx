@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button.jsx';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
 import { Badge } from '@/components/ui/badge.jsx';
@@ -8,6 +9,7 @@ import { TEL_URL, WA_URL } from './config';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation('contact');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -275,9 +277,12 @@ function App() {
       <section className="hero-section text-white section-padding">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-jockey mb-4">Ready to Transform Your Space?</h2>
-          <p className="text-lg body-text text-white/90 mb-8 max-w-2xl mx-auto">
-            Contact us today for a consultation and let our experts help you create the perfect 
+          <p className="text-lg body-text text-white/90 mb-6 max-w-2xl mx-auto">
+            Contact us today for a consultation and let our experts help you create the perfect
             interior solution for your project.
+          </p>
+          <p className="text-lg body-text text-white/90 mb-8 max-w-2xl mx-auto">
+            {t('pageDesc', { defaultValue: "We’d love to hear from you. Whether you’re seeking a consultation, need support, or have a business inquiry, our dedicated team is here to assist. Share your vision with us, and we’ll respond within one business day to help bring it to life." })}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100">
