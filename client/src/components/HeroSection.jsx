@@ -172,7 +172,7 @@ export default function HeroSection() {
     >
       <div className="container mx-auto w-full px-4 md:px-6 lg:px-8 flex flex-col lg:grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-stretch lg:h-[calc(100vh-8rem)] lg:min-h-[720px] lg:max-h-[900px]">
         <div className={`order-1 lg:order-1 ${!effectiveReduceMotion ? 'animate-fade-in-up' : ''} group w-full min-h-[600px] lg:min-h-0`}>
-          <div className="relative flex items-center h-full min-h-[600px] lg:min-h-full rounded-3xl overflow-hidden shadow-adh-soft ring-1 ring-adh-stroke/30 dark:ring-adh-stroke/10">
+          <div className="relative flex items-center h-full min-h-[600px] lg:min-h-full rounded-3xl overflow-hidden shadow-adh-soft ring-1 ring-white/10 dark:ring-white/5">
             <div className="absolute inset-0 z-0 hero-img-stack transition-transform duration-700 group-hover:scale-105" aria-hidden="true">
               {images.map((src, idx) => (
                 <img
@@ -190,9 +190,9 @@ export default function HeroSection() {
             </div>
 
             <div className="px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 relative z-30 w-full flex items-center h-full py-12 md:py-14">
-              <div className={`text-adh-btn-fg ${isRTL ? 'sm:text-right text-center' : 'sm:text-left text-center'} max-w-[680px] hero-text-contrast`}>
+              <div className={`text-white ${isRTL ? 'sm:text-right text-center' : 'sm:text-left text-center'} max-w-[680px] hero-text-contrast`}>
                 {badge && (
-                  <span className="inline-block px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase bg-adh-primary/90 text-adh-btn-fg shadow-md ring-1 ring-adh-stroke/20 mb-6">
+                  <span className="inline-block px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase bg-adh-primary/90 text-white shadow-md ring-1 ring-white/20 mb-6">
                     {badge}
                   </span>
                 )}
@@ -204,7 +204,7 @@ export default function HeroSection() {
                 </h1>
 
                 {subtitle ? (
-                  <p className={`text-base md:text-lg font-medium text-adh-btn-fg/95 drop-shadow-[0_2px_8px_rgba(0,0,0,.5)] mb-6 ${isRTL ? 'leading-[1.9]' : 'leading-normal'}`}>
+                  <p className={`text-base md:text-lg font-medium text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,.5)] mb-6 ${isRTL ? 'leading-[1.9]' : 'leading-normal'}`}>
                     {subtitle}
                   </p>
                 ) : isRTL ? (
@@ -213,7 +213,7 @@ export default function HeroSection() {
                   </p>
                 ) : null}
 
-                <p className={`text-base md:text-lg ${isRTL ? 'leading-[1.9]' : 'leading-[1.7]'} text-adh-btn-fg/90 max-w-[70ch] mb-8`}>
+                <p className={`text-base md:text-lg ${isRTL ? 'leading-[1.9]' : 'leading-[1.7]'} text-white/90 max-w-[70ch] mb-8`}>
                   {desc}
                 </p>
 
@@ -223,13 +223,13 @@ export default function HeroSection() {
                     target="_blank" rel="noopener noreferrer" aria-label={cta2}
                     className="w-full sm:w-auto"
                   >
-                    <button className="w-full px-7 py-3.5 rounded-full font-semibold text-base bg-linear-to-r from-[#0a2a6b] to-[#1243b5] text-adh-btn-fg border border-adh-stroke/20 shadow-[0_6px_20px_rgba(18,67,181,0.35)] hover:scale-105 hover:shadow-[0_8px_28px_rgba(18,67,181,0.5)] transition-all duration-300">
+                    <button className="w-full px-7 py-3.5 rounded-full font-semibold text-base bg-linear-to-r from-[#0a2a6b] to-[#1243b5] text-white border border-white/20 shadow-[0_6px_20px_rgba(18,67,181,0.35)] hover:scale-105 hover:shadow-[0_8px_28px_rgba(18,67,181,0.5)] transition-all duration-300">
                       {cta2}
                     </button>
                   </a>
 
                   <Link href="/products" aria-label={cta1} className="w-full sm:w-auto">
-                    <button className="w-full px-7 py-3.5 rounded-full font-semibold text-base bg-adh-surface/15 text-adh-btn-fg border border-adh-stroke/30 backdrop-blur-sm shadow-[0_6px_18px_rgba(255,255,255,0.15)] hover:scale-105 hover:shadow-[0_8px_26px_rgba(255,255,255,0.25)] transition-all duration-300">
+                    <button className="w-full px-7 py-3.5 rounded-full font-semibold text-base bg-linear-to-r from-white/15 to-white/5 text-white border border-white/30 backdrop-blur-sm shadow-[0_6px_18px_rgba(255,255,255,0.15)] hover:scale-105 hover:shadow-[0_8px_26px_rgba(255,255,255,0.25)] transition-all duration-300">
                       {cta1}
                     </button>
                   </Link>
@@ -242,14 +242,14 @@ export default function HeroSection() {
                 {paused ? t('announcePaused', 'Slideshow paused') : (forceMotion ? t('announcePlayingMotion', 'Slideshow playing (motion enabled)') : t('announcePlaying', 'Slideshow playing'))}
               </div>
               {!effectiveReduceMotion && (
-                <div className="hidden sm:block w-40 h-1.5 rounded-full bg-adh-surface/25 overflow-hidden" aria-hidden="true">
-                  <div className="h-full bg-adh-surface/90 transition-[width] duration-100" style={{ width: `${progress}%` }} />
+                <div className="hidden sm:block w-40 h-1.5 rounded-full bg-white/25 overflow-hidden" aria-hidden="true">
+                  <div className="h-full bg-white/90 transition-[width] duration-100" style={{ width: `${progress}%` }} />
                 </div>
               )}
 
-                <button
+              <button
                 type="button"
-                className="hero-control focus-ring ml-2 text-xs px-2.5 py-1 rounded-full bg-black/35 text-adh-btn-fg hover:bg-black/55 transition flex items-center justify-center"
+                className="hero-control focus-ring ml-2 text-xs px-2.5 py-1 rounded-full bg-black/35 text-white hover:bg-black/55 transition flex items-center justify-center"
                 onClick={() => setPaused((p) => !p)}
                 aria-pressed={paused}
                 aria-label={pauseLabel}
@@ -261,7 +261,7 @@ export default function HeroSection() {
                 <div className="ml-3">
                   <button
                     type="button"
-                    className="hero-control focus-ring text-xs px-2.5 py-1 rounded-full bg-adh-surface/10 text-adh-btn-fg hover:bg-adh-surface/20 transition"
+                    className="hero-control focus-ring text-xs px-2.5 py-1 rounded-full bg-white/10 text-white hover:bg-white/20 transition"
                     onClick={() => {
                       try {
                         const v = !forceMotion;
@@ -276,7 +276,7 @@ export default function HeroSection() {
                 </div>
               )}
 
-              <div className="hidden sm:flex items-center gap-2 ml-3 text-adh-text-muted text-xs" aria-hidden>
+              <div className="hidden sm:flex items-center gap-2 ml-3 text-white/80 text-xs" aria-hidden>
                 <span className="px-2 py-1 rounded bg-black/30 font-medium">K</span>
                 <span className="opacity-80">{t('hintPause', 'pause/play')}</span>
                 <span className="mx-2">•</span>

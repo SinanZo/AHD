@@ -287,7 +287,7 @@ export default function ClientsSection() {
               return (
                 <div
                   key={`${client.name}-${idx}`}
-                  className="card flex items-center justify-center p-4 sm:p-5 md:p-6 aspect-square rounded-2xl md:rounded-3xl border border-adh-stroke/10 bg-adh-surface/70 backdrop-blur-xl shadow-[0_20px_45px_rgba(0,0,0,0.3)]"
+                  className="card flex items-center justify-center p-4 sm:p-5 md:p-6 aspect-square rounded-2xl md:rounded-3xl border border-white/10 bg-adh-surface/70 backdrop-blur-xl shadow-[0_20px_45px_rgba(0,0,0,0.3)]"
                   style={{
                     background: `linear-gradient(135deg, ${hsla(
                       hue,
@@ -365,7 +365,7 @@ export default function ClientsSection() {
                 className={`px-5 py-2.5 rounded-full whitespace-nowrap text-sm font-medium border transition-all duration-200 ${
                   selectedCategory === key
                     ? 'bg-adh-btn text-adh-btn-fg border-transparent shadow-[0_10px_30px_rgba(0,0,0,0.25)]'
-                    : 'bg-adh-surface/5 text-adh-text border-adh-stroke/15 hover:bg-adh-surface/10 hover:text-adh-btn-fg'
+                    : 'bg-white/5 text-adh-text border-white/15 hover:bg-white/10 hover:text-white'
                 }`}
                 aria-pressed={selectedCategory === key}
               >
@@ -390,7 +390,7 @@ export default function ClientsSection() {
               placeholder={t('searchClients', 'Search clients...')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className={`w-full sm:w-80 py-2.5 rounded-full border border-adh-stroke/15 bg-adh-surface/5 text-sm text-adh-text placeholder:text-adh-text-secondary focus:outline-none focus:ring-2 focus:ring-adh-stroke/60 focus:ring-offset-2 focus:ring-offset-transparent transition-colors ${
+              className={`w-full sm:w-80 py-2.5 rounded-full border border-white/15 bg-white/5 text-sm text-adh-text placeholder:text-adh-text-secondary focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent transition-colors ${
                 isRTL ? 'pr-10 pl-4 text-right' : 'pl-10 pr-4 text-left'
               }`}
               aria-label={t('searchClients', 'Search clients')}
@@ -406,7 +406,7 @@ export default function ClientsSection() {
             {/* Play/Pause */}
             <button
               onClick={togglePlay}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-adh-stroke/15 bg-adh-surface/5 text-sm font-medium text-adh-text transition-all duration-300 hover:bg-adh-surface/10 focus:outline-none focus:ring-2 focus:ring-adh-stroke/60 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-[1.02] active:scale-95"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 bg-white/5 text-sm font-medium text-adh-text transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-[1.02] active:scale-95"
               aria-pressed={isAutoPlaying}
               aria-label={isAutoPlaying ? t('pause') : t('play')}
             >
@@ -433,7 +433,7 @@ export default function ClientsSection() {
             {/* Prev */}
             <button
               onClick={prev}
-              className="p-3 rounded-full border border-adh-stroke/15 bg-adh-surface/5 text-adh-text transition-all duration-300 hover:bg-adh-surface/10 focus:outline-none focus:ring-2 focus:ring-adh-stroke/60 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-110 active:scale-95"
+              className="p-3 rounded-full border border-white/15 bg-white/5 text-adh-text transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-110 active:scale-95"
               aria-label={isRTL ? t('next') : t('previous')}
               disabled={filteredClients.length === 0}
             >
@@ -447,7 +447,7 @@ export default function ClientsSection() {
             {/* Next */}
             <button
               onClick={next}
-              className="p-3 rounded-full border border-adh-stroke/15 bg-adh-surface/5 text-adh-text transition-all duration-300 hover:bg-adh-surface/10 focus:outline-none focus:ring-2 focus:ring-adh-stroke/60 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-110 active:scale-95"
+              className="p-3 rounded-full border border-white/15 bg-white/5 text-adh-text transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-110 active:scale-95"
               aria-label={isRTL ? t('previous') : t('next')}
               disabled={filteredClients.length === 0}
             >
@@ -463,7 +463,7 @@ export default function ClientsSection() {
         {/* Carousel track */}
         <div
           ref={containerRef}
-          className={`flex gap-6 overflow-x-auto scroll-smooth py-8 px-4 md:px-8 rounded-4xl bg-adh-surface/5 ring-1 ring-adh-stroke/10 backdrop-blur-[18px] scrollbar-hide ${
+          className={`flex gap-6 overflow-x-auto scroll-smooth py-8 px-4 md:px-8 rounded-4xl bg-white/5 ring-1 ring-white/10 backdrop-blur-[18px] scrollbar-hide ${
             isDragging ? 'cursor-grabbing' : 'cursor-grab'
           }`}
           role="region"
@@ -543,7 +543,7 @@ export default function ClientsSection() {
                   }}
                 >
                   <div
-                    className="w-full h-full overflow-hidden p-3 md:p-4 transition-all duration-500 cursor-pointer flex items-center justify-center rounded-3xl border border-adh-stroke/20 bg-adh-surface/5"
+                    className="w-full h-full overflow-hidden p-3 md:p-4 transition-all duration-500 cursor-pointer flex items-center justify-center rounded-3xl border bg-white/5"
                     style={{
                       background: accentBg,
                       borderColor: accentBorder,
@@ -624,7 +624,7 @@ export default function ClientsSection() {
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-transparent ${
                     Math.floor(currentIndex / visibleLogos) === i
                       ? 'bg-adh-btn scale-125 shadow-[0_4px_12px_rgba(0,0,0,0.3)]'
-                      : 'bg-adh-surface/20 hover:bg-adh-surface/35'
+                      : 'bg-white/20 hover:bg-white/35'
                   }`}
                   aria-label={`${t('goToSlide')} ${i + 1}`}
                   aria-selected={
@@ -643,7 +643,7 @@ export default function ClientsSection() {
           aria-hidden="true"
         >
           <kbd
-            className="px-2 py-1 rounded text-xs mx-1 bg-adh-surface/10 text-adh-text"
+            className="px-2 py-1 rounded text-xs mx-1 bg-white/10 text-adh-text"
           >
             ←→
           </kbd>
@@ -651,7 +651,7 @@ export default function ClientsSection() {
             {t('keyboardHint', 'Use arrow keys to navigate')}
           </span>
           <kbd
-            className="px-2 py-1 rounded text-xs mx-1 bg-adh-surface/10 text-adh-text"
+            className="px-2 py-1 rounded text-xs mx-1 bg-white/10 text-adh-text"
           >
             Space
           </kbd>

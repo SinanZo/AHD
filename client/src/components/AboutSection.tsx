@@ -130,7 +130,7 @@ export default function AboutSection() {
       id="about"
       ref={containerRef}
       dir={isRTL ? 'rtl' : 'ltr'}
-      className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden text-adh-btn-fg"
+      className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden text-white"
       aria-label={t('sectionLabel', { defaultValue: 'About Abdulhaq Dimensions' })}
     >
   {/* BACKGROUND LAYER (ensure it's in the same stacking context, not negative) */}
@@ -169,7 +169,7 @@ export default function AboutSection() {
         {/* Glassy text box: improves legibility over busy backgrounds. */}
         <div
           className="mx-auto max-w-3xl text-center rounded-2xl p-4 md:p-10
-                     bg-adh-surface/12 dark:bg-adh-surface/36 backdrop-blur-md border border-adh-stroke/30
+                     bg-white/12 dark:bg-black/36 backdrop-blur-md border border-white/10
                      shadow-lg"
           style={{ WebkitBackdropFilter: 'blur(8px)', backdropFilter: 'blur(8px)' }}
         >
@@ -178,10 +178,10 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-adh-surface/30 backdrop-blur-md border border-adh-stroke/40"
+          className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/30 backdrop-blur-md border border-white/40"
         >
           <Sparkles className="w-4 h-4 text-accent" aria-hidden="true" />
-          <span className="text-sm font-semibold uppercase tracking-wide text-adh-btn-fg drop-shadow">
+          <span className="text-sm font-semibold uppercase tracking-wide text-white drop-shadow">
             {t('badge')}
           </span>
         </motion.div>
@@ -191,7 +191,7 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-adh-btn-fg"
+          className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-white"
           style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)' }}
         >
           {t('title')}
@@ -202,7 +202,7 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          className="text-lg md:text-xl text-adh-btn-fg/90 leading-relaxed mb-8"
+          className="text-lg md:text-xl text-white/95 leading-relaxed mb-8"
           style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.85)' }}
         >
           {t('desc1')}
@@ -216,7 +216,7 @@ export default function AboutSection() {
           whileTap={{ scale: 0.98 }}
           className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold
                      bg-gradient-to-r from-accent to-brand
-                     text-adh-btn-fg shadow-xl hover:shadow-2xl transition"
+                     text-white shadow-xl hover:shadow-2xl transition"
           aria-label={t('discover_more')}
         >
           {t('discover_more')}
@@ -241,8 +241,8 @@ export default function AboutSection() {
               aria-selected={active}
               aria-label={t('goToSlide', { defaultValue: 'Go to slide {{n}}', n: i + 1 })}
               onClick={() => goto(i)}
-              className={`w-3 h-3 rounded-full outline-none ring-offset-2 ring-adh-stroke/80 transition
-                          ${active ? 'bg-adh-surface scale-125' : 'bg-adh-surface/55 hover:bg-adh-surface/85'}
+              className={`w-3 h-3 rounded-full outline-none ring-offset-2 ring-white/80 transition
+                          ${active ? 'bg-white scale-125' : 'bg-white/55 hover:bg-white/85'}
                           focus-visible:ring-2`}
             />
           );

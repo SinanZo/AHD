@@ -913,28 +913,6 @@ html.dark .text-gray-700 {
   color: hsl(220 14% 70%) !important;
 }
 
-/* Smooth theme transitions for critical UI surfaces to avoid abrupt jumps
-   when the color-scheme or backdrop changes (especially on mobile scroll). */
-@media (prefers-reduced-motion: no-preference) {
-  header,
-  footer,
-  main,
-  section,
-  .container,
-  .rounded-3xl,
-  .rounded-2xl,
-  .rounded-xl,
-  .backdrop-blur,
-  .backdrop-blur-lg,
-  .bg-adh-surface,
-  .bg-adh-bg,
-  .bg-adh-brand {
-    transition: background-color 240ms ease, color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
-    -webkit-transition: background-color 240ms ease, color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
-    will-change: background-color, color, border-color;
-  }
-}
-
 /* ----------------------------- */
 /* Animation & Transitions       */
 /* ----------------------------- */

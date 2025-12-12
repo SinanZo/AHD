@@ -271,14 +271,14 @@ export default function HeroSection() {
           )}>
             <h1 
               id="hero-title" 
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-adh-btn-fg max-w-[22ch]"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-[22ch]"
               style={isRTL ? { letterSpacing: '0' } : {}}
             >
               {getText('hero.title')}
             </h1>
 
             <p className={clsx(
-              'mt-4 md:mt-6 max-w-[48ch] text-base md:text-lg text-adh-btn-fg/90',
+              'mt-4 md:mt-6 max-w-[48ch] text-base md:text-lg text-white/90',
               isRTL ? 'font-cairo' : ''
             )}>
               {getText('hero.description')}
@@ -291,13 +291,13 @@ export default function HeroSection() {
             )}>
               <a 
                 href="/products" 
-                className="px-6 py-3 rounded-full bg-brand-900 text-adh-btn-fg font-medium shadow-lg hover:opacity-90 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-adh-btn-fg"
+                className="px-6 py-3 rounded-full bg-brand-900 text-white font-medium shadow-lg hover:opacity-90 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 {getText('hero.cta1')}
               </a>
               <a
                 href="/quote"
-                className="px-6 py-3 rounded-full bg-adh-surface/10 backdrop-blur text-adh-btn-fg font-medium border border-adh-stroke/20 shadow hover:bg-adh-surface/20 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-adh-btn-fg"
+                className="px-6 py-3 rounded-full bg-white/10 backdrop-blur text-white font-medium border border-white/20 shadow hover:bg-white/20 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 {getText('hero.cta2')}
               </a>
@@ -305,21 +305,21 @@ export default function HeroSection() {
           </div>
 
           {/* Slider dots */}
-            <div 
-              className={clsx(
-                'absolute bottom-6 z-20 flex gap-2',
-                isRTL ? 'left-6' : 'right-6'
-              )}
-            >
+          <div 
+            className={clsx(
+              'absolute bottom-6 z-20 flex gap-2',
+              isRTL ? 'left-6' : 'right-6'
+            )}
+          >
             {covers.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => goTo(idx)}
                 className={clsx(
-                  'w-3 h-3 rounded-full transition-all focus-visible:outline-2 focus-visible:outline-adh-btn-fg/70',
+                  'w-3 h-3 rounded-full transition-all focus-visible:outline-2 focus-visible:outline-white/70',
                   idx === bgIndex 
-                    ? 'bg-adh-surface scale-125 shadow-lg' 
-                    : 'bg-adh-surface/60 hover:bg-adh-surface/80'
+                    ? 'bg-white scale-125 shadow-lg' 
+                    : 'bg-white/60 hover:bg-white/80'
                 )}
                 aria-label={`Go to slide ${idx + 1}`}
                 aria-current={idx === bgIndex ? 'true' : 'false'}
@@ -398,30 +398,30 @@ export default function HeroSection() {
               >
                 <source src="/videos/Blinds-720.mp4" type="video/mp4" />
                 <source src="/videos/Blinds.mp4" type="video/mp4" />
+              </video>
+
+              {/* Top gradient for legibility */}
               <div 
-                className={clsx(
-                  'absolute bottom-6 hidden sm:block z-20',
-                  isRTL ? 'right-6' : 'left-6'
-                )}
-              >
-              <div 
-                className="w-40 md:w-56 h-1 bg-adh-surface/20 rounded-full overflow-hidden"
-              >
-                <div
-                  key={bgIndex}
-                  className="h-full bg-adh-surface rounded-full"
-                  style={{
-                    animation: paused || prefersReducedMotion ? 'none' : `progressBar ${SLIDE_MS}ms linear`,
-                    transformOrigin: isRTL ? 'right' : 'left',
-                  }}
-                />
-              </div>
-            </div>
+                className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/10 to-transparent" 
+                aria-hidden="true" 
+              />
+
+              {/* Video controls */}
+              <div className={clsx(
+                'absolute top-4 flex gap-2 z-20',
+                isRTL ? 'left-4' : 'right-4'
+              )}>
                 <button
-                    onClick={toggleMute}
-                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur text-adh-btn-fg border border-adh-stroke/20 hover:bg-black/70 transition focus-visible:outline-2 focus-visible:outline-adh-btn-fg"
-                    aria-label={muted ? getText('hero.unmute') : getText('hero.mute')}
-                  >
+                  onClick={toggleMute}
+                  className="px-3 py-1.5 rounded-full text-xs font-medium bg-black/50 backdrop-blur text-white border border-white/20 hover:bg-black/70 transition focus-visible:outline-2 focus-visible:outline-white"
+                  aria-label={muted ? getText('hero.unmute') : getText('hero.mute')}
+                >
+                  {muted ? '🔇 Unmute' : '🔊 Mute'}
+                </button>
+              </div>
+            </figure>
+
+            {/* Feature chips */}
             <div className={clsx(
               'mt-6 flex flex-wrap gap-2 justify-center',
               isRTL ? 'flex-row-reverse' : ''
@@ -429,7 +429,7 @@ export default function HeroSection() {
               {['chip.convenience', 'chip.privacy', 'chip.safety', 'chip.energy'].map((k) => (
                 <span 
                   key={k} 
-                  className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-adh-chip text-adh-text border border-adh-stroke/20 shadow backdrop-blur dark:bg-adh-chip/10 dark:text-adh-btn-fg dark:border-adh-stroke/10"
+                  className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white/90 text-gray-900 border border-white/20 shadow backdrop-blur dark:bg-white/10 dark:text-white dark:border-white/10"
                 >
                   {getText(`hero.${k}`)}
                 </span>
@@ -449,11 +449,11 @@ export default function HeroSection() {
                 <div key={it.l}>
                   <div 
                     dir="ltr" 
-                    className="text-2xl md:text-3xl font-bold text-adh-btn-fg drop-shadow-lg"
+                    className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg"
                   >
                     {it.n}
                   </div>
-                  <div className="text-xs sm:text-sm text-adh-text-muted mt-1">
+                  <div className="text-xs sm:text-sm text-white/80 mt-1">
                     {it.l === 'years' 
                       ? getText('hero.kpi.experience') 
                       : it.l === 'clients' 
