@@ -30,6 +30,16 @@ export default function ContactSection() {
           {t('title')}
         </motion.h2>
 
+        <motion.p
+          className="text-center max-w-3xl mx-auto text-lg text-adh-text-muted mb-8 px-4"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+        >
+          {t('pageDesc', { defaultValue: 'We’d love to hear from you. Whether you’re seeking a consultation, need support, or have a business inquiry, our dedicated team is here to assist. Share your vision with us, and we’ll respond within one business day to help bring it to life.' })}
+        </motion.p>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-start">
           <motion.div
             initial={{ opacity: 0, x: isAr ? 60 : -60 }}

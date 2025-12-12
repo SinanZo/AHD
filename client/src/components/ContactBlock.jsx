@@ -57,9 +57,12 @@ export default function ContactBlock() {
   return (
     <section className="bg-(--bg) py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-(--brand) mb-8">
+        <h2 className="text-4xl font-bold text-center text-(--brand) mb-4">
           {t('heading', { defaultValue: 'Contact Us' })}
         </h2>
+        <p className="text-lg text-center text-(--fg) max-w-2xl mx-auto mb-8">
+          {t('pageDesc', { defaultValue: "We’d love to hear from you. Whether you’re seeking a consultation, need support, or have a business inquiry, our dedicated team is here to assist. Share your vision with us, and we’ll respond within one business day to help bring it to life." })}
+        </p>
         <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-(--card) p-6 rounded-lg shadow-md border border-(--stroke)">
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-medium text-(--fg) mb-1">
