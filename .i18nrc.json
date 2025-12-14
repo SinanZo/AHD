@@ -1,0 +1,10 @@
+{
+  "locales": ["en", "ar"],
+  "defaultLocale": "en",
+  "paths": {
+    "en": "client/public/locales/en",
+    "ar": "client/public/locales/ar"
+  },
+  "include": ["**/*.{json}"],
+  "exclude": ["node_modules"]
+}
