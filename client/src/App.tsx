@@ -31,7 +31,7 @@ function Router() {
   return (
     <div
       dir={isArabic ? 'rtl' : 'ltr'}
-      className={`min-h-screen bg-lightBg dark:bg-darkBg text-gray-800 dark:text-gray-100 transition-colors duration-300 ${isArabic ? 'rtl-font' : 'ltr-font'}`}
+      className={`min-h-screen bg-lightBg dark:bg-darkBg text-gray-800 dark:text-gray-100 ${isArabic ? 'rtl-font' : 'ltr-font'}`}
     >
       <Layout>
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="text-lg">Loading sections...</div></div>}>
@@ -59,8 +59,9 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider
         attribute="class"
-        defaultTheme="dark"
-        enableSystem={false}
+        defaultTheme="system"
+        enableSystem={true}
+        storageKey="theme"
       >
         <TooltipProvider>
           <Toaster />
