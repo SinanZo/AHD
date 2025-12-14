@@ -937,3 +937,5 @@ img, video, canvas {
 
 /* NOTE: global overflow-x rule removed in favor of the scoped RTL small-viewport
   guard above. This keeps the horizontal-scroll removal limited to RTL mobile/tablet. */
+
+}
