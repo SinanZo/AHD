@@ -13,7 +13,8 @@
   "keyboardHint": "Use Arrow keys to navigate and Space to play/pause.",
   "visitWebsite": "Visit website",
   "clientsList": "Clients list",
-  "categories": {
+  "logoAlt": "Client logo",
+  "srNote": "Grid of client logos. Some items link to external client sites and open in a new tab.",
     "all": "All Clients",
     "hospitality": "Hospitality",
     "corporate": "Corporate",
