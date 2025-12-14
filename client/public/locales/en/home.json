@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Home | Abdulhaq Dimensions",
+    "description": "Premium interior & shading solutions in Amman, Jordan."
+  },
   "hero": {
     "badge": "PREMIUM INTERIOR SOLUTIONS",
     "title": "COMPREHENSIVE PROJECT SOLUTIONS",
@@ -12,6 +16,11 @@
       "line2": "PROJECT",
       "line3": "SOLUTIONS"
     }
+  },
+  "products": {
+    "prev": "Previous",
+    "next": "Next",
+    "sectionLabel": "Products carousel"
   },
   "stats": {
     "yearsExperience": "75+ Years of Excellence",

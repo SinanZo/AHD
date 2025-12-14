@@ -2,6 +2,7 @@
   "title": "Contact Us",
   "subtitle": "Get in Touch with Our Expert Team",
   "description": "Ready to transform your space? Contact us today for a consultation and discover how we can bring your vision to life with our premium interior solutions.",
+  "map_title": "Our Location",
   "validation": {
     "required": "Please fill out all fields.",
     "invalidEmail": "Please enter a valid email address."
