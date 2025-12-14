@@ -59,6 +59,8 @@ export default function ProductCategoryPage() {
           <img
             src={cat.image}
             alt={cat.title}
+            loading="lazy"
+            decoding="async"
             className="w-full md:w-96 rounded-lg shadow-md mb-6 md:mb-0 object-cover"
             style={{ maxHeight: 340 }}
             onError={createImageErrorHandler('product')}

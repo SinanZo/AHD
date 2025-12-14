@@ -46,13 +46,17 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative pt-16 pb-8 overflow-hidden bg-adh-surface text-adh-text"
+      className="relative pt-16 pb-8 overflow-hidden"
+      style={{
+        backgroundColor: isDark ? 'hsl(210 25% 11%)' : 'hsl(210 28% 97%)',
+        color: isDark ? 'hsl(210 20% 95%)' : 'hsl(210 20% 10%)'
+      }}
       dir={dir}
       aria-label={tt("landmark", { defaultValue: "Website footer" })}
     >
       {/* Decorative blobs */}
       <div className="absolute -top-24 left-0 w-96 h-96 rounded-full bg-white/10 opacity-10 blur-3xl pointer-events-none z-0" />
-      <div className="absolute -bottom-32 right-0 w-96 h-96 rounded-full bg-adh-accent opacity-15 blur-3xl pointer-events-none z-0" />
+      <div className="absolute -bottom-32 right-0 w-96 h-96 rounded-full opacity-15 blur-3xl pointer-events-none z-0" style={{ backgroundColor: isDark ? 'hsl(195 70% 55%)' : 'hsl(195 100% 17%)' }} />
 
   <div className="container mx-auto px-4 grid md:grid-cols-5 gap-10 relative z-10">
         {/* Logo & Tagline */}
@@ -74,18 +78,19 @@ export default function Footer() {
               }}
             />
           </div>
-          <p className="text-base font-jockey text-adh-text-muted leading-relaxed">{tt("tagline")}</p>
+          <p className="text-base font-jockey leading-relaxed" style={{ color: isDark ? 'rgba(255, 255, 255, 0.9)' : 'hsl(210 10% 32%)' }}>{tt("tagline")}</p>
         </div>
 
         {/* Services */}
         <div>
-          <h4 className="font-bold text-lg mb-4 tracking-wide text-adh-text">{tt("headingServices")}</h4>
-          <ul className="space-y-2 text-adh-text-secondary font-medium">
+          <h4 className="font-bold text-lg mb-4 tracking-wide" style={{ color: isDark ? '#ffffff' : 'hsl(210 20% 10%)' }}>{tt("headingServices")}</h4>
+          <ul className="space-y-2 font-medium" style={{ color: isDark ? 'rgba(255, 255, 255, 0.9)' : 'hsl(210 10% 32%)' }}>
             {services.map((svc, i) => (
               <li key={svc?.slug || i}>
                 <Link
                   to={`/services/${svc?.slug || ""}`}
-                  className={`transition-colors duration-200 hover:text-adh-text-muted ${isRTL ? "hover:pr-1" : "hover:pl-1"}`}
+                  className={`transition-colors duration-200 ${isRTL ? "hover:pr-1" : "hover:pl-1"}`}
+                  style={{ color: 'inherit' }}
                 >
                   {svc?.name}
                 </Link>
@@ -96,8 +101,8 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h4 className="font-bold text-lg mb-4 tracking-wide text-adh-text">{tt("headingLinks")}</h4>
-          <ul className="space-y-2 text-adh-text-secondary font-medium">
+          <h4 className="font-bold text-lg mb-4 tracking-wide" style={{ color: isDark ? '#ffffff' : 'hsl(210 20% 10%)' }}>{tt("headingLinks")}</h4>
+          <ul className="space-y-2 font-medium" style={{ color: isDark ? 'rgba(255, 255, 255, 0.9)' : 'hsl(210 10% 32%)' }}>
             {Object.entries(navObj).map(([key, label]) => {
               const to = `/${key === "home" ? "" : key}`;
               const current = pathname === to;
@@ -105,7 +110,8 @@ export default function Footer() {
                 <li key={key}>
                   <Link
                     to={to}
-                    className={`transition-colors duration-200 hover:text-adh-text-muted ${isRTL ? "hover:pr-1" : "hover:pl-1"} ${current ? "text-adh-text" : ""}`}
+                    className={`transition-colors duration-200 ${isRTL ? "hover:pr-1" : "hover:pl-1"}`}
+                    style={{ color: current ? (isDark ? '#ffffff' : 'hsl(210 20% 10%)') : 'inherit' }}
                     aria-current={current ? "page" : undefined}
                   >
                     {label}
@@ -118,15 +124,16 @@ export default function Footer() {
 
         {/* Contact Info (now clickable address/phone/email) */}
         <div>
-          <h4 className="font-bold text-lg mb-4 tracking-wide text-adh-text">{tt("headingContact")}</h4>
-          <div className="space-y-3 text-adh-text-secondary text-base font-medium">
+          <h4 className="font-bold text-lg mb-4 tracking-wide" style={{ color: isDark ? '#ffffff' : 'hsl(210 20% 10%)' }}>{tt("headingContact")}</h4>
+          <div className="space-y-3 text-base font-medium" style={{ color: isDark ? 'rgba(255, 255, 255, 0.9)' : 'hsl(210 10% 32%)' }}>
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-adh-text-muted" aria-hidden="true" />
+              <MapPin className="w-4 h-4" style={{ color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'hsl(210 10% 32%)' }} aria-hidden="true" />
               <a
                 href={mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-adh-text transition-colors duration-200 underline decoration-1 underline-offset-2"
+                className="transition-colors duration-200 underline decoration-1 underline-offset-2"
+                style={{ color: isDark ? 'rgba(255, 255, 255, 0.95)' : 'hsl(210 20% 10%)' }}
                 title={t("header:open_map_new_tab", "Open location in Google Maps")}
               >
                 {addressText}
@@ -134,23 +141,23 @@ export default function Footer() {
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-adh-text-muted" aria-hidden="true" />
+              <Phone className="w-4 h-4" style={{ color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'hsl(210 10% 32%)' }} aria-hidden="true" />
               {phoneLink ? (
-                <a href={phoneLink} className="hover:text-adh-text transition-colors duration-200" dir="ltr">
+                <a href={phoneLink} className="transition-colors duration-200" style={{ color: isDark ? '#ffffff' : 'hsl(210 20% 10%)' }} dir="ltr">
                   {phoneText}
                 </a>
               ) : (
-                <span dir="ltr">{phoneText}</span>
+                <span dir="ltr" style={{ color: isDark ? '#ffffff' : 'inherit' }}>{phoneText}</span>
               )}
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-adh-text-muted" aria-hidden="true" />
+              <Mail className="w-4 h-4" style={{ color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'hsl(210 10% 32%)' }} aria-hidden="true" />
               {emailLink ? (
-                <a href={emailLink} className="hover:text-adh-text transition-colors duration-200 break-words">
+                <a href={emailLink} className="transition-colors duration-200 break-words" style={{ color: isDark ? '#ffffff' : 'hsl(210 20% 10%)' }}>
                   {emailText}
                 </a>
               ) : (
-                <span className="break-words">{emailText}</span>
+                <span className="break-words" style={{ color: isDark ? '#ffffff' : 'inherit' }}>{emailText}</span>
               )}
             </div>
           </div>
@@ -158,13 +165,14 @@ export default function Footer() {
 
         {/* Social Media */}
         <div>
-          <h4 className="font-bold text-lg mb-4 tracking-wide text-adh-text">{socialMedia.followUs || tt("followUs", { defaultValue: "Follow Us" })}</h4>
+          <h4 className="font-bold text-lg mb-4 tracking-wide" style={{ color: isDark ? '#ffffff' : 'hsl(210 20% 10%)' }}>{socialMedia.followUs || tt("followUs", { defaultValue: "Follow Us" })}</h4>
             <div className="flex gap-4">
             <a
               href="https://www.facebook.com/AbdulhaqDimensions"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-adh-text-muted hover:text-adh-text transition-colors duration-200"
+              className="transition-colors duration-200"
+              style={{ color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'hsl(210 10% 32%)' }}
               aria-label={socialMedia.facebook || "Facebook"}
               title="Facebook"
             >
@@ -174,7 +182,8 @@ export default function Footer() {
               href="https://www.instagram.com/abdulhaqdimensions"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-adh-text-muted hover:text-adh-text transition-colors duration-200"
+              className="transition-colors duration-200"
+              style={{ color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'hsl(210 10% 32%)' }}
               aria-label={socialMedia.instagram || "Instagram"}
               title="Instagram"
             >
@@ -185,7 +194,8 @@ export default function Footer() {
                 href={WA_URL()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-adh-text-muted hover:text-adh-text transition-colors duration-200"
+                className="transition-colors duration-200"
+                style={{ color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'hsl(210 10% 32%)' }}
                 aria-label={socialMedia.whatsapp || "WhatsApp"}
                 title="WhatsApp"
               >
@@ -197,16 +207,17 @@ export default function Footer() {
       </div>
 
   {/* Divider & Copyright */}
-  <div id="footer-bottom" className="border-t border-adh-stroke mt-12 pt-8 text-center backdrop-blur-sm">
+  <div id="footer-bottom" className="mt-12 pt-8 text-center backdrop-blur-sm" style={{ borderTop: isDark ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid hsl(210 22% 82%)' }}>
         <div className="max-w-4xl mx-auto">
-          <div className="text-sm text-adh-text-secondary font-medium mb-3">{tt("copyright")}</div>
-          <div className="text-xs text-adh-text-muted leading-relaxed">
+          <div className="text-sm font-medium mb-3" style={{ color: isDark ? 'rgba(255, 255, 255, 0.9)' : 'hsl(210 10% 32%)' }}>{tt("copyright")}</div>
+          <div className="text-xs leading-relaxed" style={{ color: isDark ? 'rgba(255, 255, 255, 0.8)' : 'hsl(210 10% 32%)' }}>
             <span className="opacity-80">Powered by </span>
             <a
               href="https://www.jawareer.info"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-adh-text-muted hover:text-adh-text transition-colors duration-200 font-medium underline decoration-1 underline-offset-2"
+              className="font-medium underline decoration-1 underline-offset-2 transition-colors duration-200"
+              style={{ color: isDark ? 'rgba(255, 255, 255, 0.9)' : 'hsl(210 10% 32%)' }}
               onClick={() => {
                 try {
                   console.info("analytics:event", { category: "footer", action: "click", label: "powered-by" });

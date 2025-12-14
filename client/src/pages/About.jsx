@@ -97,8 +97,8 @@ export default function About() {
           aria-labelledby="about-vision-mission"
         >
           <div className="container mx-auto px-4">
-            <div className="mb-12 text-center">
-              <h2 id="about-vision-mission" className="mb-4 text-2xl sm:text-3xl font-bold tracking-tight md:text-4xl text-adh-text">
+              <div className="mb-12 text-center">
+              <h2 id="about-vision-mission" className="mb-4 text-2xl sm:text-3xl font-bold tracking-tight md:text-4xl text-adh-text dark:text-white">
                 {tt('vision_mission')}
               </h2>
             </div>
@@ -110,11 +110,11 @@ export default function About() {
               >
                 <div className="mb-3 md:mb-4 flex items-center">
                   <Sparkles aria-hidden="true" className="mr-3 h-6 w-6 md:h-7 md:w-7 text-adh-accent" />
-                  <h3 id="about-vision-h" className="mb-0 text-lg md:text-xl font-bold text-adh-text">
+                  <h3 id="about-vision-h" className="mb-0 text-lg md:text-xl font-bold text-adh-text dark:text-white">
                     {tt('vision_title')}
                   </h3>
                 </div>
-                <p className="text-base md:text-lg text-adh-text-secondary">{tt('vision_desc')}</p>
+                <p className="text-base md:text-lg text-adh-text-secondary dark:text-gray-300">{tt('vision_desc')}</p>
               </article>
 
               <article
@@ -123,11 +123,11 @@ export default function About() {
               >
                 <div className="mb-3 md:mb-4 flex items-center">
                   <ShieldCheck aria-hidden="true" className="mr-3 h-6 w-6 md:h-7 md:w-7 text-adh-accent" />
-                  <h3 id="about-mission-h" className="mb-0 text-lg md:text-xl font-bold text-adh-text">
+                  <h3 id="about-mission-h" className="mb-0 text-lg md:text-xl font-bold text-adh-text dark:text-white">
                     {tt('mission_title')}
                   </h3>
                 </div>
-                <p className="text-base md:text-lg text-adh-text-secondary">{tt('mission_desc')}</p>
+                <p className="text-base md:text-lg text-adh-text-secondary dark:text-gray-300">{tt('mission_desc')}</p>
               </article>
             </div>
           </div>

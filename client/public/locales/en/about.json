@@ -30,11 +30,78 @@
     "service": {
       "title": "Customer Service",
       "description": "Our clients are at the heart of everything we do. We strive to exceed expectations through personalized service and attention to detail."
+    {
+      "badge": "About Our Company",
+      "seo": {
+        "title": "About Us | Abdulhaq Dimensions",
+        "description": "Since 1948, Abdulhaq Dimensions has delivered premium interior solutions for residential and commercial spaces across the region."
+      },
+      "founder_alt": "Founder Zuhair Abdulhaq",
+      "founder_caption": "The founder of Abdulhaq Dimensions",
+      "title": "Crafting Excellence in Every Project",
+      "desc1": "With decades of expertise in premium interior solutions, Abdulhaq Dimensions has become a trusted leader in transforming spaces into masterpieces. Our work blends precision craftsmanship, innovative design, and timeless elegance delivering interiors that are as functional as they are beautiful.\\n\\nEvery project we undertake reflects our commitment to quality, attention to detail, and a passion for creating environments that inspire and endure.",
+      "desc2": "Our team of skilled professionals brings together expertise in design, craftsmanship, and project management to deliver results that exceed expectations.",
+      "desc3": "From residential villas to commercial complexes, we approach every project with the same commitment to quality and attention to detail that has made us the preferred choice for discerning clients.",
+      "discover_more": "Discover More",
+
+      "features": [
+        {
+          "title": "Quality Assurance",
+          "desc": "Premium materials and expert craftsmanship in every project"
+        },
+        {
+          "title": "Custom Design",
+          "desc": "Tailored solutions that perfectly match your vision and space"
+        },
+        {
+          "title": "Expert Team",
+          "desc": "Professional installation and dedicated customer support"
+        },
+        {
+          "title": "Timely Delivery",
+          "desc": "On-schedule project completion with transparent communication"
+        }
+      ],
+
+      "stats": [
+        {
+          "number": "500+",
+          "label": "Projects Completed"
+        },
+        {
+          "number": "15+",
+          "label": "Years Experience"
+        },
+        {
+          "number": "98%",
+          "label": "Client Satisfaction"
+        },
+        {
+          "number": "24/7",
+          "label": "Support Available"
+        }
+      ],
+
+      "legacy_title": "A brand that carries the legacy of its visionary founder, Abdulhaq. Since 1948",
+      "legacy_p1": "In 1948, visionary founder Zuhair Abdulhaq set out to redefine the art of curtains, creating a brand renowned for its unmatched quality and timeless elegance. Each piece was meticulously hand-crafted from the finest fabrics, with an unwavering attention to detail that became the hallmark of Abdulhaq.",
+      "legacy_p2": "Today, his grandchildren carry forward that legacy blending tradition with innovation to craft elegant, modern solutions that elevate and transform every space.",
+
+      "vision_mission": "Our Vision & Mission",
+      "why_heading": "Why choose Abdulhaq Dimensions?",
+      "why_text": "We don't just provide curtains — we design visual and tactile experiences that give every space a distinct identity and soul, with a steadfast commitment to quality, craftsmanship and innovation.",
+      "vision_title": "Vision",
+      "vision_desc": "To be the industry leader in exquisite window treatments, where masterful craftsmanship meets cutting-edge design transforming every space into a personal sanctuary of elegance, comfort, and timeless style.",
+      "mission_title": "Mission",
+      "mission_desc": "To deliver premium curtains and blinds that surpass expectations, guided by expert advice and supported by a seamless, end-to-end experience from concept to completion.",
+
+      "core_values": "Core Values",
+      "innovation_title": "Innovation",
+      "innovation_desc": "We continuously push the boundaries of design and functionality, staying at the forefront of our craft to deliver solutions that inspire and endure.",
+      "transparency_title": "Transparency",
+      "transparency_desc": "We believe in open communication, honesty, and integrity guiding every project and client relationship with trust at its core.",
+      "accessibility_title": "Accessibility",
+      "accessibility_desc": "We make premium window solutions attainable, tailoring every detail to reflect each client’s unique vision and lifestyle."
     }
-  },
-  "team": {
-    "title": "Our Team",
-    "content": "Our success is built on the expertise and dedication of our talented team. From experienced designers and skilled craftsmen to knowledgeable sales professionals and customer service representatives, every member of our team is committed to delivering excellence in every aspect of our service."
   },
   "achievements": {
     "title": "Our Achievements",

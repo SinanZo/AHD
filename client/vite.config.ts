@@ -36,7 +36,7 @@ export default defineConfig(async () => {
       proxy: {
         '/api': {
           // Pin to stable backend port for dev
-          target: 'http://localhost:5001',
+          target: 'http://localhost:5002',
           changeOrigin: true,
           secure: false,
         },

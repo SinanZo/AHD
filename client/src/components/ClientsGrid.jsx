@@ -50,6 +50,8 @@ export default function ClientsGrid() {
                 src={client.logo}
                 alt={client.name}
                 className="max-w-full max-h-16 object-contain"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           )) : null}

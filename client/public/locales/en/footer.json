@@ -1,33 +1,36 @@
 {
-  "landmark": "Website footer",
-  "logoAlt": "Abdulhaq Dimensions Logo",
-  "tagline": "Premium interior solutions crafted in Jordan.",
-  "headingServices": "Services",
+  "tagline": "Curtains, Blinds, Wallpapers, Fabrics & Interior Excellence Since 1948..",
+  "headingServices": "Our Services",
   "headingLinks": "Quick Links",
-  "headingContact": "Contact",
-  "followUs": "Follow Us",
-  "nav": {
-    "home": "Home",
-    "products": "Products",
-    "clients": "Clients",
-    "about": "About",
-    "contact": "Contact"
-  },
+  "headingContact": "Contact Us",
+  "copyright": "© 2025 Abdulhaq Dimensions. All rights reserved.",
   "services": [
-    { "name": "Curtains & Drapery", "slug": "curtains" },
-    { "name": "Blinds & Shades", "slug": "blinds" },
+    { "name": "Curtains & Tailoring", "slug": "curtains-tailoring" },
+    { "name": "Roller Blinds", "slug": "roller-blinds" },
+    { "name": "Roman Blinds", "slug": "roman-blinds" },
+    { "name": "Vertical Blinds", "slug": "vertical-blinds" },
     { "name": "Wallpaper", "slug": "wallpaper" },
-    { "name": "Flooring & Rugs", "slug": "flooring" }
+    { "name": "Flooring & Acoustics", "slug": "flooring-acoustics" },
+    { "name": "Motorization", "slug": "motorization" },
+    { "name": "Upholstery", "slug": "upholstery" }
   ],
   "contactInfo": {
     "address": "Amman, Jordan",
-    "phone": "+962 7 7805 0005",
+    "phone": "+962 77 805 0005",
     "email": "info@abdulhaqdimensions.com"
   },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "clients": "Clients",
+    "contact": "Contact"
+  },
+  "poweredBy": "Powered by Jawareer",
   "socialMedia": {
+    "followUs": "Follow Us",
     "facebook": "Facebook",
     "instagram": "Instagram",
     "whatsapp": "WhatsApp"
-  },
-  "copyright": "© 2025 Abdulhaq Dimensions. All rights reserved."
+  }
 }

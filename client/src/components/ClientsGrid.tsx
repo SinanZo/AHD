@@ -81,6 +81,8 @@ export function ClientsGrid({
                     src={client.logo}
                     alt={client.name}
                     className="max-h-10 max-w-[80%] object-contain"
+                    loading="lazy"
+                    decoding="async"
                   />
                 ) : (
                   // Fallback text

@@ -29,5 +29,31 @@
   "social": {
     "followUs": "تابعنا"
   }
-  
+  ,
+  "validation": {
+    "required": "الرجاء تعبئة جميع الحقول.",
+    "invalidEmail": "الرجاء إدخال بريد إلكتروني صحيح."
+  },
+  "success": "شكرًا. تم استلام رسالتك بنجاح. سنرد خلال يوم عمل واحد.",
+  "error": {
+    "submit": "حدث خطأ. حاول مرة أخرى لاحقًا."
+  },
+  "seo": {
+    "title": "تواصل معنا | Abdulhaq Dimensions",
+    "description": "للاستشارات أو الدعم أو الاستفسارات التجارية، تواصل معنا وسيرد فريقنا خلال يوم عمل واحد."
+  },
+  "heading": "تواصل معنا",
+  "map": {
+    "title": "موقعنا",
+    "viewOn": "عرض على الخريطة"
+  },
+  "form": {
+    "name": "اسمك",
+    "namePlaceholder": "أدخل اسمك",
+    "email": "بريدك الإلكتروني",
+    "emailPlaceholder": "you@example.com",
+    "message": "رسالتك",
+    "messagePlaceholder": "اكتب رسالتك...",
+    "submit": "إرسال"
+  }
 }

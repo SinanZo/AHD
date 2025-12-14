@@ -32,19 +32,34 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Reduce backdrop blur on mobile (performance heavy) */
+  /* AGGRESSIVE: Disable ALL blur effects on mobile (very performance heavy) */
+  .glass-effect,
+  [class*="blur-"],
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+  }
+
   .glass-effect {
-    backdrop-filter: none;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.97);
   }
 
   .dark .glass-effect {
-    background: rgba(10, 17, 24, 0.95);
+    background: rgba(10, 17, 24, 0.97);
+  }
+
+  /* Disable decorative blur blobs that cause lag */
+  .blur-3xl,
+  .blur-2xl,
+  .blur-xl {
+    display: none !important;
   }
 
   /* Simplify shadows on mobile */
   .btn-primary,
-  .btn-secondary {
+  .btn-secondary,
+  [class*="shadow-"] {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
   }
 
@@ -71,6 +86,18 @@
   .hero,
   .header {
     will-change: auto;
+  }
+
+  /* Hide decorative elements that cause performance issues */
+  .absolute.rounded-full[class*="blur"],
+  .fixed.rounded-full[class*="blur"] {
+    display: none !important;
+  }
+
+  /* Simplify framer-motion animations */
+  [style*="transform"],
+  [style*="opacity"] {
+    transition: none !important;
   }
 }
 

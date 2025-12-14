@@ -130,7 +130,7 @@ export default function AboutSection() {
       id="about"
       ref={containerRef}
       dir={isRTL ? 'rtl' : 'ltr'}
-      className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden text-white"
+      className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden text-gray-900 dark:text-white"
       aria-label={t('sectionLabel', { defaultValue: 'About Abdulhaq Dimensions' })}
     >
   {/* BACKGROUND LAYER (ensure it's in the same stacking context, not negative) */}
@@ -160,8 +160,8 @@ export default function AboutSection() {
             }}
           />
         </AnimatePresence>
-  {/* Overlay behind content for readability (slightly stronger for contrast) */}
-  <div className="absolute inset-0 bg-black/48 pointer-events-none" />
+  {/* Overlay behind content for readability (lighter in light mode, stronger in dark) */}
+  <div className="absolute inset-0 bg-black/24 dark:bg-black/48 pointer-events-none" />
       </div>
 
       {/* CONTENT */}
@@ -169,8 +169,8 @@ export default function AboutSection() {
         {/* Glassy text box: improves legibility over busy backgrounds. */}
         <div
           className="mx-auto max-w-3xl text-center rounded-2xl p-4 md:p-10
-                     bg-white/12 dark:bg-black/36 backdrop-blur-md border border-white/10
-                     shadow-lg"
+                     bg-white/80 text-gray-900 dark:bg-black/36 dark:text-white backdrop-blur-md
+                     border border-black/10 dark:border-white/10 shadow-lg"
           style={{ WebkitBackdropFilter: 'blur(8px)', backdropFilter: 'blur(8px)' }}
         >
           <motion.div
@@ -178,10 +178,10 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/30 backdrop-blur-md border border-white/40"
+          className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/30 dark:bg-white/10 backdrop-blur-md border border-black/10 dark:border-white/30"
         >
           <Sparkles className="w-4 h-4 text-accent" aria-hidden="true" />
-          <span className="text-sm font-semibold uppercase tracking-wide text-white drop-shadow">
+          <span className="text-sm font-semibold uppercase tracking-wide text-gray-900 dark:text-white drop-shadow">
             {t('badge')}
           </span>
         </motion.div>
@@ -191,8 +191,8 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-white"
-          style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)' }}
+          className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-gray-900 dark:text-white"
+          style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.08), 0 0 20px rgba(0,0,0,0.04)' }}
         >
           {t('title')}
         </motion.h2>
@@ -202,8 +202,8 @@ export default function AboutSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          className="text-lg md:text-xl text-white/95 leading-relaxed mb-8"
-          style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.85)' }}
+          className="text-lg md:text-xl text-gray-800/95 dark:text-white/95 leading-relaxed mb-8"
+          style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.04)' }}
         >
           {t('desc1')}
         </motion.p>

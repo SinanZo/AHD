@@ -5,6 +5,31 @@
     "why_heading": "Why choose Abdulhaq Dimensions?",
     "why_text": "We don't just provide curtains — we design visual and tactile experiences that give every space a distinct identity and soul, with a steadfast commitment to quality, craftsmanship and innovation.",
     "description": "Explore the key features that make Abdulhaq Dimensions your preferred interior partner.",
-    "items": []
+    "items": [
+      {
+        "title": "Custom Fabrication",
+        "description": "We tailor every project to meet your exact measurements and aesthetic."
+      },
+      {
+        "title": "Premium Quality",
+        "description": "All products are manufactured using the highest-grade materials and finishes."
+      },
+      {
+        "title": "Turnkey Solutions",
+        "description": "From design to installation — we manage it all under one roof."
+      },
+      {
+        "title": "Sustainable Materials",
+        "description": "Eco-friendly and durable options for a modern sustainable lifestyle."
+      },
+      {
+        "title": "Expert Consultation",
+        "description": "Our team offers expert design advice and onsite measurement support."
+      },
+      {
+        "title": "Motorization Support",
+        "description": "Automated systems integrated with Somfy motorization for comfort and convenience."
+      }
+    ]
   }
 }

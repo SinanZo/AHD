@@ -1,33 +1,36 @@
 {
-  "landmark": "تذييل الموقع",
-  "logoAlt": "شعار عبد الحق دايمنشنز",
-  "tagline": "حلول داخلية فاخرة مصنوعة في الأردن.",
-  "headingServices": "الخدمات",
+  "tagline": "ستائر، برادي، أقمشة، وإتقان التصميم الداخلي منذ 1948.",
+  "headingServices": "خدماتنا",
   "headingLinks": "روابط سريعة",
   "headingContact": "تواصل معنا",
-  "followUs": "تابعنا",
-  "nav": {
-    "home": "الرئيسية",
-    "products": "المنتجات",
-    "clients": "عملاؤنا",
-    "about": "من نحن",
-    "contact": "اتصل بنا"
-  },
+  "copyright": "© 2025 أبعاد عبد الحق. جميع الحقوق محفوظة.",
   "services": [
-    { "name": "الستائر والدربيات", "slug": "curtains" },
-    { "name": "البلّايندز والشيدز", "slug": "blinds" },
-    { "name": "ورق الجدران", "slug": "wallpaper" },
-    { "name": "الأرضيات والسجاد", "slug": "flooring" }
+    { "name": "الستائر والتفصيل", "slug": "curtains-tailoring" },
+    { "name": "ستائر رول", "slug": "roller-blinds" },
+    { "name": "ستائر رومانية", "slug": "roman-blinds" },
+    { "name": "ستائر رأسية", "slug": "vertical-blinds" },
+    { "name": "ورق جدران", "slug": "wallpaper" },
+    { "name": "أرضيات وعوازل صوتية", "slug": "flooring-acoustics" },
+    { "name": "التحكم الآلي", "slug": "motorization" },
+    { "name": "تنجيد الأثاث", "slug": "upholstery" }
   ],
   "contactInfo": {
     "address": "عمّان، الأردن",
-    "phone": "+962 7 7805 0005",
+    "phone": "+962 77 805 0005",
     "email": "info@abdulhaqdimensions.com"
   },
+  "nav": {
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "products": "المنتجات",
+    "clients": "عملاؤنا",
+    "contact": "اتصل بنا"
+  },
+  "poweredBy": "مشغّل بواسطة جاوِرير",
   "socialMedia": {
+    "followUs": "تابعنا",
     "facebook": "فيسبوك",
     "instagram": "إنستغرام",
     "whatsapp": "واتساب"
-  },
-  "copyright": "© 2025 عبد الحق دايمنشنز. جميع الحقوق محفوظة."
+  }
 }

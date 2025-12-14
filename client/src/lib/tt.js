@@ -15,7 +15,16 @@ export function createTT(t, defaultNs = "header") {
       if (val && val !== k) return val;
     }
     if (opts.defaultValue) return opts.defaultValue;
-    return t(firstKey);
+
+    // Fallback: humanize the key (e.g. 'form.name' -> 'Name') so UI doesn't show raw keys.
+    if (firstKey && typeof firstKey === 'string') {
+      const parts = firstKey.split('.');
+      const last = parts[parts.length - 1] || firstKey;
+      const words = String(last).replace(/[-_]+/g, ' ').split(/\s+/).filter(Boolean);
+      const human = words.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      if (human) return human;
+    }
+    return '';
   };
 }
 

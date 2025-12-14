@@ -26,6 +26,17 @@ export default function ContactPage() {
   const dir = i18n.dir?.() || 'ltr';
   const isRTL = dir === 'rtl';
 
+  // Use explicit namespace with defaultValue so missing translations don't show raw keys
+  const labels = {
+    name: t('form.name', { ns: 'contact', defaultValue: 'Your Name' }),
+    namePlaceholder: t('form.namePlaceholder', { ns: 'contact', defaultValue: 'Enter your name' }),
+    email: t('form.email', { ns: 'contact', defaultValue: 'Your Email' }),
+    emailPlaceholder: t('form.emailPlaceholder', { ns: 'contact', defaultValue: 'you@example.com' }),
+    message: t('form.message', { ns: 'contact', defaultValue: 'Your Message' }),
+    messagePlaceholder: t('form.messagePlaceholder', { ns: 'contact', defaultValue: 'Type your message...' }),
+    submit: t('form.submit', { ns: 'contact', defaultValue: 'Send Message' }),
+  };
+
   const onChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -48,37 +59,36 @@ export default function ContactPage() {
       );
       return;
     }
-relative overflow-hidrelative overflow-hidden py-12 text-white md:py-20
-    const emailRegex = relative overflow-hidden py-12 text-white md:py-20
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     if (!emailRegex.test(form.email)) {
       setError(
         t('validation.invalidEmail', {
           defaultValue: 'Please enter a valid email address.',
         })
       );
-      return;relative z-10 crelative z-10 container mx-auto grid items-center gap-8 px-4 md:gap-12 lg:grid-cols-2
-    }relative z-10 containerrelative z-10 container mx-auto grid items-center gap-8 px-4 md:gap-12 lg:grid-cols-2
-mb-4 text-2xl leading-snug font-bold drop-shadow-mb-4 text-2xl leading-snug font-bold drop-shadow-xl sm:text-3xl md:mb-6 md:text-4xl
+      return;
+    }
+
     setSubmitting(true);
     try {
-      const res = await fetch(mb-3 text-base text-white/90 sm:text-lg md:mb-4
-        method: 'POST',text-batext-base text-white/90 sm:text-lg
-        headers: { 'Content-Type': 'application/jmb-4 text-2xl leading-snug font-bold drop-shadow-xl sm:text-3xl md:mb-6 md:text-4xl
-        body: JSON.stgrid grid-cols-2 gap-6 py-12mb-4 text-2xl leading-snug font-bold drop-shadow-xl sm:text-3xl md:mb-6 md:text-4xl
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
       });
-      if (!res.ok) {mb-3 text-mbw-full max-w-[280px] rounded-3xl border p-3 backdrop-blur-lg sm:max-w-xs sm:p-4 bg-adh-surface/10 shadow-adh-soft border-adh-stroke-/30
-        const data = await restext-base text-white/90 sm:text-lgxt-lg md:mb-4
-        throw new Error(text-btext-base text-white/90 sm:text-lg
-          data.message || `Request failed with status ${res.status}`
-        );flex flex-col iflex flex-col items-center gap-1 text-center sm:gap-2
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error((data && data.message) || `Request failed with status ${res.status}`);
       }
 
-      setSuccess(text-2xl letext-2xl leading-[1.2] font-semibold tracking-[0.02em] text-white sm:text-3xl md:text-[34px]
-        t('success', {max-w-max-w-[30ch] text-xs leading-[1.4] font-normal text-[#C9C9C9] sm:text-sm md:text-[16px]
+      setSuccess(
+        t('success', {
           defaultValue:
             "Thank you. Your message has been sent successfully. We'll respond within one business day.",
-        })w-full max-w-[280px] rw-full max-w-[280px] rounded-3xl border p-3 backdrop-blur-lg sm:max-w-xs sm:p-4 bg-adh-surface/10 shadow-adh-soft border-adh-stroke-/30
-      );w-full max-w-[280px] rouw-full max-w-[280px] rounded-3xl border p-3 backdrop-blur-lg sm:max-w-xs sm:p-4 bg-adh-surface/10 shadow-adh-soft border-adh-stroke-/30
+        })
+      );
       setForm(initialState);
     } catch (err) {
       console.error('Contact form error:', err);
@@ -98,60 +108,60 @@ mb-4 text-2xl leading-snug font-bold drop-shadow-mb-4 text-2xl leading-snug font
       description={t('seo.description', {
         defaultValue:
           'Get in touch with Abdulhaq Dimensions for consultations, support, or business inquiries.',
-      })}mb-4 text-2xl font-bold tracking-tight sm:textmb-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl text-adh-text
+      })}
     >
       <div className="min-h-screen bg-adh-bg text-adh-text" dir={dir}>
         {/* Heading */}
         <div className="container mx-auto px-4 pt-12 pb-6 text-center">
-          <h1 className="texgrid gap-6 md:grid-cols-2 md:gap-8
+          <h1 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl text-adh-text">
             {t('heading', { defaultValue: 'Contact Us' })}
           </h1>
           <p className="max-w-2xl mx-auto text-adh-text-muted text-sm md:text-base leading-relaxed">
             {t('pageDesc', {
-              defaultValue:mb-3 mb-3 flex items-center md:mb-4
+              defaultValue:
                 "We'd love to hear from you. Whether you're seeking a consultation, need support, or have a business inquiry, our dedicated team is here to assist. Share your vision with us, and we'll respond within one business day to help bring it to life.",
-            })}mb-0 text-lg font-bold md:text-xl textmb-0 text-lg font-bold md:text-xl text-adh-text
+            })}
           </p>
         </div>
 
         {/* Main 2-column block */}
-        <div className="container mx-auto px-4 pb-16">mmb-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl text-adh-text
+        <div className="container mx-auto px-4 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* FORM CARD */}
-            <div className="bg-adh-surface border bordemb-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl text-adh-text
+            <div className="rounded-2xl border p-6 backdrop-blur-lg md:p-8 bg-adh-surface/10 shadow-adh-soft border-adh-stroke/15">
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Name */}grid gap-6 md:grid-cols-2 md:gap-8
-                <div>mb-3 flex imb-3 flex items-center md:mb-4
+                {/* Name */}
+                <div>
                   <label
-                    htmlFor=grid gap-6 md:grid-cols-2 mb-0 text-lg font-bold md:text-xl text-adh-text
+                    htmlFor="name"
                     className={`block text-xs font-semibold tracking-wide uppercase mb-2 text-adh-text-muted ${
                       isRTL ? 'text-right' : 'text-left'
                     }`}
                   >
-                    {t('form.name', { defaultValue: 'Your Name' })}
-                  </label>mb-3 fmb-3 flex items-center md:mb-4
+                    {labels.name}
+                  </label>
                   <input
-                    id="name"mb-0 text-lg font-bold mmb-0 text-lg font-bold md:text-xl text-adh-text
-                    name="name"mmb-3 flex items-center md:mb-4
+                    id="name"
+                    name="name"
                     type="text"
-                    value={form.name}mb-0 text-lg fonmb-0 text-lg font-bold md:text-xl text-adh-text
+                    value={form.name}
                     onChange={onChange}
                     className="w-full rounded-xl bg-adh-bg border border-adh-stroke px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-adh-primary focus:border-adh-primary transition"
-                    placeholder={t('form.namePlaceholder', { defaultValue: 'Your Name' })}
-                    rrelative overflow-hidden py-12 text-white md:py-20 bg-adh-brand
-                    aria-label={t('form.name', { defaultValue: 'Your Name' })}
+                    placeholder={labels.namePlaceholder}
+                    aria-label={labels.name}
+                    required
                   />
                 </div>
 
                 {/* Email */}
                 <div>
                   <label
-                    htmlFor="emamb-3 flex items-centmb-2 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl
+                    htmlFor="email"
                     className={`block text-xs font-semibold tracking-wide uppercase mb-2 text-adh-text-muted ${
-                      isRTL ? 'text-right' : 'text-lefmb-0 text-lg font-bold md:text-xl text-adh-text
-                    }`}mb-3 flexmb-3 flex items-center md:mb-4
+                      isRTL ? 'text-right' : 'text-left'
+                    }`}
                   >
-                    {t('formgrid gap-6 md:grid-cols-3 md:gap-10-lg font-bold md:text-xl text-adh-text
+                    {labels.email}
                   </label>
                   <input
                     id="email"
@@ -159,15 +169,13 @@ mb-4 text-2xl leading-snug font-bold drop-shadow-mb-4 text-2xl leading-snug font
                     type="email"
                     value={form.email}
                     onChange={onChange}
-                    classNamerounded-2xl border p-6 backdrop-blur-lg md:p-8 bg-adh-surface/10 shadow-adh-soft border-adh-stroke-/15-2 focus:ring-adh-primary focus:border-adh-primary transition"
-                    placeholder={t('form.emailPlaceholder', {
-                      defaultValuemb-3 flex items-center md:mb-4
-                    })}
-                    rrelative overftext-lg font-bold md:text-xlmd:py-20 bg-adh-brand
-                    aria-label={t('form.email', { defaultValue: 'Your Email' })}
+                    className="w-full rounded-xl bg-adh-bg border border-adh-stroke px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-adh-primary focus:border-adh-primary transition"
+                    placeholder={labels.emailPlaceholder}
+                    aria-label={labels.email}
+                    required
                   />
                 </div>
-relative overflow-hidrelative overflow-hidden py-12 text-white md:py-20 bg-adh-brand
+
                 {/* Message */}
                 <div>
                   <label
@@ -176,33 +184,31 @@ relative overflow-hidrelative overflow-hidden py-12 text-white md:py-20 bg-adh-b
                       isRTL ? 'text-right' : 'text-left'
                     }`}
                   >
-                    {t('form.message', { defaultValue: 'Your Message' })}
-                  </label>mb-2 text-2xl font-bold trmb-2 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl
+                    {labels.message}
+                  </label>
                   <textarea
                     id="message"
                     name="message"
-                    value={form.message}mb-2 text-2xmb-2 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl
-                    onChangegrid gap-6 md:grid-cols-3 md:gap-10
+                    value={form.message}
+                    onChange={onChange}
                     rows={5}
                     className="w-full rounded-xl bg-adh-bg border border-adh-stroke px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-adh-primary focus:border-adh-primary transition"
-                    placeholder={t('form.messagePlaceholder', {
-                      defaulgrid gap-6 md:grid-cols-3 md:gap-10
-                    })}
+                    placeholder={labels.messagePlaceholder}
                     required
                     aria-label={t('form.message', { defaultValue: 'Your Message' })}
                   />
                   <p className={`mt-1 text-[11px] text-adh-text-muted ${isRTL ? 'text-right' : 'text-left'}`}>
                     {form.message.length}/5000
                   </p>
-                </div>roundedrounded-2xl border p-6 backdrop-blur-lg md:p-8 bg-adh-surface/10 shadow-adh-soft border-adh-stroke-/15
+                </div>
 
-                {/* Alerts */}mb-3mb-3 flex items-center md:mb-4
+                {/* Alerts */}
                 {(error || success) && (
-                  <div classNroundetext-lg font-bold md:text-xlur-lg md:p-8 bg-adh-surface/10 shadow-adh-soft border-adh-stroke-/15
+                  <div className="space-y-3">
                     {error && (
-                      <divmb-3 flemb-3 flex items-center md:mb-4
+                      <div
                         className="bg-red-900/20 border border-red-600/40 text-red-400 px-4 py-3 rounded-lg"
-                        role="alerttext-lg font-bold md:text-xl
+                        role="alert"
                       >
                         {error}
                       </div>
@@ -228,7 +234,7 @@ relative overflow-hidrelative overflow-hidden py-12 text-white md:py-20 bg-adh-b
                   {submitting && (
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                   )}
-                  {t('form.submit', { defaultValue: 'Send Message' })}
+                  {labels.submit}
                 </button>
 
                 {/* Contact details under button */}

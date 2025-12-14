@@ -18,7 +18,7 @@ export default function ResponsiveImage({
 }) {
   // Build ordered variants
   const variants = Object.values(srcSet).filter(Boolean).sort((a,b)=>a.width - b.width);
-  if (!variants.length) return <img alt={alt} className={className} style={style} {...rest} />;
+  if (!variants.length) return <img alt={alt} className={className} style={style} loading={eager ? 'eager' : 'lazy'} decoding={eager ? 'sync' : 'async'} {...rest} />;
   const isEager = eager;
 
   // Build srcset strings for each format

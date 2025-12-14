@@ -37,6 +37,8 @@ export default function PremiumProducts() {
               <img
                 src={product.image}
                 alt={product.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-linear-to-t from-adh-primary/90 to-adh-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">

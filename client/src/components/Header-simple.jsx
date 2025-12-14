@@ -212,7 +212,7 @@ export default function Header({ currentPage = "home", onNavigate }) {
           <div className="absolute inset-0 bg-adh-overlay/60" onClick={() => setOpen(false)} />
           <div
             id={menuId}
-            className={`absolute ${isRTL ? "left-0" : "right-0"} top-0 h-full w-[88%] max-w-sm bg-adh-surface dark:bg-adh-surface-dark text-adh-text dark:text-adh-text shadow-xl p-6 flex flex-col gap-6`}
+            className={`absolute ${isRTL ? "left-0" : "right-0"} top-0 h-full w-[88%] max-w-sm bg-[var(--card)] text-[var(--fg)] shadow-xl p-6 flex flex-col gap-6`}
           >
             <div className="flex items-center justify-between">
               <h2 id={`${menuId}-title`} className="text-lg font-semibold">Menu</h2>

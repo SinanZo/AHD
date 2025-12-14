@@ -270,7 +270,7 @@ export default function GalleryPage() {
                 }}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition ${
                   selectedSub === 'all'
-                    ? 'bg-adh-primary text-adh-primary-fg'
+                    ? 'bg-adh-primary text-[var(--btn-fg)]'
                     : 'bg-adh-chip text-adh-text hover:bg-adh-stroke'
                 }`}
               >
@@ -295,7 +295,7 @@ export default function GalleryPage() {
                     }}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition ${
                       selectedSub === subId
-                        ? 'bg-adh-primary text-adh-primary-fg'
+                        ? 'bg-adh-primary text-[var(--btn-fg)]'
                         : 'bg-adh-chip text-adh-text hover:bg-adh-stroke'
                     }`}
                   >
@@ -346,7 +346,7 @@ export default function GalleryPage() {
                   <div className="absolute inset-0 bg-adh-text bg-opacity-0 group-hover:bg-opacity-30 transition-all rounded-xl flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 flex gap-3 transition-opacity">
                       <button
-                        className="bg-adh-bg text-adh-text p-2 rounded-full hover:bg-adh-primary hover:text-adh-primary-fg transition"
+                        className="bg-adh-bg text-adh-text p-2 rounded-full hover:bg-adh-primary hover:text-[var(--btn-fg)] transition"
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedImage(img);

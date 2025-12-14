@@ -582,18 +582,18 @@ footer a:hover,
 html.dark footer a,
 html.dark .footer a {
   color: hsl(0 0% 88%);
-}
-
+  background-color: var(--bgElevated);
+  color: var(--fg);
 html.dark footer a:hover,
 html.dark .footer a:hover {
   color: hsl(201 48% 55%);
 }
-
+  color: var(--fg);
 /* Content links */
 main a:not([class*="btn"]),
 article a:not([class*="btn"]),
 section a:not([class*="btn"]):not([role="button"]) {
-  color: var(--brand);
+  color: var(--link-hover, var(--brand));
   text-decoration: underline;
   text-decoration-color: var(--brand);
   text-underline-offset: 2px;

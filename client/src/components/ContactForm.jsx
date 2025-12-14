@@ -285,7 +285,7 @@ export default function ContactForm() {
           className="bg-adh-btn text-adh-btn-fg px-6 py-3.5 rounded-2xl shadow-adh-card font-semibold tracking-wide text-sm uppercase transition-all duration-200 hover:bg-adh-primary-light disabled:opacity-60 disabled:cursor-not-allowed"
           data-testid="contact-submit"
         >
-          {submitting ? tt('form.sending') : tt('form.sendButton')}
+          {submitting ? tt('form.sending') : tt('form.submit')}
         </button>
 
         {statusMessage && (

@@ -180,6 +180,8 @@ export default function ProductCategory({ category, subcategories }) {
             <img
               src={productImages[currentImageIndex]}
               alt={category.category}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               onError={(e) => {
                 e.target.src = '/images/placeholder.svg';
@@ -293,6 +295,8 @@ export default function ProductCategory({ category, subcategories }) {
                     <img
                       src={image}
                       alt={`${category.category} ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         e.target.src = '/images/placeholder.svg';
@@ -334,6 +338,8 @@ export default function ProductCategory({ category, subcategories }) {
               <img
                 src={productImages[selectedImageIndex]}
                 alt={`${category.category} ${selectedImageIndex + 1}`}
+                loading="lazy"
+                decoding="async"
                 className="max-w-full max-h-full object-contain"
                 onError={(e) => {
                   e.target.src = '/images/placeholder.svg';
@@ -383,6 +389,8 @@ export default function ProductCategory({ category, subcategories }) {
                       <img
                         src={image}
                         alt={`Thumbnail ${index + 1}`}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           e.target.src = '/images/placeholder.svg';

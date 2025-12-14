@@ -189,7 +189,7 @@ export default function HeroSection() {
               <div className={`absolute inset-0 ${isRTL ? 'bg-linear-to-l from-black/60 via-black/50 to-black/25' : 'bg-linear-to-r from-black/60 via-black/50 to-black/25'}`} />
             </div>
 
-            <div className="px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 relative z-30 w-full flex items-center h-full py-12 md:py-14">
+            <div className="px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 relative z-30 w-full flex items-center h-full py-12 md:py-14 pb-24 md:pb-28 lg:pb-32">
               <div className={`text-white ${isRTL ? 'sm:text-right text-center' : 'sm:text-left text-center'} max-w-[680px] hero-text-contrast`}>
                 {badge && (
                   <span className="inline-block px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase bg-adh-primary/90 text-white shadow-md ring-1 ring-white/20 mb-6">
@@ -217,7 +217,7 @@ export default function HeroSection() {
                   {desc}
                 </p>
 
-                <div className={`flex flex-col sm:flex-row gap-4 items-stretch sm:items-center ${isRTL ? 'sm:flex-row-reverse sm:justify-end justify-center' : 'justify-center sm:justify-start'}`}>
+                <div className={`flex flex-col sm:flex-row gap-4 items-stretch sm:items-center ${isRTL ? 'sm:flex-row-reverse sm:justify-end justify-center' : 'justify-center sm:justify-start'} mb-8 md:mb-10 lg:mb-12`}>
                   <a
                     href={WA_URL ? WA_URL(isRTL ? 'مرحبًا، أود طلب عرض سعر' : 'Hello, I would like to request a quote') : '#'}
                     target="_blank" rel="noopener noreferrer" aria-label={cta2}
@@ -237,7 +237,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="absolute bottom-4 left-0 right-0 px-6 lg:px-8 flex items-center justify-center gap-3 z-10">
+            <div className="absolute bottom-2 md:bottom-3 lg:bottom-8 left-0 right-0 px-6 lg:px-8 flex items-center justify-center gap-3 z-40 pointer-events-auto">
               <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
                 {paused ? t('announcePaused', 'Slideshow paused') : (forceMotion ? t('announcePlayingMotion', 'Slideshow playing (motion enabled)') : t('announcePlaying', 'Slideshow playing'))}
               </div>
@@ -249,7 +249,7 @@ export default function HeroSection() {
 
               <button
                 type="button"
-                className="hero-control focus-ring ml-2 text-xs px-2.5 py-1 rounded-full bg-black/35 text-white hover:bg-black/55 transition flex items-center justify-center"
+                className="hero-control focus-ring text-[10px] md:text-[11px] px-2 py-1 rounded-full bg-black/35 text-white hover:bg-black/55 transition flex items-center justify-center"
                 onClick={() => setPaused((p) => !p)}
                 aria-pressed={paused}
                 aria-label={pauseLabel}
@@ -261,7 +261,7 @@ export default function HeroSection() {
                 <div className="ml-3">
                   <button
                     type="button"
-                    className="hero-control focus-ring text-xs px-2.5 py-1 rounded-full bg-white/10 text-white hover:bg-white/20 transition"
+                    className="hero-control focus-ring text-[10px] md:text-[11px] px-2 py-1 rounded-full bg-white/10 text-white hover:bg-white/20 transition"
                     onClick={() => {
                       try {
                         const v = !forceMotion;

@@ -25,5 +25,28 @@
   }
   ,
   "pageDesc": "We’d love to hear from you. Whether you’re seeking a consultation, need support, or have a business inquiry, our dedicated team is here to assist. Share your vision with us, and we’ll respond within one business day to help bring it to life."
-  
+  ,
+  "validation": {
+    "required": "Please fill out all fields.",
+    "invalidEmail": "Please enter a valid email address."
+  },
+  "success": "Thank you. Your message has been sent successfully. We'll respond within one business day.",
+  "error": {
+    "submit": "Something went wrong. Please try again later."
+  },
+  "seo": {
+    "title": "Contact Us | Abdulhaq Dimensions",
+    "description": "Get in touch with Abdulhaq Dimensions for consultations, support, or business inquiries."
+  },
+  "heading": "Contact Us",
+  "map": {
+    "title": "Our Location",
+    "viewOn": "View on map"
+  },
+  "form": {
+    "namePlaceholder": "Enter your name",
+    "emailPlaceholder": "you@example.com",
+    "messagePlaceholder": "Type your message...",
+    "submit": "Send Message"
+  }
 }

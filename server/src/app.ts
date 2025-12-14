@@ -95,6 +95,7 @@ export function createApp() {
         return res.json({ success: true, message: 'Message accepted (no SMTP creds).' });
       }
 
+      console.log(`[contact] SMTP config -> host=${smtpHost} port=${smtpPort} secure=${smtpSecure} user=${user ? '[REDACTED]' : 'none'}`);
       const transporter = nodemailer.createTransport({
         host: smtpHost,
         port: smtpPort,

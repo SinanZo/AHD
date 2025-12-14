@@ -37,14 +37,23 @@ export default {
         "adh-stroke": "var(--stroke)",
         "adh-link": "var(--link)",
         "adh-link-hover": "var(--link-hover)",
+        "adh-overlay": "var(--overlay)",
 
         // Buttons
         "adh-btn": "var(--btn)",
         "adh-btn-fg": "var(--btn-fg)",
+        "adh-btn-hover": "var(--btn-hover)",
 
         // Header
         "adh-header-bg": "var(--header-bg-color)",
         "adh-header-fg": "var(--header-fg)",
+        
+        // Text contrast (for overlays)
+        "adh-text-contrast": "#ffffff",
+        
+        // Missing utility classes
+        "adh-surface-dark": "var(--card)", // Maps to card variable (works in dark mode via CSS)
+        "adh-primary-fg": "var(--btn-fg)", // Button foreground for text on primary bg
       },
       backgroundColor: {
         "adh-bg": "var(--bg)",
@@ -52,12 +61,14 @@ export default {
         "adh-soft": "var(--bg-soft)",
         "adh-linen": "var(--bg-linen)",
         "adh-chip": "var(--chip)",
+        "adh-overlay": "var(--overlay)",
       },
       textColor: {
         "adh-text": "var(--fg)",
         "adh-secondary": "var(--text-secondary)",
         "adh-muted": "var(--muted)",
         "adh-link": "var(--link)",
+        "adh-contrast": "#ffffff",
       },
       borderColor: {
         "adh-stroke": "var(--stroke)",

@@ -50,6 +50,14 @@ i18n
     fallbackLng: 'en',
     ns: ['header', 'footer', 'home', 'contact', 'cta', 'stats', 'clients', 'products'],
     defaultNS: 'home',
+    // Enable debug in dev to help track missing keys and loading issues
+    debug: import.meta.env.DEV === true,
+    missingKeyHandler: function(lng, ns, key, res) {
+      try {
+        // eslint-disable-next-line no-console
+        console.warn(`[i18n] Missing translation key: ${lng}:${ns}:${key}`);
+      } catch (e) { /* noop */ }
+    },
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage']

@@ -31,7 +31,13 @@
     "submit": "Send Message",
     "sending": "Sending...",
     "success": "Thank you! Your message has been sent successfully. We'll get back to you soon.",
-    "error": "Sorry, there was an error sending your message. Please try again or contact us directly."
+    "error": "Sorry, there was an error sending your message. Please try again or contact us directly.",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter your email.",
+      "emailInvalid": "Please enter a valid email address.",
+      "message": "Please enter a message (at least 10 characters)."
+    }
   },
   "info": {
     "title": "Contact Information",

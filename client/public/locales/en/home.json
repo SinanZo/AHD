@@ -27,57 +27,37 @@
     "title": "Our Services",
     "subtitle": "Comprehensive Interior Solutions",
     "description": "Explore our full range of premium interior design and implementation services",
-    "catalog": "Catalog",
-    "curtains": {
-      "title": "Curtains & Drapes",
-      "description": "Classic and modern curtains for residential and commercial spaces",
-      "features": ["Custom tailoring", "Fire-rated fabrics", "Premium materials"]
-    },
-    "blinds": {
-      "title": "Blinds & Shades",
-      "description": "Roller blinds, venetian blinds, and specialty window treatments",
-      "features": ["Blackout options", "Motorized systems", "Energy efficient"]
-    },
-    "upholstery": {
-      "title": "Furniture Upholstery",
-      "description": "Professional upholstery services for all types of furniture",
-      "features": ["Quality fabrics", "Expert craftsmanship", "Custom designs"]
-    },
-    "commercial": {
-      "title": "Wallpapers",
-      "description": "Decorative and durable wallpapers for residential and commercial interiors",
-      "features": ["Wide pattern selection", "Washable & durable", "Custom murals & textured finishes"]
+    {
+      "about": {
+        "features": [
+          { "title": "Custom Tailoring", "desc": "Precision craftsmanship for every project" },
+          { "title": "Premium Materials", "desc": "Sourced from international suppliers" },
+          { "title": "Expert Installation", "desc": "Professional installation services" },
+          { "title": "Quality Assurance", "desc": "Highest standards in every project" }
+        ]
+      },
+      "why": {
+        "subtitle": "Premium Interior Solutions",
+        "title": "Why choose Abdulhaq Dimensions?",
+        "description": "We don't just provide curtains — we design visual and tactile experiences that bring comfort, elegance, and smart control to every space.",
+        "experience": {
+          "title": "Decades of Craftsmanship",
+          "desc": "Seasoned expertise in premium curtains, drapery, and bespoke shading solutions."
+        },
+        "quality": {
+          "title": "Precision & Reliability",
+          "desc": "Carefully selected materials and installation standards that stand the test of time."
+        },
+        "layers": {
+          "title": "Integrated Solutions",
+          "desc": "From measurement to final styling, every layer is coordinated under one team."
+        },
+        "innovation": {
+          "title": "Smart Comfort & Design",
+          "desc": "Motorized systems, automation, and refined finishes tailored to modern interiors."
+        }
+      }
     }
-  },
-  "whyChooseUs": {
-    "title": "Why Choose Abdulhaq Dimensions?",
-    "experience": "75+ Years of Experience",
-    "experienceDesc": "Established in 1948, we bring decades of expertise to every project",
-    "quality": "Premium Quality Materials",
-    "qualityDesc": "We source only the finest fabrics and materials for lasting beauty",
-    "service": "Exceptional Customer Service",
-    "serviceDesc": "Our dedicated team ensures your complete satisfaction",
-    "innovation": "Latest Technology & Trends",
     "innovationDesc": "Stay ahead with our modern solutions and innovative designs"
-  },
-  "why": {
-    "subtitle": "Premium Interior Solutions",
-    "title": "Why choose Abdulhaq Dimensions?",
-    "description": "We don't just provide curtains — we design visual and tactile experiences that give every space a distinct identity and soul, with a steadfast commitment to quality, craftsmanship and innovation."
-  },
-  "premium": {
-    "subtitle": "Selected Highlights",
-    "title": "Our Premium Products",
-    "description": "From timeless curtain compositions to contemporary blinds and outdoor systems, explore a curated selection of Abdulhaq Dimensions’ most requested solutions.",
-    "cta": "View collection"
-  },
-  "features": {
-    "items": [
-      { "icon": "ShieldCheck", "title": "Certified Quality", "desc": "Premium materials and strict QA on every order." },
-      { "icon": "Clock", "title": "On-Time Delivery", "desc": "Reliable lead times with proactive updates." },
-      { "icon": "Wrench", "title": "Expert Craftsmanship", "desc": "Experienced team with meticulous finish." },
-      { "icon": "Sparkles", "title": "Great Service", "desc": "Clear communication and after-sales support." }
-    ]
-  }
-}
 
+  },

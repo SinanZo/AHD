@@ -119,8 +119,8 @@ export default function AboutSection() {
         </motion.a>
       </div>
 
-      {/* SLIDER DOTS */}
-      <div className="absolute bottom-8 right-8 z-30 flex gap-2">
+      {/* SLIDER DOTS (lower z-index so they don't overlap CTA button) */}
+      <div className="absolute bottom-8 right-8 z-10 flex gap-2">
         {bgImages.map((_, i) => (
           <button
             key={i}
